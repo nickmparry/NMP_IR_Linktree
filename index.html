@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>N. McKay Parry — IR Fellowship</title>
+<meta name="color-scheme" content="dark" />
+<style>
+  :root {
+    --bg: #0b0c0f;
+    --bg-glow: radial-gradient(circle at 50% -10%, #17191f 0%, #0b0c0f 55%);
+    --card: #15161b;
+    --card-hover: #1b1d24;
+    --border: #26282f;
+    --border-hover: #3a3d47;
+    --text: #e8e9ec;
+    --text-secondary: #9a9ca5;
+    --text-muted: #63656e;
+    --accent: #7dd3fc;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--bg-glow), var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+  }
+  .wrap {
+    width: 100%;
+    max-width: 440px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .initials {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #1e2028, #101116);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+  }
+  h1 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  header p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text-muted);
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  a.link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  }
+  a.link:hover {
+    background: var(--card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+  }
+  a.link:active {
+    transform: translateY(0);
+  }
+  .icon {
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0e0f13;
+    border: 1px solid var(--border);
+  }
+  .icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.7;
+  }
+  .label {
+    flex: 1;
+    min-width: 0;
+  }
+  .label .title {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .label .sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .chevron {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-muted);
+    fill: none;
+    stroke-width: 2;
+    transition: transform 0.18s ease, stroke 0.18s ease;
+  }
+  a.link:hover .chevron {
+    transform: translateX(2px);
+    stroke: var(--text-secondary);
+  }
+  footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="initials">NMP</div>
+      <h1>N. McKay Parry</h1>
+      <p>Radiology Registrar · IR Fellowship</p>
+    </header>
+
+    <nav>
+      <!-- 1. External logbook form — replace href below with the real form URL -->
+      <a class="link" href="https://script.google.com/macros/s/AKfycbxccOrySz1_3LTrrrOk8kuegBXKxk8fybkrAiusWxTp/dev" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </span>
+        <span class="label">
+          <div class="title">NMP Logbook Form</div>
+          <div class="sub">Case &amp; procedure logbook</div>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+
+      <a class="link" href="./templates/">
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        </span>
+        <span class="label">
+          <div class="title">NMP Templates</div>
+          <div class="sub">Radiology reporting template picker</div>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+
+      <a class="link" href="./ir-overview/">
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7 4"/></svg>
+        </span>
+        <span class="label">
+          <div class="title">IR Overview</div>
+          <div class="sub">EBIR fellowship reference</div>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </nav>
+
+    <footer>&copy; 2026 N. McKay Parry</footer>
+  </div>
+</body>
+</html>

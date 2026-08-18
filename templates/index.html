@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reporting templates (local demo)</title>
+<style>
+  :root {
+    --bg: #f6f5f2;
+    --card: #ffffff;
+    --border: #e2e0da;
+    --border-strong: #c9c6bd;
+    --text: #1f1e1c;
+    --text-secondary: #6b6860;
+    --text-muted: #9c988d;
+    --accent: #1d4ed8;
+    --accent-bg: #e6f1fb;
+    --radius: 8px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px 16px 60px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .demo-banner {
+    background: #fef3c7;
+    color: #633806;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .pinned-row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .pinned-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 10px 4px;
+    background: var(--card);
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .pinned-btn:hover { background: var(--accent-bg); border-color: var(--accent); }
+  .pinned-btn:active { transform: scale(0.98); }
+
+  .search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: 0 10px;
+    height: 38px;
+    background: var(--card);
+    margin-bottom: 12px;
+  }
+  .search-wrap input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    flex: 1;
+    color: var(--text);
+    font-family: inherit;
+  }
+  .search-icon, .clear-btn { color: var(--text-muted); font-size: 13px; cursor: default; }
+  .clear-btn { cursor: pointer; }
+  .clear-btn:hover { color: var(--text); }
+
+  .columns-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .box {
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 8px 10px;
+  }
+  .box-full { grid-column: 1 / -1; }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .row:hover { background: var(--accent-bg); }
+  .row .chev {
+    width: 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+    transition: transform 0.1s ease;
+    flex-shrink: 0;
+  }
+  .row.expanded > .chev { transform: rotate(90deg); }
+  .row .badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .row .name { flex: 1; }
+  .row .copy-hint { font-size: 11px; color: var(--text-muted); opacity: 0; }
+  .row:hover .copy-hint { opacity: 1; }
+  .children { margin-left: 10px; border-left: 0.5px solid var(--border); padding-left: 8px; display: none; }
+  .children.open { display: block; }
+
+  .cat-amber  { background: #faeeda; color: #633806; }
+  .cat-blue   { background: #e6f1fb; color: #0c447c; }
+  .cat-green  { background: #eaf3de; color: #27500a; }
+  .cat-red    { background: #fcebeb; color: #791f1f; }
+  .cat-purple { background: #eeedfe; color: #3c3489; }
+  .cat-gray   { background: #f1efe8; color: #444441; }
+
+  #results { display: none; }
+  #results.show { display: block; }
+  .columns-wrap.hidden { display: none; }
+  .results-count { font-size: 12px; color: var(--text-muted); margin: 4px 4px 8px; display: flex; justify-content: space-between; }
+
+  #toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%) translateY(8px);
+    background: #1f1e1c;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .empty { padding: 16px 4px; color: var(--text-muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="demo-banner">Local demo — reading templates from this folder, not GitHub. Delete this file once you've set up the hosted version.</div>
+
+  <div class="pinned-row" id="pinnedRow"></div>
+
+  <div class="search-wrap">
+    <span class="search-icon">&#9906;</span>
+    <input id="search" type="text" placeholder="Search templates…" autocomplete="off" />
+    <span class="clear-btn" id="clearBtn" title="Clear">&times;</span>
+  </div>
+
+  <div class="results-count" id="resultsCount" style="display:none;"></div>
+  <div id="results"></div>
+
+  <div class="columns-wrap" id="columnsWrap">
+    <div class="columns-grid">
+      <div class="box" id="boxLeft"></div>
+      <div class="box" id="boxRight"></div>
+    </div>
+    <div class="box box-full" id="boxBottom"></div>
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script>
+// Local demo: read the tree + config + template text from files in this
+// same folder instead of a GitHub repo. Same app logic as index.html.
+const API_TREE = "./templates_index.json";
+const RAW_BASE = ".";
+const TEMPLATES_PREFIX = "templates/";
+const EXPANDED_KEY = "templatesApp.expanded.demo";
+
+let CONFIG = { pinned: [], columns: [], categoryColors: {} };
+let FLAT = [];
+let TREE_BY_TOP = {};
+let expandedSet = new Set();
+
+function humanize(name) {
+  const parts = name.split("_");
+  if (parts.length > 1 && /^\d+$/.test(parts[0])) parts.shift();
+  return parts.join(" ").replace(/\.md$/i, "");
+}
+
+function loadExpanded() {
+  try {
+    const raw = localStorage.getItem(EXPANDED_KEY);
+    if (raw) expandedSet = new Set(JSON.parse(raw));
+  } catch (e) { /* ignore */ }
+}
+function saveExpanded() {
+  try { localStorage.setItem(EXPANDED_KEY, JSON.stringify([...expandedSet])); } catch (e) { /* ignore */ }
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(showToast._timer);
+  showToast._timer = setTimeout(() => t.classList.remove("show"), 1600);
+}
+
+async function copyTemplate(path, label) {
+  try {
+    const res = await fetch(`${RAW_BASE}/${TEMPLATES_PREFIX}${path}`);
+    if (!res.ok) throw new Error("not found");
+    const text = await res.text();
+    await navigator.clipboard.writeText(text);
+    showToast(`Copied: ${label}`);
+  } catch (e) {
+    showToast(`Couldn't copy ${label}`);
+  }
+}
+
+function catClass(top) {
+  const color = CONFIG.categoryColors[top] || "gray";
+  return `cat-${color}`;
+}
+
+function buildTree(paths) {
+  const root = {};
+  for (const p of paths) {
+    if (!p.startsWith(TEMPLATES_PREFIX) || !p.toLowerCase().endsWith(".md")) continue;
+    const rel = p.slice(TEMPLATES_PREFIX.length);
+    const segments = rel.split("/");
+    const fileName = segments[segments.length - 1];
+    const stem = fileName.replace(/\.md$/i, "");
+    if (stem === "00_Study_List" || stem === "Study_List") continue;
+
+    let node = root;
+    let pathSoFar = "";
+    for (let i = 0; i < segments.length - 1; i++) {
+      const seg = segments[i];
+      pathSoFar = pathSoFar ? `${pathSoFar}/${seg}` : seg;
+      node.children = node.children || {};
+      if (!node.children[seg]) {
+        node.children[seg] = { type: "folder", name: humanize(seg), path: pathSoFar, children: {} };
+      }
+      node = node.children[seg];
+    }
+    node.children = node.children || {};
+    node.children[fileName] = { type: "file", name: humanize(fileName), path: rel };
+  }
+  return root.children || {};
+}
+
+function childrenAsSortedArray(childrenObj) {
+  return Object.values(childrenObj).sort((a, b) => {
+    if (a.type !== b.type) return a.type === "folder" ? -1 : 1;
+    return a.name.localeCompare(b.name);
+  });
+}
+
+function flattenFiles(node, top, out) {
+  if (node.type === "file") {
+    out.push({ name: node.name, path: node.path, category: top });
+    return;
+  }
+  const kids = node.children ? Object.values(node.children) : [];
+  for (const k of kids) flattenFiles(k, top, out);
+}
+
+function renderRow(node, top, depth) {
+  const row = document.createElement("div");
+  row.className = "row";
+
+  if (node.type === "folder") {
+    const isOpen = expandedSet.has(node.path);
+    row.innerHTML = `<span class="chev">&#9656;</span><span class="name">${node.name}</span>`;
+    if (isOpen) row.classList.add("expanded");
+
+    const childWrap = document.createElement("div");
+    childWrap.className = "children" + (isOpen ? " open" : "");
+    const kids = childrenAsSortedArray(node.children || {});
+    for (const kid of kids) {
+      childWrap.appendChild(renderRow(kid, top, depth + 1));
+    }
+
+    row.addEventListener("click", () => {
+      const nowOpen = childWrap.classList.toggle("open");
+      row.classList.toggle("expanded", nowOpen);
+      if (nowOpen) expandedSet.add(node.path); else expandedSet.delete(node.path);
+      saveExpanded();
+    });
+
+    const wrapper = document.createElement("div");
+    wrapper.appendChild(row);
+    wrapper.appendChild(childWrap);
+    return wrapper;
+  } else {
+    row.innerHTML = `
+      <span class="chev"></span>
+      <span class="badge ${catClass(top)}">${top}</span>
+      <span class="name">${node.name}</span>
+      <span class="copy-hint">click to copy</span>
+    `;
+    row.addEventListener("click", () => copyTemplate(node.path, node.name));
+    return row;
+  }
+}
+
+function renderBox(containerId, topNames) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = "";
+  for (const top of topNames) {
+    const node = TREE_BY_TOP[top];
+    if (!node) continue;
+    const header = document.createElement("div");
+    header.className = "row";
+    const isOpen = expandedSet.has(top);
+    if (isOpen) header.classList.add("expanded");
+    header.innerHTML = `<span class="chev">&#9656;</span><span class="badge ${catClass(top)}">${top}</span><span class="name" style="font-weight:500;">${node.name}</span>`;
+
+    const childWrap = document.createElement("div");
+    childWrap.className = "children" + (isOpen ? " open" : "");
+    const kids = childrenAsSortedArray(node.children || {});
+    for (const kid of kids) childWrap.appendChild(renderRow(kid, top, 1));
+
+    header.addEventListener("click", () => {
+      const nowOpen = childWrap.classList.toggle("open");
+      header.classList.toggle("expanded", nowOpen);
+      if (nowOpen) expandedSet.add(top); else expandedSet.delete(top);
+      saveExpanded();
+    });
+
+    el.appendChild(header);
+    el.appendChild(childWrap);
+  }
+}
+
+function renderPinned() {
+  const el = document.getElementById("pinnedRow");
+  el.innerHTML = "";
+  for (const p of (CONFIG.pinned || [])) {
+    const btn = document.createElement("div");
+    btn.className = "pinned-btn";
+    btn.textContent = p.label;
+    btn.addEventListener("click", () => copyTemplate(p.path.replace(/^templates\//, ""), p.label));
+    el.appendChild(btn);
+  }
+}
+
+function renderColumns() {
+  for (const col of (CONFIG.columns || [])) {
+    const id = col.box === "left" ? "boxLeft" : col.box === "right" ? "boxRight" : "boxBottom";
+    renderBox(id, col.folders);
+  }
+}
+
+function runSearch(query) {
+  const resultsEl = document.getElementById("results");
+  const countEl = document.getElementById("resultsCount");
+  const columnsWrap = document.getElementById("columnsWrap");
+
+  const q = query.trim().toLowerCase();
+  if (!q) {
+    resultsEl.classList.remove("show");
+    countEl.style.display = "none";
+    columnsWrap.classList.remove("hidden");
+    return;
+  }
+  columnsWrap.classList.add("hidden");
+  resultsEl.classList.add("show");
+  countEl.style.display = "flex";
+
+  const starts = [];
+  const contains = [];
+  for (const item of FLAT) {
+    const lower = item.name.toLowerCase();
+    if (lower.startsWith(q)) starts.push(item);
+    else if (lower.includes(q)) contains.push(item);
+  }
+  starts.sort((a, b) => a.name.localeCompare(b.name));
+  contains.sort((a, b) => a.name.localeCompare(b.name));
+  const matches = [...starts, ...contains].slice(0, 40);
+
+  resultsEl.innerHTML = "";
+  if (matches.length === 0) {
+    resultsEl.innerHTML = `<div class="empty">No templates match "${query}".</div>`;
+  } else {
+    for (const item of matches) {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `
+        <span class="chev"></span>
+        <span class="badge ${catClass(item.category)}">${item.category}</span>
+        <span class="name">${item.name}</span>
+        <span class="copy-hint">click to copy</span>
+      `;
+      row.addEventListener("click", () => copyTemplate(item.path, item.name));
+      resultsEl.appendChild(row);
+    }
+  }
+  countEl.innerHTML = `<span>${matches.length === 40 ? "40+" : matches.length} match${matches.length === 1 ? "" : "es"}</span><span>${FLAT.length} total</span>`;
+}
+
+async function init() {
+  loadExpanded();
+  document.getElementById("search").focus();
+
+  try {
+    const [treeRes, configRes] = await Promise.all([
+      fetch(API_TREE),
+      fetch(`${RAW_BASE}/app/config.json`).catch(() => null),
+    ]);
+    const treeJson = await treeRes.json();
+    if (configRes && configRes.ok) {
+      CONFIG = await configRes.json();
+    }
+
+    const paths = (treeJson.tree || [])
+      .filter((n) => n.type === "blob")
+      .map((n) => n.path);
+
+    const built = buildTree(paths);
+    TREE_BY_TOP = built;
+
+    FLAT = [];
+    for (const [top, node] of Object.entries(built)) {
+      flattenFiles(node, top, FLAT);
+    }
+
+    renderPinned();
+    renderColumns();
+  } catch (e) {
+    document.getElementById("columnsWrap").innerHTML =
+      `<div class="empty">Couldn't load templates_index.json. Make sure you're viewing this via a local server (see README), not by double-clicking the file directly.</div>`;
+  }
+}
+
+document.getElementById("search").addEventListener("input", (e) => runSearch(e.target.value));
+document.getElementById("clearBtn").addEventListener("click", () => {
+  const input = document.getElementById("search");
+  input.value = "";
+  runSearch("");
+  input.focus();
+});
+document.getElementById("search").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const first = document.querySelector("#results .row");
+    if (first) first.click();
+  }
+  if (e.key === "Escape") {
+    document.getElementById("clearBtn").click();
+  }
+});
+
+init();
+</script>
+</body>
+</html>

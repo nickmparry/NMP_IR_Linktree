@@ -1,0 +1,22 @@
+{
+  "pinned": [
+    { "label": "Standard", "path": "Generic/Standard.md" },
+    { "label": "Basic", "path": "Generic/Basic.md" },
+    { "label": "XR chest", "path": "XR/01_XR_Chest.md" },
+    { "label": "CT head", "path": "CT/Neuro/01_CT_Head_NonContrast.md" },
+    { "label": "CT c-spine", "path": "CT/Neuro/07_CT_Spine_Cervical.md" }
+  ],
+  "columns": [
+    { "box": "left", "folders": ["Procedures", "MRI"] },
+    { "box": "right", "folders": ["CT", "Ultrasound"] },
+    { "box": "bottom", "folders": ["XR", "Generic"] }
+  ],
+  "categoryColors": {
+    "CT": "amber",
+    "XR": "blue",
+    "Ultrasound": "green",
+    "Procedures": "red",
+    "MRI": "purple",
+    "Generic": "gray"
+  }
+}
