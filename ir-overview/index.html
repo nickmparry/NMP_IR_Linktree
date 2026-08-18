@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IR Fellowship Reference</title>
+<meta name="color-scheme" content="dark" />
 <style>
 :root {
   --navy: #151d2b;
@@ -17,11 +18,11 @@
   --red-bg: #dc26260a;
   --green: #16a34a;
   --green-bg: #16a34a0a;
-  --bg: #f8f9fb;
-  --card: #ffffff;
-  --text: #1e293b;
-  --text-secondary: #64748b;
-  --border: #e2e8f0;
+  --bg: #0e1015;
+  --card: #161920;
+  --text: #e2e4e9;
+  --text-secondary: #8b93a1;
+  --border: #2a2e38;
   --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
 }
@@ -169,10 +170,10 @@ body {
   text-transform: uppercase; letter-spacing:.5px;
 }
 .tag-anatomy { background: #dbeafe; color:#1d4ed8; }
-.tag-crosscut { background: #fef3c7; color:#92400e; }
+.tag-crosscut { background: #3a2c0f; color:#f5c76b; }
 .tag-freq-high { background: #dcfce7; color:#166534; }
-.tag-freq-med { background: #fef9c3; color:#854d0e; }
-.tag-section { background: #f1f5f9; color:#475569; }
+.tag-freq-med { background: #332b0f; color:#e8c44a; }
+.tag-section { background: #1e2230; color:#8b93a1; }
 
 .card {
   background: var(--card);
@@ -189,7 +190,7 @@ body {
   user-select:none;
   border-bottom: 1px solid transparent;
 }
-.card-header:hover { background: #f8fafc; }
+.card-header:hover { background: #1c2028; }
 .card-header.open { border-bottom-color: var(--border); }
 .card-header .icon { font-size:13px; transition: transform .2s; color: var(--text-secondary); }
 .card-header.open .icon { transform: rotate(90deg); }
@@ -217,12 +218,12 @@ body {
   text-align:left;
 }
 .card-body th {
-  background: #f1f5f9; font-weight:600;
+  background: #1c2028; font-weight:600;
   font-size: 12px; text-transform:uppercase;
   letter-spacing:.3px;
 }
 .card-body .warn {
-  background: #fef2f2; border-left:3px solid var(--red);
+  background: #2a1414; border-left:3px solid var(--red);
   padding: 10px 14px; margin: 10px 0;
   font-size:13px; border-radius:0 6px 6px 0;
 }
@@ -233,7 +234,7 @@ body {
 }
 .card-body .dose {
   font-family: var(--mono); font-size:13px;
-  background: #f1f5f9; padding: 2px 6px;
+  background: #1e2230; padding: 2px 6px;
   border-radius: 3px;
 }
 
@@ -250,7 +251,7 @@ body {
   border-radius:10px; padding:18px;
   cursor:pointer; transition: all .15s;
 }
-.section-card:hover { border-color:var(--teal); transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,0,0,.06); }
+.section-card:hover { border-color:var(--teal); transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,0,0,.3); }
 .section-card .sc-label {
   font-size:11px; font-weight:700; color:var(--teal);
   text-transform:uppercase; letter-spacing:.8px; margin-bottom:6px;
@@ -546,7 +547,7 @@ PAGES['home'] = `
   <h2>IR Fellowship Reference</h2>
   <p>Structured on the EBIR Third Edition Curriculum &amp; Syllabus. Searchable, mobile-friendly, built for ward rounds and pre-procedure prep.</p>
 
-  <div style="background:#fef9ec;border:1px solid #d97706;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#7c4b00;">
+  <div style="background:#2a2008;border:1px solid #d97706;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#f5c76b;">
     <strong>⚠️ AI-generated — educational use only.</strong> This reference was generated with AI assistance and has not been independently verified by a clinical expert. Content may contain errors or omissions.
   </div>
 
@@ -610,7 +611,7 @@ PAGES['anatomy-arterial'] = `
 <div class="page-meta"><span class="tag tag-anatomy">Anatomy</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Aorta & Major Branches</div>
+  <div class="card-header"><span class="icon">▶</span> Aorta & Major Branches</div>
   <div class="card-body">
     <h4>Aortic Segments</h4>
     <ul>
@@ -818,7 +819,7 @@ PAGES['anatomy-venous'] = `
 <div class="page-meta"><span class="tag tag-anatomy">Anatomy</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Central Venous System</div>
+  <div class="card-header"><span class="icon">▶</span> Central Venous System</div>
   <div class="card-body">
     <h4>SVC & Tributaries</h4>
     <ul>
@@ -959,7 +960,7 @@ PAGES['anatomy-biliary'] = `
 <div class="page-meta"><span class="tag tag-anatomy">Anatomy</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Normal Biliary Tree</div>
+  <div class="card-header"><span class="icon">▶</span> Normal Biliary Tree</div>
   <div class="card-body">
     <h4>Intrahepatic</h4>
     <ul>
@@ -1026,7 +1027,7 @@ PAGES['anatomy-gu'] = `
 <div class="page-meta"><span class="tag tag-anatomy">Anatomy</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Renal Collecting System</div>
+  <div class="card-header"><span class="icon">▶</span> Renal Collecting System</div>
   <div class="card-body">
     <ul>
       <li>Minor calyces (8-12) → major calyces (2-3: upper, middle, lower pole) → renal pelvis → ureter</li>
@@ -1107,7 +1108,7 @@ PAGES['anatomy-msk'] = `
 <div class="page-meta"><span class="tag tag-anatomy">Anatomy</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Vertebral Body & Safe Zones</div>
+  <div class="card-header"><span class="icon">▶</span> Vertebral Body & Safe Zones</div>
   <div class="card-body">
     <h4>Vertebroplasty/Kyphoplasty Approach</h4>
     <ul>
@@ -1169,7 +1170,7 @@ PAGES['anatomy-hepatic'] = `
 <div class="page-meta"><span class="tag tag-anatomy">Anatomy</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Couinaud Classification</div>
+  <div class="card-header"><span class="icon">▶</span> Couinaud Classification</div>
   <div class="card-body">
     <h4>Segments 1–8</h4>
     <p>Divided by hepatic veins (vertical planes) and portal vein (horizontal/transverse plane).</p>
@@ -1228,7 +1229,7 @@ PAGES['cc-sedation'] = `
 <div class="page-meta"><span class="tag tag-crosscut">Cross-cutting</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Levels of Sedation</div>
+  <div class="card-header"><span class="icon">▶</span> Levels of Sedation</div>
   <div class="card-body">
     <table>
       <tr><th>Level</th><th>Responsiveness</th><th>Airway</th><th>Ventilation</th><th>CV Function</th></tr>
@@ -1297,7 +1298,7 @@ PAGES['cc-contrast'] = `
 <div class="page-meta"><span class="tag tag-crosscut">Cross-cutting</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Classification & Management</div>
+  <div class="card-header"><span class="icon">▶</span> Classification & Management</div>
   <div class="card-body">
     <table>
       <tr><th>Severity</th><th>Symptoms</th><th>Management</th></tr>
@@ -1388,7 +1389,7 @@ PAGES['cc-coag'] = `
 <div class="page-meta"><span class="tag tag-crosscut">Cross-cutting</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Procedure Bleeding Risk Categories</div>
+  <div class="card-header"><span class="icon">▶</span> Procedure Bleeding Risk Categories</div>
   <div class="card-body">
     <table>
       <tr><th>Risk</th><th>Examples</th><th>Target INR</th><th>Target Platelets</th></tr>
@@ -1455,7 +1456,7 @@ PAGES['cc-radsafety'] = `
 <div class="page-meta"><span class="tag tag-crosscut">Cross-cutting</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> ALARA Principles</div>
+  <div class="card-header"><span class="icon">▶</span> ALARA Principles</div>
   <div class="card-body">
     <p><strong>As Low As Reasonably Achievable</strong> — balancing image quality with dose reduction.</p>
     <h4>Practical ALARA Measures</h4>
@@ -1539,7 +1540,7 @@ PAGES['cc-consent'] = `
 <div class="page-meta"><span class="tag tag-crosscut">Cross-cutting</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Informed Consent Process</div>
+  <div class="card-header"><span class="icon">▶</span> Informed Consent Process</div>
   <div class="card-body">
     <h4>Elements Required</h4>
     <ul>
@@ -1594,7 +1595,7 @@ PAGES['cc-pharmacology'] = `
 <div class="page-meta"><span class="tag tag-crosscut">Cross-cutting</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Vasoactive Drugs</div>
+  <div class="card-header"><span class="icon">▶</span> Vasoactive Drugs</div>
   <div class="card-body">
     <table>
       <tr><th>Drug</th><th>Action</th><th>IR Use</th><th>Dose</th></tr>
@@ -1692,7 +1693,7 @@ PAGES['cls-bclc'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> BCLC Stages & Treatment Allocation</div>
+  <div class="card-header"><span class="icon">▶</span> BCLC Stages & Treatment Allocation</div>
   <div class="card-body">
     <p>The <strong>Barcelona Clinic Liver Cancer (BCLC)</strong> system is the standard staging and treatment-allocation tool for HCC, endorsed by EASL and AASLD. It integrates tumour burden, liver function (Child-Pugh), ECOG performance status, and cancer-related symptoms.</p>
     <table>
@@ -1722,7 +1723,7 @@ PAGES['cls-child-pugh'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Scoring Table</div>
+  <div class="card-header"><span class="icon">▶</span> Scoring Table</div>
   <div class="card-body">
     <p>Assesses severity of <strong>chronic liver disease</strong>. Used in HCC staging (BCLC), TIPS patient selection, and peri-procedural risk stratification in cirrhotic patients.</p>
     <table>
@@ -1757,15 +1758,15 @@ PAGES['cls-meld'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Formulae & Interpretation</div>
+  <div class="card-header"><span class="icon">▶</span> Formulae & Interpretation</div>
   <div class="card-body">
     <h4>MELD Formula</h4>
-    <p style="font-family:var(--mono);background:#f1f5f9;padding:10px 14px;border-radius:6px;font-size:13px;">
+    <p style="font-family:var(--mono);background:#1e2230;padding:10px 14px;border-radius:6px;font-size:13px;">
       MELD = 3.78 × ln[Bilirubin mg/dL] + 11.2 × ln[INR] + 9.57 × ln[Creatinine mg/dL] + 6.43
     </p>
     <p><em>All values in mg/dL. Minimum value for each variable = 1.0. Maximum creatinine = 4.0 mg/dL (or dialysis × 2/week = 4.0).</em></p>
     <h4>MELD-Na Formula (UNOS standard from 2016)</h4>
-    <p style="font-family:var(--mono);background:#f1f5f9;padding:10px 14px;border-radius:6px;font-size:13px;">
+    <p style="font-family:var(--mono);background:#1e2230;padding:10px 14px;border-radius:6px;font-size:13px;">
       MELD-Na = MELD + 1.32 × (137 − Na) − [0.033 × MELD × (137 − Na)]
     </p>
     <p><em>Sodium capped 125–137 mmol/L. MELD-Na improves 90-day mortality prediction vs MELD alone.</em></p>
@@ -1794,7 +1795,7 @@ PAGES['cls-milan'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Criteria Comparison</div>
+  <div class="card-header"><span class="icon">▶</span> Criteria Comparison</div>
   <div class="card-body">
     <table>
       <tr><th>Criteria</th><th>Single Lesion</th><th>Multiple Lesions</th><th>5-Year Survival Post-Tx</th></tr>
@@ -1830,7 +1831,7 @@ PAGES['cls-lirads'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> LI-RADS Diagnostic Categories (v2018)</div>
+  <div class="card-header"><span class="icon">▶</span> LI-RADS Diagnostic Categories (v2018)</div>
   <div class="card-body">
     <p>Applies to <strong>patients at high risk for HCC</strong>: cirrhosis, chronic HBV, prior HCC. Standardises reporting of CT/MRI observations.</p>
     <table>
@@ -1868,7 +1869,7 @@ PAGES['cls-bismuth'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Classification</div>
+  <div class="card-header"><span class="icon">▶</span> Classification</div>
   <div class="card-body">
     <p>Classifies <strong>hilar cholangiocarcinoma (Klatskin tumour)</strong> by extent of biliary duct involvement. Guides resectability and drainage strategy.</p>
     <table>
@@ -1898,7 +1899,7 @@ PAGES['cls-rutherford-chronic'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Categories</div>
+  <div class="card-header"><span class="icon">▶</span> Categories</div>
   <div class="card-body">
     <table>
       <tr><th>Category</th><th>Clinical Description</th><th>Objective Findings</th></tr>
@@ -1929,7 +1930,7 @@ PAGES['cls-fontaine'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Stages</div>
+  <div class="card-header"><span class="icon">▶</span> Stages</div>
   <div class="card-body">
     <p>Older, simpler classification of peripheral arterial disease. Widely used in European literature. Less granular than Rutherford but quick to apply clinically.</p>
     <table>
@@ -1957,7 +1958,7 @@ PAGES['cls-wifi'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Three-Component Scoring</div>
+  <div class="card-header"><span class="icon">▶</span> Three-Component Scoring</div>
   <div class="card-body">
     <p>SVS <strong>WIfI</strong> (Wound, Ischaemia, foot Infection) — the current standard for risk stratification in CLTI. Predicts 1-year amputation risk and benefit from revascularisation.</p>
 
@@ -2007,7 +2008,7 @@ PAGES['cls-rutherford-acute'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Categories</div>
+  <div class="card-header"><span class="icon">▶</span> Categories</div>
   <div class="card-body">
     <p>Acute limb ischaemia (ALI) = sudden reduction in limb perfusion threatening viability. Classic presentation: the <strong>6 Ps</strong> — Pain, Pallor, Pulselessness, Paraesthesia, Paralysis, Perishing cold (poikilothermia).</p>
     <table>
@@ -2035,7 +2036,7 @@ PAGES['cls-endoleak'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Types & Management</div>
+  <div class="card-header"><span class="icon">▶</span> Types & Management</div>
   <div class="card-body">
     <p>An <strong>endoleak</strong> is persistent blood flow in the aneurysm sac outside the graft lumen after EVAR/TEVAR. The type determines urgency and treatment strategy.</p>
     <table>
@@ -2065,7 +2066,7 @@ PAGES['cls-ceap'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> CEAP Framework</div>
+  <div class="card-header"><span class="icon">▶</span> CEAP Framework</div>
   <div class="card-body">
     <p><strong>C</strong>linical · <strong>E</strong>tiology · <strong>A</strong>natomy · <strong>P</strong>athophysiology — international standard for classifying chronic venous disorders. Enables standardised reporting and communication.</p>
 
@@ -2121,7 +2122,7 @@ PAGES['cls-sir-ae'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> SIR Standards of Practice Classification (2017)</div>
+  <div class="card-header"><span class="icon">▶</span> SIR Standards of Practice Classification (2017)</div>
   <div class="card-body">
     <p>The Society of Interventional Radiology (SIR) adverse event classification grades procedural complications by outcome, not by severity of the event itself. It has replaced the older "major/minor" binary.</p>
     <table>
@@ -2151,7 +2152,7 @@ PAGES['cls-asa'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> ASA Classes</div>
+  <div class="card-header"><span class="icon">▶</span> ASA Classes</div>
   <div class="card-body">
     <p>American Society of Anesthesiologists (ASA) classification of preoperative physical status. Used for pre-procedure risk assessment and determines the level of monitoring/sedation planning required.</p>
     <table>
@@ -2182,7 +2183,7 @@ PAGES['cls-net-grading'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> WHO 2019 Grading System (GI/Pancreatic NETs)</div>
+  <div class="card-header"><span class="icon">▶</span> WHO 2019 Grading System (GI/Pancreatic NETs)</div>
   <div class="card-body">
     <p>WHO 2019 classification applies to GI and pancreatic NETs. Grade is determined by mitotic rate (per 2 mm²) and Ki-67 proliferation index. Key for treatment selection.</p>
     <table>
@@ -2218,7 +2219,7 @@ PAGES['cls-okuda'] = `
 <div class="page-meta"><span class="tag tag-section">Classification</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Okuda Staging</div>
+  <div class="card-header"><span class="icon">▶</span> Okuda Staging</div>
   <div class="card-body">
     <p>Older (1985) HCC staging system. Now superseded by BCLC for treatment allocation, but still tested in exams and used for prognostic discussion in advanced disease.</p>
     <table>
@@ -2270,7 +2271,7 @@ PAGES['a-core-procedures'] = `
 <div class="page-meta"><span class="tag tag-section">Section A</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Vascular Access — Arterial</div>
+  <div class="card-header"><span class="icon">▶</span> Vascular Access — Arterial</div>
   <div class="card-body">
     <h4>Common Femoral Artery (CFA) Access</h4>
     <ul>
@@ -2419,7 +2420,7 @@ PAGES['a-imaging'] = `
 <div class="page-meta"><span class="tag tag-section">Section A</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Fluoroscopy — Principles & IR Use</div>
+  <div class="card-header"><span class="icon">▶</span> Fluoroscopy — Principles & IR Use</div>
   <div class="card-body">
     <h4>Physics Essentials</h4>
     <ul>
@@ -2576,7 +2577,7 @@ PAGES['b-pad'] = `
 <div class="page-meta"><span class="tag tag-section">Section B</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Clinical Assessment & ABI</div>
+  <div class="card-header"><span class="icon">▶</span> Clinical Assessment & ABI</div>
   <div class="card-body">
     <h4>Ankle-Brachial Index (ABI)</h4>
     <table>
@@ -2873,7 +2874,7 @@ PAGES['b-aortic'] = `
 <div class="page-meta"><span class="tag tag-section">Section B</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> EVAR — Endovascular Aortic Repair (Abdominal)</div>
+  <div class="card-header"><span class="icon">▶</span> EVAR — Endovascular Aortic Repair (Abdominal)</div>
   <div class="card-body">
     <h4>Indications</h4>
     <ul>
@@ -3142,7 +3143,7 @@ PAGES['a-devices'] = `
 <div class="page-meta"><span class="tag tag-section">Section A</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Guidewires</div>
+  <div class="card-header"><span class="icon">▶</span> Guidewires</div>
   <div class="card-body">
     <h4>Wire Diameter Systems</h4>
     <table>
@@ -3334,7 +3335,7 @@ PAGES['dm-hcc'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Diagnostic Pathway & Liver Function Assessment</div>
+  <div class="card-header"><span class="icon">▶</span> Diagnostic Pathway & Liver Function Assessment</div>
   <div class="card-body">
     <p>HCC arises almost exclusively in cirrhotic or chronically diseased livers. Diagnosis is made radiologically (no biopsy needed if LI-RADS 5) or histologically. All treatment decisions require simultaneous assessment of <strong>tumour burden</strong>, <strong>liver reserve</strong>, and <strong>performance status</strong>.</p>
     <h4>Liver Function Tools</h4>
@@ -3360,7 +3361,7 @@ PAGES['dm-hcc'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> BCLC Treatment Algorithm — IR Decision Points</div>
+  <div class="card-header"><span class="icon">▶</span> BCLC Treatment Algorithm — IR Decision Points</div>
   <div class="card-body">
     <p>The BCLC system (2022 update) is the standard framework. See <em>cls-bclc</em> for the full staging table. Below is the IR-focused decision pathway.</p>
     <table>
@@ -3446,7 +3447,7 @@ PAGES['dm-portal-htn'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Pathophysiology & HVPG</div>
+  <div class="card-header"><span class="icon">▶</span> Pathophysiology & HVPG</div>
   <div class="card-body">
     <p>Portal hypertension (PH) = portal pressure above 5 mmHg. Clinically significant PH (CSPH) = HVPG ≥10 mmHg — this threshold predicts variceal formation, decompensation risk, and post-resection liver failure.</p>
     <h4>Hepatic Venous Pressure Gradient (HVPG)</h4>
@@ -3473,7 +3474,7 @@ PAGES['dm-portal-htn'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Variceal Bleeding Management Pathway</div>
+  <div class="card-header"><span class="icon">▶</span> Variceal Bleeding Management Pathway</div>
   <div class="card-body">
     <h4>Primary Prophylaxis (before first bleed)</h4>
     <table>
@@ -3580,7 +3581,7 @@ PAGES['dm-crlm'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Resectability Assessment</div>
+  <div class="card-header"><span class="icon">▶</span> Resectability Assessment</div>
   <div class="card-body">
     <p>CRLM are present in ~50% of CRC patients at some point. Unlike HCC, CRLM arise in non-cirrhotic livers — so the focus is on adequacy of future liver remnant (FLR), not underlying liver disease. <strong>MDT decision-making</strong> (hepatobiliary surgery + oncology + IR) is essential.</p>
     <h4>Resectability Criteria (ESMO/EORTC framework)</h4>
@@ -3602,7 +3603,7 @@ PAGES['dm-crlm'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Ablation — Criteria, Modality Selection, Role of IR</div>
+  <div class="card-header"><span class="icon">▶</span> Ablation — Criteria, Modality Selection, Role of IR</div>
   <div class="card-body">
     <p>Ablation (RFA, MWA, or cryoablation) is used as a <strong>primary treatment</strong> (in unresectable or patient-preference scenarios) or as an <strong>adjunct to resection</strong> ("ablate and resect" strategy to treat bilobar disease in a single operation).</p>
     <h4>Ideal Ablation Criteria for CRLM</h4>
@@ -3687,7 +3688,7 @@ PAGES['dm-net'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Classification & Grading (WHO 2022)</div>
+  <div class="card-header"><span class="icon">▶</span> Classification & Grading (WHO 2022)</div>
   <div class="card-body">
     <p>NETs are epithelial neoplasms with neuroendocrine differentiation. Behaviour ranges from indolent (low-grade) to aggressive (high-grade carcinoma). Grading is the most important prognostic and treatment-selection factor.</p>
     <table>
@@ -3708,7 +3709,7 @@ PAGES['dm-net'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Treatment Selection Algorithm by Ki-67 and Disease Extent</div>
+  <div class="card-header"><span class="icon">▶</span> Treatment Selection Algorithm by Ki-67 and Disease Extent</div>
   <div class="card-body">
     <h4>Overall Principles</h4>
     <ul>
@@ -3765,7 +3766,7 @@ PAGES['dm-cca'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Classification & Staging Fundamentals</div>
+  <div class="card-header"><span class="icon">▶</span> Classification & Staging Fundamentals</div>
   <div class="card-body">
     <p>CCA is classified by anatomical location, which determines resectability, drainage strategy, and IR approach. IR is most involved in <strong>hilar (perihilar) CCA</strong> due to complex biliary drainage decisions.</p>
     <h4>Anatomical Classification</h4>
@@ -3788,7 +3789,7 @@ PAGES['dm-cca'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Resectable vs Unresectable — Decision Pathway</div>
+  <div class="card-header"><span class="icon">▶</span> Resectable vs Unresectable — Decision Pathway</div>
   <div class="card-body">
     <h4>Resectability Assessment (MDT)</h4>
     <table>
@@ -3887,7 +3888,7 @@ PAGES['dm-pad'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Classification: Claudication vs CLTI</div>
+  <div class="card-header"><span class="icon">▶</span> Classification: Claudication vs CLTI</div>
   <div class="card-body">
     <p>Peripheral arterial disease (PAD) encompasses a spectrum from asymptomatic disease through to critical limb-threatening ischaemia (CLTI). The distinction determines urgency, treatment threshold, and goals.</p>
     <table>
@@ -3905,7 +3906,7 @@ PAGES['dm-pad'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Conservative Management First — Claudication</div>
+  <div class="card-header"><span class="icon">▶</span> Conservative Management First — Claudication</div>
   <div class="card-body">
     <p>Claudication is not limb-threatening. Conservative management is the first-line standard of care; revascularisation is reserved for those failing maximal conservative therapy.</p>
     <h4>Conservative Pathway (All PAD)</h4>
@@ -4002,7 +4003,7 @@ PAGES['dm-ali'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Recognition & Rutherford Acute Classification</div>
+  <div class="card-header"><span class="icon">▶</span> Recognition & Rutherford Acute Classification</div>
   <div class="card-body">
     <p>Acute limb ischaemia (ALI) is a vascular emergency — limb viability can be lost within 4–6 hours without revascularisation. The 6 Ps (Pain, Pallor, Pulselessness, Paraesthesia, Paralysis, Perishing cold) guide initial assessment.</p>
     <h4>Rutherford Acute Classification (Society for Vascular Surgery)</h4>
@@ -4018,7 +4019,7 @@ PAGES['dm-ali'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Aetiology & Initial Assessment</div>
+  <div class="card-header"><span class="icon">▶</span> Aetiology & Initial Assessment</div>
   <div class="card-body">
     <h4>Causes of ALI</h4>
     <table>
@@ -4097,7 +4098,7 @@ PAGES['dm-aaa'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Surveillance Thresholds & Natural History</div>
+  <div class="card-header"><span class="icon">▶</span> Surveillance Thresholds & Natural History</div>
   <div class="card-body">
     <h4>Surveillance Thresholds (Australian/UK/ESC Guidelines)</h4>
     <table>
@@ -4122,7 +4123,7 @@ PAGES['dm-aaa'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> EVAR Anatomical Suitability Criteria</div>
+  <div class="card-header"><span class="icon">▶</span> EVAR Anatomical Suitability Criteria</div>
   <div class="card-body">
     <p>EVAR requires a suitable "landing zone" for the main body above and below the aneurysm. The <strong>infrarenal neck</strong> is the critical determinant — poor neck anatomy is the most common reason for EVAR unsuitability.</p>
     <h4>Standard EVAR Neck Criteria</h4>
@@ -4193,7 +4194,7 @@ PAGES['dm-rcc'] = `
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Small Renal Mass Definition & Risk Stratification</div>
+  <div class="card-header"><span class="icon">▶</span> Small Renal Mass Definition & Risk Stratification</div>
   <div class="card-body">
     <p>A <strong>small renal mass (SRM)</strong> is defined as a contrast-enhancing renal lesion ≤4 cm (T1a). The majority (80–85%) are RCC, though oncocytoma (~5%) and angiomyolipoma (AML, ~5%) are benign alternatives. Management ranges from active surveillance to ablation to surgery.</p>
     <h4>Bosniak Classification for Cystic Renal Masses (2019 Version)</h4>
@@ -4217,7 +4218,7 @@ PAGES['dm-rcc'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Management Options: AS vs Ablation vs Partial Nephrectomy</div>
+  <div class="card-header"><span class="icon">▶</span> Management Options: AS vs Ablation vs Partial Nephrectomy</div>
   <div class="card-body">
     <h4>Decision Framework</h4>
     <table>
@@ -4300,7 +4301,7 @@ PAGES['b-stroke'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Stroke Pathway Overview & Time Targets</div>
+  <div class="card-header"><span class="icon">▶</span> Stroke Pathway Overview & Time Targets</div>
   <div class="card-body">
     <p>Acute ischaemic stroke (AIS) management is time-critical. IR's role is mechanical thrombectomy (MT) for large vessel occlusion (LVO). The pathway runs in parallel with thrombolysis decisions — MT does not require prior IV tPA and proceeds simultaneously where indicated.</p>
     <h4>Time Targets (AHA/ASA 2023 — Australian Stroke Guidelines endorse same)</h4>
@@ -4325,7 +4326,7 @@ PAGES['b-stroke'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> NIHSS — Stroke Severity & MT Thresholds</div>
+  <div class="card-header"><span class="icon">▶</span> NIHSS — Stroke Severity & MT Thresholds</div>
   <div class="card-body">
     <h4>NIHSS Overview</h4>
     <p>The NIH Stroke Scale (NIHSS) quantifies neurological deficit on 15 items. Score 0 = normal; score 42 = maximum deficit. It guides thrombolysis and MT eligibility, and predicts functional outcome.</p>
@@ -4456,7 +4457,7 @@ PAGES['b-malformations'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Classification Overview (ISSVA 2018)</div>
+  <div class="card-header"><span class="icon">▶</span> Classification Overview (ISSVA 2018)</div>
   <div class="card-body">
     <p>Vascular anomalies are classified by the International Society for the Study of Vascular Anomalies (ISSVA). The fundamental distinction is <strong>vascular tumours</strong> (e.g. haemangioma — proliferating endothelium) vs <strong>vascular malformations</strong> (structural abnormalities of vessels, present at birth, grow with patient, do not involute).</p>
     <table>
@@ -4472,7 +4473,7 @@ PAGES['b-malformations'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Spetzler-Martin AVM Grading</div>
+  <div class="card-header"><span class="icon">▶</span> Spetzler-Martin AVM Grading</div>
   <div class="card-body">
     <p>The <strong>Spetzler-Martin (SM) grading system</strong> predicts surgical risk for intracranial AVM resection. IR uses it to guide embolisation strategy and predict overall treatment complexity.</p>
     <h4>Spetzler-Martin Score</h4>
@@ -4594,7 +4595,7 @@ PAGES['b-trauma'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Trauma Embolisation Principles</div>
+  <div class="card-header"><span class="icon">▶</span> Trauma Embolisation Principles</div>
   <div class="card-body">
     <p>IR embolisation is a cornerstone of non-operative management (NOM) for solid organ and pelvic trauma. The decision to proceed is driven by CT findings (active contrast extravasation, pseudoaneurysm, vascular injury grade), haemodynamic status, and injury grade. <strong>Haemodynamically unstable patients</strong> go to theatre or the hybrid OR — not the angiography suite.</p>
     <h4>Decision Framework</h4>
@@ -4610,7 +4611,7 @@ PAGES['b-trauma'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> AAST Organ Injury Grading</div>
+  <div class="card-header"><span class="icon">▶</span> AAST Organ Injury Grading</div>
   <div class="card-body">
     <h4>Spleen (AAST 2018 revision)</h4>
     <table>
@@ -4700,7 +4701,7 @@ PAGES['b-visceral'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Coeliac Artery Disease</div>
+  <div class="card-header"><span class="icon">▶</span> Coeliac Artery Disease</div>
   <div class="card-body">
     <h4>Coeliac Artery Stenosis / Occlusion</h4>
     <p>True coeliac artery atherosclerotic stenosis is uncommon as an isolated cause of symptoms because of rich collateral supply via the pancreaticoduodenal arcades from the SMA. Most patients with coeliac stenosis are asymptomatic. <strong>Median arcuate ligament syndrome (MALS)</strong> is a distinct entity.</p>
@@ -4717,7 +4718,7 @@ PAGES['b-visceral'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Mesenteric Ischaemia</div>
+  <div class="card-header"><span class="icon">▶</span> Mesenteric Ischaemia</div>
   <div class="card-body">
     <h4>Acute Mesenteric Ischaemia (AMI) — Classification</h4>
     <table>
@@ -4783,7 +4784,7 @@ PAGES['b-obgyn'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Uterine Fibroid Embolisation (UFE) — Patient Selection</div>
+  <div class="card-header"><span class="icon">▶</span> Uterine Fibroid Embolisation (UFE) — Patient Selection</div>
   <div class="card-body">
     <h4>Fibroid Subtypes (FIGO Classification)</h4>
     <table>
@@ -4811,7 +4812,7 @@ PAGES['b-obgyn'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> UFE Technique</div>
+  <div class="card-header"><span class="icon">▶</span> UFE Technique</div>
   <div class="card-body">
     <h4>Access & Catheter Strategy</h4>
     <table>
@@ -4900,7 +4901,7 @@ PAGES['b-pae'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Patient Selection & IPSS Scoring</div>
+  <div class="card-header"><span class="icon">▶</span> Patient Selection & IPSS Scoring</div>
   <div class="card-body">
     <h4>International Prostate Symptom Score (IPSS)</h4>
     <table>
@@ -4923,7 +4924,7 @@ PAGES['b-pae'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Prostate Artery Anatomy &amp; Variants</div>
+  <div class="card-header"><span class="icon">▶</span> Prostate Artery Anatomy &amp; Variants</div>
   <div class="card-body">
     <p>Prostate arterial supply is highly variable — understanding the origin patterns is essential for safe PAE. The prostatic arteries arise from the internal pudendal artery or directly from the anterior division of the IIA, with multiple variant origins recognised.</p>
     <h4>Prostatic Artery Origin (De Assis Classification)</h4>
@@ -5013,7 +5014,7 @@ PAGES['b-dvt'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Classification: Proximal vs Distal DVT</div>
+  <div class="card-header"><span class="icon">▶</span> Classification: Proximal vs Distal DVT</div>
   <div class="card-body">
     <table>
       <tr><th>Category</th><th>Extent</th><th>Significance</th><th>Management</th></tr>
@@ -5026,7 +5027,7 @@ PAGES['b-dvt'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> CEAP Classification & Post-Thrombotic Syndrome (PTS) Risk</div>
+  <div class="card-header"><span class="icon">▶</span> CEAP Classification & Post-Thrombotic Syndrome (PTS) Risk</div>
   <div class="card-body">
     <h4>CEAP Classification (Chronic Venous Disease)</h4>
     <table>
@@ -5117,7 +5118,7 @@ PAGES['b-pe'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Risk Stratification: Massive vs Submassive vs Low-Risk</div>
+  <div class="card-header"><span class="icon">▶</span> Risk Stratification: Massive vs Submassive vs Low-Risk</div>
   <div class="card-body">
     <table>
       <tr><th>Category</th><th>Definition</th><th>Mortality</th><th>Management</th></tr>
@@ -5130,7 +5131,7 @@ PAGES['b-pe'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> PESI Score — Prognosis & Disposition</div>
+  <div class="card-header"><span class="icon">▶</span> PESI Score — Prognosis & Disposition</div>
   <div class="card-body">
     <p>The Pulmonary Embolism Severity Index (PESI), and its simplified version (sPESI), predict 30-day mortality and guide outpatient vs inpatient management for low-risk PE.</p>
     <h4>Simplified PESI (sPESI) — 1 point each</h4>
@@ -5208,7 +5209,7 @@ PAGES['b-svc-ivc'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> SVC Syndrome — Aetiology</div>
+  <div class="card-header"><span class="icon">▶</span> SVC Syndrome — Aetiology</div>
   <div class="card-body">
     <table>
       <tr><th>Cause</th><th>Proportion</th><th>Detail</th></tr>
@@ -5227,7 +5228,7 @@ PAGES['b-svc-ivc'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> SVC Stenting — Technique & Access</div>
+  <div class="card-header"><span class="icon">▶</span> SVC Stenting — Technique & Access</div>
   <div class="card-body">
     <table>
       <tr><th>Step</th><th>Detail</th></tr>
@@ -5293,7 +5294,7 @@ PAGES['b-tips'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Indications & Contraindications</div>
+  <div class="card-header"><span class="icon">▶</span> Indications & Contraindications</div>
   <div class="card-body">
     <table>
       <tr><th>Indication</th><th>Evidence Level</th><th>Detail</th></tr>
@@ -5315,7 +5316,7 @@ PAGES['b-tips'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Technique & Stent Sizing</div>
+  <div class="card-header"><span class="icon">▶</span> Technique & Stent Sizing</div>
   <div class="card-body">
     <h4>Procedural Steps</h4>
     <table>
@@ -5383,7 +5384,7 @@ PAGES['b-buddchiari'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Aetiology</div>
+  <div class="card-header"><span class="icon">▶</span> Aetiology</div>
   <div class="card-body">
     <p>Budd-Chiari syndrome (BCS) is obstruction of hepatic venous outflow at any level from the small hepatic venules to the right atrium (excluding cardiac causes, which are termed "cardiac Budd-Chiari" or more typically classified separately as congestive hepatopathy).</p>
     <table>
@@ -5396,7 +5397,7 @@ PAGES['b-buddchiari'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Classification</div>
+  <div class="card-header"><span class="icon">▶</span> Classification</div>
   <div class="card-body">
     <table>
       <tr><th>Type</th><th>Level of Obstruction</th><th>Notes</th></tr>
@@ -5461,7 +5462,7 @@ PAGES['b-gonadal'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Pelvic Congestion Syndrome (PCS)</div>
+  <div class="card-header"><span class="icon">▶</span> Pelvic Congestion Syndrome (PCS)</div>
   <div class="card-body">
     <h4>Pathophysiology & Diagnosis</h4>
     <table>
@@ -5476,7 +5477,7 @@ PAGES['b-gonadal'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Varicocele — Anatomy & Grading</div>
+  <div class="card-header"><span class="icon">▶</span> Varicocele — Anatomy & Grading</div>
   <div class="card-body">
     <table>
       <tr><th>Grade</th><th>Clinical Finding</th></tr>
@@ -5530,7 +5531,7 @@ PAGES['b-dialysis'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Fistula vs Graft</div>
+  <div class="card-header"><span class="icon">▶</span> Fistula vs Graft</div>
   <div class="card-body">
     <table>
       <tr><th>Feature</th><th>Native AV Fistula (AVF)</th><th>Arteriovenous Graft (AVG)</th></tr>
@@ -5545,7 +5546,7 @@ PAGES['b-dialysis'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Stenosis Treatment</div>
+  <div class="card-header"><span class="icon">▶</span> Stenosis Treatment</div>
   <div class="card-body">
     <h4>Common Stenosis Locations</h4>
     <table>
@@ -5603,7 +5604,7 @@ PAGES['b-cva'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Device Selection: Tunnelled CVC vs Port vs PICC</div>
+  <div class="card-header"><span class="icon">▶</span> Device Selection: Tunnelled CVC vs Port vs PICC</div>
   <div class="card-body">
     <table>
       <tr><th>Device</th><th>Typical Duration</th><th>Best For</th><th>Key Features</th></tr>
@@ -5615,7 +5616,7 @@ PAGES['b-cva'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Insertion Technique & Tip Position</div>
+  <div class="card-header"><span class="icon">▶</span> Insertion Technique & Tip Position</div>
   <div class="card-body">
     <h4>General Insertion Principles</h4>
     <table>
@@ -5666,7 +5667,7 @@ PAGES['b-sampling'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Inferior Petrosal Sinus Sampling (IPSS)</div>
+  <div class="card-header"><span class="icon">▶</span> Inferior Petrosal Sinus Sampling (IPSS)</div>
   <div class="card-body">
     <h4>Indication</h4>
     <p>IPSS distinguishes pituitary (Cushing's disease) from ectopic ACTH-secreting sources as the cause of ACTH-dependent Cushing's syndrome, when biochemical testing and pituitary MRI are discordant, equivocal, or MRI shows no clear pituitary lesion (common — up to 40% of microadenomas are not visible on MRI).</p>
@@ -5691,7 +5692,7 @@ PAGES['b-sampling'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Adrenal Vein Sampling (AVS)</div>
+  <div class="card-header"><span class="icon">▶</span> Adrenal Vein Sampling (AVS)</div>
   <div class="card-body">
     <h4>Indication</h4>
     <p>AVS is used in primary aldosteronism (Conn's syndrome) to distinguish unilateral disease (aldosterone-producing adenoma — surgically curable) from bilateral disease (bilateral adrenal hyperplasia — managed medically with mineralocorticoid receptor antagonists), particularly important because adrenal CT frequently cannot reliably distinguish a functioning adenoma from a non-functioning incidentaloma, and small culprit adenomas can be missed on imaging.</p>
@@ -5743,7 +5744,7 @@ PAGES['c-biopsy'] = `
 <div class="page-meta"><span class="tag tag-section">Section C · Non-vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Coaxial Technique</div>
+  <div class="card-header"><span class="icon">▶</span> Coaxial Technique</div>
   <div class="card-body">
     <p>Coaxial biopsy uses an outer guiding needle/cannula placed to the edge of the target, through which an inner biopsy needle is passed to obtain multiple samples without repuncturing the target organ or capsule each time.</p>
     <table>
@@ -5758,7 +5759,7 @@ PAGES['c-biopsy'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Core Biopsy vs Fine Needle Aspiration (FNA)</div>
+  <div class="card-header"><span class="icon">▶</span> Core Biopsy vs Fine Needle Aspiration (FNA)</div>
   <div class="card-body">
     <table>
       <tr><th>Feature</th><th>Core Biopsy</th><th>FNA</th></tr>
@@ -5831,7 +5832,7 @@ PAGES['c-drainage'] = `
 <div class="page-meta"><span class="tag tag-section">Section C · Non-vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Catheter Selection</div>
+  <div class="card-header"><span class="icon">▶</span> Catheter Selection</div>
   <div class="card-body">
     <table>
       <tr><th>Collection Type</th><th>Recommended Catheter</th><th>Rationale</th></tr>
@@ -5850,7 +5851,7 @@ PAGES['c-drainage'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Trocar vs Seldinger Technique</div>
+  <div class="card-header"><span class="icon">▶</span> Trocar vs Seldinger Technique</div>
   <div class="card-body">
     <table>
       <tr><th>Technique</th><th>Method</th><th>Best For</th><th>Considerations</th></tr>
@@ -5904,7 +5905,7 @@ PAGES['c-lymphatic'] = `
 <div class="page-meta"><span class="tag tag-section">Section C · Non-vascular</span><span class="tag tag-freq-low">Rarely Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Intranodal Lymphangiography Technique</div>
+  <div class="card-header"><span class="icon">▶</span> Intranodal Lymphangiography Technique</div>
   <div class="card-body">
     <p>Intranodal lymphangiography has largely replaced traditional pedal lymphangiography (surgical cutdown onto lymphatic vessels) as the standard technique for mapping the lymphatic system before thoracic duct embolisation.</p>
     <table>
@@ -5920,7 +5921,7 @@ PAGES['c-lymphatic'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Thoracic Duct Embolisation — Technique</div>
+  <div class="card-header"><span class="icon">▶</span> Thoracic Duct Embolisation — Technique</div>
   <div class="card-body">
     <table>
       <tr><th>Step</th><th>Detail</th></tr>
@@ -5969,7 +5970,7 @@ PAGES['c-gi-tubes'] = `
 <div class="page-meta"><span class="tag tag-section">Section C · Non-vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> PRG/RIG vs PEG — Comparison</div>
+  <div class="card-header"><span class="icon">▶</span> PRG/RIG vs PEG — Comparison</div>
   <div class="card-body">
     <table>
       <tr><th>Feature</th><th>PEG (Percutaneous Endoscopic Gastrostomy)</th><th>PRG/RIG (Percutaneous Radiologic/Image-Guided Gastrostomy)</th></tr>
@@ -5985,7 +5986,7 @@ PAGES['c-gi-tubes'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> RIG Technique & Gastropexy</div>
+  <div class="card-header"><span class="icon">▶</span> RIG Technique & Gastropexy</div>
   <div class="card-body">
     <table>
       <tr><th>Step</th><th>Detail</th></tr>
@@ -6046,7 +6047,7 @@ PAGES['c-gi-stent'] = `
 <div class="page-meta"><span class="tag tag-section">Section C · Non-vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Indications by Site</div>
+  <div class="card-header"><span class="icon">▶</span> Indications by Site</div>
   <div class="card-body">
     <table>
       <tr><th>Site</th><th>Indication</th><th>Intent</th></tr>
@@ -6059,7 +6060,7 @@ PAGES['c-gi-stent'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Stent Selection</div>
+  <div class="card-header"><span class="icon">▶</span> Stent Selection</div>
   <div class="card-body">
     <table>
       <tr><th>Stent Type</th><th>Use</th><th>Rationale</th></tr>
@@ -6092,7 +6093,7 @@ PAGES['c-hpb'] = `
 <div class="page-meta"><span class="tag tag-section">Section C · Non-vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Internal-External vs External Drainage</div>
+  <div class="card-header"><span class="icon">▶</span> Internal-External vs External Drainage</div>
   <div class="card-body">
     <table>
       <tr><th>Type</th><th>Configuration</th><th>Indication</th><th>Advantage / Disadvantage</th></tr>
@@ -6104,7 +6105,7 @@ PAGES['c-hpb'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Cholangioplasty</div>
+  <div class="card-header"><span class="icon">▶</span> Cholangioplasty</div>
   <div class="card-body">
     <table>
       <tr><th>Indication</th><th>Detail</th></tr>
@@ -6159,7 +6160,7 @@ PAGES['d-nephrostomy'] = `
 <div class="page-meta"><span class="tag tag-section">Section D · GU</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Technique</div>
+  <div class="card-header"><span class="icon">▶</span> Technique</div>
   <div class="card-body">
     <p>See anatomy-gu for the posterolateral Brödel's line access principle. Standard percutaneous nephrostomy (PCN) technique:</p>
     <table>
@@ -6175,7 +6176,7 @@ PAGES['d-nephrostomy'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Single vs Double Puncture</div>
+  <div class="card-header"><span class="icon">▶</span> Single vs Double Puncture</div>
   <div class="card-body">
     <table>
       <tr><th>Approach</th><th>Use</th><th>Detail</th></tr>
@@ -6228,7 +6229,7 @@ PAGES['d-stones'] = `
 <div class="page-meta"><span class="tag tag-section">Section D · GU</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> PCNL Planning</div>
+  <div class="card-header"><span class="icon">▶</span> PCNL Planning</div>
   <div class="card-body">
     <table>
       <tr><th>Planning Factor</th><th>Detail</th></tr>
@@ -6241,7 +6242,7 @@ PAGES['d-stones'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Tract Dilation</div>
+  <div class="card-header"><span class="icon">▶</span> Tract Dilation</div>
   <div class="card-body">
     <table>
       <tr><th>Method</th><th>Detail</th></tr>
@@ -6289,7 +6290,7 @@ PAGES['d-renal-mass'] = `
 <div class="page-meta"><span class="tag tag-section">Section D · GU</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Renal Mass Biopsy</div>
+  <div class="card-header"><span class="icon">▶</span> Renal Mass Biopsy</div>
   <div class="card-body">
     <p>See dm-rcc for the full biopsy indication and technique detail in the context of small renal mass management. Key procedural points:</p>
     <table>
@@ -6302,7 +6303,7 @@ PAGES['d-renal-mass'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Cyst Aspiration & Sclerotherapy</div>
+  <div class="card-header"><span class="icon">▶</span> Cyst Aspiration & Sclerotherapy</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
@@ -6335,7 +6336,7 @@ PAGES['d-gu'] = `
 <div class="page-meta"><span class="tag tag-section">Section D · GU</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Urethral Stricture Management</div>
+  <div class="card-header"><span class="icon">▶</span> Urethral Stricture Management</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
@@ -6347,7 +6348,7 @@ PAGES['d-gu'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Ureteric Stricture Management</div>
+  <div class="card-header"><span class="icon">▶</span> Ureteric Stricture Management</div>
   <div class="card-body">
     <table>
       <tr><th>Cause Category</th><th>Examples</th></tr>
@@ -6385,7 +6386,7 @@ PAGES['d-transplant'] = `
 <div class="page-meta"><span class="tag tag-section">Section D · GU</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Transplant Renal Artery Stenosis (TRAS)</div>
+  <div class="card-header"><span class="icon">▶</span> Transplant Renal Artery Stenosis (TRAS)</div>
   <div class="card-body">
     <p>See anatomy-gu for transplant vascular anatomy. TRAS is the most common vascular complication of renal transplantation, occurring in ~1–10% of transplants.</p>
     <table>
@@ -6401,7 +6402,7 @@ PAGES['d-transplant'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Ureteric Obstruction Post-Transplant</div>
+  <div class="card-header"><span class="icon">▶</span> Ureteric Obstruction Post-Transplant</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
@@ -6437,7 +6438,7 @@ PAGES['e-msk-biopsy'] = `
 <div class="page-meta"><span class="tag tag-section">Section E · MSK</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Bone vs Soft Tissue Approach</div>
+  <div class="card-header"><span class="icon">▶</span> Bone vs Soft Tissue Approach</div>
   <div class="card-body">
     <table>
       <tr><th>Feature</th><th>Bone Lesion</th><th>Soft Tissue Lesion</th></tr>
@@ -6451,7 +6452,7 @@ PAGES['e-msk-biopsy'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Coaxial Technique</div>
+  <div class="card-header"><span class="icon">▶</span> Coaxial Technique</div>
   <div class="card-body">
     <table>
       <tr><th>Advantage</th><th>Detail</th></tr>
@@ -6496,7 +6497,7 @@ PAGES['e-ablation'] = `
 <div class="page-meta"><span class="tag tag-section">Section E · MSK</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> RFA / MWA / Cryoablation — Bone Metastases</div>
+  <div class="card-header"><span class="icon">▶</span> RFA / MWA / Cryoablation — Bone Metastases</div>
   <div class="card-body">
     <table>
       <tr><th>Modality</th><th>Mechanism</th><th>Best For (Bone Mets)</th><th>Notes</th></tr>
@@ -6508,7 +6509,7 @@ PAGES['e-ablation'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Osteoid Osteoma — Lesion Selection & Technique</div>
+  <div class="card-header"><span class="icon">▶</span> Osteoid Osteoma — Lesion Selection & Technique</div>
   <div class="card-body">
     <table>
       <tr><th>Feature</th><th>Detail</th></tr>
@@ -6556,7 +6557,7 @@ PAGES['e-injection'] = `
 <div class="page-meta"><span class="tag tag-section">Section E · MSK</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Joint-Specific Approach — Hip, Knee, Shoulder, Facet</div>
+  <div class="card-header"><span class="icon">▶</span> Joint-Specific Approach — Hip, Knee, Shoulder, Facet</div>
   <div class="card-body">
     <p>See anatomy-msk for detailed landmark anatomy per joint. Summary of approach and primary guidance modality:</p>
     <table>
@@ -6570,7 +6571,7 @@ PAGES['e-injection'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Injectate Selection</div>
+  <div class="card-header"><span class="icon">▶</span> Injectate Selection</div>
   <div class="card-body">
     <table>
       <tr><th>Agent</th><th>Purpose</th><th>Notes</th></tr>
@@ -6605,7 +6606,7 @@ PAGES['e-osteoplasty'] = `
 <div class="page-meta"><span class="tag tag-section">Section E · MSK</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Cement Augmentation for Lytic Metastases</div>
+  <div class="card-header"><span class="icon">▶</span> Cement Augmentation for Lytic Metastases</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
@@ -6617,7 +6618,7 @@ PAGES['e-osteoplasty'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Technique</div>
+  <div class="card-header"><span class="icon">▶</span> Technique</div>
   <div class="card-body">
     <table>
       <tr><th>Step</th><th>Detail</th></tr>
@@ -6650,7 +6651,7 @@ PAGES['e-vertebro'] = `
 <div class="page-meta"><span class="tag tag-section">Section E · MSK</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Vertebroplasty vs Kyphoplasty</div>
+  <div class="card-header"><span class="icon">▶</span> Vertebroplasty vs Kyphoplasty</div>
   <div class="card-body">
     <table>
       <tr><th>Feature</th><th>Vertebroplasty</th><th>Kyphoplasty (Balloon Kyphoplasty)</th></tr>
@@ -6665,7 +6666,7 @@ PAGES['e-vertebro'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Access: Transpedicular vs Extrapedicular</div>
+  <div class="card-header"><span class="icon">▶</span> Access: Transpedicular vs Extrapedicular</div>
   <div class="card-body">
     <p>See anatomy-msk for the underlying pedicle safe-corridor anatomy and needle trajectory angles. Approach selection:</p>
     <table>
@@ -6713,7 +6714,7 @@ PAGES['e-spinal'] = `
 <div class="page-meta"><span class="tag tag-section">Section E · MSK</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Nerve Root Blocks</div>
+  <div class="card-header"><span class="icon">▶</span> Nerve Root Blocks</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
@@ -6727,7 +6728,7 @@ PAGES['e-spinal'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Discography</div>
+  <div class="card-header"><span class="icon">▶</span> Discography</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
@@ -6775,7 +6776,7 @@ PAGES['f-fund'] = `
 <div class="page-meta"><span class="tag tag-section">Section F · Interventional Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Local Ablation vs Embolisation vs Combination</div>
+  <div class="card-header"><span class="icon">▶</span> Local Ablation vs Embolisation vs Combination</div>
   <div class="card-body">
     <table>
       <tr><th>Modality</th><th>Mechanism</th><th>Best Suited For</th></tr>
@@ -6788,7 +6789,7 @@ PAGES['f-fund'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Tumour Microenvironment — IO-Relevant Principles</div>
+  <div class="card-header"><span class="icon">▶</span> Tumour Microenvironment — IO-Relevant Principles</div>
   <div class="card-body">
     <table>
       <tr><th>Concept</th><th>IO Relevance</th></tr>
@@ -6826,7 +6827,7 @@ PAGES['f-tace'] = `
 <div class="page-meta"><span class="tag tag-section">Section F · Interventional Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Conventional cTACE vs DEB-TACE</div>
+  <div class="card-header"><span class="icon">▶</span> Conventional cTACE vs DEB-TACE</div>
   <div class="card-body">
     <table>
       <tr><th>Feature</th><th>Conventional TACE (cTACE)</th><th>Drug-Eluting Bead TACE (DEB-TACE)</th></tr>
@@ -6840,7 +6841,7 @@ PAGES['f-tace'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Technical Steps</div>
+  <div class="card-header"><span class="icon">▶</span> Technical Steps</div>
   <div class="card-body">
     <table>
       <tr><th>Step</th><th>Detail</th></tr>
@@ -6900,7 +6901,7 @@ PAGES['f-tare'] = `
 <div class="page-meta"><span class="tag tag-section">Section F · Interventional Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Yttrium-90 Physics</div>
+  <div class="card-header"><span class="icon">▶</span> Yttrium-90 Physics</div>
   <div class="card-body">
     <table>
       <tr><th>Property</th><th>Detail</th></tr>
@@ -6913,7 +6914,7 @@ PAGES['f-tare'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Resin vs Glass Microspheres</div>
+  <div class="card-header"><span class="icon">▶</span> Resin vs Glass Microspheres</div>
   <div class="card-body">
     <table>
       <tr><th>Feature</th><th>Resin Microspheres (SIR-Spheres)</th><th>Glass Microspheres (TheraSphere)</th></tr>
@@ -6974,7 +6975,7 @@ PAGES['f-ablation-io'] = `
 <div class="page-meta"><span class="tag tag-section">Section F · Interventional Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Mechanism Comparison</div>
+  <div class="card-header"><span class="icon">▶</span> Mechanism Comparison</div>
   <div class="card-body">
     <table>
       <tr><th>Modality</th><th>Mechanism</th><th>Cell Death Pathway</th></tr>
@@ -6986,7 +6987,7 @@ PAGES['f-ablation-io'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Size Limits & Heat Sink Effect</div>
+  <div class="card-header"><span class="icon">▶</span> Size Limits & Heat Sink Effect</div>
   <div class="card-body">
     <table>
       <tr><th>Modality</th><th>Typical Single-Probe Effective Size Limit</th><th>Heat Sink Susceptibility</th></tr>
@@ -7035,7 +7036,7 @@ PAGES['f-biliary'] = `
 <div class="page-meta"><span class="tag tag-section">Section F · Interventional Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Stent Type Selection — SEMS vs Plastic</div>
+  <div class="card-header"><span class="icon">▶</span> Stent Type Selection — SEMS vs Plastic</div>
   <div class="card-body">
     <p>See c-hpb for full technical detail on stent types and biliary drainage principles. Key decision points in the malignant setting:</p>
     <table>
@@ -7048,7 +7049,7 @@ PAGES['f-biliary'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Hilar vs Distal Obstruction — Drainage Strategy</div>
+  <div class="card-header"><span class="icon">▶</span> Hilar vs Distal Obstruction — Drainage Strategy</div>
   <div class="card-body">
     <table>
       <tr><th>Location</th><th>Drainage Consideration</th></tr>
@@ -7093,7 +7094,7 @@ PAGES['f-prostate'] = `
 <div class="page-meta"><span class="tag tag-section">Section F · Interventional Oncology</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Focal Therapy — MRI-US Fusion Approach</div>
+  <div class="card-header"><span class="icon">▶</span> Focal Therapy — MRI-US Fusion Approach</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
@@ -7106,7 +7107,7 @@ PAGES['f-prostate'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> HIFU vs Cryoablation vs IRE</div>
+  <div class="card-header"><span class="icon">▶</span> HIFU vs Cryoablation vs IRE</div>
   <div class="card-body">
     <table>
       <tr><th>Modality</th><th>Mechanism</th><th>Notes</th></tr>
@@ -7139,7 +7140,7 @@ PAGES['f-msk-onc'] = `
 <div class="page-meta"><span class="tag tag-section">Section F · Interventional Oncology</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Pre-Surgical Embolisation</div>
+  <div class="card-header"><span class="icon">▶</span> Pre-Surgical Embolisation</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
@@ -7153,7 +7154,7 @@ PAGES['f-msk-onc'] = `
 </div>
 
 <div class="card">
-  <div class="card-header open"><span class="icon">▶</span> Ablation + Cementoplasty Combination</div>
+  <div class="card-header"><span class="icon">▶</span> Ablation + Cementoplasty Combination</div>
   <div class="card-body">
     <table>
       <tr><th>Aspect</th><th>Detail</th></tr>
