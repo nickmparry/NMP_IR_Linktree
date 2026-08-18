@@ -332,9 +332,11 @@ const NAV = [
     {id:'anatomy-iia',              title:'Internal Iliac Artery Branches', freq:'high'},
   ]},
   { id:'secA', label:'A · Fundamentals', items:[
+    {id:'a-general-principles', title:'General Principles of IR', freq:'high'},
     {id:'a-core-procedures', title:'Core Emergency Procedures', freq:'high'},
     {id:'a-imaging', title:'Imaging Modalities', freq:'high'},
     {id:'a-devices', title:'IR Devices & Equipment', freq:'high'},
+    {id:'a-embolics', title:'Embolic & Sclerotherapy Agents', freq:'high'},
   ]},
   { id:'secB', label:'B · Vascular', items:[
     {id:'b-pad', title:'Peripheral Arterial Disease', freq:'high'},
@@ -343,6 +345,7 @@ const NAV = [
     {id:'b-supraaortic', title:'Supra-aortic Disease', freq:'med'},
     {id:'b-stroke', title:'Stroke', freq:'med'},
     {id:'b-malformations', title:'Vascular Malformations', freq:'med'},
+    {id:'b-avm', title:'Peripheral AVM Management', freq:'med'},
     {id:'b-trauma', title:'Vascular Trauma', freq:'high'},
     {id:'b-visceral', title:'Visceral Arterial Disease', freq:'med'},
     {id:'b-obgyn', title:'O&G Arterial (UFE, PPH)', freq:'high'},
@@ -2429,6 +2432,318 @@ PAGES['anatomy-iia'] = `
 `;
 
 
+
+PAGES['a-general-principles'] = `
+<h2 class="page-title">General Principles of Interventional Radiology</h2>
+<div class="page-meta"><span class="tag tag-section">Section A · Fundamentals</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Pre-Procedure Assessment</div>
+  <div class="card-body">
+    <p>Every IR procedure requires a structured pre-procedure assessment. The goal is to confirm the indication, identify contraindications, optimise the patient for the procedure, and obtain informed consent. This framework is based on SIR/CIRSE standards of practice and applies to all image-guided interventions.</p>
+    <h4>Pre-Procedure Checklist</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Domain</th><th>Assessment</th><th>Key Points</th></tr>
+      <tr><td><strong>Clinical indication</strong></td><td>Confirm diagnosis and procedural indication; review imaging; MDT discussion if oncological</td><td>Is the procedure the right one? Is IR the right approach vs surgery/endoscopy? Is the timing right (urgent vs elective)?</td></tr>
+      <tr><td><strong>Patient history</strong></td><td>Allergies (contrast, latex, anaesthetic agents); medications (anticoagulants, antiplatelets, metformin, diabetic agents); comorbidities; previous IR/surgical procedures</td><td>Contrast allergy → pre-medicate or use alternative agent; document drug allergies and reactions clearly</td></tr>
+      <tr><td><strong>Bloods</strong></td><td>FBC (Hb, platelets), coagulation (INR, aPTT), renal function (eGFR), LFTs if hepatobiliary; group & save/crossmatch if bleeding risk</td><td>Minimum: platelets &gt;50×10⁹/L, INR &lt;1.5–2.0 (procedure-dependent); eGFR for contrast decisions; Hb baseline pre-embolisation</td></tr>
+      <tr><td><strong>Fasting status</strong></td><td>ASA fasting guidelines: 2h clear fluids, 6h light meal, 8h heavy meal (for sedation/GA)</td><td>Non-sedated procedures (local anaesthesia only) — fasting not required; emergency procedures — proceed regardless, manage aspiration risk</td></tr>
+      <tr><td><strong>IV access</strong></td><td>Adequate peripheral IV (≥20G, ideally 18G); second IV for high-risk procedures</td><td>Large-bore access for embolisation/trauma cases; ensure IV functional (flush, aspirate)</td></tr>
+      <tr><td><strong>Pregnancy</strong></td><td>Pregnancy test (β-hCG) for all women of childbearing age before ionising radiation procedures</td><td>Mandatory — document result; if positive, weigh risk-benefit and use lead shielding / alternative imaging if proceeding</td></tr>
+      <tr><td><strong>Imaging review</strong></td><td>Review all relevant prior imaging on PACS; plan approach, access site, equipment</td><td>CTA for embolisation planning; USS for drain/biopsy access; identify anatomy and variants before entering the room</td></tr>
+    </table></div>
+    <h4>SIR Pre-Procedure Safety Checklist</h4>
+    <ul>
+      <li><strong>Patient identification:</strong> two identifiers (name + DOB/MRN); wristband check</li>
+      <li><strong>Procedure verification:</strong> correct procedure, correct site, correct side (mark if lateralised)</li>
+      <li><strong>Time-out:</strong> entire team confirms patient, procedure, site, allergies, antibiotics given, special equipment needed — before first needle puncture</li>
+      <li><strong>Post-procedure debrief:</strong> document findings, complications, specimen handling, post-procedure instructions, follow-up plan</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Informed Consent in IR</div>
+  <div class="card-body">
+    <p>Informed consent for IR procedures must cover the specific risks and benefits of the proposed intervention, alternatives (including non-intervention), and expected outcomes. Consent should be obtained by the operator or a trained delegate who can answer patient questions.</p>
+    <h4>Elements of Valid Consent</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Element</th><th>What to Cover</th></tr>
+      <tr><td><strong>Diagnosis & indication</strong></td><td>What is the problem; why this procedure is recommended; what happens without treatment</td></tr>
+      <tr><td><strong>Procedure description</strong></td><td>What will be done (in lay terms); anaesthesia/sedation type; duration; access site</td></tr>
+      <tr><td><strong>Benefits</strong></td><td>Expected outcome; success rate; time to benefit; cure vs palliation</td></tr>
+      <tr><td><strong>Risks — generic</strong></td><td>Bleeding, infection, pain, bruising at access site, contrast reaction, radiation exposure</td></tr>
+      <tr><td><strong>Risks — procedure-specific</strong></td><td>Non-target embolisation, organ injury, pneumothorax (lung biopsy), bile leak (PTBD), etc. — name the serious ones even if rare</td></tr>
+      <tr><td><strong>Alternatives</strong></td><td>Surgery, medical management, other IR options, no treatment — and their outcomes</td></tr>
+      <tr><td><strong>Recovery & follow-up</strong></td><td>Expected recovery time; restrictions (bed rest, driving); when to seek help; follow-up imaging/clinic</td></tr>
+    </table></div>
+    <h4>Special Consent Situations</h4>
+    <ul>
+      <li><strong>Emergency:</strong> if the patient cannot consent (unconscious, incapacitated) and delay would be life-threatening, proceed under duty of care / emergency doctrine; document clinical justification; involve next of kin if time permits</li>
+      <li><strong>Capacity:</strong> assess capacity using the relevant legal framework (in Australia: common law capacity test — can the patient understand, retain, weigh, and communicate their decision?)</li>
+      <li><strong>Minors:</strong> parental/guardian consent; Gillick competence in mature minors; always involve the child in age-appropriate discussion</li>
+      <li><strong>Interpreter:</strong> use professional interpreter services for patients with limited English; never rely on family members for consent interpretation</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Anticoagulation & Antiplatelet Peri-Procedural Management</div>
+  <div class="card-body">
+    <p>Managing antithrombotic medications is one of the most common pre-procedure decisions in IR. The SIR consensus guidelines (2019) classify procedures by bleeding risk and provide agent-specific hold/resume recommendations. The key principle is <strong>balancing bleeding risk against thrombotic risk</strong>.</p>
+    <h4>SIR Procedure Bleeding Risk Categories</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Bleeding Risk</th><th>Example Procedures</th></tr>
+      <tr><td><strong>Category 1 — Low</strong></td><td>Minimal; rarely clinically significant</td><td>Venous access (PICC, tunnelled line, port); IVC filter placement/retrieval; thoracentesis/paracentesis (small volume); superficial aspiration/biopsy; joint injection; diagnostic angiography</td></tr>
+      <tr><td><strong>Category 2 — Moderate</strong></td><td>Moderate; may require transfusion or intervention</td><td>Intra-abdominal/thoracic drain placement; lung biopsy; non-tunnelled large-bore venous access; spine procedures; uterine fibroid embolisation; tunnelled drain exchange</td></tr>
+      <tr><td><strong>Category 3 — High</strong></td><td>Significant; may be life-threatening</td><td>Renal biopsy; liver biopsy (transjugular acceptable at lower threshold); complex ablation; TIPS; nephrostomy (new tract); biliary intervention (new tract); spine augmentation</td></tr>
+    </table></div>
+    <h4>Anticoagulant Management</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Half-life</th><th>Hold Before (Cat 2–3)</th><th>Resume After</th><th>Reversal Agent</th></tr>
+      <tr><td><strong>Warfarin</strong></td><td>36–42 h</td><td>5 days; check INR day of (target &lt;1.5–2.0)</td><td>Evening of procedure or next day (if haemostasis confirmed)</td><td>Vitamin K (slow, 6–24h); Prothrombinex/PCC (rapid); FFP (if PCC unavailable)</td></tr>
+      <tr><td><strong>Unfractionated heparin (UFH)</strong></td><td>1–2 h</td><td>4–6 h (check aPTT)</td><td>2–6 h post-procedure</td><td>Protamine sulfate (1 mg per 100 U heparin given in last 2h)</td></tr>
+      <tr><td><strong>Enoxaparin (LMWH)</strong></td><td>4–5 h</td><td>Therapeutic: 24 h; prophylactic: 12 h</td><td>24 h (therapeutic); 12 h (prophylactic)</td><td>Protamine (partial reversal ~60%)</td></tr>
+      <tr><td><strong>Rivaroxaban</strong></td><td>5–9 h</td><td>48 h (normal renal); 72 h if eGFR &lt;30</td><td>24–48 h post-procedure</td><td>Andexanet alfa (Andexxa) — limited availability; PCC (off-label, partial effect)</td></tr>
+      <tr><td><strong>Apixaban</strong></td><td>8–15 h</td><td>48 h (normal renal); 72 h if eGFR &lt;30</td><td>24–48 h post-procedure</td><td>Andexanet alfa; PCC (off-label)</td></tr>
+      <tr><td><strong>Dabigatran</strong></td><td>12–17 h</td><td>48–72 h (longer if renal impairment — renally cleared)</td><td>24–48 h post-procedure</td><td><strong>Idarucizumab (Praxbind)</strong> — specific reversal agent; immediate effect; 5g IV</td></tr>
+    </table></div>
+    <h4>Antiplatelet Management</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Mechanism</th><th>Hold Before (Cat 2–3)</th><th>Notes</th></tr>
+      <tr><td><strong>Aspirin</strong></td><td>Irreversible COX-1 inhibition</td><td>Category 1–2: <strong>continue</strong>; Category 3: hold 5 days (discuss with referring team)</td><td>Low-dose aspirin (100 mg) is continued for most IR procedures; only hold for highest-risk procedures after risk-benefit discussion</td></tr>
+      <tr><td><strong>Clopidogrel</strong></td><td>Irreversible P2Y12 inhibition</td><td>5 days</td><td><strong>DO NOT stop if dual antiplatelet therapy (DAPT) &lt;6 months post-coronary stent</strong> — consult cardiology; bare-metal stent &lt;1 month = absolute contraindication to stopping</td></tr>
+      <tr><td><strong>Prasugrel</strong></td><td>Irreversible P2Y12 (more potent)</td><td>7 days</td><td>Longer hold than clopidogrel; same DAPT cautions</td></tr>
+      <tr><td><strong>Ticagrelor</strong></td><td>Reversible P2Y12</td><td>5 days (though reversible — platelet recovery faster)</td><td>Can be bridged with short-acting IV antiplatelet (cangrelor) in high thrombotic risk patients</td></tr>
+    </table></div>
+    <h4>Bridging Anticoagulation</h4>
+    <ul>
+      <li><strong>High thrombotic risk</strong> (mechanical mitral valve, recent VTE &lt;3 months, high-risk AF [CHA₂DS₂-VASc ≥7]): bridge with therapeutic LMWH while warfarin is held</li>
+      <li><strong>Low thrombotic risk</strong> (AF without recent stroke, VTE &gt;3 months ago, bioprosthetic valve): no bridging — hold warfarin, check INR day of, resume post-procedure</li>
+      <li><strong>DOACs:</strong> generally NO bridging needed — short half-lives mean hold-and-resume is sufficient; bridging with heparin adds bleeding risk without proven benefit (BRIDGE, PERIOP-2 trials)</li>
+    </ul>
+    <div class="tip">The most dangerous mistake is stopping DAPT prematurely after recent coronary stent — in-stent thrombosis carries ~40% mortality. Always check stent date and consult cardiology before holding P2Y12 inhibitors. For truly emergent IR procedures where antiplatelets cannot be stopped, proceed with awareness of increased bleeding risk and have platelet transfusion available.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Contrast Media — Reactions & Nephropathy Prevention</div>
+  <div class="card-body">
+    <p>Based on the ACR Manual on Contrast Media (2024) and RANZCR guidelines. Understanding contrast agents, reactions, and nephropathy prevention is fundamental to safe IR practice.</p>
+    <h4>Iodinated Contrast Agents</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Property</th><th>High-Osmolar (HOCM)</th><th>Low-Osmolar (LOCM)</th><th>Iso-Osmolar (IOCM)</th></tr>
+      <tr><td>Osmolality</td><td>~1400–2000 mOsm/kg</td><td>~500–850 mOsm/kg</td><td>~290 mOsm/kg (= plasma)</td></tr>
+      <tr><td>Examples</td><td>Diatrizoate (Hypaque) — rarely used now</td><td>Iohexol (Omnipaque), iopamidol (Isovue), ioversol (Optiray)</td><td>Iodixanol (Visipaque)</td></tr>
+      <tr><td>Reaction rate</td><td>~5–12%</td><td>~1–3%</td><td>~1–3%</td></tr>
+      <tr><td>Use in IR</td><td>Rarely — only if alternatives unavailable</td><td><strong>Standard for most IR procedures</strong>; good opacification; well-tolerated</td><td>Preferred for high CIN-risk patients; renal artery procedures; patients with renal impairment</td></tr>
+    </table></div>
+    <h4>Contrast Reaction Classification & Treatment</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Severity</th><th>Symptoms</th><th>Treatment</th></tr>
+      <tr><td><strong>Mild</strong></td><td>Nausea, vomiting, urticaria (limited), warmth/flushing, altered taste, mild pruritis, headache</td><td>Usually self-limiting; observation; antihistamine (cetirizine PO or promethazine IV) for urticaria; reassurance</td></tr>
+      <tr><td><strong>Moderate</strong></td><td>Diffuse urticaria/erythema, facial oedema (not laryngeal), bronchospasm (mild — wheezing, mild dyspnoea), tachycardia, hypo/hypertension (transient)</td><td>IM adrenaline 0.3–0.5 mg (1:1000) if bronchospasm or significant oedema; salbutamol nebuliser for bronchospasm; IV fluids for hypotension; hydrocortisone 200 mg IV; monitor; prepare for escalation</td></tr>
+      <tr><td><strong>Severe (anaphylaxis)</strong></td><td>Laryngeal oedema (stridor); severe bronchospasm; cardiovascular collapse (profound hypotension, loss of consciousness); cardiac arrest</td><td><strong>IM adrenaline 0.5 mg (1:1000) — anterolateral thigh; repeat every 5 min</strong>; IV adrenaline if no response (1:10,000 titrated); aggressive IV fluid resuscitation; call arrest team; intubation/surgical airway if laryngeal oedema; CPR if arrest</td></tr>
+    </table></div>
+    <h4>Contrast Allergy Pre-Medication Protocol</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Regimen</th><th>Protocol</th><th>Notes</th></tr>
+      <tr><td><strong>Elective (standard)</strong></td><td>Prednisolone 50 mg PO at 13h, 7h, and 1h before procedure + cetirizine 10 mg PO 1h before</td><td>Use a DIFFERENT contrast agent from the one that caused the prior reaction; pre-medication reduces but does not eliminate risk (~1% breakthrough reaction rate)</td></tr>
+      <tr><td><strong>Urgent/emergency</strong></td><td>Hydrocortisone 200 mg IV at 5h and 1h before + promethazine 25 mg IV 1h before</td><td>Abbreviated protocol — less effective than full 13h protocol; weigh risk vs delay; have resuscitation equipment ready</td></tr>
+    </table></div>
+    <h4>Contrast-Induced Nephropathy (CIN) / Post-Contrast AKI</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Factor</th><th>Detail</th></tr>
+      <tr><td>Definition</td><td>Rise in serum creatinine ≥25% or ≥44 µmol/L within 48–72h of contrast, without alternative cause</td></tr>
+      <tr><td>Risk factors</td><td>eGFR &lt;30 mL/min (high risk); eGFR 30–44 (moderate risk); diabetes + CKD; dehydration; high contrast volume; concurrent nephrotoxins (NSAIDs, aminoglycosides, metformin)</td></tr>
+      <tr><td>Prevention</td><td><strong>IV hydration</strong> — 0.9% NaCl 1 mL/kg/h for 6–12h before and 6–12h after (gold standard); or 3 mL/kg/h for 1h before and 1–1.5 mL/kg/h for 4–6h after (short protocol). Use lowest contrast volume possible. Use IOCM (iodixanol) for eGFR &lt;30</td></tr>
+      <tr><td>eGFR thresholds (ACR 2024)</td><td>eGFR ≥30: IV contrast safe with standard hydration; eGFR &lt;30: IV contrast can be given if clinically indicated but with aggressive hydration and volume minimisation; withhold only if the risk clearly outweighs the diagnostic/therapeutic benefit</td></tr>
+      <tr><td>Metformin</td><td>Hold metformin for 48h AFTER contrast in patients with eGFR &lt;30 (risk of lactic acidosis if AKI develops); eGFR ≥30: continue metformin (ACR 2024 — relaxed from prior guidelines)</td></tr>
+      <tr><td>N-acetylcysteine (NAC)</td><td>No longer recommended — multiple RCTs and meta-analyses (ACT trial, PRESERVE trial) show no benefit over hydration alone</td></tr>
+    </table></div>
+    <h4>Alternative Contrast Agents</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Use</th><th>Limitations</th></tr>
+      <tr><td><strong>CO₂ (carbon dioxide)</strong></td><td>Digital subtraction angiography — no nephrotoxicity, no allergy; used for aortography, lower limb angiography, venography, TIPS</td><td>NEVER use above the diaphragm (cerebral air embolism risk); poor image quality; requires dedicated injector; air contamination risk; operator experience needed</td></tr>
+      <tr><td><strong>Gadolinium-based contrast</strong></td><td>Occasionally used for DSA when iodinated contrast absolutely contraindicated and CO₂ not suitable</td><td>Nephrogenic systemic fibrosis (NSF) risk in severe renal impairment (eGFR &lt;30) with Group I agents (gadodiamide, gadopentetate); use Group II agents (gadobutrol, gadoterate) if needed; small volume only</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Sedation & Analgesia in IR</div>
+  <div class="card-body">
+    <p>Most IR procedures are performed under local anaesthesia with moderate (conscious) sedation. Understanding sedation levels, drug choices, monitoring requirements, and reversal agents is essential. Based on ACR-SIR Practice Parameter for Sedation/Analgesia and ANZCA guidelines.</p>
+    <h4>Sedation Levels (ASA Continuum)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Level</th><th>Responsiveness</th><th>Airway</th><th>Ventilation</th><th>Cardiovascular</th><th>Typical IR Use</th></tr>
+      <tr><td><strong>Minimal sedation (anxiolysis)</strong></td><td>Normal response to verbal commands</td><td>Unaffected</td><td>Unaffected</td><td>Unaffected</td><td>Simple drains, biopsies, joint injections; oral midazolam pre-med</td></tr>
+      <tr><td><strong>Moderate sedation (conscious sedation)</strong></td><td>Purposeful response to verbal or light tactile stimulation</td><td>No intervention required</td><td>Adequate</td><td>Usually maintained</td><td><strong>Most IR procedures</strong> — embolisation, TACE, ablation, complex drains, angiography</td></tr>
+      <tr><td><strong>Deep sedation</strong></td><td>Purposeful response only to repeated or painful stimulation</td><td>May need intervention</td><td>May be inadequate</td><td>Usually maintained</td><td>Complex/painful procedures; ethanol ablation; vertebroplasty; paediatric procedures — requires anaesthesia-trained personnel</td></tr>
+      <tr><td><strong>General anaesthesia</strong></td><td>Unarousable</td><td>Intervention usually required</td><td>Frequently inadequate</td><td>May be impaired</td><td>Major/complex procedures; TIPS; long ablation; patient unable to cooperate; paediatric</td></tr>
+    </table></div>
+    <h4>Common IR Sedation Agents</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Class</th><th>Dose (IV, adult)</th><th>Onset / Duration</th><th>Notes</th></tr>
+      <tr><td><strong>Midazolam</strong></td><td>Benzodiazepine (anxiolytic, amnestic)</td><td>0.5–2 mg IV bolus; titrate 0.5–1 mg q2–5 min; max ~5 mg (elderly: reduce 50%)</td><td>Onset 1–3 min / duration 30–60 min</td><td>Amnestic effect (patients don't remember procedure); synergistic respiratory depression with opioids; reduce dose in elderly/hepatic impairment</td></tr>
+      <tr><td><strong>Fentanyl</strong></td><td>Opioid (analgesic)</td><td>25–50 µg IV bolus; titrate 25 µg q3–5 min; max ~200 µg</td><td>Onset 1–2 min / duration 30–60 min</td><td>Short-acting; predictable; chest wall rigidity at high doses (rare at sedation doses); respiratory depression potentiated by benzodiazepines</td></tr>
+      <tr><td><strong>Propofol</strong></td><td>Sedative-hypnotic</td><td>0.5–1 mg/kg bolus → 25–75 µg/kg/min infusion</td><td>Onset 30–60 s / duration 5–10 min</td><td>Requires anaesthesia or credentialled sedation provider; rapid onset/offset; no analgesic effect; hypotension and apnoea common</td></tr>
+      <tr><td><strong>Ketamine</strong></td><td>Dissociative anaesthetic</td><td>0.5–1 mg/kg IV (sedation); 1–2 mg/kg IV (dissociative)</td><td>Onset 1 min / duration 15–30 min</td><td>Maintains airway reflexes and breathing; bronchodilator; useful in paediatrics; emergence reactions (co-administer midazolam); contraindicated in raised ICP</td></tr>
+    </table></div>
+    <h4>Reversal Agents</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Reverses</th><th>Dose</th><th>Cautions</th></tr>
+      <tr><td><strong>Flumazenil</strong></td><td>Benzodiazepines (midazolam)</td><td>0.2 mg IV; repeat 0.1 mg q1 min; max 1 mg</td><td>Shorter half-life than midazolam → re-sedation risk; seizure risk in chronic benzodiazepine users or epileptics; monitor for ≥2h after administration</td></tr>
+      <tr><td><strong>Naloxone</strong></td><td>Opioids (fentanyl, morphine)</td><td>40–100 µg IV; titrate q2–3 min; max 400 µg (higher for full arrest)</td><td>Shorter half-life than most opioids → re-narcotisation risk; reverses analgesia (patient may have significant pain); acute withdrawal in opioid-dependent patients</td></tr>
+    </table></div>
+    <h4>Monitoring During Sedation</h4>
+    <ul>
+      <li><strong>Continuous:</strong> pulse oximetry (SpO₂), ECG, end-tidal CO₂ (capnography — STRONGLY recommended for moderate sedation; mandatory for deep sedation)</li>
+      <li><strong>Intermittent:</strong> blood pressure (q5 min), respiratory rate, level of consciousness (verbal response)</li>
+      <li><strong>Staffing:</strong> dedicated sedation nurse whose sole role is patient monitoring — not assisting the operator</li>
+      <li><strong>Equipment:</strong> suction, oxygen, bag-valve-mask, oral/nasal airways, intubation equipment, reversal agents — all checked and immediately accessible before starting</li>
+      <li><strong>Capnography:</strong> detects hypoventilation/apnoea before desaturation — SpO₂ lags by 30–60 seconds; capnography provides real-time ventilation monitoring and is the single most important addition to IR sedation safety</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Radiation Safety & Dose Management</div>
+  <div class="card-body">
+    <p>IR procedures use fluoroscopy with some of the highest radiation doses in medicine. Understanding radiation physics, dose metrics, dose reduction strategies, and occupational safety is mandatory knowledge per EBIR, SIR, and CIRSE curricula.</p>
+    <h4>Radiation Dose Metrics</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Metric</th><th>Unit</th><th>What It Measures</th><th>Use in IR</th></tr>
+      <tr><td><strong>Dose-Area Product (DAP) / Kerma-Area Product (KAP)</strong></td><td>Gy·cm²</td><td>Total radiation energy delivered to patient — integrates dose × field area</td><td>Primary dose tracking metric displayed on fluoroscopy equipment; correlates with stochastic risk (cancer); reference levels set per procedure type</td></tr>
+      <tr><td><strong>Air Kerma (Ka,r)</strong></td><td>mGy</td><td>Cumulative dose at the interventional reference point (IRP — 15 cm from isocentre toward X-ray tube)</td><td>Correlates with <strong>deterministic effects</strong> (skin injury); most important for patient skin dose monitoring; substantial skin injury threshold ~2,000 mGy</td></tr>
+      <tr><td><strong>Fluoroscopy time</strong></td><td>Minutes</td><td>Total time fluoroscopy was active</td><td>Crude surrogate; useful for comparison but does NOT account for dose rate, magnification, or angulation — DAP/Ka,r are far better indicators</td></tr>
+      <tr><td><strong>Effective dose</strong></td><td>mSv</td><td>Whole-body stochastic risk — weighted sum of organ doses</td><td>Estimated from DAP using conversion factors; used for population risk comparison; not directly measured during procedure</td></tr>
+    </table></div>
+    <h4>Deterministic Effects (Skin Injury Thresholds)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Cumulative Skin Dose (Air Kerma)</th><th>Effect</th><th>Onset</th></tr>
+      <tr><td>2,000 mGy (2 Gy)</td><td>Transient erythema (threshold for substantial radiation dose — SRD)</td><td>2–24 hours</td></tr>
+      <tr><td>3,000 mGy</td><td>Temporary epilation (hair loss); dry desquamation</td><td>~3 weeks</td></tr>
+      <tr><td>6,000 mGy</td><td>Prolonged erythema; permanent epilation</td><td>~6 weeks</td></tr>
+      <tr><td>10,000 mGy</td><td>Moist desquamation; dermal necrosis (higher doses)</td><td>~6–10 weeks</td></tr>
+      <tr><td>15,000–18,000 mGy</td><td>Dermal atrophy; secondary ulceration; may require surgical management</td><td>Months–years</td></tr>
+    </table></div>
+    <h4>ALARA Dose Reduction Strategies</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Strategy</th><th>How It Works</th><th>Dose Reduction</th></tr>
+      <tr><td><strong>Pulsed fluoroscopy</strong></td><td>Reduce pulse rate (15 → 7.5 → 4 → 2 pulses/sec); fewer images per second</td><td>~50–75% reduction at 7.5 p/s vs continuous; use lowest rate that gives adequate image quality</td></tr>
+      <tr><td><strong>Last-image-hold</strong></td><td>Display last fluoroscopy frame as a static image; study anatomy without live radiation</td><td>Significant — especially for wire/catheter positioning where momentary image suffices</td></tr>
+      <tr><td><strong>Collimation</strong></td><td>Narrow the X-ray field to the region of interest; reduces scatter and DAP</td><td>~50–70% DAP reduction with tight collimation; also improves image quality (less scatter)</td></tr>
+      <tr><td><strong>Minimise magnification</strong></td><td>Use largest field-of-view that allows adequate visualisation; magnification increases dose rate</td><td>Magnification increases dose by ~2–4× depending on mode; use only when detail is needed</td></tr>
+      <tr><td><strong>Source-to-skin distance</strong></td><td>Maximise distance between X-ray tube and patient (raise table, lower tube); inverse square law</td><td>Doubling distance = ¼ dose; keep table as high as practical; keep image intensifier close to patient</td></tr>
+      <tr><td><strong>Angulation awareness</strong></td><td>Steep oblique/cranio-caudal angulation increases path length through patient → higher dose; lateral and steep LAO/RAO are the worst</td><td>Use PA/AP projections when possible; minimise steep angulation time</td></tr>
+      <tr><td><strong>Minimise DSA runs</strong></td><td>DSA acquisition uses ~10× the dose of fluoroscopy; use fluoro-save or spot fluoroscopy instead when possible</td><td>Limit acquisition runs to essential diagnostic/completion images; use fluoroscopy for catheter/wire manipulation</td></tr>
+    </table></div>
+    <h4>Occupational Safety — Operator Protection</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Protection</th><th>Detail</th></tr>
+      <tr><td>Lead apron (0.5 mm Pb equivalent)</td><td>Mandatory; reduces scattered dose by ~90–95%; wraparound preferred; two-piece (skirt + vest) distributes weight</td></tr>
+      <tr><td>Thyroid shield</td><td>Mandatory — thyroid is radiosensitive; 0.5 mm Pb collar</td></tr>
+      <tr><td>Lead glasses</td><td>Recommended — protect against cataract (lens dose limit 20 mSv/year — ICRP 118); wraparound frames with side shields; 0.75 mm Pb equivalent minimum</td></tr>
+      <tr><td>Ceiling-mounted lead screen</td><td>Highly effective for head/face protection; reduces operator head/neck dose by ~90%</td></tr>
+      <tr><td>Under-table lead drape</td><td>Blocks scatter from below table toward operator's legs/gonads; reduces lower body dose by ~80–90%</td></tr>
+      <tr><td>Dosimetry</td><td>Wear TWO dosimeters: one under apron (collar level — estimates effective dose); one outside apron (collar/lapel — estimates eye/thyroid dose); monitor monthly; investigate if readings exceed expected range</td></tr>
+      <tr><td>Distance</td><td>Stand as far from the X-ray tube as practical; scatter dose follows inverse square law; step back during acquisition runs</td></tr>
+    </table></div>
+    <div class="tip">Annual dose limits (ICRP/ARPANSA): whole body 20 mSv/year (averaged over 5 years, max 50 mSv any single year); lens of eye 20 mSv/year; skin 500 mSv/year; hands 500 mSv/year. Pregnant operator: ≤1 mSv to the fetus for the remainder of pregnancy (additional lead apron + dosimeter at waist under lead). If readings approach limits, review technique and use of protective equipment before restricting practice.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Embolic Agents — Overview & Selection</div>
+  <div class="card-body">
+    <p>Embolic agents are the core therapeutic tools of IR. Selection depends on the clinical scenario, desired duration of occlusion (temporary vs permanent), vessel size, target (mechanical vs chemical occlusion), and operator experience.</p>
+    <h4>Classification</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Agents</th><th>Occlusion Type</th><th>Duration</th></tr>
+      <tr><td><strong>Mechanical — permanent</strong></td><td>Coils, vascular plugs (Amplatzer), detachable balloons (historical)</td><td>Proximal/large vessel occlusion</td><td>Permanent</td></tr>
+      <tr><td><strong>Particulate — permanent</strong></td><td>PVA particles, calibrated microspheres (Embosphere, BeadBlock), drug-eluting beads (DEB — DC Bead, HepaSphere)</td><td>Distal/arteriolar level occlusion</td><td>Permanent</td></tr>
+      <tr><td><strong>Particulate — temporary</strong></td><td>Gelatin sponge (Gelfoam — torpedoes, pledgets, slurry)</td><td>Distal/arteriolar level occlusion</td><td>Temporary (~2–6 weeks; recanalises)</td></tr>
+      <tr><td><strong>Liquid — permanent</strong></td><td>NBCA (Histoacryl / TruFill), Onyx (EVOH), ethanol (absolute)</td><td>Nidus/capillary/arteriolar level occlusion; cast fills the vascular space</td><td>Permanent</td></tr>
+      <tr><td><strong>Sclerosant</strong></td><td>STS (Sotradecol), polidocanol, bleomycin, ethanol</td><td>Endothelial destruction → thrombosis → fibrosis</td><td>Permanent (ethanol); semi-permanent (STS, polidocanol); delayed (bleomycin)</td></tr>
+    </table></div>
+    <h4>Agent-by-Agent Detail</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Key Properties</th><th>Primary Uses</th><th>Risks/Limitations</th></tr>
+      <tr><td><strong>Coils</strong> (pushable & detachable; fibered & bare)</td><td>Mechanical occlusion; sized to vessel (oversized by 20–30%); fibered coils promote thrombosis; detachable (IDC) allow repositioning before release</td><td>GI bleeding (sandwich technique); pseudoaneurysm; trauma (selective); renal AV fistula; pre-operative devascularisation; GDA/right gastric coiling before TARE</td><td>Do not use for small-vessel/capillary level occlusion; re-bleeding via collaterals if used alone without distal occlusion; migration if undersized</td></tr>
+      <tr><td><strong>Vascular plug (Amplatzer)</strong></td><td>Self-expanding nitinol mesh; rapid large-vessel occlusion; sizes 4–22 mm</td><td>Large vessel occlusion (IIA, splenic artery, pulmonary AVM feeding artery); portosystemic shunt closure</td><td>Requires 4–8Fr guide catheter; not for small vessels; expensive; cannot recanalise</td></tr>
+      <tr><td><strong>Gelatin sponge (Gelfoam)</strong></td><td>Temporary; recanalises in 2–6 weeks; biodegradable; cheap; available in torpedoes (for catheter delivery), pledgets (hand-cut), or slurry (mixed with contrast)</td><td>PPH (preserves fertility); pelvic trauma (preserves IIA flow); pre-operative tumour devascularisation; adjunct to coils in GI bleeding</td><td>Unpredictable particle size if hand-cut; non-target embolisation with slurry; recanalisation means re-bleeding possible; cannot confirm complete occlusion like coils</td></tr>
+      <tr><td><strong>PVA particles</strong></td><td>Permanent; irregular shape; tend to aggregate (act larger than labelled size); available 100–1000 µm</td><td>UAE (fibroids — 500–700 µm); tumour embolisation; AVM (flow reduction — NOT curative)</td><td>Aggregation makes size unpredictable; can cause catheter blockage; largely replaced by calibrated microspheres for many indications</td></tr>
+      <tr><td><strong>Calibrated microspheres</strong> (Embosphere, BeadBlock, HepaSphere)</td><td>Permanent; spherical; precise size; predictable penetration depth; available 40–1200 µm; tris-acryl (Embosphere) or PVA-based (BeadBlock)</td><td>UAE (500–700 µm); TACE (100–300 µm loaded with doxorubicin = DEB-TACE); PAE (100–300 µm); tumour embolisation</td><td>More expensive than PVA; catheter blockage if not kept in suspension; size selection critical to avoid non-target</td></tr>
+      <tr><td><strong>NBCA (N-butyl cyanoacrylate / "glue")</strong></td><td>Liquid adhesive; polymerises on contact with ionic media (blood); mixed with Lipiodol to control polymerisation speed (more Lipiodol = slower); permanent</td><td>AVM nidus obliteration; GI bleeding (coagulopathic patients — works independent of clotting); pseudoaneurysm; bronchial artery embolisation; type II endoleak</td><td>Non-target embolisation if polymerises too slowly; catheter glued in place if polymerises too fast; technique-dependent (experienced operators only); radiopaque with Lipiodol mix</td></tr>
+      <tr><td><strong>Onyx (EVOH — ethylene vinyl alcohol copolymer)</strong></td><td>Liquid embolic dissolved in DMSO; precipitates on contact with blood (DMSO diffuses away); lava-like flow; non-adhesive (won't glue catheter); controllable injection</td><td>AVM embolisation (cerebral and peripheral); endoleak treatment; tumour devascularisation</td><td>DMSO causes intense vasospasm and pain (GA usually required); expensive; angionecrosis risk; radiopaque (tantalum powder); long fluoroscopy times; must use DMSO-compatible microcatheters</td></tr>
+      <tr><td><strong>Ethanol (absolute / dehydrated)</strong></td><td>Most potent sclerosant; destroys endothelium permanently; diffuses through nidus; cheapest embolic agent; permanent</td><td>AVM nidus obliteration (most effective agent); venous malformation sclerotherapy; renal ablation (historical); thyroid/parathyroid ablation</td><td>Most toxic — tissue necrosis, nerve injury, skin ulceration; systemic: cardiac depression, pulmonary hypertension, hypoglycaemia; limit to 0.5–1 mL/kg per session; GA recommended; requires experienced operator</td></tr>
+    </table></div>
+    <h4>Selection Framework</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Clinical Question</th><th>Temporary</th><th>Permanent Mechanical</th><th>Permanent Particulate</th><th>Permanent Liquid</th></tr>
+      <tr><td>Need to preserve future vessel patency?</td><td><strong>Gelfoam</strong></td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Large named vessel occlusion?</td><td>—</td><td><strong>Coils, plug</strong></td><td>—</td><td>—</td></tr>
+      <tr><td>Tumour devascularisation / embolisation?</td><td>Gelfoam (pre-op)</td><td>—</td><td><strong>Microspheres, DEB</strong></td><td>—</td></tr>
+      <tr><td>AVM nidus obliteration?</td><td>—</td><td>—</td><td>—</td><td><strong>Ethanol, NBCA, Onyx</strong></td></tr>
+      <tr><td>Coagulopathic patient bleeding?</td><td>Gelfoam (mechanical)</td><td>Coils (mechanical)</td><td>—</td><td><strong>NBCA</strong> (clotting-independent)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Post-Procedure Care & Complications Framework</div>
+  <div class="card-body">
+    <h4>Post-Procedure Monitoring — Access Site</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Access</th><th>Post-Procedure Care</th><th>Complications to Watch For</th></tr>
+      <tr><td><strong>Femoral artery</strong></td><td>Manual compression ≥15 min (20 min if anticoagulated); bed rest 4–6h (2h if closure device used); check distal pulses q15 min ×4, then q30 min ×4; monitor puncture site for haematoma</td><td>Haematoma (&lt;5%); pseudoaneurysm (~1% — USS-guided thrombin injection); AV fistula (&lt;1% — USS diagnosis, may close spontaneously or need covered stent); retroperitoneal haemorrhage (high puncture)</td></tr>
+      <tr><td><strong>Radial artery</strong></td><td>Compression band (TR Band) for 2–3h; gradual deflation; check hand perfusion (SpO₂ on thumb); early ambulation (no bed rest needed)</td><td>Radial artery occlusion (~5% — usually asymptomatic due to dual supply; ulnar dominance); haematoma (rare); compartment syndrome (extremely rare)</td></tr>
+      <tr><td><strong>Venous (IJV, femoral vein)</strong></td><td>Manual compression 5–10 min; bed rest 1–2h; shorter for small sheaths (≤7Fr)</td><td>Haematoma; pneumothorax (IJV — CXR if symptomatic); air embolism (prevention: Trendelenburg, patient Valsalva during sheath removal)</td></tr>
+    </table></div>
+    <h4>SIR Adverse Event Classification</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Class</th><th>Definition</th><th>Examples</th></tr>
+      <tr><td><strong>A — No therapy, no consequence</strong></td><td>Complication requires no treatment and has no clinical consequence</td><td>Small asymptomatic pneumothorax; minor puncture site bruising</td></tr>
+      <tr><td><strong>B — Nominal therapy, overnight observation</strong></td><td>Requires minor treatment; includes overnight observation for monitoring only</td><td>Small pneumothorax requiring observation; minor haematoma with pressure; urticaria treated with antihistamine</td></tr>
+      <tr><td><strong>C — Requires therapy, minor hospitalisation (&lt;48h)</strong></td><td>Requires treatment; hospitalisation &lt;48h</td><td>Pneumothorax requiring chest drain; pseudoaneurysm requiring thrombin injection; moderate contrast reaction requiring IM adrenaline and observation</td></tr>
+      <tr><td><strong>D — Requires major therapy, prolonged hospitalisation (&gt;48h)</strong></td><td>Significant treatment; extended hospitalisation; escalation of care</td><td>Non-target embolisation requiring additional intervention; abscess requiring drainage; organ injury requiring surgery; ICU admission</td></tr>
+      <tr><td><strong>E — Permanent adverse sequelae</strong></td><td>Lasting disability or permanent consequence</td><td>Non-target embolisation causing permanent organ damage; spinal cord ischaemia after bronchial artery embolisation; permanent renal failure</td></tr>
+      <tr><td><strong>F — Death</strong></td><td>Death as a result of the procedure</td><td>Procedure-related death within 30 days</td></tr>
+    </table></div>
+    <h4>Post-Embolisation Syndrome (PES)</h4>
+    <ul>
+      <li><strong>Definition:</strong> pain + fever + nausea/vomiting + malaise occurring 1–3 days after embolisation; caused by tissue ischaemia and inflammatory response to necrotic tissue</li>
+      <li><strong>Common after:</strong> UAE (~30–50%), TACE (~60–80%), splenic embolisation (~30%), renal embolisation</li>
+      <li><strong>Treatment:</strong> NSAIDs (ketorolac 30 mg IV q6h; or ibuprofen 400 mg PO q8h), paracetamol, antiemetics (ondansetron), IV fluids; opioids for breakthrough pain; expected and self-limiting (2–5 days)</li>
+      <li><strong>When to worry:</strong> fever &gt;38.5°C beyond day 5, rising inflammatory markers, new localised pain → suspect abscess or unintended infarction → CT with contrast</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Antibiotics in IR — Prophylaxis Guidelines</div>
+  <div class="card-body">
+    <p>Antibiotic prophylaxis in IR is procedure-specific. Over-prescribing contributes to resistance; under-prescribing risks procedural infection. Based on SIR/CIRSE guidelines and local Australian antibiotic stewardship principles.</p>
+    <h4>When to Give Prophylactic Antibiotics</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Procedure</th><th>Prophylaxis</th><th>Recommended Agent</th></tr>
+      <tr><td><strong>TACE / DEB-TACE</strong></td><td><strong>Yes</strong> — biliary-enteric anastomosis or prior sphincterotomy (colonised biliary tree); <strong>No</strong> — intact sphincter (routine prophylaxis not recommended by most guidelines)</td><td>Piperacillin-tazobactam 4.5g IV; or ceftriaxone 2g + metronidazole 500mg IV</td></tr>
+      <tr><td><strong>Biliary procedures (PTBD, biliary stent, drain exchange)</strong></td><td><strong>Yes</strong> — always (contaminated/colonised system)</td><td>Piperacillin-tazobactam 4.5g IV pre-procedure; or ceftriaxone 2g + metronidazole 500mg; continue 3–5 days if cholangitis</td></tr>
+      <tr><td><strong>Abscess drainage</strong></td><td><strong>Yes</strong> (therapeutic — already infected); ensure cultures sent from aspirate</td><td>Empiric broad-spectrum pending culture: piperacillin-tazobactam or meropenem if hospital-acquired; tailor to culture results</td></tr>
+      <tr><td><strong>Gastrostomy / GJ tube insertion</strong></td><td><strong>Yes</strong></td><td>Cefazolin 2g IV; or amoxicillin-clavulanate 1.2g IV</td></tr>
+      <tr><td><strong>Tunnelled central line / port</strong></td><td><strong>No</strong> (routine prophylaxis not recommended); strict aseptic technique is sufficient</td><td>—</td></tr>
+      <tr><td><strong>Embolisation (UAE, PAE, tumour, trauma)</strong></td><td><strong>No</strong> (routine prophylaxis not recommended for most embolisation)</td><td>Exception: splenic embolisation in immunocompromised → single dose cefazolin</td></tr>
+      <tr><td><strong>Biopsy (liver, lung, kidney)</strong></td><td><strong>No</strong></td><td>—</td></tr>
+      <tr><td><strong>Nephrostomy (new tract)</strong></td><td><strong>Yes</strong> (especially if infected/obstructed system)</td><td>Gentamicin 5 mg/kg IV + amoxicillin 2g IV; or ceftriaxone 2g IV</td></tr>
+      <tr><td><strong>Implant/graft-related (stent-graft, TIPS)</strong></td><td><strong>Yes</strong> (foreign body implantation)</td><td>Cefazolin 2g IV pre-procedure</td></tr>
+    </table></div>
+    <div class="tip">Timing: give IV antibiotics 30–60 minutes before skin puncture (allows tissue levels to peak). Re-dose if procedure exceeds 2× the antibiotic half-life (e.g. re-dose cefazolin at 4h). Always send cultures from drained collections before starting empiric antibiotics — they guide targeted therapy.</div>
+  </div>
+</div>
+`;
+
+
 PAGES['a-core-procedures'] = `
 <h2 class="page-title">Core Emergency Procedures</h2>
 <div class="page-meta"><span class="tag tag-section">Section A</span><span class="tag tag-freq-high">Frequently Tested</span></div>
@@ -3621,6 +3936,142 @@ PAGES['cls-issva'] = `
 `;
 
 
+
+PAGES['a-embolics'] = `
+<h2 class="page-title">Embolic & Sclerotherapy Agents</h2>
+<div class="page-meta"><span class="tag tag-section">Section A · Fundamentals</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Particulate Embolic Agents</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>MOA</th><th>Size Range</th><th>Indications</th><th>Key Points</th></tr>
+      <tr><td><strong>PVA particles (Contour)</strong></td><td>Irregular non-spherical particles; mechanical occlusion of arterioles; aggregation and clumping causes proximal occlusion</td><td>100–1000 µm (selected by indication)</td><td>UFE (500–700 µm), tumour embolisation, trauma, pre-op devascularisation</td><td>Tend to clump and aggregate → may occlude more proximally than intended; irregular shape; can clog microcatheters; well-established track record</td></tr>
+      <tr><td><strong>Embospheres / Microspheres (trisacryl gelatin)</strong></td><td>Calibrated spherical particles; predictable distal penetration to arteriolar level matching particle size; biocompatible, non-resorbable</td><td>40–1200 µm</td><td>UFE (500–700 µm), HCC (TACE), renal embolisation, hypervascular tumour</td><td>Calibrated = more predictable embolisation depth than PVA; do not clump; less catheter clogging; more expensive than PVA</td></tr>
+      <tr><td><strong>Drug-eluting beads (DC Bead, LUMI, Tandem)</strong></td><td>Biocompatible microspheres loaded with chemotherapy (doxorubicin or irinotecan); sustained local drug release + arterial occlusion</td><td>70–700 µm (selected per tumour size)</td><td>DEB-TACE for HCC and liver metastases (colorectal — DEBIRI); loaded with doxorubicin 75–150 mg per procedure</td><td>Standardised drug delivery vs cTACE; reduced systemic toxicity (peak doxorubicin 5× lower); PRECISION V trial: less toxicity, comparable tumour response to cTACE</td></tr>
+    </table></div>
+    <div class="tip">Particle size selection is critical: smaller particles (100–300 µm) penetrate more distally causing deeper tissue necrosis — useful for tumour kill but higher risk of non-target embolisation and ischaemic complications. Larger particles (500–900 µm) occlude more proximally — safer but less complete devascularisation.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Liquid Embolic Agents</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>MOA</th><th>Preparation</th><th>Indications</th><th>Complications</th></tr>
+      <tr><td><strong>NBCA (Histoacryl / Trufill)</strong></td><td>Cyanoacrylate adhesive; polymerises instantly on contact with ionic media (blood); permanent occlusion; exothermic reaction</td><td>Mixed with Lipiodol to slow polymerisation and provide radiopacity; ratio determines set time (1:1 = fast, 1:5 = slow); flush catheter with D5W before and after</td><td>GI bleeding (acute — especially gastric varices, GAVE); AVM embolisation; pseudoaneurysm; Type II endoleak; bronchial artery embolisation</td><td>Catheter entrapment (glued in place — must retract quickly after injection); non-target embolisation if polymerisation too slow; inflammatory response; cannot be re-injected through same catheter</td></tr>
+      <tr><td><strong>EVOH — Onyx / Squid</strong></td><td>Ethylene vinyl alcohol copolymer dissolved in DMSO; precipitates as cohesive lava-like cast on contact with blood (DMSO diffuses away); non-adhesive; permanent</td><td>Ready-mixed; shake on vortex mixer for 20 min; flush catheter with DMSO before injection; slow controlled injection under fluoroscopy</td><td>AVM (peripheral and intracranial); Type II endoleak; tumour embolisation; visceral aneurysm</td><td>DMSO toxicity (vasospasm, angiotoxicity — inject slowly, max 0.25 mL/s); catheter gluing risk (though less than NBCA); radiopaque (tantalum powder) — artefact on CT; skin tattooing in superficial lesions</td></tr>
+      <tr><td><strong>Absolute ethanol</strong></td><td>Denatures endothelial proteins → permanent vessel obliteration and tissue necrosis; causes thrombosis and sclerosis; most potent liquid embolic</td><td>Dehydrated 98–100% ethanol; injected directly via catheter or direct puncture needle</td><td>AVM sclerotherapy (gold standard); renal ablation (non-functioning kidney); venous malformation sclerotherapy; tumour ablation (small HCC — PEI)</td><td>Severe pain (requires GA); pulmonary HTN (monitor PAP — max 0.5–1 mL/kg/session); skin necrosis; nerve injury; cardiovascular collapse; non-target tissue destruction</td></tr>
+    </table></div>
+    <div class="warn">NBCA preparation: the catheter dead space must be filled with non-ionic solution (D5W) before and after injection — any contact with blood or saline causes instant polymerisation. Retract catheter immediately after injection to prevent permanent entrapment.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Temporary / Resorbable Agents</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>MOA</th><th>Duration</th><th>Indications</th><th>Key Points</th></tr>
+      <tr><td><strong>Gelfoam (absorbable gelatin sponge)</strong></td><td>Porous gelatin matrix provides scaffold for thrombus formation; mechanical occlusion; resorbs over 2–6 weeks allowing vessel recanalisation</td><td>2–6 weeks (variable)</td><td>Trauma (splenic, hepatic, pelvic); GI bleeding; post-biopsy bleeding; pre-op devascularisation; uterine artery embolisation (adjunct)</td><td>Cut into pledgets or make torpedo/slurry; inject via syringe as slurry or push pledgets through catheter with contrast; cheap and widely available; temporary = allows vessel recovery</td></tr>
+      <tr><td><strong>Gelfoam slurry</strong></td><td>Same as above but cut finely and mixed with contrast into paste via 3-way stopcock technique</td><td>~2 weeks</td><td>Rapid embolisation in acute bleeding; post-procedural "soak" after particle embolisation</td><td>Faster to prepare; less predictable particle size; more distal penetration than pledgets; risk of reflux</td></tr>
+      <tr><td><strong>Autologous blood clot</strong></td><td>Patient's own blood clotted in a syringe; injected as autologous thrombus</td><td>Hours to days</td><td>Very temporary occlusion; rarely used now — Gelfoam preferred</td><td>Historical; unpredictable resorption; largely replaced</td></tr>
+      <tr><td><strong>DSM (degradable starch microspheres — EmboCept S)</strong></td><td>Calibrated starch microspheres; degraded by serum amylase; very temporary arterial occlusion increases dwell time of co-administered chemo</td><td>~30–60 minutes</td><td>DSM-TACE (with doxorubicin for HCC); hepatic metastases; designed to increase local drug exposure without permanent arterial occlusion</td><td>Preserves hepatic arterial flow long-term; allows repeated treatments; less post-embolisation syndrome than permanent agents</td></tr>
+    </table></div>
+    <div class="tip">Gelfoam preparation: "torpedo" = pledget rolled into cylinder, pushed through catheter for proximal occlusion; "slurry" = finely cut and mixed with contrast via 3-way stopcock for more distal penetration. Torpedoes are best for proximal vessel occlusion (e.g. splenic artery post-coiling); slurry for distal bed embolisation.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Mechanical Embolic Devices</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Device</th><th>MOA</th><th>Sizes</th><th>Indications</th><th>Key Points</th></tr>
+      <tr><td><strong>Pushable coils (fibred)</strong></td><td>Platinum or stainless steel coils with thrombogenic fibres (Dacron/nylon); pushed through catheter; mechanical occlusion + thrombosis</td><td>2–20 mm diameter; various lengths</td><td>Visceral aneurysm; GI bleeding (proximal occlusion); varicocele; Type II endoleak; adjunct to liquid embolics</td><td>Precise deployment; MRI-conditional (platinum); size to vessel (first coil = vessel diameter; subsequent = packing); cheap and reliable</td></tr>
+      <tr><td><strong>Detachable coils (IDC, Concerto, Ruby)</strong></td><td>Same principle but with controlled release mechanism; can be repositioned before final detachment</td><td>2–30 mm; soft to firm packing density</td><td>Aneurysm packing (visceral, intracranial); precise placement required; critical anatomy</td><td>More expensive; allows repositioning; electrolytic or mechanical detachment; preferred when precision is critical (near vessel origins)</td></tr>
+      <tr><td><strong>Vascular plugs (Amplatzer AVP I–IV)</strong></td><td>Self-expanding nitinol mesh plug; occludes vessel by mesh + thrombosis; deployed through diagnostic catheter</td><td>4–22 mm</td><td>Large vessel occlusion — internal iliac (pre-EVAR); splenic artery; AV fistula; portal vein (for ALPPS)</td><td>Single device occludes large vessel; requires 2 min for thrombus formation; size = 30–50% oversize to vessel; recanalisation risk if undersized; needs adequate landing zone</td></tr>
+      <tr><td><strong>Microcoils (0.018" / 0.014")</strong></td><td>Miniaturised coils for microcatheter delivery; platinum</td><td>1–8 mm</td><td>Superselective embolisation via microcatheter — bronchial artery, hepatic artery branches, renal subsegmental, UFE (adjunct)</td><td>Delivered through microcatheter; useful for precise distal occlusion; often combined with particles or liquid embolics</td></tr>
+    </table></div>
+    <div class="tip">Coil sizing rule: the first ("anchor") coil should be at least the diameter of the target vessel to prevent migration. Subsequent coils are packed behind the anchor, reducing in size. Under-sizing the anchor coil is the most common cause of coil migration — which can embolise to the lungs if in the arterial system.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Sclerotherapy Agents</div>
+  <div class="card-body">
+    <p>Sclerosants are primarily used for venous and lymphatic malformations (low-flow lesions), varicose veins, and selected AVMs.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>MOA</th><th>Preparation</th><th>Indications</th><th>Complications</th></tr>
+      <tr><td><strong>Sodium tetradecyl sulfate (STS / Fibrovein)</strong></td><td>Detergent sclerosant; strips endothelial surface lipids → endothelial destruction → thrombosis and fibrosis</td><td>Liquid (0.5–3%) or foam (Tessari method: mixed 1:4 with air/CO₂ via 3-way stopcock); foam increases surface contact and potency</td><td>Venous malformations; varicose veins; varicocele; venous lakes; small AVMs (adjunct)</td><td>Skin necrosis (extravasation); hyperpigmentation; DVT/PE (if large volume or foam enters deep system); transient visual disturbance with foam (patent foramen ovale); allergic reaction (rare)</td></tr>
+      <tr><td><strong>Polidocanol (Aethoxysklerol)</strong></td><td>Detergent sclerosant; similar MOA to STS; also has local anaesthetic properties — less painful on injection</td><td>Liquid (0.5–3%) or foam (same Tessari technique); max foam volume ~10 mL per session</td><td>Same as STS; preferred in some centres for venous malformations due to less pain; varicose veins (Varithena = FDA-approved polidocanol foam)</td><td>Similar to STS but lower pain; lower allergy risk; same DVT/PE risk with foam</td></tr>
+      <tr><td><strong>Bleomycin</strong></td><td>Cytotoxic antibiotic; causes DNA strand breaks in endothelial cells → fibrosis and sclerosis; slow-onset effect over weeks</td><td>Reconstitute with saline; typically 0.5–1 mg/mL; inject directly into lesion; max 15 mg/session, cumulative lifetime max ~400 mg (some say 240 mg)</td><td>Venous malformations (especially large, deep); lymphatic malformations (macrocystic — first-line in many centres); slow-flow vascular malformations</td><td>Pulmonary fibrosis (dose-dependent — track cumulative dose); flagellate hyperpigmentation; mucositis; fever; requires serial chest imaging if approaching dose limits</td></tr>
+      <tr><td><strong>Doxycycline</strong></td><td>Sclerosant via inflammatory response; particularly effective for lymphatic malformations</td><td>20 mg/mL solution; inject and aspirate after dwell time</td><td>Macrocystic lymphatic malformations (first-line in paediatrics in some centres); pleural/peritoneal sclerosis</td><td>Pain; metabolic acidosis in children (high volume); fever; tooth discolouration in children (systemic absorption)</td></tr>
+      <tr><td><strong>OK-432 (Picibanil)</strong></td><td>Lyophilised Group A Streptococcus preparation; induces local inflammation → drainage and sclerosis of cystic spaces</td><td>0.01–0.02 mg reconstituted; inject into cyst after aspiration</td><td>Macrocystic lymphatic malformations (first-line in Japan/Asia; effective in macrocystic > microcystic)</td><td>Fever (common); local inflammation; cellulitis-like reaction; rarely available in Australia</td></tr>
+    </table></div>
+    <div class="tip">Foam sclerotherapy (Tessari method): mix sclerosant with air or CO₂ in a 1:4 ratio via two syringes and a 3-way stopcock (20 rapid pumps). Foam displaces blood from the vein lumen, increasing sclerosant-endothelial contact. CO₂ is absorbed faster than air, reducing risk of gas embolism. Max foam volume ~10 mL per session to minimise PE/neurological risk.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Lipiodol (Ethiodised Oil)</div>
+  <div class="card-body">
+    <p>Lipiodol is an iodinated poppy seed oil used extensively in IR — it is both a carrier vehicle and a therapeutic agent.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Role</th><th>Application</th><th>Mechanism</th></tr>
+      <tr><td><strong>Drug carrier (cTACE)</strong></td><td>Mixed with doxorubicin as an emulsion for conventional TACE; injected intra-arterially to HCC</td><td>Preferentially retained by HCC (lacks Kupffer cells that clear it from normal hepatocytes); provides sustained local drug release + transient arterial occlusion</td></tr>
+      <tr><td><strong>Radiopaque marker</strong></td><td>Mixed with NBCA to provide fluoroscopic visibility during glue injection</td><td>Dilutes NBCA (slows polymerisation) and makes it radiopaque; ratio determines set time</td></tr>
+      <tr><td><strong>CT marker</strong></td><td>Post-cTACE CT (non-contrast) shows Lipiodol retention in tumour</td><td>Dense Lipiodol uptake = good drug delivery; washout/defects = viable residual tumour</td></tr>
+      <tr><td><strong>Lymphangiography agent</strong></td><td>Pedal or inguinal lymphangiography for chylothorax; identifies thoracic duct leak</td><td>Opacifies lymphatic channels; therapeutic — may seal small thoracic duct leaks</td></tr>
+    </table></div>
+    <div class="tip">cTACE Lipiodol-doxorubicin emulsion preparation: typically 50 mg doxorubicin dissolved in 10 mL contrast, then mixed with 10 mL Lipiodol via repeated syringe pumping to create a water-in-oil emulsion. The emulsion must be freshly prepared and injected promptly as it is unstable and separates.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Radioembolisation (Y-90 Microspheres)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Feature</th><th>Glass (TheraSphere)</th><th>Resin (SIR-Spheres)</th></tr>
+      <tr><td>Microsphere size</td><td>20–30 µm</td><td>20–60 µm (wider range)</td></tr>
+      <tr><td>Activity per sphere</td><td>~2,500 Bq (high specific activity)</td><td>~50 Bq (low specific activity)</td></tr>
+      <tr><td>Number of spheres per treatment</td><td>~1–8 million (fewer spheres, more radioactive each)</td><td>~40–80 million (many more spheres needed)</td></tr>
+      <tr><td>Embolic effect</td><td>Minimal (few spheres → negligible arterial occlusion)</td><td>Significant (many spheres → embolic effect + radiation)</td></tr>
+      <tr><td>Indication emphasis</td><td>HCC (including PV invasion — safe due to minimal embolic effect); radiation segmentectomy/lobectomy</td><td>Colorectal liver metastases (SIRFLOX, FOXFIRE data); also HCC</td></tr>
+    </table></div>
+    <h4>Pre-Treatment Workup</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Purpose</th></tr>
+      <tr><td>Mapping angiogram</td><td>Identify hepatic arterial anatomy; coil/plug extrahepatic branches (GDA, right gastric, cystic) to prevent non-target embolisation</td></tr>
+      <tr><td>Tc-99m MAA scan</td><td>Inject MAA via hepatic artery catheter → scintigraphy; quantify lung shunt fraction (LSF); identify GI shunting. LSF &gt;20% = relative CI (radiation pneumonitis risk)</td></tr>
+      <tr><td>Dose calculation</td><td>Glass: based on target liver volume and desired dose (120 Gy typical); Resin: BSA method or partition model</td></tr>
+      <tr><td>FLR assessment</td><td>If radiation lobectomy planned (intentional contralateral hypertrophy), assess FLR volume pre-treatment</td></tr>
+    </table></div>
+    <div class="warn">Lung shunt fraction (LSF) &gt;20% on MAA scan is a relative contraindication to Y-90 — cumulative lung dose &gt;30 Gy causes radiation pneumonitis. Dose reduce or abort if LSF is unacceptable. GI shunting visualised on MAA → must coil the responsible artery before treatment or abort.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Agent Selection by Clinical Scenario</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Clinical Scenario</th><th>First-Line Agent</th><th>Alternative</th><th>Rationale</th></tr>
+      <tr><td>Acute GI bleeding</td><td>Microcoils ± Gelfoam</td><td>NBCA (if very distal / no coil target)</td><td>Precise, permanent occlusion at bleeding point; Gelfoam for wider bed</td></tr>
+      <tr><td>Trauma — solid organ (spleen, liver)</td><td>Gelfoam ± coils</td><td>Coils alone for focal injury</td><td>Temporary occlusion preserves organ function; coils for focal pseudoaneurysm</td></tr>
+      <tr><td>UFE (fibroids)</td><td>Calibrated microspheres (500–700 µm) or PVA</td><td>Gelfoam pledgets as "cap" after particles</td><td>Calibrated particles for predictable penetration to fibroid bed</td></tr>
+      <tr><td>HCC (BCLC B)</td><td>cTACE (Lipiodol-doxorubicin) or DEB-TACE</td><td>Bland embolisation; Y-90</td><td>Chemo + ischaemia; DEB-TACE for standardised delivery</td></tr>
+      <tr><td>Visceral artery aneurysm</td><td>Coils (packing) ± vascular plug</td><td>Covered stent (if parent vessel preservation needed)</td><td>Coil packing of sac; plug for landing zone</td></tr>
+      <tr><td>AVM (peripheral)</td><td>Ethanol (Yakes II–IV) or EVOH</td><td>NBCA; direct-puncture sclerotherapy</td><td>Nidus destruction required; ethanol most curative</td></tr>
+      <tr><td>Venous malformation</td><td>STS or polidocanol foam</td><td>Bleomycin; ethanol (small deep lesions)</td><td>Sclerosant for low-flow lesion; foam maximises contact</td></tr>
+      <tr><td>Lymphatic malformation (macrocystic)</td><td>Bleomycin or doxycycline</td><td>OK-432; STS</td><td>Aspirate → inject sclerosant → dwell time</td></tr>
+      <tr><td>Varicocele / gonadal vein</td><td>Coils ± STS foam</td><td>NBCA; vascular plug</td><td>Coils for mechanical occlusion + sclerosant to obliterate collaterals</td></tr>
+      <tr><td>Bronchial artery embolisation (haemoptysis)</td><td>PVA 300–500 µm or microspheres</td><td>Microcoils (focal pseudoaneurysm)</td><td>Particles for distal bed; avoid Gelfoam alone (recurrence); NEVER use NBCA near spinal branches</td></tr>
+      <tr><td>Pre-operative tumour devascularisation</td><td>PVA or microspheres ± Gelfoam</td><td>Coils for large feeders</td><td>Reduce intraoperative blood loss; 24–72h before surgery</td></tr>
+    </table></div>
+    <div class="warn">Always check for dangerous anastomoses before embolising: spinal arteries (bronchial, intercostal, lumbar procedures), ophthalmic artery (ECA embolisation), and uterine-ovarian collaterals (UFE). Unintentional embolisation through these can cause paraplegia, blindness, or ovarian failure.</div>
+  </div>
+</div>
+`;
+
+
 PAGES['dm-hcc'] = `
 <h2 class="page-title">HCC — Full Management Pathway</h2>
 <div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
@@ -3670,6 +4121,74 @@ PAGES['dm-hcc'] = `
       <tr><td>Ablation (RFA/MWA)</td><td>BCLC 0–A, ≤3 cm, surgical high-risk or patient preference</td><td>Distance from bile duct/vessels (heat-sink); MWA superior for tumours &gt;3 cm and near vessels</td></tr>
     </table></div>
     <div class="tip">For BCLC A patients who are resection candidates: HVPG &gt;10 mmHg or platelet &lt;100,000 = clinically significant portal hypertension → resection higher risk of decompensation → ablation or transplant preferred.</div>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> TACE & Variants — Technique, Selection & Evidence</div>
+  <div class="card-body">
+    <p>Transarterial chemoembolisation (TACE) is the standard of care for BCLC B (intermediate) HCC — exploiting the dual hepatic blood supply (HCC fed predominantly by hepatic artery; normal parenchyma by portal vein).</p>
+    <h4>TACE Variants</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Variant</th><th>Technique</th><th>Advantages</th><th>Limitations</th></tr>
+      <tr><td><strong>cTACE (conventional)</strong></td><td>Lipiodol-doxorubicin emulsion (50 mg dox + 10 mL Lipiodol) injected selectively via hepatic artery → followed by particle embolisation (Gelfoam or PVA) to stasis</td><td>Most studied; strong survival benefit over BSC (Llovet 2002, Lo 2002 RCTs); Lipiodol retention on CT indicates drug delivery; widely available; inexpensive</td><td>Operator-dependent emulsion preparation; variable drug delivery; systemic doxorubicin peaks cause nausea, alopecia, bone marrow suppression</td></tr>
+      <tr><td><strong>DEB-TACE</strong></td><td>Drug-eluting beads (DC Bead 100–300 µm or 300–500 µm) loaded with doxorubicin (75–150 mg); injected selectively; beads provide sustained local drug release + permanent arterial occlusion</td><td>Standardised drug delivery; 5× lower peak systemic doxorubicin (PRECISION V); more reproducible; reduced post-embolisation syndrome in some trials</td><td>More expensive; comparable (not superior) tumour response to cTACE in PRECISION V; risk of biliary injury with very small beads (&lt;100 µm); may cause more ischaemic damage</td></tr>
+      <tr><td><strong>DSM-TACE</strong></td><td>Degradable starch microspheres (EmboCept S, 50 µm) mixed with doxorubicin; temporary arterial occlusion (~45 min) increases drug dwell time; artery recanalises</td><td>Preserves hepatic arterial supply for repeat treatments; less post-embolisation syndrome; may allow more sessions; suitable for bilobar or multifocal disease</td><td>Less ischaemic tumour kill; emerging evidence — not yet standard; fewer head-to-head trials vs cTACE</td></tr>
+      <tr><td><strong>Bland embolisation (TAE)</strong></td><td>Particle embolisation without chemotherapy — microspheres or PVA only</td><td>Simpler; no drug-related toxicity; may be equivalent to TACE in some studies (still debated)</td><td>No chemotherapy component; some RCTs show no survival difference vs TACE, but meta-analyses remain inconclusive; less widely accepted as standard</td></tr>
+      <tr><td><strong>TARE (Y-90)</strong></td><td>Yttrium-90 glass or resin microspheres — see Embolic Agents page for details</td><td>Radiation-based tumour kill; can treat with PV invasion (BCLC C); radiation lobectomy for FLR hypertrophy; outpatient; low post-procedure syndrome</td><td>Expensive; requires mapping + MAA scan (2 procedures); lung shunt assessment; radiation-related hepatotoxicity (REILD); longer time to response</td></tr>
+    </table></div>
+    <h4>When to Use TACE — Patient Selection</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Good Candidate</th><th>Poor Candidate / Contraindication</th></tr>
+      <tr><td>BCLC B: multinodular HCC, no PV invasion, no EHD</td><td>Main portal vein thrombosis (complete) — relative CI for cTACE (consider TARE)</td></tr>
+      <tr><td>Child-Pugh A (ideal) or early B (B7)</td><td>Child-Pugh C or decompensated cirrhosis — hepatic reserve insufficient</td></tr>
+      <tr><td>ECOG PS 0–1</td><td>ECOG PS ≥2</td></tr>
+      <tr><td>Bridging to transplant (within Milan, wait &gt;6 months)</td><td>Extensive bilobar disease with compromised portal flow</td></tr>
+      <tr><td>Downstaging (beyond Milan, to achieve within Milan)</td><td>Biliary obstruction or bilioenteric anastomosis (high abscess risk)</td></tr>
+      <tr><td>ALBI grade 1 (best outcomes)</td><td>Renal impairment (contrast + chemo nephrotoxicity)</td></tr>
+    </table></div>
+    <h4>Procedural Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Arterial access</td><td>CFA → coeliac axis → common hepatic → proper hepatic artery</td></tr>
+      <tr><td>Angiographic mapping</td><td>Identify tumour-feeding branches; confirm hepatic arterial anatomy (variants in ~40% — see Anatomy: Hepatic Variants); identify portal vein patency</td></tr>
+      <tr><td>Selective catheterisation</td><td>Microcatheter into tumour-feeding segmental/subsegmental branch; superselective = less non-target liver damage</td></tr>
+      <tr><td>Embolisation</td><td>cTACE: inject Lipiodol-dox emulsion until tumour sinusoids saturated → follow with particles to stasis. DEB-TACE: inject loaded beads slowly under fluoroscopy to near-stasis endpoint</td></tr>
+      <tr><td>Endpoint</td><td>Near-stasis or stasis in tumour feeders; avoid reflux into non-target vessels (GDA, cystic, right gastric)</td></tr>
+      <tr><td>Post-procedure</td><td>IV fluids, antiemetics, PCA analgesia; observe 4–24h; CT at 4–6 weeks for response (mRECIST)</td></tr>
+    </table></div>
+    <div class="tip">Superselective TACE (feeding branch level) achieves higher tumour response and lower liver toxicity than lobar TACE. Use cone-beam CT (DynaCT) during the procedure to identify feeding arteries and confirm microcatheter position within the tumour territory.</div>
+    <div class="warn">Post-embolisation syndrome (pain, fever, nausea, elevated LFTs) occurs in 60–80% after TACE — it is expected and self-limiting (2–7 days). True liver abscess is rare (&lt;2%) but risk increases significantly in patients with bilioenteric anastomosis (Whipple, hepaticojejunostomy) — consider antibiotic prophylaxis or avoid TACE in these patients.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> TACE Retreatment & the ART Score</div>
+  <div class="card-body">
+    <p>TACE is typically repeated on an "on-demand" basis based on imaging response (mRECIST) and liver function — not on a fixed schedule.</p>
+    <h4>ART Score (Assessment for Retreatment with TACE)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Variable</th><th>Points</th></tr>
+      <tr><td>AST increase &gt;25% from baseline (post-TACE)</td><td>+4</td></tr>
+      <tr><td>Child-Pugh increase ≥1 point (post-TACE)</td><td>+1.5</td></tr>
+      <tr><td>Absence of radiological tumour response (mRECIST: SD or PD)</td><td>+1</td></tr>
+    </table></div>
+    <div class="table-scroll"><table>
+      <tr><th>ART Score</th><th>Recommendation</th><th>Median Survival</th></tr>
+      <tr><td>&lt;2.5</td><td>Repeat TACE — benefit expected</td><td>~22 months from second TACE</td></tr>
+      <tr><td>≥2.5</td><td>Stop TACE — consider alternative (TARE, systemic, BSC)</td><td>~7 months from second TACE</td></tr>
+    </table></div>
+    <h4>When to Stop TACE (TACE Refractoriness/Failure)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Criterion</th><th>Action</th></tr>
+      <tr><td>Progressive disease on mRECIST after 2 consecutive TACE sessions</td><td>Switch to TARE or systemic therapy</td></tr>
+      <tr><td>Deterioration to Child-Pugh C</td><td>Best supportive care; TACE will accelerate liver failure</td></tr>
+      <tr><td>Development of PV invasion or extrahepatic disease</td><td>Upstage to BCLC C → systemic (Atezo-Bev) ± TARE</td></tr>
+      <tr><td>ECOG PS deterioration to ≥2</td><td>Best supportive care</td></tr>
+      <tr><td>ART score ≥2.5</td><td>No survival benefit from repeat TACE</td></tr>
+    </table></div>
+    <div class="tip">The concept of "TACE refractoriness" is critical — continuing TACE in a patient who is not responding (or whose liver function is declining) causes harm without benefit. Timely transition to systemic therapy (Atezo-Bev first-line) or TARE is essential. MDT review after every TACE session.</div>
   </div>
 </div>
 
@@ -4806,13 +5325,15 @@ PAGES['dm-vte'] = `
       <tr><td><strong>Iliofemoral DVT</strong></td><td>Iliac ± common femoral vein involvement</td><td>Highest risk of post-thrombotic syndrome (PTS ~50%); phlegmasia; strongest indication for IR intervention</td></tr>
       <tr><td><strong>Phlegmasia cerulea dolens</strong></td><td>Complete iliofemoral venous outflow obstruction</td><td>Limb-threatening emergency; massive oedema, cyanosis, compartment syndrome risk; urgent CDT/thrombectomy</td></tr>
     </table></div>
-    <h4>PE Severity Classification (ESC/AHA)</h4>
+    <h4>PE Severity Classification — 2026 AHA/ACC Categories (A–E)</h4>
     <div class="table-scroll"><table>
-      <tr><th>Category</th><th>Haemodynamics</th><th>RV Dysfunction</th><th>Troponin</th><th>IR Role</th></tr>
-      <tr><td><strong>Massive (high-risk)</strong></td><td>SBP &lt;90 or requiring vasopressors</td><td>Yes</td><td>Often elevated</td><td><strong>Primary indication for CDT or mechanical thrombectomy</strong> if systemic thrombolysis contraindicated or failed</td></tr>
-      <tr><td><strong>Submassive (intermediate-high)</strong></td><td>Stable (SBP ≥90)</td><td>Yes (RV/LV &gt;0.9 on CT)</td><td>Elevated</td><td><strong>CDT or mechanical thrombectomy considered</strong> — PERT team decision; lower dose thrombolysis reduces bleeding risk vs systemic</td></tr>
-      <tr><td><strong>Submassive (intermediate-low)</strong></td><td>Stable</td><td>RV dysfunction OR troponin (not both)</td><td>One marker only</td><td>Anticoagulation alone; IVC filter if contraindication to anticoagulation</td></tr>
-      <tr><td><strong>Low-risk</strong></td><td>Stable</td><td>No</td><td>Normal</td><td>Anticoagulation ± outpatient management; no IR role</td></tr>
+      <tr><th>Category</th><th>Haemodynamics</th><th>RV / Biomarkers</th><th>IR Role</th></tr>
+      <tr><td><strong>A — Subclinical</strong></td><td>Asymptomatic (incidental)</td><td>N/A</td><td>Anticoagulation alone; no IR role</td></tr>
+      <tr><td><strong>B — Low Severity</strong></td><td>Stable; sPESI = 0</td><td>Not required</td><td>Anticoagulation ± outpatient; no IR role</td></tr>
+      <tr><td><strong>C1–C2</strong></td><td>Stable; sPESI ≥1</td><td>C1: both normal; C2: one abnormal</td><td>Anticoagulation alone; thrombolysis harmful; monitor</td></tr>
+      <tr><td><strong>C3</strong></td><td>Stable; sPESI ≥1</td><td>RV dysfunction AND elevated troponin/BNP</td><td><strong>CDT or mechanical thrombectomy may be considered</strong> (Class 2B) — PERT assessment recommended</td></tr>
+      <tr><td><strong>D — Incipient Failure</strong></td><td>Transient hypotension (D1) or normotensive shock (D2)</td><td>Typically both abnormal</td><td><strong>CDT, MT, or systemic lysis may be considered</strong> (Class 2B) — key candidate group for IR catheter-based intervention</td></tr>
+      <tr><td><strong>E — Cardiopulmonary Failure</strong></td><td>Persistent hypotension / cardiogenic shock (E1) or cardiac arrest (E2)</td><td>Yes</td><td><strong>Primary indication — CDT, MT, systemic lysis, or surgical embolectomy recommended</strong> (Class 2A); ECMO bridge for E2</td></tr>
     </table></div>
   </div>
 </div>
@@ -4839,7 +5360,7 @@ PAGES['dm-vte'] = `
       <tr><td>Monitoring</td><td>ICU: fibrinogen q6h (hold if &lt;150 mg/dL); aPTT; haemoglobin; clinical status; heparin via sheath at subtherapeutic dose</td></tr>
       <tr><td>Completion</td><td>Repeat PA angiography; measure PA pressures (expect ≥25% reduction); remove catheters; transition to therapeutic anticoagulation</td></tr>
     </table></div>
-    <div class="tip">PERT (Pulmonary Embolism Response Team): multidisciplinary team (IR, cardiology, ICU, haematology, cardiac surgery) for real-time decision-making in massive/submassive PE. Increasingly standard at major centres. IR should be a core PERT member.</div>
+    <div class="tip">PERT (Pulmonary Embolism Response Team) now has a <strong>Class 1 recommendation</strong> (2026 AHA/ACC) for Category C–E PE. Multidisciplinary team (IR, cardiology, ICU, haematology, cardiac surgery) for real-time decision-making. CDT, MT, and systemic lysis are considered equipoised options — IR is a core PERT member.</div>
   </div>
 </div>
 
@@ -6303,6 +6824,154 @@ PAGES['b-malformations'] = `
 
 // ── b-trauma, b-visceral, b-obgyn, b-pae ──
 
+
+PAGES['b-avm'] = `
+<h2 class="page-title">Peripheral AVM — Workup & Management</h2>
+<div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Overview & Pathophysiology</div>
+  <div class="card-body">
+    <p>Peripheral arteriovenous malformations (AVMs) are high-flow congenital vascular lesions with direct arteriovenous shunting through a nidus, without an intervening capillary bed. They are present from birth (errors of vascular morphogenesis) but may not become clinically apparent until puberty, pregnancy, trauma, or hormonal change triggers growth.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Feature</th><th>Detail</th></tr>
+      <tr><td>Haemodynamics</td><td>High-flow lesion — arterial blood shunts directly into venous outflow via nidus; recruits feeders over time; never spontaneously regresses</td></tr>
+      <tr><td>Natural history</td><td>Progressive enlargement with tissue destruction, pain, bleeding, ulceration; can lead to high-output cardiac failure in large lesions</td></tr>
+      <tr><td>Key distinction</td><td>AVMs are high-flow (arterial waveform on Doppler) — distinguish from venous malformations (low-flow, compressible, phleboliths) and lymphatic malformations (cystic, no flow)</td></tr>
+      <tr><td>ISSVA classification</td><td>Combined vascular malformation — arteriovenous type; see <strong>ISSVA/Yakes Classification</strong> page for full classification system</td></tr>
+    </table></div>
+    <div class="warn">Proximal ligation or embolisation of feeding arteries alone (without nidus treatment) is contraindicated — it provides only transient palliation and recruits extensive collateral supply, making future definitive treatment far more difficult or impossible. The nidus is the target, not the feeders.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Schobinger Clinical Staging</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Stage</th><th>Name</th><th>Clinical Features</th><th>Management</th></tr>
+      <tr><td><strong>I</strong></td><td>Quiescence</td><td>Warm, pink skin; AV shunting on Doppler only; clinically mimics capillary malformation; asymptomatic</td><td>Observation with serial imaging; most eventually progress</td></tr>
+      <tr><td><strong>II</strong></td><td>Expansion</td><td>Pulsation, thrill, bruit; enlarging mass; tortuous, tense draining veins</td><td>Consider treatment if symptoms worsen; MDT discussion</td></tr>
+      <tr><td><strong>III</strong></td><td>Destruction</td><td>Pain, ulceration, bleeding, tissue necrosis, dystrophic skin changes, functional impairment</td><td><strong>Treatment indicated</strong> — embolisation ± surgical resection</td></tr>
+      <tr><td><strong>IV</strong></td><td>Decompensation</td><td>High-output cardiac failure (increased CO, cardiomegaly, dyspnoea)</td><td><strong>Urgent treatment required</strong> — staged embolisation to reduce shunt volume</td></tr>
+    </table></div>
+    <div class="tip">Treatment is generally recommended at Schobinger Stage III and above. Stage I/II lesions are observed with serial imaging, but almost all eventually progress — counsel patients about the natural history and ensure ongoing surveillance.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Imaging Workup</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Role</th><th>Key Findings</th></tr>
+      <tr><td><strong>Doppler ultrasound</strong></td><td>First-line screening</td><td>Arterial waveforms in venous structures; high diastolic flow in feeders; low-resistance spectral pattern; no discrete mass (distinguishes from tumour)</td></tr>
+      <tr><td><strong>MRI/MRA</strong></td><td>Preferred cross-sectional imaging</td><td>Conglomerate of flow voids on T1/T2 (high-flow); defines extent, tissue planes, relationship to nerves/joints; time-resolved MRA shows nidus and drainage; no phleboliths (cf. venous malformation)</td></tr>
+      <tr><td><strong>CT angiography</strong></td><td>Alternative / surgical planning</td><td>Comparable anatomic resolution; better bone detail if osseous involvement; less temporal resolution than time-resolved MRA</td></tr>
+      <tr><td><strong>Catheter angiography</strong></td><td>Gold standard / pre-treatment</td><td>Defines nidal architecture (Yakes type), flow dynamics, feeders, draining veins; identifies dangerous anastomoses to normal territories; essential before embolisation</td></tr>
+    </table></div>
+    <div class="tip">MRI is the imaging modality of choice for characterisation and surveillance. Catheter angiography is reserved for pre-procedural planning and treatment — it provides the temporal resolution needed to classify the nidus and plan the embolic approach.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Yakes Classification & Treatment Approach</div>
+  <div class="card-body">
+    <p>The Yakes classification directs endovascular approach by nidus architecture. See also the <strong>ISSVA/Yakes Classification</strong> page for the full system.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Angioarchitecture</th><th>Approach</th><th>Cure Rate</th></tr>
+      <tr><td><strong>I</strong></td><td>Direct arteriovenous fistula — single artery to single vein, no nidus</td><td>Transarterial coil/plug occlusion at the fistula point; or transvenous occlusion of the venous side</td><td>High — single session cure in most cases</td></tr>
+      <tr><td><strong>II</strong></td><td>Multiple arterial feeders → nidus → multiple draining veins (classic AVM)</td><td>Transarterial superselective ethanol/EVOH into nidus; often requires multiple staged sessions; most complex type to treat</td><td>27–85%; average 2 sessions</td></tr>
+      <tr><td><strong>IIIa</strong></td><td>Multiple feeders → aneurysmal venous sac → single outflow vein; nidus is in the vein wall</td><td>Retrograde transvenous approach — occlude outflow, fill sac with ethanol/EVOH; or direct puncture of sac</td><td>75–100%; often single session</td></tr>
+      <tr><td><strong>IIIb</strong></td><td>Multiple feeders → aneurysmal venous sac → multiple outflow veins; nidus in vein wall</td><td>Retrograde transvenous with sequential outflow occlusion; or direct puncture with compression of outflows; staged treatment for large lesions</td><td>67–100%; may need multiple sessions</td></tr>
+      <tr><td><strong>IV</strong></td><td>Innumerable microfistulae diffusely infiltrating tissue — no discrete nidus</td><td>Direct puncture ethanol sclerotherapy into affected tissue; most challenging; often palliative only</td><td>Low cure rate; palliation is realistic goal</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Embolic Agents for AVM</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Mechanism</th><th>Advantages</th><th>Risks / Limitations</th></tr>
+      <tr><td><strong>Absolute ethanol</strong></td><td>Endothelial destruction via protein denaturation → permanent occlusion and nidus destruction</td><td>Most effective curative agent; permanent; low recurrence</td><td>Severe pain — requires GA; pulmonary HTN risk (monitor PAP); skin necrosis; nerve injury; max dose 0.5–1 mL/kg per session; cardiovascular collapse if given too rapidly</td></tr>
+      <tr><td><strong>EVOH (Onyx / Squid)</strong></td><td>Non-adhesive liquid embolic; DMSO-based; forms lava-like cast in nidus</td><td>Excellent radiopacity; controlled injection; easier to use than NBCA; good for nidus filling</td><td>Skin tattooing in superficial lesions; DMSO toxicity at high volumes; catheter gluing risk</td></tr>
+      <tr><td><strong>NBCA (Histoacryl)</strong></td><td>Cyanoacrylate glue; rapid polymerisation on contact with blood</td><td>Fast-acting; good for high-flow lesions; permanent</td><td>Uncontrolled polymerisation risk; catheter entrapment; requires experience; non-target embolisation</td></tr>
+      <tr><td><strong>Coils / vascular plugs</strong></td><td>Mechanical occlusion</td><td>Precise deployment; useful for Type I fistulae and outflow occlusion (Type III)</td><td>Not curative for nidus; used as adjunct to liquid embolics or for flow reduction</td></tr>
+      <tr><td><strong>Bleomycin / STS foam</strong></td><td>Sclerosant — endothelial injury and fibrosis</td><td>Lower complication profile than ethanol; useful for superficial/low-flow components</td><td>Less effective for high-flow AVMs; cumulative bleomycin dose limit (pulmonary fibrosis)</td></tr>
+    </table></div>
+    <div class="warn">Ethanol embolisation requires GA, continuous PAP monitoring (Swan-Ganz catheter), and an experienced team. Maximum ethanol dose per session is 0.5–1 mL/kg. Injection must be slow and controlled — rapid injection or excessive volume can cause fatal pulmonary hypertension or cardiovascular collapse.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Embolisation Technique & Access</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Access Route</th><th>Best For</th><th>Technique</th></tr>
+      <tr><td><strong>Transarterial</strong></td><td>Yakes Type II</td><td>Superselective catheterisation of individual feeders to nidus; microcatheter tip must be wedged in the nidus (not proximal feeder) before injecting liquid embolic; flow-directed or over-wire</td></tr>
+      <tr><td><strong>Retrograde transvenous</strong></td><td>Yakes Type IIIa / IIIb</td><td>Catheterise draining vein; occlude outflow (balloon or coils); retrograde fill of aneurysmal sac/nidus with ethanol or EVOH</td></tr>
+      <tr><td><strong>Direct puncture</strong></td><td>Types II, IIIa/b, IV</td><td>Ultrasound-guided needle puncture of nidus or venous sac; contrast injection to confirm position and flow dynamics; inject ethanol or sclerosant under fluoroscopy</td></tr>
+      <tr><td><strong>Combined</strong></td><td>Complex / large AVMs</td><td>Transarterial flow reduction + direct puncture sclerotherapy in the same session; most effective for large Type II lesions</td></tr>
+    </table></div>
+    <h4>Key Procedural Principles</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Principle</th><th>Rationale</th></tr>
+      <tr><td>Target the nidus, not the feeders</td><td>Proximal feeder occlusion alone recruits collaterals and makes future treatment harder; nidus destruction is curative</td></tr>
+      <tr><td>Stage large AVMs across multiple sessions</td><td>Limits ethanol dose, reduces post-embolisation swelling, allows tissue recovery between sessions (typically 4–6 week intervals)</td></tr>
+      <tr><td>Pre-procedural test injection</td><td>Contrast injection before ethanol to confirm nidus opacification, identify dangerous anastomoses, and assess outflow velocity</td></tr>
+      <tr><td>Compression of outflows</td><td>Manual compression or tourniquet on draining veins reduces flow velocity and increases embolic dwell time in the nidus</td></tr>
+      <tr><td>Post-procedure imaging</td><td>MRI at 3–6 months to assess treatment response; repeat angiography if residual nidus suspected</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications & Post-Procedure Care</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Mechanism</th><th>Prevention / Management</th></tr>
+      <tr><td><strong>Skin/tissue necrosis</strong></td><td>Non-target ethanol injury to overlying skin or adjacent tissue</td><td>Avoid ethanol in superficial lesions &lt;1 cm from skin; use EVOH/bleomycin instead; ice packing post-procedure</td></tr>
+      <tr><td><strong>Nerve injury</strong></td><td>Ethanol neurotoxicity to adjacent peripheral nerves</td><td>Careful pre-procedural mapping; avoid ethanol near named nerves; protective techniques (saline layering)</td></tr>
+      <tr><td><strong>Pulmonary hypertension</strong></td><td>Ethanol-induced PA vasospasm; passage of embolic material through shunts</td><td>Continuous PA pressure monitoring; slow injection; stop if PAP rises &gt;25 mmHg above baseline; dose limit per session</td></tr>
+      <tr><td><strong>Post-embolisation swelling</strong></td><td>Inflammatory response to nidus destruction</td><td>Corticosteroids peri-procedurally; elevation; compression; plan staged treatment to limit swelling volume</td></tr>
+      <tr><td><strong>Non-target embolisation</strong></td><td>Passage of embolic through nidus into normal venous drainage or anastomotic channels</td><td>Controlled injection speed; outflow compression; test injection before definitive embolisation</td></tr>
+      <tr><td><strong>Recurrence</strong></td><td>Incomplete nidus destruction; collateral recruitment; hormonal stimulation</td><td>Serial follow-up imaging; re-treat residual nidus early; counsel patients that multiple sessions are typical</td></tr>
+    </table></div>
+    <h4>Post-Procedure Protocol</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Time</th><th>Action</th></tr>
+      <tr><td>Immediate</td><td>Monitor in recovery for 4–6 hours post-GA; pain management (ethanol embolisation is painful); check for skin changes at treatment site</td></tr>
+      <tr><td>1–2 weeks</td><td>Wound review; assess for skin necrosis or nerve deficit; compression garments if limb AVM</td></tr>
+      <tr><td>3–6 months</td><td>Follow-up MRI to assess treatment response; repeat angiography if residual flow suspected</td></tr>
+      <tr><td>Ongoing</td><td>Annual clinical review; re-image if symptoms recur; lifelong surveillance for large/complex AVMs</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> MDT Approach & Surgical Considerations</div>
+  <div class="card-body">
+    <p>Peripheral AVM management requires a dedicated MDT including interventional radiology, vascular surgery, plastic/reconstructive surgery, orthopaedics (if bone involved), and cardiology (if high-output failure).</p>
+    <div class="table-scroll"><table>
+      <tr><th>Role</th><th>Contribution</th></tr>
+      <tr><td><strong>Interventional radiology</strong></td><td>Primary treatment — embolisation/sclerotherapy; pre-operative devascularisation; imaging surveillance</td></tr>
+      <tr><td><strong>Vascular surgery</strong></td><td>Surgical resection after embolisation for localised lesions; inflow control during combined procedures</td></tr>
+      <tr><td><strong>Plastic surgery</strong></td><td>Reconstruction after resection of large soft-tissue AVMs; flap coverage; cosmesis</td></tr>
+      <tr><td><strong>Cardiology</strong></td><td>Assessment and management of high-output cardiac failure (Schobinger IV); pre-procedural cardiac optimisation</td></tr>
+      <tr><td><strong>Genetics</strong></td><td>HHT screening (Osler-Weber-Rendu) if multiple AVMs; RASA1/CM-AVM syndrome if capillary malformations coexist</td></tr>
+    </table></div>
+    <h4>Surgical Resection — When?</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Scenario</th><th>Approach</th></tr>
+      <tr><td>Small, well-circumscribed AVM</td><td>Pre-operative embolisation (24–72h before) → complete surgical excision; highest cure rate</td></tr>
+      <tr><td>Large/diffuse AVM not amenable to complete excision</td><td>Serial embolisation for symptom control; surgery reserved for complications (bleeding, non-healing ulcer)</td></tr>
+      <tr><td>Digit/distal extremity AVM with tissue destruction</td><td>Amputation may be necessary for Schobinger III/IV with intractable pain, bleeding, or functional loss despite embolisation</td></tr>
+    </table></div>
+    <div class="tip">Combined embolisation + surgical resection offers the highest cure rates for localised AVMs. Embolise 24–72 hours before surgery to reduce intraoperative blood loss. Resection without pre-operative embolisation is associated with significantly higher bleeding and incomplete excision rates.</div>
+  </div>
+</div>
+`;
+
+
 PAGES['b-trauma'] = `
 <h2 class="page-title">Vascular Trauma — Haemostatic Embolisation</h2>
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
@@ -6831,15 +7500,26 @@ PAGES['b-pe'] = `
 <div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
 
 <div class="card">
-  <div class="card-header"><span class="icon">▶</span> Risk Stratification: Massive vs Submassive vs Low-Risk</div>
+  <div class="card-header"><span class="icon">▶</span> 2026 AHA/ACC Risk Stratification (Categories A–E)</div>
   <div class="card-body">
+    <p>The 2026 AHA/ACC/ACCP/ACEP/CHEST/SCAI/SHM/SIR/SVM/SVN guideline replaces the older "massive / submassive / low-risk" terminology with a five-category severity framework (A–E) that better captures the clinical spectrum and guides treatment escalation.</p>
     <div class="table-scroll"><table>
-      <tr><th>Category</th><th>Definition</th><th>Mortality</th><th>Management</th></tr>
-      <tr><td><strong>Massive (high-risk)</strong></td><td>PE with sustained hypotension (SBP &lt;90 mmHg for &gt;15 min) or need for vasopressors, not explained by another cause; or cardiac arrest</td><td>~25–65%</td><td>Systemic thrombolysis first-line if no contraindication; catheter-directed therapy or surgical embolectomy if thrombolysis contraindicated or fails; ECMO as bridge in refractory shock</td></tr>
-      <tr><td><strong>Submassive (intermediate-risk)</strong></td><td>Normotensive but with RV dysfunction (echo or CT: RV/LV ratio &gt;0.9) and/or myocardial injury (elevated troponin/BNP)</td><td>~3%</td><td>Anticoagulation alone for most; consider CDT/EKOS for intermediate-high risk subgroup (both RV dysfunction AND biomarker elevation) with clinical deterioration risk; systemic thrombolysis generally avoided (bleeding risk exceeds benefit per PEITHO trial)</td></tr>
-      <tr><td><strong>Low-risk</strong></td><td>Normotensive, no RV dysfunction, normal biomarkers</td><td>&lt;1%</td><td>Anticoagulation alone; many now managed as outpatient (per PESI/Hestia criteria)</td></tr>
+      <tr><th>Category</th><th>Definition</th><th>Key Criteria</th><th>Management</th></tr>
+      <tr><td><strong>A — Subclinical</strong></td><td>Incidental PE on imaging for another indication; asymptomatic</td><td>No PE symptoms; found incidentally</td><td>Anticoagulation; often outpatient management; no advanced therapy</td></tr>
+      <tr><td><strong>B — Low Severity</strong></td><td>Symptomatic PE meeting low-risk criteria</td><td>PESI Class I–II, sPESI = 0, or Hestia = 0</td><td>Anticoagulation; early discharge / outpatient management appropriate</td></tr>
+      <tr><td><strong>C — Elevated Severity</strong></td><td>Symptomatic PE with abnormal risk scores; subdivided C1–C3</td><td>PESI III–V, sPESI ≥1, Hestia ≥1</td><td>Hospitalisation; biomarkers + RV imaging; see C1–C3 below</td></tr>
+      <tr><td><strong>D — Incipient Failure</strong></td><td>Pre-failure state; normotensive shock</td><td>Transient hypotension/syncope (D1), or normotensive with rising lactate/AKI/clinical deterioration (D2)</td><td>PERT activation; systemic lysis, CDT, or MT may be considered (Class 2B); close monitoring for decompensation</td></tr>
+      <tr><td><strong>E — Cardiopulmonary Failure</strong></td><td>Persistent haemodynamic collapse</td><td>Persistent hypotension + cardiogenic shock (E1); refractory shock or cardiac arrest (E2)</td><td>PERT activation; systemic lysis, CDT, MT, or surgical embolectomy recommended (Class 2A); ECMO bridge for E2</td></tr>
     </table></div>
-    <div class="tip">Submassive PE is subdivided by some societies into "intermediate-low" (either RV dysfunction OR biomarker elevation, not both) and "intermediate-high" (both present) — intermediate-high risk patients are the group most often considered for catheter-directed therapy given higher risk of haemodynamic deterioration.</div>
+    <h4>Category C Subcategories</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Subcat</th><th>RV Dysfunction</th><th>Biomarkers (Troponin/BNP)</th><th>IR Role</th></tr>
+      <tr><td><strong>C1</strong></td><td>Normal RV</td><td>Normal</td><td>Anticoagulation alone; no advanced therapy; thrombolysis harmful</td></tr>
+      <tr><td><strong>C2</strong></td><td>RV dysfunction <strong>OR</strong> elevated biomarkers (not both)</td><td>One abnormal</td><td>Anticoagulation alone; thrombolysis harmful; monitor for progression</td></tr>
+      <tr><td><strong>C3</strong></td><td>RV dysfunction <strong>AND</strong> elevated biomarkers</td><td>Both abnormal</td><td>Primary candidate group for advanced IR intervention — CDT, MT, or systemic lysis may be considered (Class 2B); PERT assessment recommended</td></tr>
+    </table></div>
+    <div class="tip">An optional <strong>Respiratory modifier (R)</strong> can be appended to categories C–E when hypoxia, tachypnoea, or escalating O₂ demands are disproportionate to haemodynamic status — e.g. "C3R" or "D1R". This flags patients who may warrant placement in the higher category.</div>
+    <div class="warn">The 2026 guideline explicitly notes that "available evidence and clinical experience no longer supported systemic thrombolysis as holding primacy" — catheter-directed lysis, mechanical thrombectomy, and surgical embolectomy are now equipoised options alongside systemic lysis for Category D–E PE. Thrombolysis is considered harmful for Categories A–C2.</div>
   </div>
 </div>
 
@@ -6878,8 +7558,8 @@ PAGES['b-pe'] = `
       <tr><td><strong>Systemic thrombolysis</strong></td><td>Full-dose IV tPA (100 mg over 2h, or weight-based)</td><td>Standard for massive PE with haemodynamic instability</td><td>Highest bleeding risk (ICH ~2%); reserved for massive PE without CDT/thrombectomy access or when speed is paramount (peri-arrest)</td></tr>
     </table></div>
     <h4>Pulmonary Embolism Response Team (PERT)</h4>
-    <p>PERT is a multidisciplinary rapid-response model (IR, cardiology, respiratory/ICU, cardiothoracic surgery, haematology) that convenes in real time for intermediate-high and high-risk PE to determine the optimal treatment pathway — anticoagulation alone, catheter-directed therapy, systemic thrombolysis, surgical embolectomy, or ECMO — based on individual patient risk-benefit. PERT activation has been associated with faster time-to-treatment and increased use of advanced therapies in appropriately selected patients, though mortality benefit data remains observational.</p>
-    <div class="tip">The choice between lytic-based (CDT/EKOS) and lytic-free (aspiration thrombectomy) catheter approaches is increasingly driven by bleeding risk profile and desire to avoid prolonged ICU infusion time — mechanical aspiration thrombectomy has grown rapidly in adoption for this reason, though direct comparative RCT data vs CDT remains limited.</div>
+    <p>PERT is a multidisciplinary rapid-response model (IR, cardiology, respiratory/ICU, cardiothoracic surgery, haematology) that convenes in real time for Category C–E PE to determine the optimal treatment pathway. The 2026 AHA/ACC guideline gives PERT assessment a <strong>Class 1, Level B-NR recommendation</strong> for Category C–E patients — the strongest endorsement PERT has received in a major guideline. Each centre individualises the team composition based on available expertise and resources.</p>
+    <div class="tip">The 2026 guideline places systemic thrombolysis, CDT, and mechanical thrombectomy as equipoised options (no primacy for systemic lysis). Choice between lytic-based (CDT/EKOS) and lytic-free (aspiration thrombectomy) approaches is driven by bleeding risk, available expertise, and desire to avoid prolonged ICU infusion. Avoid deep sedation/intubation in Category C–E unless clinically necessary — cardiac arrest risk post-intubation is 19–28%.</div>
   </div>
 </div>
 
