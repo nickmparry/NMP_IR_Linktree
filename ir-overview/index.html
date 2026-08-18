@@ -415,6 +415,13 @@ const NAV = [
     {id:'dm-ali',        title:'Acute Limb Ischaemia',                freq:'high'},
     {id:'dm-aaa',        title:'AAA/TAA — Surveillance & EVAR',       freq:'high'},
     {id:'dm-rcc',        title:'Renal Cell Carcinoma — Small Mass',   freq:'med'},
+    {id:'dm-lung-ca',    title:'Lung Cancer — IR Pathway',          freq:'high'},
+    {id:'dm-vte',         title:'DVT/PE & Venous Thromboembolism',    freq:'high'},
+    {id:'dm-gi-bleed',   title:'GI Bleeding — Embolisation',          freq:'high'},
+    {id:'dm-trauma',     title:'Trauma & Haemorrhage',                freq:'high'},
+    {id:'dm-biliary',    title:'Biliary Obstruction',                 freq:'high'},
+    {id:'dm-uae',        title:'Uterine Fibroids — UAE',              freq:'med'},
+    {id:'dm-pae',        title:'Prostatic Artery Embolisation',       freq:'med'},
   ]},
 ];
 
@@ -4294,6 +4301,911 @@ PAGES['dm-rcc'] = `
       <li>Radical nephrectomy only for T1 if partial nephrectomy technically not feasible; reserve for T2+</li>
       <li>MIFU (micro-ultrasound), CEUS (contrast-enhanced ultrasound) emerging for characterisation and guidance</li>
     </ul>
+  </div>
+</div>
+`;
+
+
+PAGES['dm-lung-ca'] = `
+<h2 class="page-title">Lung Cancer — IR Management Pathway</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Staging Overview & IR Entry Points</div>
+  <div class="card-body">
+    <p>Lung cancer is the leading cause of cancer death worldwide. <strong>Non-small cell lung cancer (NSCLC)</strong> accounts for ~85% and <strong>small cell lung cancer (SCLC)</strong> ~15%. IR plays a critical role across the pathway — from tissue diagnosis through locoregional treatment to palliation of complications.</p>
+    <h4>TNM Staging — IR-Relevant Highlights (AJCC 8th Ed.)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Stage</th><th>Description</th><th>IR Role</th></tr>
+      <tr><td><strong>IA (T1a–c N0)</strong></td><td>Tumour ≤3 cm, no nodal disease</td><td>Percutaneous ablation (MWA/RFA/cryo) for medically inoperable patients — curative intent</td></tr>
+      <tr><td><strong>IB–IIA</strong></td><td>Tumour 3–5 cm or visceral pleura invasion</td><td>Ablation in selected inoperable cases ≤5 cm; biopsy for tissue diagnosis</td></tr>
+      <tr><td><strong>IIB–IIIA</strong></td><td>Larger tumours / ipsilateral nodal disease</td><td>Biopsy & tissue typing for targeted therapy/immunotherapy; port insertion</td></tr>
+      <tr><td><strong>IIIB–IV</strong></td><td>Advanced/metastatic</td><td>Palliative IR: SVC stenting, bronchial artery embolisation, pleural drainage, bone met ablation/cementoplasty</td></tr>
+      <tr><td><strong>Oligometastatic</strong></td><td>≤5 metastases in ≤3 organs (consensus definition)</td><td>Ablation of lung or extrapulmonary metastases with curative intent alongside systemic therapy</td></tr>
+    </table></div>
+    <h4>Key IR Entry Points in Lung Cancer</h4>
+    <ul>
+      <li><strong>Tissue diagnosis:</strong> CT-guided percutaneous lung biopsy — most common IR procedure in lung cancer</li>
+      <li><strong>Curative locoregional:</strong> Thermal ablation for stage IA NSCLC in non-surgical candidates</li>
+      <li><strong>Oligometastatic ablation:</strong> Lung, liver, bone, adrenal metastases</li>
+      <li><strong>Vascular access:</strong> Implantable port/PICC for chemotherapy/immunotherapy</li>
+      <li><strong>Palliation:</strong> SVC stenting, bronchial artery embolisation, malignant pleural effusion management, bone pain palliation</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> CT-Guided Percutaneous Lung Biopsy</div>
+  <div class="card-body">
+    <p>CT-guided percutaneous transthoracic needle biopsy (PTNB) is the primary method for obtaining tissue diagnosis of peripheral lung lesions. It establishes histological subtype and provides sufficient material for molecular/PD-L1 testing, which directly determines systemic therapy selection.</p>
+    <h4>Indications & Contraindications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indications</th><th>Relative Contraindications</th><th>Absolute Contraindications</th></tr>
+      <tr><td>Peripheral lung lesion requiring tissue diagnosis; PET-avid nodule >8 mm; failed bronchoscopic biopsy; molecular profiling needed for treatment planning</td><td>FEV1 <35% predicted; contralateral pneumonectomy; severe emphysema along needle path; coagulopathy (correct first — platelets >50, INR <1.5); suspected hydatid cyst; AVM</td><td>Uncooperative patient; no safe needle path; uncorrectable coagulopathy; mechanical ventilation (relative — increases pneumothorax risk but not absolute)</td></tr>
+    </table></div>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Position</td><td>Dependent lesion down (reduces pneumothorax risk); prone for posterior lesions; decubitus for lateral</td></tr>
+      <tr><td>Planning</td><td>Shortest path through aerated lung; avoid fissures, bullae, large vessels; single pleural puncture</td></tr>
+      <tr><td>Needle</td><td>Coaxial technique: 19G introducer + 20G core biopsy needle; 3–5 cores from solid non-necrotic tissue; FNA (22–25G) for cytology/ROSE if available</td></tr>
+      <tr><td>Samples</td><td>Cores in formalin for histology + IHC + molecular (EGFR, ALK, ROS1, PD-L1, KRAS); 1 core fresh if lymphoma suspected</td></tr>
+      <tr><td>Post-procedure</td><td>Immediate post-biopsy CT slice through puncture site; biopsy-side down for 1–2h; upright CXR at 1–2h; discharge if no/stable pneumothorax</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Incidence</th><th>Management</th></tr>
+      <tr><td>Pneumothorax (any)</td><td>~20–25%</td><td>Most small, self-limiting; observe with serial CXR</td></tr>
+      <tr><td>Pneumothorax (requiring chest drain)</td><td>~5–7%</td><td>Pigtail catheter (8–12Fr); water seal; remove when resolved</td></tr>
+      <tr><td>Pulmonary haemorrhage</td><td>~5–10% (parenchymal); <1% haemoptysis requiring intervention</td><td>Self-limiting ground-glass; position biopsy-side down; severe haemoptysis → bronchial artery embolisation</td></tr>
+      <tr><td>Air embolism</td><td><0.1%</td><td>Rare but potentially fatal; Trendelenburg + left lateral decubitus; hyperbaric O₂; prevention = keep stylet in during needle repositioning</td></tr>
+      <tr><td>Chest wall seeding</td><td><0.01%</td><td>Extremely rare for NSCLC — not a reason to withhold biopsy</td></tr>
+    </table></div>
+    <div class="tip">Pneumothorax risk factors: emphysema along needle path, traversing fissures, smaller lesion size (<2 cm), deeper lesion, multiple pleural passes, patient position (lesion-side up). Blood patch technique (injecting autologous blood or saline through introducer on withdrawal) reduces pneumothorax rate.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Percutaneous Thermal Ablation — Stage I NSCLC</div>
+  <div class="card-body">
+    <p>Percutaneous thermal ablation is a guideline-endorsed alternative to surgery for <strong>stage IA NSCLC in medically inoperable patients</strong>. NCCN, ESMO, and ACCP all recognise ablation when surgery is contraindicated or declined. Best outcomes are for tumours ≤3 cm.</p>
+    <h4>Patient Selection</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Ideal Candidate</th><th>Relative Contraindication</th><th>Not Appropriate</th></tr>
+      <tr><td>Stage IA (≤3 cm); medically inoperable (cardiopulmonary, age, comorbidity); no nodal disease (PET-CT N0); tissue diagnosis confirmed; peripheral location (>1 cm from hilum)</td><td>3–5 cm tumours (higher recurrence); central tumours near hilum/major bronchi; proximity to large vessels (heat sink)</td><td>N1/N2 disease; central endobronchial tumours; SCLC (systemic disease — ablation not indicated); poor performance status (ECOG ≥3)</td></tr>
+    </table></div>
+    <h4>Modality Comparison for Lung Ablation</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Mechanism</th><th>Advantages</th><th>Limitations</th></tr>
+      <tr><td><strong>Microwave (MWA)</strong></td><td>Electromagnetic oscillation → rapid high-temperature heating</td><td>Fast ablation time; larger zones; less heat-sink effect; currently most used for lung</td><td>Less long-term data than RFA; harder to predict zone shape</td></tr>
+      <tr><td><strong>Radiofrequency (RFA)</strong></td><td>Alternating current → resistive heating via ionic agitation</td><td>Longest outcome data (>15 yr); well-established safety; predictable zone</td><td>Slower; limited by impedance; significant heat-sink effect; less effective >3 cm</td></tr>
+      <tr><td><strong>Cryoablation</strong></td><td>Argon gas → rapid freezing → ice ball formation</td><td>Ice ball visible on CT in real time; less pain (consider for chest wall tumours); preserved collagen architecture</td><td>Longer procedure; more expensive; higher pneumothorax rate; less available</td></tr>
+    </table></div>
+    <h4>Outcomes</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Endpoint</th><th>Ablation (≤3 cm)</th><th>SBRT Comparison</th><th>Surgery (lobectomy)</th></tr>
+      <tr><td>Local control (3 yr)</td><td>~80–90%</td><td>~90–95%</td><td>~95–98%</td></tr>
+      <tr><td>Overall survival (3 yr)</td><td>~60–70%</td><td>~55–70%</td><td>~80–90%</td></tr>
+      <tr><td>Procedure mortality</td><td><1%</td><td><1%</td><td>1–4%</td></tr>
+      <tr><td>Pneumothorax (drain)</td><td>~10–15%</td><td>N/A</td><td>N/A</td></tr>
+    </table></div>
+    <div class="tip">Ablation vs SBRT: No completed RCTs directly comparing the two. Both are guideline-endorsed for inoperable stage IA. Ablation advantage = repeatable, immediate imaging confirmation, tissue sampling possible at same session. SBRT advantage = non-invasive, no pneumothorax risk, better for central tumours. Choice often depends on local expertise and tumour location.</div>
+    <h4>Follow-Up Imaging After Ablation</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Timepoint</th><th>Expected Findings</th><th>Concerning Findings</th></tr>
+      <tr><td>Immediate</td><td>Ground-glass opacity (GGO) surrounding lesion — expected thermal injury zone ≥5 mm margin beyond tumour</td><td>Margin <5 mm; residual enhancing nodularity</td></tr>
+      <tr><td>1 month</td><td>Consolidation/cavity at ablation site; surrounding GGO resolving</td><td>Increasing size with enhancement — incomplete ablation</td></tr>
+      <tr><td>3–6 months</td><td>Progressive shrinkage; central cavity may persist; no enhancement</td><td>Nodular enhancement at margin = local recurrence → consider re-ablation</td></tr>
+      <tr><td>Annual</td><td>Scar/fibrosis ± thin-wall cavity; no enhancement; stable or decreasing</td><td>New enhancement; increasing size; new PET avidity</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Bronchial Artery Embolisation (BAE) for Haemoptysis</div>
+  <div class="card-body">
+    <p>Lung cancer is one of the most common causes of massive haemoptysis. BAE is the first-line interventional treatment for life-threatening haemoptysis, achieving immediate haemostasis in >90% of cases.</p>
+    <h4>Anatomy</h4>
+    <ul>
+      <li><strong>Bronchial arteries</strong> arise from the descending thoracic aorta, typically between T5–T6 vertebral levels</li>
+      <li>Most common pattern (Cauldwell): 2 left + 1 right bronchial arteries; right bronchial commonly shares a trunk with an intercostal artery (<strong>ICBT — intercostobronchial trunk</strong>)</li>
+      <li><strong>Anterior spinal artery</strong> may arise from the ICBT or bronchial arteries — must identify before embolisation to prevent spinal cord ischaemia</li>
+      <li>Non-bronchial systemic supply: intercostals, internal mammary, inferior phrenic, thyrocervical/costocervical trunks — may need embolisation if bronchial alone doesn't control bleeding</li>
+    </ul>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>CFA → 5Fr Cobra/Simmons catheter; aortogram to map bronchial origins; selective catheterisation with microcatheter</td></tr>
+      <tr><td>Identify target</td><td>Hypertrophied tortuous bronchial artery supplying tumour/bleeding territory; contrast blush or extravasation</td></tr>
+      <tr><td>Exclude spinal supply</td><td>Careful DSA looking for anterior spinal artery (hairpin loop at midline); if present — embolise distal to its origin or avoid that vessel</td></tr>
+      <tr><td>Embolic agent</td><td>PVA particles (300–500 µm preferred; avoid <300 µm — risk of bronchial mucosal necrosis); microspheres; gelatin sponge for temporary. <strong>No coils proximally</strong> — prevents future re-access if recurrence</td></tr>
+      <tr><td>Endpoint</td><td>Stasis/near-stasis in bronchial artery; absent parenchymal blush; check all potential feeders (bilateral bronchial + non-bronchial systemic)</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Prevention</th></tr>
+      <tr><td>Spinal cord ischaemia (transverse myelitis) — rare but devastating</td><td>Identify anterior spinal artery; embolise distally beyond spinal branch; use particles ≥300 µm</td></tr>
+      <tr><td>Chest pain / dysphagia (bronchial/oesophageal mucosal ischaemia)</td><td>Use appropriately sized particles; avoid over-embolisation</td></tr>
+      <tr><td>Recurrent haemoptysis (30–50% in cancer patients at 1 yr)</td><td>Embolise all feeders including non-bronchial systemic; re-embolisation feasible if no proximal coils</td></tr>
+    </table></div>
+    <div class="warning">In lung cancer, haemoptysis recurrence after BAE is higher (~30–50%) than for other aetiologies (bronchiectasis ~10–20%) because tumour neovascularisation recruits new arterial supply. Palliative intent should be communicated.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> SVC Stenting for Malignant SVC Syndrome</div>
+  <div class="card-body">
+    <p>Malignant SVC syndrome occurs in ~5% of lung cancers (most commonly right upper lobe NSCLC or mediastinal SCLC/lymphoma). Endovascular stenting provides rapid symptom relief, often within 24–48 hours.</p>
+    <h4>Clinical Presentation</h4>
+    <ul>
+      <li>Facial/upper limb oedema, plethora, dyspnoea, distended neck/chest wall veins, headache worse with bending</li>
+      <li>Severity: mild oedema → cerebral oedema/laryngeal oedema (emergency)</li>
+    </ul>
+    <h4>Management Algorithm</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Scenario</th><th>Primary Treatment</th><th>IR Role</th></tr>
+      <tr><td>SCLC / lymphoma — chemo-sensitive</td><td>Urgent chemotherapy ± radiotherapy</td><td>Stent if symptoms refractory to 48–72h chemo; or if tissue diagnosis already established and symptoms severe</td></tr>
+      <tr><td>NSCLC — less chemo-responsive</td><td>Endovascular stenting + concurrent systemic therapy</td><td>First-line stenting provides rapid relief while awaiting systemic therapy effect</td></tr>
+      <tr><td>Acute severe symptoms (stridor, cerebral oedema)</td><td>Emergency SVC stenting</td><td>Stent immediately — do not wait for tissue diagnosis; biopsy can follow</td></tr>
+    </table></div>
+    <h4>Stenting Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Femoral vein (primary); ± jugular/brachial vein for bilateral access or kissing stents</td></tr>
+      <tr><td>Venography</td><td>Map occlusion length, collaterals, extent into brachiocephalic veins</td></tr>
+      <tr><td>Crossing</td><td>Hydrophilic wire + support catheter; chronic occlusion may need stiff wire/sharp recanalisation</td></tr>
+      <tr><td>Stent</td><td>Self-expanding metallic stent (Wallstent, Z-stent); 12–16 mm diameter; cover full length of stenosis/occlusion with ≥1 cm landing zones in normal vein</td></tr>
+      <tr><td>Post-dilation</td><td>Balloon angioplasty after deployment if residual waist; avoid over-dilation (rupture risk in irradiated/invaded vessel)</td></tr>
+    </table></div>
+    <div class="tip">Technical success >95%; clinical improvement in >90% within 48h. Stent patency ~80–90% at 6 months. Anticoagulation (LMWH → warfarin/DOAC) recommended post-stenting to reduce in-stent thrombosis — especially if bilateral stents or pre-existing thrombosis. Re-intervention (restenting, thrombolysis) feasible for recurrent obstruction.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Malignant Pleural Effusion — Drainage & Palliation</div>
+  <div class="card-body">
+    <p>Malignant pleural effusion (MPE) occurs in ~15% of lung cancers and is a marker of advanced disease (stage IV). It causes dyspnoea, cough, and reduced quality of life. IR provides definitive palliation through indwelling pleural catheters (IPC) and image-guided drainage.</p>
+    <h4>Management Options</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Option</th><th>Mechanism</th><th>Best For</th><th>Considerations</th></tr>
+      <tr><td><strong>Therapeutic thoracentesis</strong></td><td>Large-bore needle/catheter aspiration under USS guidance</td><td>Diagnostic + initial relief; infrequent recurrence; short life expectancy</td><td>Temporary (~days to weeks); repeated procedures; risk of trapped lung limiting drainage</td></tr>
+      <tr><td><strong>Indwelling pleural catheter (IPC)</strong></td><td>Tunnelled silicone catheter (PleurX); patient/carer drains at home</td><td>Recurrent MPE; trapped lung (talc won't work); patient preference for home management</td><td>Spontaneous pleurodesis occurs in ~50% at 3 months (can then remove); infection risk ~5%; blockage; protein loss</td></tr>
+      <tr><td><strong>Talc pleurodesis (via chest drain)</strong></td><td>Talc slurry via intercostal drain → pleural symphysis</td><td>Freely draining (expandable) lung; expected survival >3 months; want definitive</td><td>Requires inpatient stay 3–5 days; pain; failed pleurodesis rate ~20–30%; contraindicated if trapped lung</td></tr>
+      <tr><td><strong>VATS pleurodesis/pleurectomy</strong></td><td>Surgical talc poudrage ± partial pleurectomy</td><td>Fit patient; combined with biopsy/staging; highest pleurodesis success (~90%)</td><td>GA required; morbidity; rarely appropriate for advanced cancer</td></tr>
+    </table></div>
+    <h4>IPC Insertion Technique (IR)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Pre-procedure</td><td>USS to confirm effusion, mark entry site; check for septations (may need concurrent image-guided drainage)</td></tr>
+      <tr><td>Position</td><td>Seated upright, leaning forward over table; lateral decubitus acceptable</td></tr>
+      <tr><td>Technique</td><td>Local anaesthesia; Seldinger or trocar technique into pleural space; tunnel catheter subcutaneously (~5 cm) to exit site; connect to drainage bottle</td></tr>
+      <tr><td>Drain</td><td>Initial drainage ≤1500 mL (re-expansion pulmonary oedema risk if rapid); subsequent home drainage 3×/week, 500–1000 mL/session</td></tr>
+      <tr><td>Follow-up</td><td>Weekly nurse review initially; CXR if symptoms change; remove IPC if spontaneous pleurodesis achieved (no drainage for 3 consecutive sessions + CXR shows apposition)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Bone Metastasis Palliation — Ablation & Cementoplasty</div>
+  <div class="card-body">
+    <p>Lung cancer is the most common source of bone metastases, occurring in ~30–40% of advanced NSCLC. IR provides pain palliation through ablation ± cementoplasty when radiation therapy has failed, is contraindicated, or is unavailable.</p>
+    <h4>IR Palliative Options</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Technique</th><th>Mechanism</th><th>Indications</th><th>Efficacy</th></tr>
+      <tr><td><strong>Percutaneous cementoplasty</strong></td><td>PMMA bone cement injection under CT/fluoro guidance → mechanical stabilisation</td><td>Painful lytic metastases (vertebral = vertebroplasty; extraspinal = osteoplasty); pathological fracture risk; post-radiation persistent pain</td><td>Pain relief in ~80–90% within 48h; not tumoricidal</td></tr>
+      <tr><td><strong>Thermal ablation (RFA/MWA/cryo) + cementoplasty</strong></td><td>Ablation destroys tumour periosteal nerve stimulation → cement stabilises</td><td>Larger lytic lesions; weight-bearing bones; radiation-refractory pain; acetabular/long bone lesions</td><td>Superior pain relief vs cementoplasty alone for larger lesions; tumour volume reduction</td></tr>
+      <tr><td><strong>Cryoablation alone</strong></td><td>Ice ball formation → tumour cell death + sensory nerve destruction</td><td>Extraspinal soft-tissue extension; lesions near nerves (ice ball visible on CT — precise margin control)</td><td>Pain reduction in ~75–85%; analgesic effect rapid (48–72h)</td></tr>
+    </table></div>
+    <h4>Vertebroplasty/Kyphoplasty — Key Points</h4>
+    <ul>
+      <li><strong>Access:</strong> Transpedicular (most common) or parapedicular; CT + fluoroscopy guidance; 11–13G trocar</li>
+      <li><strong>Cement:</strong> PMMA mixed with barium/tungsten opacifier; inject under live fluoroscopy; fill anterior 2/3 of vertebral body</li>
+      <li><strong>Complications:</strong> Cement leak (~10–15%, mostly asymptomatic); neural foraminal leak → radiculopathy (<1%); pulmonary cement embolism (rare, screen with post-procedure CXR); adjacent level fracture</li>
+      <li><strong>Kyphoplasty</strong> uses balloon tamp to create cavity before cement — restores height, lower leak rate, but more expensive</li>
+    </ul>
+    <div class="tip">Multidisciplinary approach: ablation ± cementoplasty complements radiation and systemic therapy. Best suited for: ≤3 painful sites, focal pain correlating with imaging, post-radiation failure, patient declining/unsuitable for further radiotherapy. Not appropriate for diffuse bony disease.</div>
+  </div>
+</div>
+`;
+
+
+
+PAGES['dm-vte'] = `
+<h2 class="page-title">DVT/PE & Venous Thromboembolism — IR Management</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> VTE Classification & Risk Stratification</div>
+  <div class="card-body">
+    <p>Venous thromboembolism (VTE) encompasses deep vein thrombosis (DVT) and pulmonary embolism (PE). IR plays a critical role in acute massive/submassive PE, iliofemoral DVT, IVC filter placement/retrieval, and chronic thromboembolic disease.</p>
+    <h4>DVT Classification</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Location</th><th>Clinical Significance</th></tr>
+      <tr><td><strong>Distal (calf) DVT</strong></td><td>Below popliteal vein — peroneal, tibial, soleal, gastrocnemius veins</td><td>Lower PE risk (~5%); serial USS monitoring vs anticoagulation; propagation to proximal in ~15–25%</td></tr>
+      <tr><td><strong>Proximal DVT</strong></td><td>Popliteal vein and above — femoral, common femoral, external iliac</td><td>Higher PE risk (~50% have silent PE); always anticoagulate; consider CDT if iliofemoral</td></tr>
+      <tr><td><strong>Iliofemoral DVT</strong></td><td>Iliac ± common femoral vein involvement</td><td>Highest risk of post-thrombotic syndrome (PTS ~50%); phlegmasia; strongest indication for IR intervention</td></tr>
+      <tr><td><strong>Phlegmasia cerulea dolens</strong></td><td>Complete iliofemoral venous outflow obstruction</td><td>Limb-threatening emergency; massive oedema, cyanosis, compartment syndrome risk; urgent CDT/thrombectomy</td></tr>
+    </table></div>
+    <h4>PE Severity Classification (ESC/AHA)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Haemodynamics</th><th>RV Dysfunction</th><th>Troponin</th><th>IR Role</th></tr>
+      <tr><td><strong>Massive (high-risk)</strong></td><td>SBP &lt;90 or requiring vasopressors</td><td>Yes</td><td>Often elevated</td><td><strong>Primary indication for CDT or mechanical thrombectomy</strong> if systemic thrombolysis contraindicated or failed</td></tr>
+      <tr><td><strong>Submassive (intermediate-high)</strong></td><td>Stable (SBP ≥90)</td><td>Yes (RV/LV &gt;0.9 on CT)</td><td>Elevated</td><td><strong>CDT or mechanical thrombectomy considered</strong> — PERT team decision; lower dose thrombolysis reduces bleeding risk vs systemic</td></tr>
+      <tr><td><strong>Submassive (intermediate-low)</strong></td><td>Stable</td><td>RV dysfunction OR troponin (not both)</td><td>One marker only</td><td>Anticoagulation alone; IVC filter if contraindication to anticoagulation</td></tr>
+      <tr><td><strong>Low-risk</strong></td><td>Stable</td><td>No</td><td>Normal</td><td>Anticoagulation ± outpatient management; no IR role</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Catheter-Directed Thrombolysis (CDT) for PE</div>
+  <div class="card-body">
+    <p>CDT delivers thrombolytic agent directly into the pulmonary arterial thrombus, achieving clot dissolution at lower systemic doses than IV thrombolysis, reducing major bleeding risk.</p>
+    <h4>Techniques</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Technique</th><th>Device/Method</th><th>Advantages</th><th>Limitations</th></tr>
+      <tr><td><strong>Standard CDT</strong></td><td>Multi-sidehole infusion catheter (e.g. Uni*Fuse) positioned across thrombus; tPA infusion 0.5–1.0 mg/hr per lung</td><td>Established technique; widely available; lower dose than systemic</td><td>Requires ICU monitoring 12–24h; bleeding risk; fibrinogen monitoring</td></tr>
+      <tr><td><strong>Ultrasound-assisted CDT (EKOS/EkoSonic)</strong></td><td>Catheter with ultrasound elements that loosen fibrin matrix + local tPA infusion</td><td>SEATTLE II, ULTIMA trials showed RV improvement; potentially faster lysis; same/lower tPA dose</td><td>More expensive; uncertain if ultrasound component adds benefit vs standard CDT alone</td></tr>
+      <tr><td><strong>Pharmacomechanical (e.g. AngioJet)</strong></td><td>Rheolytic thrombectomy ± thrombolytic</td><td>Single-session; no prolonged infusion</td><td>Bradycardia/arrhythmia risk (use with caution in PA); haemolysis; FDA box warning for PE use</td></tr>
+      <tr><td><strong>Large-bore aspiration thrombectomy (FlowTriever, Indigo)</strong></td><td>Mechanical aspiration of clot without thrombolytic</td><td>No thrombolytic needed — ideal for bleeding risk patients; single session; FLARE/FLASH trials</td><td>Large bore access (20–24Fr for FlowTriever); requires experienced operator; newer long-term data</td></tr>
+    </table></div>
+    <h4>CDT Protocol (Typical)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>CFA or IJV → PA catheter; bilateral if bilateral PE (Y-connector for bilateral infusion)</td></tr>
+      <tr><td>PA angiography</td><td>Confirm thrombus location and extent; measure PA pressures (baseline)</td></tr>
+      <tr><td>Catheter placement</td><td>Infusion catheter across thrombus; treatment length 10–20 cm per side</td></tr>
+      <tr><td>tPA dose</td><td>Total 1–2 mg/hr (0.5–1 mg/hr per lung); maximum ~24 mg total over 12–24h</td></tr>
+      <tr><td>Monitoring</td><td>ICU: fibrinogen q6h (hold if &lt;150 mg/dL); aPTT; haemoglobin; clinical status; heparin via sheath at subtherapeutic dose</td></tr>
+      <tr><td>Completion</td><td>Repeat PA angiography; measure PA pressures (expect ≥25% reduction); remove catheters; transition to therapeutic anticoagulation</td></tr>
+    </table></div>
+    <div class="tip">PERT (Pulmonary Embolism Response Team): multidisciplinary team (IR, cardiology, ICU, haematology, cardiac surgery) for real-time decision-making in massive/submassive PE. Increasingly standard at major centres. IR should be a core PERT member.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> CDT & Thrombectomy for Iliofemoral DVT</div>
+  <div class="card-body">
+    <p>Iliofemoral DVT carries the highest risk of post-thrombotic syndrome (PTS: chronic pain, oedema, skin changes, venous ulceration). Early thrombus removal aims to preserve venous valve function and reduce PTS.</p>
+    <h4>Patient Selection</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Good Candidate for CDT/Thrombectomy</th><th>Anticoagulation Alone Preferred</th></tr>
+      <tr><td>Acute iliofemoral DVT (&lt;14 days symptoms); good functional status; low bleeding risk; life expectancy &gt;1 year; significant symptoms (limb-threatening or severe oedema)</td><td>Distal/femoropopliteal DVT; chronic DVT (&gt;28 days); high bleeding risk; limited life expectancy; poor functional baseline</td></tr>
+    </table></div>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Popliteal vein (USS-guided, prone) — allows antegrade flow during lysis; or posterior tibial vein; or ipsilateral IJV for descending approach</td></tr>
+      <tr><td>Venography</td><td>Map thrombus extent from calf to IVC; identify iliac compression (May-Thurner)</td></tr>
+      <tr><td>CDT infusion</td><td>Multi-sidehole catheter spanning thrombus; tPA 0.5–1 mg/hr; ± heparin via sheath (300–500 U/hr subtherapeutic)</td></tr>
+      <tr><td>Check angiogram</td><td>12–24h later; assess lysis; identify underlying stenosis (May-Thurner present in ~50% of left iliofemoral DVT)</td></tr>
+      <tr><td>Treat underlying lesion</td><td>Iliac vein stenting for residual stenosis &gt;50% or May-Thurner compression; Wallstent or dedicated venous stent (IVUS-guided sizing)</td></tr>
+    </table></div>
+    <h4>ATTRACT Trial & Current Evidence</h4>
+    <ul>
+      <li><strong>ATTRACT (2017):</strong> CDT + anticoagulation vs anticoagulation alone for proximal DVT — no significant difference in PTS at 2 years for the overall cohort</li>
+      <li><strong>However:</strong> subgroup analysis showed benefit for <em>iliofemoral</em> DVT (not femoropopliteal); moderate-to-severe PTS reduced by ~35%</li>
+      <li>Current consensus: CDT/thrombectomy reasonable for <strong>acute iliofemoral DVT with significant symptoms</strong> in patients with low bleeding risk; not routine for all proximal DVT</li>
+      <li>Pharmacomechanical thrombectomy (AngioJet, ClotTriever) increasingly used as single-session alternatives to overnight CDT infusion</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> IVC Filters — Indications, Placement & Retrieval</div>
+  <div class="card-body">
+    <h4>Indications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Indication</th><th>Example</th></tr>
+      <tr><td><strong>Absolute</strong></td><td>Acute proximal DVT/PE with absolute contraindication to anticoagulation</td><td>Active major bleeding; recent intracranial haemorrhage; major trauma/surgery &lt;48h with high bleed risk</td></tr>
+      <tr><td><strong>Absolute</strong></td><td>Recurrent PE despite therapeutic anticoagulation</td><td>Documented recurrence with therapeutic anti-Xa or INR levels</td></tr>
+      <tr><td><strong>Relative</strong></td><td>Massive PE with residual DVT — haemodynamic compromise; CDT planned</td><td>Protect against further PE during CDT of iliofemoral DVT</td></tr>
+      <tr><td><strong>Relative</strong></td><td>Free-floating iliocaval thrombus</td><td>Large mobile thrombus in IVC or iliac vein</td></tr>
+      <tr><td><strong>Prophylactic (controversial)</strong></td><td>High-risk trauma without VTE</td><td>Traumatic brain injury + pelvic fracture + prolonged immobility — cannot anticoagulate</td></tr>
+    </table></div>
+    <h4>Filter Types</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Examples</th><th>Retrieval</th><th>Notes</th></tr>
+      <tr><td><strong>Retrievable (most common)</strong></td><td>Denali, Günther Tulip, Celect, Option ELITE</td><td>Should be retrieved as soon as anticoagulation can be started or indication resolves</td><td>Can become permanent if not retrieved; retrieval success decreases with dwell time</td></tr>
+      <tr><td><strong>Permanent</strong></td><td>TrapEase, VenaTech LP</td><td>Not designed for retrieval</td><td>Rarely placed now — most filters placed as retrievable with option to leave</td></tr>
+    </table></div>
+    <h4>Placement Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Right IJV (preferred — straight path to IVC) or right CFA</td></tr>
+      <tr><td>IVC venography</td><td>Confirm IVC diameter (&lt;28–30 mm for most filters); identify renal veins (filter tip infrarenal, just below lowest renal vein); check for IVC anomalies (duplicated IVC, left-sided IVC, circumaortic renal vein)</td></tr>
+      <tr><td>Deployment</td><td>Position filter apex at or just below renal veins; deploy under fluoroscopy; confirm position with completion venogram</td></tr>
+      <tr><td>Suprarenal placement</td><td>Indicated if: renal vein thrombosis, IVC thrombus extending to renal veins, pregnant patient (growing uterus compresses infrarenal IVC), duplicated IVC</td></tr>
+    </table></div>
+    <h4>Retrieval</h4>
+    <ul>
+      <li><strong>Standard retrieval:</strong> IJV access → snare hook at filter apex → collapse into sheath → remove. Success rate ~95% if &lt;3 months dwell time</li>
+      <li><strong>Complex/tilted retrieval:</strong> wire loop technique, rigid forceps, laser sheath, excimer laser for embedded struts; success &gt;95% at experienced centres even with prolonged dwell</li>
+      <li><strong>FDA recommendation:</strong> retrieve as soon as protection no longer needed — ideally within 1–2 months; risks of long-term filters include IVC thrombosis (~5%), filter fracture/embolisation, caval penetration</li>
+    </ul>
+    <div class="warning">Every retrievable IVC filter should have a documented retrieval plan. Set a clinic follow-up at 4–6 weeks post-insertion to reassess anticoagulation status and schedule retrieval. "Lost to follow-up" filters are a significant patient safety issue.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Chronic Thromboembolic Disease & May-Thurner Syndrome</div>
+  <div class="card-body">
+    <h4>Chronic Thromboembolic Pulmonary Hypertension (CTEPH)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Feature</th><th>Detail</th></tr>
+      <tr><td>Definition</td><td>Persistent organised thrombus in pulmonary arteries → pulmonary hypertension (mPAP ≥25 mmHg) after ≥3 months of anticoagulation</td></tr>
+      <tr><td>Incidence</td><td>~2–4% of acute PE survivors</td></tr>
+      <tr><td>Diagnosis</td><td>V/Q scan (high sensitivity); CTPA shows webs, bands, chronic wall thickening; RHC confirms PH</td></tr>
+      <tr><td>Primary treatment</td><td>Pulmonary endarterectomy (PEA) — surgical, curative in operable cases</td></tr>
+      <tr><td>IR role</td><td><strong>Balloon pulmonary angioplasty (BPA)</strong> for inoperable CTEPH or residual PH post-PEA; serial sessions (3–6) dilating segmental/subsegmental webs</td></tr>
+    </table></div>
+    <h4>May-Thurner Syndrome (Iliac Vein Compression)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Feature</th><th>Detail</th></tr>
+      <tr><td>Anatomy</td><td>Left common iliac vein compressed between right common iliac artery (anteriorly) and L5 vertebral body (posteriorly)</td></tr>
+      <tr><td>Prevalence</td><td>Anatomic compression in ~25% of population; clinically significant in ~2–5%</td></tr>
+      <tr><td>Presentation</td><td>Left iliofemoral DVT (especially in young women); chronic left leg swelling; pelvic congestion symptoms</td></tr>
+      <tr><td>Diagnosis</td><td>CTV/MRV showing compression; IVUS (gold standard — &gt;50% area reduction significant); venography showing collaterals</td></tr>
+      <tr><td>Treatment</td><td>Iliac vein stenting (self-expanding, 14–16 mm Wallstent or dedicated venous stent — VENOVO, Abre); CDT first if acute DVT overlying compression</td></tr>
+      <tr><td>Outcomes</td><td>Primary patency ~90% at 2 years; anticoagulation 3–6 months post-stent ± lifelong antiplatelet</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['dm-gi-bleed'] = `
+<h2 class="page-title">GI Bleeding — Embolisation</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Overview & Classification</div>
+  <div class="card-body">
+    <p>Acute gastrointestinal haemorrhage is a common emergency. IR angiography with embolisation is indicated when endoscopic haemostasis fails or is not feasible, and is the first-line intervention for post-surgical or angiographically accessible arterial bleeding.</p>
+    <h4>Classification</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Source</th><th>Common Causes</th><th>Typical Presentation</th></tr>
+      <tr><td><strong>Upper GI (UGIB)</strong></td><td>Proximal to ligament of Treitz</td><td>Peptic ulcer (GDA, left gastric); variceal; Dieulafoy; Mallory-Weiss; malignancy</td><td>Haematemesis, melaena, coffee-ground vomiting; may be massive</td></tr>
+      <tr><td><strong>Lower GI (LGIB)</strong></td><td>Distal to ligament of Treitz</td><td>Diverticular; angiodysplasia; post-polypectomy; colorectal malignancy; radiation colitis</td><td>Haematochezia (bright red PR bleeding); usually less acute than UGIB</td></tr>
+      <tr><td><strong>Obscure/mid-GI</strong></td><td>Small bowel (ligament of Treitz to ileocaecal valve)</td><td>Angiodysplasia; Meckel diverticulum; small bowel tumour; NSAID ulceration</td><td>Iron deficiency anaemia; melaena; recurrent occult bleeding</td></tr>
+    </table></div>
+    <h4>Bleeding Rate & Detection Thresholds</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Minimum Detection Rate</th><th>Notes</th></tr>
+      <tr><td>CT angiography (CTA)</td><td>~0.3–0.5 mL/min</td><td>First-line localisation; high sensitivity; perform before angiography to guide catheter selection</td></tr>
+      <tr><td>Conventional angiography</td><td>~0.5–1.0 mL/min</td><td>Therapeutic — proceed directly to embolisation; can use provocative measures if negative and high suspicion</td></tr>
+      <tr><td>Tagged RBC scan (Tc-99m)</td><td>~0.1–0.2 mL/min</td><td>Most sensitive; useful for intermittent bleeding; delayed imaging possible; poor localisation precision</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Arterial Anatomy for GI Embolisation</div>
+  <div class="card-body">
+    <h4>Coeliac Axis (Upper GI Supply)</h4>
+    <ul>
+      <li><strong>Left gastric artery</strong> → lesser curvature of stomach; oesophageal branches</li>
+      <li><strong>Common hepatic → gastroduodenal artery (GDA)</strong> → superior pancreaticoduodenal; right gastroepiploic. GDA is the most commonly embolised vessel in UGIB (duodenal ulcer bleeding)</li>
+      <li><strong>Splenic artery</strong> → short gastrics; left gastroepiploic → greater curvature</li>
+    </ul>
+    <h4>Superior Mesenteric Artery (SMA) — Mid & Right Colon</h4>
+    <ul>
+      <li><strong>Inferior pancreaticoduodenal artery</strong> — anastomoses with GDA branches (critical collateral)</li>
+      <li><strong>Jejunal and ileal branches</strong> — vasa recta to small bowel</li>
+      <li><strong>Ileocolic, right colic, middle colic</strong> — supply caecum to splenic flexure</li>
+      <li><strong>Marginal artery of Drummond</strong> — anastomotic arcade along colon mesenteric border</li>
+    </ul>
+    <h4>Inferior Mesenteric Artery (IMA) — Left Colon & Rectum</h4>
+    <ul>
+      <li><strong>Left colic artery</strong> → descending colon; anastomoses with middle colic via arc of Riolan</li>
+      <li><strong>Sigmoid branches</strong> → sigmoid colon (diverticular bleeding territory)</li>
+      <li><strong>Superior rectal artery</strong> → upper rectum; anastomoses with middle and inferior rectal (internal iliac branches)</li>
+    </ul>
+    <div class="tip">Key collateral pathways: GDA ↔ inferior pancreaticoduodenal (coeliac ↔ SMA); marginal artery of Drummond and arc of Riolan (SMA ↔ IMA); superior ↔ middle/inferior rectal arteries (IMA ↔ internal iliac). These collaterals protect against ischaemia after embolisation — but also allow re-bleeding through back-door supply.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Upper GI Bleeding — Embolisation Technique</div>
+  <div class="card-body">
+    <h4>Pre-Procedure</h4>
+    <ul>
+      <li>CTA first (if haemodynamically stable) — localises bleed, maps anatomy, identifies variants</li>
+      <li>Failed endoscopic haemostasis (typically 2 attempts) = IR referral; or primary IR if massive uncontrolled haemorrhage</li>
+      <li>Resuscitate: transfuse to Hb >70 g/L; correct coagulopathy (INR <1.5, platelets >50); large-bore IV access</li>
+    </ul>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>CFA → 5Fr Cobra C2 or SOS Omni for coeliac/SMA selection; microcatheter (2.4–2.8Fr) for superselective</td></tr>
+      <tr><td>Diagnostic runs</td><td>Coeliac arteriogram → selective GDA, left gastric, splenic as guided by CTA; SMA if duodenal/pancreaticoduodenal suspected</td></tr>
+      <tr><td>Identify bleeding</td><td>Active extravasation (contrast blush); pseudoaneurysm; vessel irregularity/spasm at ulcer bed</td></tr>
+      <tr><td>Embolise</td><td><strong>Coils</strong> (pushable or detachable, 2–4 mm) — most common for UGIB; sandwich technique for GDA (coil distal and proximal to bleeding point to prevent back-door filling)</td></tr>
+      <tr><td>Completion</td><td>Repeat arteriogram to confirm haemostasis; check collateral pathways for persistent filling</td></tr>
+    </table></div>
+    <h4>Embolic Agent Selection — Upper GI</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Use Case</th><th>Advantage</th><th>Risk</th></tr>
+      <tr><td><strong>Coils</strong></td><td>Standard for UGIB; GDA embolisation; pseudoaneurysm</td><td>Precise; permanent; can pack a vessel</td><td>Re-bleeding via collaterals (15–20%); coil migration if oversized</td></tr>
+      <tr><td><strong>Gelatin sponge (Gelfoam)</strong></td><td>Temporary occlusion; diffuse mucosal bleeding; adjunct to coils</td><td>Temporary (~2 weeks); allows vessel recanalisation</td><td>Less durable; higher re-bleeding rate alone</td></tr>
+      <tr><td><strong>Glue (NBCA)</strong></td><td>Coagulopathic patients; when coils alone insufficient; pseudoaneurysm sac</td><td>Works independent of coagulation status; immediate occlusion</td><td>Non-target embolisation; catheter glued in place; operator-dependent</td></tr>
+    </table></div>
+    <div class="warning">The GDA/duodenum has rich collateral supply from the coeliac and SMA territories. Always perform the <strong>sandwich technique</strong> (embolise distal then proximal to the bleeding point) — proximal-only coiling allows back-door bleeding through pancreaticoduodenal arcades. Ischaemic complications in UGIB embolisation are rare (~1–2%) due to extensive gastroduodenal collateralisation.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Lower GI Bleeding — Embolisation Technique</div>
+  <div class="card-body">
+    <p>Lower GI embolisation differs from upper GI — the colon has fewer collaterals (watershed areas at splenic flexure and rectosigmoid), so ischaemic risk is higher. Superselective catheterisation is essential.</p>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>CTA localisation</td><td>Essential before angiography — identifies bleeding territory and guides SMA vs IMA catheterisation</td></tr>
+      <tr><td>SMA/IMA angiography</td><td>Selective injection of the artery supplying the CTA-positive territory; look for contrast extravasation</td></tr>
+      <tr><td>Superselective catheterisation</td><td>Microcatheter into the vasa recta (terminal straight arteries to bowel wall) feeding the bleed — as distal as possible</td></tr>
+      <tr><td>Embolisation</td><td><strong>Microcoils</strong> (2–3 mm) at the vasa recta level — most common; aim for single vasa recta occlusion</td></tr>
+      <tr><td>Alternative agents</td><td>Gelfoam pledgets for diffuse bleeding; NBCA rarely needed</td></tr>
+    </table></div>
+    <h4>Outcomes & Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Rate</th></tr>
+      <tr><td>Technical success (haemostasis)</td><td>~90–95%</td></tr>
+      <tr><td>Clinical success (no re-bleeding 30 days)</td><td>~70–80%</td></tr>
+      <tr><td>Bowel ischaemia (minor — mucosal, self-limiting)</td><td>~5–10%</td></tr>
+      <tr><td>Bowel infarction (requiring surgery)</td><td>~2–4%</td></tr>
+      <tr><td>Re-bleeding (30 days)</td><td>~15–25%</td></tr>
+    </table></div>
+    <div class="tip">Lower GI ischaemia risk is higher than upper GI because the colon's end-artery (vasa recta) supply has fewer collaterals. Superselective embolisation at the vasa recta level minimises this risk. Avoid embolising the marginal artery or named branches (ileocolic, right colic) — this occludes supply to a larger territory and increases infarction risk. Particles (PVA) are generally avoided in LGIB due to unpredictable distal penetration and higher ischaemia rates.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Empiric & Provocative Angiography</div>
+  <div class="card-body">
+    <h4>When Angiography Is Negative</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Scenario</th><th>Approach</th></tr>
+      <tr><td>CTA positive but angiogram negative (intermittent bleed stopped)</td><td>Empiric embolisation of the CTA-positive territory if high clinical suspicion and CTA findings convincing; or observe and repeat angiogram if re-bleeds</td></tr>
+      <tr><td>Recurrent bleeding, negative angiogram</td><td>Provocative angiography: heparin (5000 U IV), ± vasodilators (tolazoline), ± tPA (low dose via catheter) to provoke bleeding. Controversial — informed consent essential; only in haemodynamically stable patients with surgical backup</td></tr>
+      <tr><td>Suspected Meckel diverticulum</td><td>Tc-99m pertechnetate scan; or mesenteric angiography looking for ectopic right lower quadrant blush from omphalomesenteric artery (branch of SMA)</td></tr>
+    </table></div>
+    <h4>Empiric Embolisation</h4>
+    <ul>
+      <li>Embolisation of a vessel supplying the territory identified on CTA even without active extravasation on angiography</li>
+      <li>Most evidence for GDA ulcer bleeding — empiric GDA coiling is well-established and safe due to rich collaterals</li>
+      <li>More controversial in lower GI — higher ischaemia risk with empiric embolisation; clinical context critical</li>
+      <li>Decision should involve MDT discussion (gastroenterology, surgery, IR)</li>
+    </ul>
+  </div>
+</div>
+`;
+
+
+PAGES['dm-trauma'] = `
+<h2 class="page-title">Trauma & Haemorrhage — Embolisation</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Overview & Triage Principles</div>
+  <div class="card-body">
+    <p>Transcatheter arterial embolisation (TAE) is a cornerstone of non-operative management (NOM) of solid organ injury and is first-line for pelvic haemorrhage. The decision to embolise vs operate is driven by haemodynamic status, CT findings, and injury grade.</p>
+    <h4>When to Embolise vs Operate</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Scenario</th><th>Approach</th></tr>
+      <tr><td>Haemodynamically stable + CT showing active extravasation or pseudoaneurysm</td><td><strong>TAE</strong> — primary indication; NOM with embolisation</td></tr>
+      <tr><td>Haemodynamically stable + high-grade solid organ injury (AAST IV–V) without active bleed</td><td>NOM with close monitoring ± prophylactic embolisation (especially spleen)</td></tr>
+      <tr><td>Transient responder to resuscitation + active arterial bleeding on CT</td><td>TAE if IR immediately available; surgery if not or if deteriorating during procedure</td></tr>
+      <tr><td>Haemodynamically unstable, non-responder to resuscitation</td><td><strong>Surgery (damage-control laparotomy)</strong>; IR embolisation as adjunct post-operatively or for specific territories (pelvic)</td></tr>
+    </table></div>
+    <div class="tip">Australian trauma centres typically follow a hybrid approach: haemodynamically unstable patients with pelvic fractures go to angiography (pelvic embolisation) if IR is immediately available, or to the OR for pelvic packing ± external fixation if not. The concept of the "hybrid trauma room" (angiography suite in the resus bay) is expanding.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Splenic Trauma & Embolisation</div>
+  <div class="card-body">
+    <p>The spleen is the most commonly injured solid organ in blunt abdominal trauma. NOM (observation ± embolisation) is now standard for haemodynamically stable patients with any grade of injury.</p>
+    <h4>AAST Splenic Injury Scale</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Grade</th><th>Injury</th><th>Management</th></tr>
+      <tr><td>I</td><td>Subcapsular haematoma &lt;10% surface; capsular laceration &lt;1 cm deep</td><td>NOM — observation alone</td></tr>
+      <tr><td>II</td><td>Subcapsular haematoma 10–50%; parenchymal haematoma &lt;5 cm; laceration 1–3 cm deep</td><td>NOM — observation alone</td></tr>
+      <tr><td>III</td><td>Subcapsular haematoma &gt;50% or expanding; parenchymal haematoma &gt;5 cm; laceration &gt;3 cm deep</td><td>NOM ± <strong>embolisation if contrast blush/pseudoaneurysm on CT</strong></td></tr>
+      <tr><td>IV</td><td>Laceration involving segmental/hilar vessels with major devascularisation (&gt;25%)</td><td>NOM + <strong>prophylactic proximal splenic artery embolisation</strong> recommended (reduces NOM failure)</td></tr>
+      <tr><td>V</td><td>Completely shattered spleen; hilar vascular injury devascularising entire spleen</td><td>Often splenectomy; selected cases NOM + embolisation if stable</td></tr>
+    </table></div>
+    <h4>Embolisation Strategy</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Approach</th><th>Technique</th><th>Indication</th><th>Outcome</th></tr>
+      <tr><td><strong>Proximal (main splenic artery)</strong></td><td>Coils in mid-splenic artery (distal to dorsal pancreatic artery, proximal to hilum)</td><td>High-grade injury (IV–V); multiple bleeding sites; diffuse parenchymal injury</td><td>Reduces splenic perfusion pressure; allows clot stabilisation; preserves splenic function via collaterals (short gastrics, left gastroepiploic)</td></tr>
+      <tr><td><strong>Distal (selective/superselective)</strong></td><td>Microcatheter into bleeding branch; coils ± gelfoam at bleeding point</td><td>Focal pseudoaneurysm or active extravasation; low-grade injury with blush</td><td>Targeted haemostasis; preserves more parenchyma; may miss additional injury sites</td></tr>
+      <tr><td><strong>Combined</strong></td><td>Distal embolisation of bleed + proximal coils</td><td>Active bleed + high-grade injury</td><td>Addresses both focal bleed and reduces overall perfusion pressure</td></tr>
+    </table></div>
+    <h4>Post-Embolisation</h4>
+    <ul>
+      <li>Vaccinate post-embolisation (pneumococcal, meningococcal, H. influenzae) — same schedule as post-splenectomy, though functional hyposplenism is less severe after embolisation</li>
+      <li>NOM failure rate with embolisation: ~5–10% (vs ~20–30% for observation alone in grade IV–V)</li>
+      <li>Complications: splenic infarction (~20%, usually minor/asymptomatic), abscess (~3–5%), coil migration (rare)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Hepatic Trauma & Embolisation</div>
+  <div class="card-body">
+    <h4>Key Principles</h4>
+    <ul>
+      <li>Liver is the second most commonly injured solid organ in blunt trauma</li>
+      <li>~80% of liver injuries are managed non-operatively</li>
+      <li>Hepatic artery embolisation is effective because the liver has dual blood supply (hepatic artery ~25%, portal vein ~75%)</li>
+    </ul>
+    <h4>Embolisation Indications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Finding on CT</th><th>Action</th></tr>
+      <tr><td>Active arterial extravasation (contrast blush on arterial phase)</td><td>Angiography + selective embolisation</td></tr>
+      <tr><td>Pseudoaneurysm (contained — contrast pooling on portal phase, washout on delayed)</td><td>Angiography + embolisation (high rupture risk)</td></tr>
+      <tr><td>High-grade injury (IV–V) without active bleed</td><td>NOM with close monitoring; prophylactic embolisation controversial (less evidence than spleen)</td></tr>
+      <tr><td>Arterioportal fistula or AV fistula</td><td>Selective embolisation to prevent portal hypertension</td></tr>
+    </table></div>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Coeliac arteriogram</td><td>Map hepatic arterial anatomy; identify replaced/accessory hepatic arteries (present in ~25%)</td></tr>
+      <tr><td>Selective hepatic</td><td>Proper hepatic → right/left hepatic artery → segmental branches to injured territory</td></tr>
+      <tr><td>Embolise</td><td>Microcoils ± gelfoam at the segmental/subsegmental level; avoid main hepatic artery occlusion</td></tr>
+      <tr><td>Embolic agent</td><td>Coils (standard); gelfoam (temporary, adjunct); NBCA for coagulopathic patients; particles avoided (too distal = parenchymal necrosis)</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <ul>
+      <li>Hepatic necrosis/abscess: ~5%; more common with proximal embolisation or in patients with portal vein injury (loss of dual supply)</li>
+      <li>Biliary complications (bile leak, biloma): related to injury grade rather than embolisation</li>
+      <li>Gallbladder ischaemia: cystic artery is an end-artery — avoid occluding if possible; cholecystectomy may be needed</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Renal Trauma & Embolisation</div>
+  <div class="card-body">
+    <h4>Indications for Renal Embolisation</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Finding</th><th>Action</th></tr>
+      <tr><td>Active extravasation on CT (arterial phase blush)</td><td>Selective embolisation of segmental/interlobar branch</td></tr>
+      <tr><td>Pseudoaneurysm (especially post-biopsy or post-nephrostomy)</td><td>Coil embolisation — common IR referral</td></tr>
+      <tr><td>AV fistula (post-biopsy, post-trauma)</td><td>Selective coil embolisation of feeding artery</td></tr>
+      <tr><td>Grade IV–V with active haemorrhage in stable patient</td><td>Embolisation to preserve kidney; nephrectomy if unstable</td></tr>
+    </table></div>
+    <h4>Technique Highlights</h4>
+    <ul>
+      <li>Renal arteries are <strong>end-arteries</strong> — segmental occlusion causes corresponding parenchymal infarction (unavoidable, accepted trade-off for haemostasis)</li>
+      <li>Superselective catheterisation to the interlobar/arcuate level minimises parenchymal loss</li>
+      <li>Microcoils are standard; gelfoam for temporary occlusion in coagulopathic patients</li>
+      <li>Post-embolisation syndrome (flank pain, fever, leukocytosis) common — self-limiting, 2–5 days</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Pelvic Trauma & Haemorrhage</div>
+  <div class="card-body">
+    <p>Pelvic fracture haemorrhage is a major cause of death in polytrauma. Bleeding sources are: venous (80–90%), arterial (10–20%), and fracture surfaces. TAE targets the arterial component — the most immediately life-threatening source that is amenable to IR intervention.</p>
+    <h4>Arterial Supply</h4>
+    <ul>
+      <li>Internal iliac artery (IIA) branches supply the pelvis — anterior division (obturator, inferior gluteal, internal pudendal, uterine) and posterior division (superior gluteal, iliolumbar, lateral sacral)</li>
+      <li><strong>Superior gluteal artery</strong> — most commonly injured in pelvic fractures (exits through greater sciatic foramen adjacent to sacroiliac joint)</li>
+      <li>Lateral sacral and iliolumbar arteries — injured in sacral fractures</li>
+      <li>Obturator and internal pudendal — injured in pubic rami fractures</li>
+    </ul>
+    <h4>Management Algorithm</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Action</th></tr>
+      <tr><td>1. Pelvic binder</td><td>Applied in field/ED; reduces pelvic volume, tamponades venous bleeding; maintain until definitive stabilisation</td></tr>
+      <tr><td>2. CT (if stable enough)</td><td>Identifies active arterial extravasation; fracture pattern; associated injuries</td></tr>
+      <tr><td>3. Haemodynamically unstable</td><td>Pelvic packing (pre-peritoneal) ± external fixation if IR not immediately available; angiography + embolisation if IR available</td></tr>
+      <tr><td>4. Angiography</td><td>Bilateral IIA angiograms; identify bleeding branches; superselective embolisation of individual bleeding vessels</td></tr>
+      <tr><td>5. Non-selective embolisation</td><td>If multiple bleeding points or haemodynamically critical: bilateral IIA embolisation with gelfoam (temporary; recanalises; preserves long-term pelvic perfusion)</td></tr>
+    </table></div>
+    <h4>Embolisation Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Approach</th><th>Agent</th><th>When</th></tr>
+      <tr><td>Superselective (single branch)</td><td>Microcoils ± gelfoam</td><td>Single bleeding vessel identified; stable enough for extended procedure</td></tr>
+      <tr><td>Non-selective (anterior/posterior division)</td><td>Gelfoam slurry</td><td>Multiple bleeding points; haemodynamically unstable; need rapid haemostasis</td></tr>
+      <tr><td>Bilateral IIA embolisation</td><td>Gelfoam (temporary)</td><td>Massive pelvic haemorrhage; bilateral fractures; damage-control angiography</td></tr>
+    </table></div>
+    <div class="warning">Complications of bilateral IIA embolisation: gluteal necrosis (rare with gelfoam due to recanalisation), bladder ischaemia, sexual dysfunction, gluteal claudication. Use gelfoam (temporary) rather than coils or particles for non-selective embolisation to minimise long-term ischaemic complications. Permanent agents (coils) are reserved for selective branch embolisation of identified bleeders.</div>
+  </div>
+</div>
+`;
+
+
+PAGES['dm-biliary'] = `
+<h2 class="page-title">Biliary Obstruction — Percutaneous Management</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Causes & Classification</div>
+  <div class="card-body">
+    <h4>Malignant vs Benign Biliary Obstruction</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Common Causes</th><th>Level</th><th>IR Role</th></tr>
+      <tr><td><strong>Malignant — distal</strong></td><td>Pancreatic head adenocarcinoma; ampullary tumour; distal cholangiocarcinoma</td><td>Distal CBD</td><td>PTBD → metallic stent for palliation; or pre-operative drainage</td></tr>
+      <tr><td><strong>Malignant — hilar (Klatskin)</strong></td><td>Hilar cholangiocarcinoma (Bismuth I–IV); gallbladder cancer invading hilum; metastatic hilar lymphadenopathy</td><td>Confluence / hilar</td><td>PTBD ± bilateral drainage; metallic stenting; often primary IR (ERCP fails at hilum)</td></tr>
+      <tr><td><strong>Malignant — intrahepatic</strong></td><td>Intrahepatic cholangiocarcinoma; hepatic metastases causing segmental obstruction</td><td>Intrahepatic ducts</td><td>Segmental PTBD if symptomatic (cholangitis, abscess)</td></tr>
+      <tr><td><strong>Benign — post-surgical</strong></td><td>Bile duct injury (post-cholecystectomy); anastomotic stricture (post-transplant, hepaticojejunostomy)</td><td>Variable</td><td>PTBD → balloon dilatation ± temporary internal-external drain</td></tr>
+      <tr><td><strong>Benign — inflammatory</strong></td><td>Primary sclerosing cholangitis (PSC); IgG4 cholangiopathy; chronic pancreatitis</td><td>Multifocal</td><td>PTBD for dominant stricture; balloon dilatation; biopsy to exclude cholangiocarcinoma in PSC</td></tr>
+      <tr><td><strong>Choledocholithiasis</strong></td><td>CBD stone not amenable to ERCP</td><td>Distal CBD</td><td>Percutaneous transhepatic stone extraction (basket, balloon); rare — most managed by ERCP</td></tr>
+    </table></div>
+    <h4>Bismuth-Corlette Classification — Hilar Cholangiocarcinoma</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Location</th><th>Drainage Strategy</th></tr>
+      <tr><td>I</td><td>Below confluence (CHD)</td><td>Single drain — right or left duct; ERCP may suffice</td></tr>
+      <tr><td>II</td><td>At confluence — involves bifurcation but both ducts accessible</td><td>Bilateral drainage often needed; percutaneous preferred over ERCP for hilar lesions</td></tr>
+      <tr><td>IIIa</td><td>Extends into right hepatic duct; left duct accessible</td><td>Right PTBD (into obstructed system); ± left if bilateral obstruction</td></tr>
+      <tr><td>IIIb</td><td>Extends into left hepatic duct; right duct accessible</td><td>Left PTBD; ± right</td></tr>
+      <tr><td>IV</td><td>Involves both right and left hepatic ducts (multicentric or extends bilaterally)</td><td>Bilateral PTBD; drain >50% of functional liver volume to relieve jaundice</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> PTBD — Technique</div>
+  <div class="card-body">
+    <h4>Indications</h4>
+    <ul>
+      <li>Failed or impossible ERCP (prior surgery — Roux-en-Y, Whipple; duodenal obstruction; hilar tumour)</li>
+      <li>Acute cholangitis with biliary obstruction not amenable to ERCP</li>
+      <li>Pre-operative biliary drainage (controversial — mainly for cholangiocarcinoma pre-major hepatectomy if bilirubin >50 µmol/L)</li>
+      <li>Palliative drainage for malignant obstruction when endoscopic stent not feasible</li>
+      <li>Access for percutaneous biliary interventions (stone extraction, stricture dilatation, biopsy)</li>
+    </ul>
+    <h4>Technique — Step by Step</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Pre-procedure</td><td>Antibiotics (piperacillin-tazobactam or ceftriaxone + metronidazole); correct coagulopathy (INR &lt;1.5, platelets >50); review cross-sectional imaging for duct anatomy and level of obstruction</td></tr>
+      <tr><td>Access</td><td>Right-sided: mid-axillary line, intercostal approach, right peripheral hepatic duct (avoid central ducts — bleeding, bile leak risk). Left-sided: subxiphoid/epigastric approach, segment 2/3 duct</td></tr>
+      <tr><td>Cholangiogram</td><td>22G Chiba needle under fluoroscopy/USS guidance → opacify bile ducts → map anatomy and obstruction level</td></tr>
+      <tr><td>Access dilated duct</td><td>Second puncture with 18G trocar into a suitable peripheral duct; wire passed across obstruction if possible</td></tr>
+      <tr><td>Drainage catheter</td><td>8–12Fr locking pigtail drain. <strong>External drain:</strong> tip above obstruction (temporary; decompression for sepsis). <strong>Internal-external drain:</strong> catheter crosses obstruction into duodenum (bile drains physiologically + external bag as safety)</td></tr>
+      <tr><td>Stent placement (if indicated)</td><td>After tract maturation (~1–2 weeks), exchange drain for metallic stent across stricture; self-expanding metallic stent (SEMS) for malignant; covered SEMS for benign or when tissue ingrowth is a concern</td></tr>
+    </table></div>
+    <h4>Drain Types</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Configuration</th><th>Use</th></tr>
+      <tr><td><strong>External drainage</strong></td><td>Catheter tip above obstruction; bile drains to external bag only</td><td>Emergency decompression; septic patient; cannot cross obstruction at first procedure</td></tr>
+      <tr><td><strong>Internal-external drainage</strong></td><td>Catheter crosses obstruction; sideholes above and below; bile drains internally + overflow to bag</td><td>Standard after initial decompression; bridge to stent; allows capping trial</td></tr>
+      <tr><td><strong>Metallic stent (uncovered)</strong></td><td>Permanent; SEMS deployed across stricture; no external component once placed</td><td>Palliative malignant obstruction; no external drain to manage; but tissue ingrowth may cause re-obstruction (median patency ~6–8 months)</td></tr>
+      <tr><td><strong>Metallic stent (covered)</strong></td><td>PTFE or silicone covering prevents tissue ingrowth</td><td>Benign strictures (removable); malignant with longer expected survival; risk of migration higher</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications & Management</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Incidence</th><th>Prevention/Management</th></tr>
+      <tr><td>Cholangitis / sepsis</td><td>~5–10%</td><td>Prophylactic antibiotics; minimise contrast injection volume; avoid over-distending obstructed system; decompress quickly</td></tr>
+      <tr><td>Haemobilia (arterial bleeding into bile duct)</td><td>~2–5%</td><td>Peripheral duct puncture (avoid central — adjacent to hepatic artery); if persistent, hepatic artery embolisation</td></tr>
+      <tr><td>Bile leak / biliary peritonitis</td><td>~2–3%</td><td>Ensure drain sideholes are intrahepatic; secure drain fixation; pigtail lock</td></tr>
+      <tr><td>Catheter displacement / dislodgement</td><td>~5–10%</td><td>Secure fixation; patient education; replace over wire through mature tract if within days</td></tr>
+      <tr><td>Drain blockage</td><td>Common (especially &lt;10Fr)</td><td>Regular flushing (10 mL saline BD); exchange if blocked; upgrade to larger drain or stent</td></tr>
+      <tr><td>Stent occlusion (SEMS)</td><td>~30% at 6 months (uncovered)</td><td>Restenting (stent-in-stent); PTBD through stent for drainage; covered stent if second intervention</td></tr>
+      <tr><td>Pleural transgression (right-sided PTBD)</td><td>~5%</td><td>Intercostal approach; avoid crossing diaphragm if possible; small pleural effusion usually self-limiting</td></tr>
+    </table></div>
+    <div class="tip">PTBD drain care is a significant patient burden (external bag, flushing, infection risk). Always plan a pathway to internalisation — either metallic stent or conversion to internal-external drain with capping trial. If the patient has a predicted survival >3 months, metallic stenting is generally preferable to long-term external drainage for quality of life.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Biliary Stricture Dilatation & Stone Extraction</div>
+  <div class="card-body">
+    <h4>Benign Stricture Dilatation</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Aetiology</th><th>Approach</th><th>Outcome</th></tr>
+      <tr><td>Post-cholecystectomy bile duct injury</td><td>PTBD access → serial balloon dilatation (8–10 mm) every 4–6 weeks; maintain internal-external drain between sessions; total treatment 3–6 months</td><td>Long-term patency ~70–80%; hepaticojejunostomy if fails</td></tr>
+      <tr><td>Hepaticojejunostomy anastomotic stricture</td><td>Percutaneous access (only access route — no ERCP possible); balloon dilatation ± temporary stent</td><td>Patency ~65–75%; may require multiple sessions</td></tr>
+      <tr><td>Post-transplant anastomotic stricture</td><td>ERCP or percutaneous; balloon dilatation ± plastic stent exchange programme</td><td>High success rate ~80–90%</td></tr>
+    </table></div>
+    <h4>Percutaneous Biliary Stone Extraction</h4>
+    <ul>
+      <li>Indicated when ERCP fails or is impossible (altered anatomy, duodenal obstruction)</li>
+      <li>Requires mature percutaneous tract (≥2 weeks after PTBD placement; upsize tract to 14–16Fr)</li>
+      <li>Technique: choledochoscopy through tract; basket extraction under direct vision; balloon sweep for smaller stones; lithotripsy (mechanical, electrohydraulic, or laser) for large stones</li>
+      <li>Success rate ~90–95% for experienced operators; may require multiple sessions for large/impacted stones</li>
+    </ul>
+  </div>
+</div>
+`;
+
+
+PAGES['dm-uae'] = `
+<h2 class="page-title">Uterine Fibroids — Uterine Artery Embolisation (UAE)</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Fibroids — Classification & Indications for UAE</div>
+  <div class="card-body">
+    <p>Uterine leiomyomas (fibroids) are the most common pelvic tumour in women, present in ~70% by age 50. UAE is a well-established minimally invasive alternative to hysterectomy and myomectomy for symptomatic fibroids.</p>
+    <h4>FIGO Fibroid Classification (Submucosal–Subserosal)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Location</th><th>UAE Suitability</th></tr>
+      <tr><td>0</td><td>Pedunculated intracavitary (entirely within endometrial cavity)</td><td>Relative contraindication — risk of expulsion, infection; hysteroscopic resection preferred</td></tr>
+      <tr><td>1</td><td>Submucosal, >50% intracavitary</td><td>UAE effective; risk of fibroid passage/expulsion (usually self-limiting)</td></tr>
+      <tr><td>2</td><td>Submucosal, ≤50% intracavitary</td><td>Good UAE candidate</td></tr>
+      <tr><td>3</td><td>Intramural, contacts endometrium</td><td>Good UAE candidate</td></tr>
+      <tr><td>4</td><td>Intramural, entirely within myometrium</td><td>Good UAE candidate</td></tr>
+      <tr><td>5</td><td>Subserosal, ≥50% intramural</td><td>Good UAE candidate</td></tr>
+      <tr><td>6</td><td>Subserosal, <50% intramural</td><td>UAE effective; less symptomatic improvement than intramural types</td></tr>
+      <tr><td>7</td><td>Pedunculated subserosal</td><td>Relative contraindication — risk of detachment/torsion; assess stalk diameter (>2 cm stalk generally safe)</td></tr>
+      <tr><td>8</td><td>Cervical, parasitic, broad ligament</td><td>Case-by-case; parasitic fibroids — UAE less effective (non-uterine supply)</td></tr>
+    </table></div>
+    <h4>Patient Selection</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Good Candidate</th><th>Relative Contraindication</th><th>Absolute Contraindication</th></tr>
+      <tr><td>Symptomatic fibroids (menorrhagia, bulk symptoms, pelvic pain); completed family or no fertility desire; wants uterine preservation; multiple fibroids (UAE treats all simultaneously)</td><td>Desire for future pregnancy (fertility impact debated — discuss); pedunculated type 0 or 7; solitary submucosal (hysteroscopy may be better); very large uterus (&gt;24-week size — higher complication rate)</td><td>Active pelvic infection; pregnancy; suspected malignancy (leiomyosarcoma); viable pregnancy desired imminently (wait ≥6 months post-UAE)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> UAE — Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Pre-procedure</td><td>MRI pelvis (maps fibroid number, size, location, enhancement, excludes adenomyosis/sarcoma concern); bloods (FBC, coag, renal function, β-hCG); counselling re: alternatives, fertility impact, risks</td></tr>
+      <tr><td>Access</td><td>Right CFA (most common); right radial artery (increasingly used — faster recovery, patient comfort); single-puncture bilateral UAE via contralateral catheterisation</td></tr>
+      <tr><td>Catheterisation</td><td>5Fr Roberts uterine catheter or Cobra → contralateral internal iliac artery → anterior division → uterine artery. Then ipsilateral uterine artery (rotate catheter or use Waltman loop)</td></tr>
+      <tr><td>Angiography</td><td>Selective uterine arteriogram: identify fibroid vascularity (classic "corkscrew" hypertrophied uterine artery with tumour blush); identify ovarian supply to fibroids (if present — risk of ovarian embolisation)</td></tr>
+      <tr><td>Embolisation</td><td><strong>Bilateral uterine artery embolisation</strong> — both sides must be treated for efficacy. Embolic agent injected until near-stasis in uterine artery with absent fibroid perfusion</td></tr>
+      <tr><td>Endpoint</td><td>"Pruned tree" appearance — uterine artery patent but fibroid branches occluded; sluggish antegrade flow; absent tumour blush</td></tr>
+    </table></div>
+    <h4>Embolic Agent Selection</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Size</th><th>Notes</th></tr>
+      <tr><td><strong>Calibrated microspheres (Embosphere, BeadBlock)</strong></td><td>500–700 µm (standard); 700–900 µm for large fibroids</td><td>Most widely used; predictable size; penetrate fibroid vasculature; low non-target risk at this size</td></tr>
+      <tr><td><strong>PVA particles</strong></td><td>355–500 µm</td><td>Older standard; effective but less calibrated; tendency to aggregate (effectively larger)</td></tr>
+      <tr><td><strong>Tris-acryl gelatin microspheres</strong></td><td>500–700 µm</td><td>Smooth, calibrated; minimal catheter blockage; widely used in Australia</td></tr>
+    </table></div>
+    <div class="tip">Ovarian artery supply to fibroids occurs in ~5–10% of cases (especially fundal fibroids). If fibroid blush persists after bilateral uterine artery embolisation, consider selective ovarian artery injection — but proceed with extreme caution to avoid premature ovarian failure. Pre-procedural MRI helps identify ovarian collateral supply.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Complications</div>
+  <div class="card-body">
+    <h4>Outcomes</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Menorrhagia improvement</td><td>~85–90% report significant improvement</td></tr>
+      <tr><td>Bulk symptom improvement</td><td>~75–80%</td></tr>
+      <tr><td>Fibroid volume reduction</td><td>~40–60% at 6 months (MRI)</td></tr>
+      <tr><td>Uterine volume reduction</td><td>~30–40% at 6 months</td></tr>
+      <tr><td>Re-intervention rate</td><td>~15–20% at 5 years (repeat UAE, myomectomy, or hysterectomy)</td></tr>
+      <tr><td>Patient satisfaction</td><td>~85–90%</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Incidence</th><th>Management</th></tr>
+      <tr><td><strong>Post-embolisation syndrome</strong></td><td>~30–50% (expected, not a true complication)</td><td>Pelvic pain, cramping, nausea, low-grade fever for 3–7 days; managed with NSAIDs ± opioid PCA; overnight stay</td></tr>
+      <tr><td>Fibroid passage/expulsion</td><td>~5% (more common with submucosal types 0–2)</td><td>Usually passes vaginally; may need hysteroscopic removal if incomplete; infection risk — antibiotics if prolonged</td></tr>
+      <tr><td>Infection / endometritis</td><td>~2–3%</td><td>Antibiotics; rarely progresses to pyomyoma requiring hysterectomy (&lt;1%)</td></tr>
+      <tr><td>Premature ovarian failure</td><td>~1–2% overall; higher in women &gt;45 years</td><td>Non-target ovarian artery embolisation; counsel pre-procedure especially if &gt;40 years</td></tr>
+      <tr><td>Amenorrhoea (permanent)</td><td>~3–5% (&gt;45 yr: up to 15%)</td><td>May be desired outcome for some patients; correlates with age</td></tr>
+      <tr><td>Non-target embolisation (buttock/leg)</td><td>Rare</td><td>Avoid reflux into internal iliac trunk; use appropriately sized particles</td></tr>
+    </table></div>
+    <h4>UAE vs Surgery</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Parameter</th><th>UAE</th><th>Myomectomy</th><th>Hysterectomy</th></tr>
+      <tr><td>Recovery</td><td>~1–2 weeks</td><td>~2–4 weeks (laparoscopic); 4–6 weeks (open)</td><td>~4–6 weeks</td></tr>
+      <tr><td>Fertility preservation</td><td>Yes (uterus preserved); fertility impact debated</td><td>Yes (recommended if fertility desired)</td><td>No</td></tr>
+      <tr><td>Recurrence</td><td>~15–20% need re-intervention at 5 yr</td><td>~15–30% recurrence at 5 yr</td><td>0% (definitive)</td></tr>
+      <tr><td>Treats all fibroids</td><td>Yes (all fibroids embolised simultaneously)</td><td>Limited by number/location accessible</td><td>Yes (definitive)</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['dm-pae'] = `
+<h2 class="page-title">Prostatic Artery Embolisation (PAE) — BPH Management</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> BPH — Overview & Patient Selection</div>
+  <div class="card-body">
+    <p>Benign prostatic hyperplasia (BPH) affects ~50% of men by age 50 and ~80% by age 80. Prostatic artery embolisation (PAE) is an emerging minimally invasive IR alternative for men with moderate-to-severe LUTS who have failed medical therapy or want to avoid surgery.</p>
+    <h4>Current Indications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Good Candidate</th><th>Less Ideal</th><th>Contraindications</th></tr>
+      <tr><td>Moderate–severe LUTS (IPSS ≥13); failed/intolerant of medical therapy (alpha-blockers, 5-ARI); prostate volume &gt;40 mL (best results &gt;80 mL); wants to preserve sexual/ejaculatory function; high surgical risk; urinary retention with catheter (bridge to TURP or definitive)</td><td>Small prostate (&lt;40 mL — less benefit); predominantly median lobe enlargement (some data suggests PAE effective but TURP may be better); neurogenic bladder (detrusor failure not BPH-related obstruction)</td><td>Confirmed or suspected prostate cancer (exclude with PSA ± biopsy); active UTI; large bladder diverticula (may need surgery); severe atherosclerotic disease precluding catheterisation</td></tr>
+    </table></div>
+    <h4>PAE vs TURP</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Parameter</th><th>PAE</th><th>TURP</th></tr>
+      <tr><td>Anaesthesia</td><td>Local + sedation (day procedure)</td><td>Spinal/general</td></tr>
+      <tr><td>Hospital stay</td><td>Day case or overnight</td><td>1–3 days</td></tr>
+      <tr><td>IPSS improvement</td><td>~10–15 point reduction</td><td>~15–20 point reduction</td></tr>
+      <tr><td>Qmax improvement</td><td>~5–8 mL/s</td><td>~10–15 mL/s</td></tr>
+      <tr><td>Prostate volume reduction</td><td>~25–35%</td><td>~60–80% (tissue removed)</td></tr>
+      <tr><td>Sexual dysfunction</td><td>Rare (~1–3%); ejaculatory function preserved</td><td>Retrograde ejaculation ~65–75%; ED ~5–10%</td></tr>
+      <tr><td>Re-intervention</td><td>~10–15% at 3 years</td><td>~5–10% at 5–10 years</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Prostatic Arterial Anatomy</div>
+  <div class="card-body">
+    <p>Prostatic arterial anatomy is highly variable and understanding the common patterns is essential for safe, effective PAE.</p>
+    <h4>Origin of the Prostatic Artery (de Assis Classification)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Origin</th><th>Frequency</th></tr>
+      <tr><td>I</td><td>Anterior division of internal iliac → inferior vesical artery (most common single trunk)</td><td>~30%</td></tr>
+      <tr><td>II</td><td>Anterior division → common trunk with superior vesical artery</td><td>~20%</td></tr>
+      <tr><td>III</td><td>Obturator artery</td><td>~15%</td></tr>
+      <tr><td>IV</td><td>Internal pudendal artery</td><td>~15%</td></tr>
+      <tr><td>V</td><td>Accessory/duplicate prostatic arteries from two or more sources</td><td>~20%</td></tr>
+    </table></div>
+    <h4>Critical Anastomoses — Non-Target Embolisation Risk</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Anastomosis</th><th>At-Risk Structure</th><th>Consequence</th></tr>
+      <tr><td>Prostatic → superior rectal/middle rectal</td><td>Rectum</td><td>Rectal ischaemia/ulceration — most feared non-target complication</td></tr>
+      <tr><td>Prostatic → vesical branches</td><td>Bladder wall</td><td>Focal bladder wall ischaemia (usually self-limiting)</td></tr>
+      <tr><td>Prostatic → internal pudendal</td><td>Penis</td><td>Penile/glans ischaemia (rare, reported)</td></tr>
+      <tr><td>Prostatic → obturator</td><td>Obturator muscles</td><td>Muscle infarction (self-limiting pain)</td></tr>
+    </table></div>
+    <div class="tip">Pre-procedural CTA pelvis with arterial phase reconstruction (CT angiography of prostatic arteries) is increasingly used for pre-procedural planning — identifies prostatic artery origins, course, and anastomoses. CBCT (cone-beam CT) during the procedure confirms catheter position and excludes non-target perfusion before embolisation.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> PAE — Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Pre-procedure</td><td>MRI prostate (volume, zonal anatomy, exclude cancer); urodynamics (confirm obstruction); IPSS/QoL score; PSA; CTA pelvis for arterial planning</td></tr>
+      <tr><td>Access</td><td>Right CFA or left radial artery (radial increasingly preferred — comfort, early ambulation)</td></tr>
+      <tr><td>Catheterisation</td><td>5Fr internal iliac catheter → anterior division → identify prostatic artery origin; microcatheter (2.0–2.4Fr) into prostatic artery</td></tr>
+      <tr><td>Confirm position</td><td>DSA showing prostatic blush; <strong>CBCT</strong> to confirm entire prostate is perfused and NO non-target territory (rectum, bladder) is opacified — critical safety step</td></tr>
+      <tr><td>Embolisation</td><td>Calibrated microspheres (100–300 µm or 300–500 µm); inject slowly until near-stasis; aim for complete prostatic devascularisation on that side</td></tr>
+      <tr><td>Bilateral</td><td>Repeat on contralateral side; bilateral embolisation gives superior outcomes</td></tr>
+      <tr><td>Endpoint</td><td>Absent prostatic blush; near-stasis in prostatic artery bilaterally; completion pelvic angiogram</td></tr>
+    </table></div>
+    <h4>Technical Tips</h4>
+    <ul>
+      <li><strong>Particle size:</strong> 100–300 µm for prostate &lt;80 mL; 300–500 µm for larger prostates or if concerned about non-target embolisation</li>
+      <li><strong>CBCT is mandatory</strong> at most centres — confirms catheter position is truly intraprostatic before injecting particles</li>
+      <li><strong>Atherosclerotic vessels:</strong> common in elderly BPH population; tortuous iliacs may need support catheters, steerable microcatheters, or radial access</li>
+      <li><strong>Failed catheterisation:</strong> ~5–10% unilateral failure rate due to vessel tortuosity, atherosclerosis, or vasospasm; unilateral PAE gives inferior results</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Complications</div>
+  <div class="card-body">
+    <h4>Outcomes</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Endpoint</th><th>Result</th><th>Timeframe</th></tr>
+      <tr><td>IPSS improvement</td><td>Mean reduction ~10–15 points; ~80% of patients achieve clinically significant improvement (≥3 points)</td><td>3–6 months</td></tr>
+      <tr><td>Qmax improvement</td><td>Mean increase ~5–8 mL/s</td><td>3–6 months</td></tr>
+      <tr><td>Prostate volume reduction</td><td>~25–35% mean reduction</td><td>6–12 months</td></tr>
+      <tr><td>Catheter-free after retention</td><td>~70–80% successful trial of void</td><td>1–3 months</td></tr>
+      <tr><td>Durability</td><td>~85% sustained improvement at 3 years; ~10–15% need re-intervention</td><td>3–5 years</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Incidence</th><th>Notes</th></tr>
+      <tr><td>Post-embolisation syndrome (dysuria, pelvic discomfort, haematuria, low-grade fever)</td><td>~20–30%</td><td>Expected; self-limiting 3–5 days; NSAIDs, alpha-blockers</td></tr>
+      <tr><td>Urinary retention (transient)</td><td>~5–10%</td><td>Short-term catheterisation; resolves as prostate shrinks</td></tr>
+      <tr><td>UTI</td><td>~3–5%</td><td>Prophylactic antibiotics reduce risk</td></tr>
+      <tr><td>Rectal ischaemia / ulceration</td><td>&lt;1% (with CBCT)</td><td>Non-target embolisation; prevented by CBCT confirmation before particle injection</td></tr>
+      <tr><td>Bladder wall ischaemia</td><td>~1–2%</td><td>Usually focal, self-limiting; seen on cystoscopy</td></tr>
+      <tr><td>Sexual dysfunction</td><td>~1–3%</td><td>Much lower than TURP; ejaculatory function typically preserved</td></tr>
+      <tr><td>Access site (haematoma, pseudoaneurysm)</td><td>~2–3%</td><td>Standard angiographic access complications; lower with radial access</td></tr>
+    </table></div>
+    <div class="tip">PAE is endorsed by NICE (2018, IPG611) as a treatment option for LUTS secondary to BPH, recommending it be offered by multidisciplinary teams with appropriate patient selection. The UK-ROPE registry and multiple RCTs (including the Australian MAPA-1 trial) support its safety and efficacy. Outcomes are best for prostates &gt;80 mL — larger prostates show greater volume reduction and symptom improvement.</div>
   </div>
 </div>
 `;
