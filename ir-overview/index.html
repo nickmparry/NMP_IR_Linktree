@@ -328,6 +328,8 @@ const NAV = [
     {id:'anatomy-gu', title:'Genitourinary Anatomy', freq:'med'},
     {id:'anatomy-msk', title:'MSK & Spinal Anatomy', freq:'med'},
     {id:'anatomy-hepatic', title:'Hepatic Segmental Anatomy', freq:'high'},
+    {id:'anatomy-hepatic-variants', title:'Hepatic Arterial Variants', freq:'high'},
+    {id:'anatomy-iia',              title:'Internal Iliac Artery Branches', freq:'high'},
   ]},
   { id:'secA', label:'A · Fundamentals', items:[
     {id:'a-core-procedures', title:'Core Emergency Procedures', freq:'high'},
@@ -404,6 +406,8 @@ const NAV = [
     {id:'cls-asa',               title:'ASA Physical Status',               freq:'high'},
     {id:'cls-net-grading',       title:'WHO/Ki-67 NET Grading',            freq:'med'},
     {id:'cls-okuda',             title:'Okuda / CLIP Score (HCC)',          freq:'med'},
+    {id:'cls-aast',              title:'AAST Organ Injury Scale (Trauma)',   freq:'high'},
+    {id:'cls-issva',             title:'ISSVA & Yakes Classification',       freq:'med'},
   ]},
   { id:'dm', label:'Disease Management Pathways', items:[
     {id:'dm-hcc',        title:'HCC — Full Management Pathway',       freq:'high'},
@@ -422,6 +426,8 @@ const NAV = [
     {id:'dm-biliary',    title:'Biliary Obstruction',                 freq:'high'},
     {id:'dm-uae',        title:'Uterine Fibroids — UAE',              freq:'med'},
     {id:'dm-pae',        title:'Prostatic Artery Embolisation',       freq:'med'},
+    {id:'dm-mesenteric', title:'Acute Mesenteric Ischaemia',           freq:'high'},
+    {id:'dm-pph',        title:'Post-partum Haemorrhage — UAE',        freq:'high'},
   ]},
 ];
 
@@ -2277,6 +2283,152 @@ PAGES['cls-okuda'] = `
 // SECTION A — FUNDAMENTALS
 // ═══════════════════════════════════════
 
+
+PAGES['anatomy-hepatic-variants'] = `
+<h2 class="page-title">Hepatic Arterial Variants — Michel / Hiatt Classification</h2>
+<div class="page-meta"><span class="tag tag-section">Anatomy</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Standard Hepatic Arterial Anatomy</div>
+  <div class="card-body">
+    <p>The "textbook" hepatic arterial anatomy is present in only ~55–60% of the population. Understanding variants is essential for safe hepatic embolisation, TACE, radioembolisation, and liver transplant planning.</p>
+    <h4>Standard (Type I) Anatomy</h4>
+    <ul>
+      <li><strong>Coeliac trunk</strong> (T12/L1) → left gastric artery + splenic artery + <strong>common hepatic artery (CHA)</strong></li>
+      <li><strong>CHA</strong> → gastroduodenal artery (GDA) + <strong>proper hepatic artery (PHA)</strong></li>
+      <li><strong>PHA</strong> → <strong>right hepatic artery (RHA)</strong> + <strong>left hepatic artery (LHA)</strong></li>
+      <li>RHA crosses posterior to common hepatic duct (or anterior in ~25%) in the hepatoduodenal ligament; gives off <strong>cystic artery</strong></li>
+      <li>RHA supplies segments V–VIII; LHA supplies segments II–IV; segment I (caudate) dual supply from both</li>
+    </ul>
+    <div class="tip">At angiography, identify the GDA takeoff as the landmark: the artery continuing hepatad (toward the liver) from the CHA-GDA bifurcation is the proper hepatic artery. The GDA heads caudally toward the duodenum.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Michel Classification (10 Types)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Description</th><th>Prevalence</th></tr>
+      <tr><td><strong>I</strong></td><td>Standard anatomy: CHA → PHA → RHA + LHA (all from coeliac trunk)</td><td>~55%</td></tr>
+      <tr><td><strong>II</strong></td><td><strong>Replaced LHA</strong> from left gastric artery (LGA)</td><td>~10%</td></tr>
+      <tr><td><strong>III</strong></td><td><strong>Replaced RHA</strong> from SMA</td><td>~11%</td></tr>
+      <tr><td><strong>IV</strong></td><td>Replaced LHA from LGA <strong>AND</strong> replaced RHA from SMA (both replaced)</td><td>~1%</td></tr>
+      <tr><td><strong>V</strong></td><td><strong>Accessory LHA</strong> from LGA (standard LHA also present)</td><td>~8%</td></tr>
+      <tr><td><strong>VI</strong></td><td><strong>Accessory RHA</strong> from SMA (standard RHA also present)</td><td>~7%</td></tr>
+      <tr><td><strong>VII</strong></td><td>Accessory LHA from LGA + accessory RHA from SMA (both accessory)</td><td>~1%</td></tr>
+      <tr><td><strong>VIII</strong></td><td>Accessory LHA from LGA + replaced RHA from SMA</td><td>~2%</td></tr>
+      <tr><td><strong>IX</strong></td><td>CHA arising from SMA (hepatomesenteric trunk)</td><td>~2.5%</td></tr>
+      <tr><td><strong>X</strong></td><td>CHA arising directly from aorta</td><td>~2%</td></tr>
+    </table></div>
+    <div class="warning"><strong>"Replaced"</strong> = the variant artery is the ONLY supply to that lobe (the standard artery is absent). <strong>"Accessory"</strong> = the variant artery is an ADDITIONAL supply (the standard artery is also present). This distinction matters: occluding a replaced artery causes infarction; occluding an accessory artery causes partial ischaemia only.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Hiatt Classification (Simplified, 6 Types)</div>
+  <div class="card-body">
+    <p>The Hiatt classification simplifies Michel's 10 types into 6 surgically relevant groups, and is widely used in surgical and transplant literature.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Hiatt Type</th><th>Description</th><th>Michel Equivalent</th><th>Prevalence</th></tr>
+      <tr><td><strong>I</strong></td><td>Normal anatomy</td><td>Michel I</td><td>~76%</td></tr>
+      <tr><td><strong>II</strong></td><td>Aberrant LHA from LGA (replaced or accessory)</td><td>Michel II, V</td><td>~10%</td></tr>
+      <tr><td><strong>III</strong></td><td>Aberrant RHA from SMA (replaced or accessory)</td><td>Michel III, VI</td><td>~11%</td></tr>
+      <tr><td><strong>IV</strong></td><td>Aberrant RHA from SMA + aberrant LHA from LGA</td><td>Michel IV, VII, VIII</td><td>~1%</td></tr>
+      <tr><td><strong>V</strong></td><td>CHA from SMA (hepatomesenteric trunk)</td><td>Michel IX</td><td>~2%</td></tr>
+      <tr><td><strong>VI</strong></td><td>CHA directly from aorta</td><td>Michel X</td><td>~0.5%</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Clinical Implications for IR</div>
+  <div class="card-body">
+    <h4>Impact on Specific IR Procedures</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Procedure</th><th>Variant Impact</th><th>What to Do</th></tr>
+      <tr><td><strong>TACE / DEB-TACE</strong></td><td>Replaced/accessory RHA from SMA → must catheterise SMA and find the replaced vessel to treat right lobe tumours; coeliac injection alone will miss them</td><td>Always perform coeliac AND SMA angiography before TACE; look for replaced/accessory vessels on pre-procedure CTA</td></tr>
+      <tr><td><strong>TARE (Y-90)</strong></td><td>All hepatic arterial supply must be mapped to calculate dosimetry and lung shunt fraction; missed variant → untreated tumour territory or non-target embolisation</td><td>CTA + catheter angiography mapping; coil extrahepatic branches (GDA, right gastric, falciform); identify all hepatic supply</td></tr>
+      <tr><td><strong>GI bleeding (GDA embolisation)</strong></td><td>Replaced RHA from SMA crosses posterior to pancreatic head near GDA → can be injured during surgery or mistaken for GDA branch</td><td>Identify replaced RHA before GDA embolisation; avoid occluding it during sandwich technique</td></tr>
+      <tr><td><strong>Liver transplant workup</strong></td><td>Variant anatomy affects surgical technique for anastomosis; replaced LHA through gastrohepatic ligament — must be preserved during harvest</td><td>CTA for donor and recipient arterial mapping; communicate variant anatomy to transplant surgeon</td></tr>
+      <tr><td><strong>Trauma embolisation</strong></td><td>May need to embolise branches from both coeliac and SMA territories if replaced anatomy; coeliac-only injection may miss right lobe bleed</td><td>If right lobe injury and no RHA visible from coeliac → immediately catheterise SMA to find replaced RHA</td></tr>
+    </table></div>
+    <h4>How to Identify Variants at Angiography</h4>
+    <ul>
+      <li><strong>Replaced LHA from LGA:</strong> on coeliac angiogram, the left gastric artery is unusually large with a branch heading toward the liver (segment II/III); no LHA seen arising from PHA</li>
+      <li><strong>Replaced RHA from SMA:</strong> on coeliac angiogram, the PHA continues as LHA only with no right hepatic branch; on SMA injection, a large branch heads cephalad toward the liver hilum, passing posterior to the portal vein</li>
+      <li><strong>Hepatomesenteric trunk:</strong> coeliac injection shows only LGA + splenic artery (no CHA); SMA injection shows CHA arising from SMA</li>
+    </ul>
+  </div>
+</div>
+`;
+
+
+PAGES['anatomy-iia'] = `
+<h2 class="page-title">Internal Iliac Artery — Branch Anatomy</h2>
+<div class="page-meta"><span class="tag tag-section">Anatomy</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Internal Iliac Artery Overview</div>
+  <div class="card-body">
+    <p>The internal iliac artery (IIA, hypogastric artery) supplies the pelvic viscera, pelvic walls, perineum, gluteal region, and medial thigh. Understanding its branch anatomy is essential for pelvic embolisation (trauma, PPH, UAE, PAE), selective catheterisation, and avoiding non-target embolisation.</p>
+    <h4>Division</h4>
+    <ul>
+      <li>The IIA divides into an <strong>anterior division</strong> (visceral + some parietal branches) and a <strong>posterior division</strong> (parietal branches)</li>
+      <li>The division typically occurs 3–4 cm from the IIA origin</li>
+      <li>Branching pattern is highly variable — the "textbook" pattern is present in only ~50% of patients</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Posterior Division Branches</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Branch</th><th>Course</th><th>Supply</th><th>IR Relevance</th></tr>
+      <tr><td><strong>Superior gluteal artery</strong></td><td>Largest branch of IIA; exits pelvis through greater sciatic foramen ABOVE piriformis</td><td>Gluteus maximus, medius, minimus; tensor fascia lata; iliac bone; hip joint</td><td><strong>Most commonly injured artery in pelvic fractures</strong> (sacroiliac disruption); embolisation target in pelvic trauma; bleeding can be massive</td></tr>
+      <tr><td><strong>Iliolumbar artery</strong></td><td>Ascends posterolaterally behind psoas; divides into iliac and lumbar branches</td><td>Psoas, iliacus, quadratus lumborum, cauda equina (lumbar branch enters spinal canal via intervertebral foramen)</td><td>Injured in sacral/iliac fractures; <strong>lumbar branch may supply spinal cord</strong> — identify before embolisation; potential collateral to lumbar arteries</td></tr>
+      <tr><td><strong>Lateral sacral arteries</strong> (superior & inferior)</td><td>Descend on anterior surface of sacrum; enter sacral foramina</td><td>Sacral nerve roots, sacral canal structures, piriformis, erector spinae</td><td>Injured in sacral fractures; <strong>spinal branch risk</strong> — enters sacral canal and may supply conus/cauda equina; embolise selectively, distally</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Anterior Division Branches — Visceral</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Branch</th><th>Course</th><th>Supply</th><th>IR Relevance</th></tr>
+      <tr><td><strong>Uterine artery</strong> (♀)</td><td>Crosses ureter ("water under the bridge") at lateral fornix of cervix; ascends along lateral uterus in broad ligament; anastomoses with ovarian artery at fundus</td><td>Uterus, cervix, upper vagina, fallopian tubes (via tubal branch)</td><td><strong>UAE target</strong> (fibroids); <strong>PPH embolisation</strong>; bilateral embolisation essential for efficacy; crosses ureter — surgical injury risk</td></tr>
+      <tr><td><strong>Superior vesical artery</strong></td><td>Arises from proximal anterior division (remnant of umbilical artery); multiple branches to bladder dome</td><td>Upper bladder, distal ureter</td><td>Inadvertent embolisation → focal bladder ischaemia (usually self-limiting); may share trunk with prostatic artery</td></tr>
+      <tr><td><strong>Inferior vesical artery</strong> (♂) / <strong>vaginal artery</strong> (♀)</td><td>Descends to bladder base/prostate (♂) or vagina (♀)</td><td>Bladder base, prostate, seminal vesicles (♂); vagina, bladder base (♀)</td><td><strong>Prostatic artery often arises from inferior vesical</strong> — most common PAE origin (Type I de Assis); vaginal artery may need embolisation in PPH</td></tr>
+      <tr><td><strong>Middle rectal artery</strong></td><td>Descends to lateral wall of rectum; anastomoses with superior rectal (IMA) and inferior rectal (internal pudendal)</td><td>Mid/lower rectum, prostate, seminal vesicles, vagina</td><td><strong>Critical non-target risk for PAE</strong> — prostatic artery may anastomose with rectal branches; CBCT essential; rectal ischaemia = most feared PAE complication</td></tr>
+      <tr><td><strong>Obturator artery</strong></td><td>Runs along lateral pelvic wall with obturator nerve; exits through obturator foramen</td><td>Adductor muscles of thigh, hip joint, obturator muscles</td><td>Injured in pubic rami fractures; <strong>corona mortis</strong> — anastomosis between obturator and inferior epigastric/external iliac; injury in pelvic surgery; prostatic artery may arise from obturator (Type III de Assis)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Anterior Division Branches — Parietal & Terminal</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Branch</th><th>Course</th><th>Supply</th><th>IR Relevance</th></tr>
+      <tr><td><strong>Inferior gluteal artery</strong></td><td>Exits pelvis through greater sciatic foramen BELOW piriformis (distinguishes from superior gluteal — above piriformis)</td><td>Gluteus maximus (lower part); sciatic nerve (artery to sciatic nerve — arteria comitans nervi ischiadici); hip joint</td><td>Injured in pelvic fractures; companion artery to sciatic nerve — embolisation may rarely cause sciatic neuropathy</td></tr>
+      <tr><td><strong>Internal pudendal artery</strong></td><td>Exits through greater sciatic foramen below piriformis → hooks around ischial spine → re-enters pelvis through lesser sciatic foramen → runs in pudendal (Alcock) canal on lateral wall of ischiorectal fossa</td><td>Perineum, external genitalia, anal canal; terminal branches: <strong>inferior rectal</strong>, perineal, penile/clitoral arteries</td><td>Penile artery supply — <strong>non-target risk in PAE and pelvic embolisation</strong>; inferior rectal branch important for lower GI/rectal bleeding embolisation; pudendal embolisation used for priapism management</td></tr>
+    </table></div>
+    <h4>Key Anastomotic Pathways</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Anastomosis</th><th>Connection</th><th>Clinical Significance</th></tr>
+      <tr><td>Superior rectal (IMA) ↔ middle rectal (IIA) ↔ inferior rectal (internal pudendal)</td><td>IMA territory ↔ internal iliac territory</td><td>Protects rectum from ischaemia after IIA embolisation; but also allows retrograde filling of embolised territory → re-bleeding</td></tr>
+      <tr><td>Ovarian artery (aorta) ↔ uterine artery (IIA)</td><td>Aortic territory ↔ internal iliac territory</td><td>Ovarian collateral supply to uterus/fibroids — may need treatment during UAE; supply route for uterine tumours</td></tr>
+      <tr><td>Lumbar arteries ↔ iliolumbar artery (IIA)</td><td>Aortic territory ↔ internal iliac territory</td><td>Collateral pathway after IIA occlusion; source of continued pelvic bleeding after IIA embolisation</td></tr>
+      <tr><td>Corona mortis: inferior epigastric/external iliac ↔ obturator artery</td><td>External iliac ↔ internal iliac territory</td><td>Injured during pelvic surgery (inguinal hernia repair, acetabular plating); source of significant bleeding in pubic symphysis/ramus fractures</td></tr>
+      <tr><td>Median sacral artery (aorta) ↔ lateral sacral arteries (IIA)</td><td>Aortic territory ↔ internal iliac territory</td><td>Collateral to sacral region after IIA embolisation; may need embolisation in sacral fracture bleeding</td></tr>
+    </table></div>
+    <div class="tip">When performing bilateral IIA embolisation for pelvic trauma, use <strong>gelfoam</strong> (temporary) rather than permanent agents — the extensive collateral network means permanent bilateral IIA occlusion can cause gluteal necrosis, bladder/rectal ischaemia, and sexual dysfunction. Gelfoam recanalises in ~2–4 weeks, allowing recovery of pelvic perfusion.</div>
+  </div>
+</div>
+`;
+
+
 PAGES['a-core-procedures'] = `
 <h2 class="page-title">Core Emergency Procedures</h2>
 <div class="page-meta"><span class="tag tag-section">Section A</span><span class="tag tag-freq-high">Frequently Tested</span></div>
@@ -3340,6 +3492,134 @@ PAGES['a-devices'] = `
 `;
 
 // ── DISEASE MANAGEMENT PATHWAYS ──
+
+
+PAGES['cls-aast'] = `
+<h2 class="page-title">AAST Organ Injury Scale — Trauma Grading</h2>
+<div class="page-meta"><span class="tag tag-section">Classification Systems</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Splenic Injury Scale (2018 Revision)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Grade</th><th>CT Findings</th><th>Vascular Injury</th><th>Management</th></tr>
+      <tr><td><strong>I</strong></td><td>Subcapsular haematoma &lt;10% surface area; capsular laceration &lt;1 cm parenchymal depth</td><td>None</td><td>NOM — observation; bedrest; serial Hb</td></tr>
+      <tr><td><strong>II</strong></td><td>Subcapsular haematoma 10–50% surface; intraparenchymal haematoma &lt;5 cm; laceration 1–3 cm depth not involving trabecular vessel</td><td>None</td><td>NOM — observation</td></tr>
+      <tr><td><strong>III</strong></td><td>Subcapsular haematoma &gt;50% or expanding/ruptured; intraparenchymal haematoma &gt;5 cm or expanding; laceration &gt;3 cm depth or involving trabecular vessels</td><td>Pseudoaneurysm or AV fistula &lt;2 cm</td><td>NOM ± <strong>embolisation if vascular injury present</strong>; close monitoring; admit ICU</td></tr>
+      <tr><td><strong>IV</strong></td><td>Laceration involving segmental or hilar vessels producing major devascularisation (&gt;25% of spleen)</td><td>Pseudoaneurysm or AV fistula ≥2 cm; active bleeding confined within splenic capsule</td><td><strong>Proximal splenic artery embolisation</strong> ± selective distal embolisation; NOM with IR support; ICU</td></tr>
+      <tr><td><strong>V</strong></td><td>Shattered spleen; any vascular hilar injury devascularising entire spleen</td><td>Active extravasation extending into peritoneum; splenic vascular hilar avulsion</td><td>Splenectomy if unstable; NOM + embolisation in selected stable patients</td></tr>
+    </table></div>
+    <div class="tip">The 2018 AAST revision includes vascular injury criteria (pseudoaneurysm, AV fistula, active bleeding) alongside traditional CT morphology — this better predicts NOM failure and need for embolisation. Any grade with vascular injury should prompt IR consultation.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Hepatic Injury Scale (2018 Revision)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Grade</th><th>CT Findings</th><th>Vascular Injury</th><th>Management</th></tr>
+      <tr><td><strong>I</strong></td><td>Subcapsular haematoma &lt;10% surface; laceration &lt;1 cm depth</td><td>None</td><td>NOM — observation</td></tr>
+      <tr><td><strong>II</strong></td><td>Subcapsular haematoma 10–50%; intraparenchymal haematoma &lt;10 cm; laceration 1–3 cm depth, &lt;10 cm length</td><td>None</td><td>NOM — observation</td></tr>
+      <tr><td><strong>III</strong></td><td>Subcapsular haematoma &gt;50% or expanding; intraparenchymal haematoma &gt;10 cm; laceration &gt;3 cm depth</td><td>Pseudoaneurysm or AV fistula &lt;2 cm</td><td>NOM ± <strong>hepatic artery embolisation if vascular injury</strong></td></tr>
+      <tr><td><strong>IV</strong></td><td>Parenchymal disruption involving 25–75% of hepatic lobe; 1–3 Couinaud segments within a single lobe</td><td>Pseudoaneurysm or AV fistula ≥2 cm; active bleeding within liver parenchyma</td><td><strong>Selective hepatic artery embolisation</strong>; NOM with IR support; surgery if peritoneal bleeding and unstable</td></tr>
+      <tr><td><strong>V</strong></td><td>Parenchymal disruption &gt;75% of hepatic lobe; &gt;3 Couinaud segments within a single lobe</td><td>Juxtahepatic venous injury (IVC/major hepatic veins); active extravasation beyond liver</td><td>Surgery (damage control); IR embolisation as adjunct post-operatively for arterial bleeding</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Renal Injury Scale (2018 Revision)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Grade</th><th>CT Findings</th><th>Vascular Injury</th><th>Management</th></tr>
+      <tr><td><strong>I</strong></td><td>Subcapsular haematoma; contusion without laceration</td><td>None</td><td>NOM — observation</td></tr>
+      <tr><td><strong>II</strong></td><td>Perirenal haematoma confined to Gerota fascia; laceration ≤1 cm depth without collecting system involvement</td><td>None</td><td>NOM — observation</td></tr>
+      <tr><td><strong>III</strong></td><td>Laceration &gt;1 cm depth without collecting system rupture or urinary extravasation</td><td>Vascular injury or active bleeding confined within Gerota fascia</td><td>NOM ± <strong>selective renal artery embolisation</strong></td></tr>
+      <tr><td><strong>IV</strong></td><td>Laceration into collecting system with urinary extravasation; laceration of renal pelvis and/or complete uretero-pelvic disruption; segmental infarction (segmental artery thrombosis without active bleeding)</td><td>Active extravasation beyond Gerota fascia; segmental renal artery or vein injury</td><td><strong>Selective embolisation</strong>; ureteric stent for collecting system injury; surgery if unstable</td></tr>
+      <tr><td><strong>V</strong></td><td>Shattered kidney; main renal artery/vein thrombosis; devascularised kidney; hilar avulsion</td><td>Main renal artery or vein laceration/avulsion</td><td>Nephrectomy if unstable; revascularisation attempt within 4–6h if warm ischaemia time acceptable (rarely successful beyond this)</td></tr>
+    </table></div>
+    <div class="tip">Renal arteries are end-arteries — selective embolisation of a segmental branch will infarct the corresponding parenchymal segment. This is the accepted trade-off for haemostasis and nephron preservation overall. Superselective catheterisation to the interlobar/arcuate level minimises parenchymal loss.</div>
+  </div>
+</div>
+`;
+
+
+PAGES['cls-issva'] = `
+<h2 class="page-title">ISSVA Classification & Yakes AVM Types</h2>
+<div class="page-meta"><span class="tag tag-section">Classification Systems</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> ISSVA Classification of Vascular Anomalies (2018)</div>
+  <div class="card-body">
+    <p>The <strong>International Society for the Study of Vascular Anomalies (ISSVA)</strong> classification divides vascular anomalies into two fundamentally different categories: <strong>tumours</strong> (neoplastic proliferation of endothelial cells) and <strong>malformations</strong> (structural errors of morphogenesis — present from birth, grow commensurately, never involute).</p>
+    <h4>Vascular Tumours</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Tumour</th><th>Behaviour</th><th>Key Features</th><th>Treatment</th></tr>
+      <tr><td><strong>Infantile haemangioma (IH)</strong></td><td>Benign; proliferative phase (0–12 months) → involuting phase (1–5 yr) → involuted</td><td>Most common vascular tumour of infancy; GLUT-1 positive; soft compressible mass; strawberry appearance</td><td>Observation (most involute); propranolol for problematic IH (airway, vision, ulceration); surgery/laser for residua</td></tr>
+      <tr><td><strong>Congenital haemangioma (RICH/NICH)</strong></td><td>Fully formed at birth; RICH rapidly involutes; NICH never involutes</td><td>GLUT-1 negative (distinguishes from IH); may have central pallor or purple hue</td><td>RICH: observe → involutes by 12–14 months; NICH: surgery if symptomatic</td></tr>
+      <tr><td><strong>Kaposiform haemangioendothelioma (KHE)</strong></td><td>Locally aggressive; associated with <strong>Kasabach-Merritt phenomenon</strong> (consumptive coagulopathy: thrombocytopenia, hypofibrinogenaemia)</td><td>Diffuse firm mass; deep dermal/retroperitoneal; platelet trapping in tumour</td><td>Sirolimus (first-line); vincristine; steroids; embolisation for haemorrhage</td></tr>
+    </table></div>
+    <h4>Vascular Malformations</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Flow</th><th>Components</th><th>Key Features</th><th>IR Treatment</th></tr>
+      <tr><td><strong>Capillary malformation (CM)</strong></td><td>Slow-flow</td><td>Capillaries</td><td>Port-wine stain; flat, pink-to-purple; Sturge-Weber syndrome if facial V1 distribution</td><td>Not typically IR-treated; pulsed dye laser</td></tr>
+      <tr><td><strong>Venous malformation (VM)</strong></td><td>Slow-flow</td><td>Veins</td><td>Soft, compressible, blue; enlarges with Valsalva/dependent position; phleboliths on XR/CT; may cause localised intravascular coagulopathy (↑D-dimer)</td><td><strong>Percutaneous sclerotherapy</strong> (sodium tetradecyl sulphate [STS], ethanol, bleomycin, polidocanol foam); fluoroscopy/USS guided</td></tr>
+      <tr><td><strong>Lymphatic malformation (LM)</strong></td><td>Slow-flow</td><td>Lymphatic channels</td><td>Macrocystic (large cysts, transilluminant) or microcystic (infiltrative, harder to treat); may become infected; common in cervicofacial region</td><td><strong>Percutaneous sclerotherapy</strong> (OK-432/picibanil, doxycycline, bleomycin, ethanol); macrocystic responds best; direct injection into cyst cavities</td></tr>
+      <tr><td><strong>Arteriovenous malformation (AVM)</strong></td><td>High-flow</td><td>Arteries → nidus → veins (no capillary bed)</td><td>Warm, pulsatile, thrill/bruit; may cause pain, bleeding, ulceration, high-output cardiac failure; progressive — never involute; Schobinger staging I–IV</td><td><strong>Transarterial embolisation</strong> (ethanol, NBCA, Onyx); direct percutaneous puncture of nidus; goal = nidus obliteration, NOT proximal feeding artery occlusion; often combined with surgery</td></tr>
+      <tr><td><strong>Arteriovenous fistula (AVF)</strong></td><td>High-flow</td><td>Direct artery→vein connection (single/few)</td><td>Single or few direct connections; may be congenital or acquired (trauma, iatrogenic)</td><td>Transarterial coil/plug embolisation of the fistula point; or covered stent across fistula</td></tr>
+      <tr><td><strong>Combined/complex</strong></td><td>Mixed</td><td>≥2 types combined</td><td>Klippel-Trenaunay (CM + VM + LM ± limb overgrowth); Parkes Weber (CM + AVM + limb overgrowth); CLOVES (LM + VM + overgrowth — PIK3CA mutation)</td><td>Multidisciplinary; targeted sclerotherapy/embolisation of symptomatic components; sirolimus for PIK3CA-related syndromes</td></tr>
+    </table></div>
+    <div class="warning"><strong>Critical distinction:</strong> "Haemangioma" in adults is almost always a misnomer — most are venous malformations (VMs), NOT infantile haemangiomas. True infantile haemangiomas are a disease of infancy that involutes. Using correct ISSVA terminology avoids inappropriate treatment (propranolol won't work on a VM; sclerotherapy is not indicated for a proliferating IH).</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Yakes AVM Classification</div>
+  <div class="card-body">
+    <p>The Yakes classification categorises peripheral AVMs by angioarchitecture, which directly determines treatment approach and embolic agent selection.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Angioarchitecture</th><th>Diagram</th><th>Treatment Approach</th></tr>
+      <tr><td><strong>I</strong></td><td>Direct arteriovenous fistula — single or few arterial feeders connecting directly to a single outflow vein (no nidus)</td><td>Artery →→ Vein</td><td>Transarterial coil or plug; covered stent; direct puncture with coils; surgery</td></tr>
+      <tr><td><strong>IIa</strong></td><td>Multiple arterioles feeding into a <strong>nidus</strong> that drains into a single outflow vein</td><td>Multiple arteries → Nidus → Single vein</td><td>Direct percutaneous ethanol/NBCA into nidus (preferred); transarterial ethanol if nidus accessible; target the nidus, not feeders</td></tr>
+      <tr><td><strong>IIb</strong></td><td>Multiple arterioles → nidus → <strong>multiple outflow veins</strong></td><td>Multiple arteries → Nidus → Multiple veins</td><td>Direct percutaneous nidus injection (ethanol); may need staged procedures; outflow control (temporary balloon or coil) to prevent ethanol from draining too fast</td></tr>
+      <tr><td><strong>IIIa</strong></td><td>Multiple arterioles → <strong>aneurysmal outflow vein</strong> (single)</td><td>Arterioles → dilated vein (single)</td><td>Direct puncture of the aneurysmal vein + ethanol/coils; retrograde venous approach; outflow vein IS the nidus</td></tr>
+      <tr><td><strong>IIIb</strong></td><td>Multiple arterioles → <strong>multiple aneurysmal outflow veins</strong></td><td>Arterioles → dilated veins (multiple)</td><td>Staged percutaneous ethanol into each aneurysmal vein; retrograde venous catheterisation + coils + ethanol</td></tr>
+      <tr><td><strong>IV</strong></td><td>Infiltrative — innumerable tiny AV connections diffusely through tissue (no discrete nidus)</td><td>Diffuse AV shunting throughout tissue</td><td>Most difficult to treat; ethanol sclerotherapy (staged, small volumes to avoid tissue necrosis); often palliative rather than curative; surgery may be needed for tissue debulking</td></tr>
+    </table></div>
+    <h4>Key Treatment Principles for AVMs</h4>
+    <ul>
+      <li><strong>NEVER embolise feeding arteries alone</strong> — collateral recruitment will restore flow to the nidus; the AVM recurs and becomes harder to treat. The nidus is the target</li>
+      <li><strong>Ethanol</strong> is the most effective sclerosant for AVMs — causes endothelial destruction and permanent occlusion; but carries risks of tissue necrosis, nerve injury, skin ulceration, and systemic toxicity (limit to 0.5–1 mL/kg per session)</li>
+      <li><strong>NBCA (glue)</strong> and <strong>Onyx</strong> are alternatives — less tissue-destructive than ethanol; useful for transarterial nidus occlusion; may not be as curative</li>
+      <li><strong>Staging:</strong> treat in multiple sessions (4–6 week intervals); allows tissue recovery; reduces complication risk</li>
+      <li><strong>Schobinger staging</strong> guides treatment urgency: Stage I (quiescent) — observe; Stage II (expanding) — treat; Stage III (destructive — pain, ulceration, bleeding) — urgent treatment; Stage IV (decompensation — high-output cardiac failure) — urgent treatment</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Venous Malformation Sclerotherapy</div>
+  <div class="card-body">
+    <p>Venous malformations (VMs) are the most common vascular malformation referred to IR. Percutaneous sclerotherapy is the mainstay of treatment.</p>
+    <h4>Sclerosant Selection</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Mechanism</th><th>Best For</th><th>Risks/Limitations</th></tr>
+      <tr><td><strong>Ethanol (absolute)</strong></td><td>Endothelial destruction → thrombosis → fibrosis; permanent</td><td>Large VMs; deep VMs; most effective single agent</td><td>Most toxic — pain, tissue necrosis, nerve injury, skin ulceration, haemoglobinuria, cardiac depression at high volumes (&gt;1 mL/kg); GA required</td></tr>
+      <tr><td><strong>Sodium tetradecyl sulphate (STS / Sotradecol)</strong></td><td>Detergent sclerosant → endothelial damage; as foam = more effective (higher surface area contact)</td><td>Superficial VMs; facial VMs (less tissue destruction than ethanol); moderate-size VMs</td><td>Skin discoloration; DVT risk if large-volume venous drainage; less effective for large deep VMs than ethanol</td></tr>
+      <tr><td><strong>Polidocanol (Aethoxysklerol)</strong></td><td>Detergent sclerosant; similar to STS; used as foam</td><td>Similar to STS; commonly used in Australasia; well-tolerated</td><td>Similar risks to STS; anaphylaxis (rare)</td></tr>
+      <tr><td><strong>Bleomycin</strong></td><td>Antineoplastic → endothelial damage and fibrosis; delayed effect (weeks)</td><td>Head/neck VMs (good safety profile near nerves); paediatric VMs; microcystic lymphatic malformations</td><td>Slow onset; multiple sessions; pulmonary fibrosis risk (cumulative dose limit ~400 mg lifetime; rare at sclerotherapy doses)</td></tr>
+    </table></div>
+    <h4>Technique Highlights</h4>
+    <ul>
+      <li><strong>Access:</strong> Direct percutaneous puncture of the VM under USS guidance; confirm intravascular position with contrast injection under fluoroscopy</li>
+      <li><strong>Venography:</strong> Map VM extent and drainage pattern — identify large draining veins (risk of deep venous sclerosant migration → DVT/PE); may need tourniquet or manual compression to reduce outflow</li>
+      <li><strong>Injection:</strong> Slow injection under fluoroscopy; displace blood with sclerosant; aim for VM opacification without significant outflow</li>
+      <li><strong>Post-procedure:</strong> Compression garment 2–4 weeks; swelling peaks at 48–72h; pain management (may be severe for first 3–5 days); LMWH if large VM or near deep veins</li>
+    </ul>
+  </div>
+</div>
+`;
+
 
 PAGES['dm-hcc'] = `
 <h2 class="page-title">HCC — Full Management Pathway</h2>
@@ -5206,6 +5486,229 @@ PAGES['dm-pae'] = `
       <tr><td>Access site (haematoma, pseudoaneurysm)</td><td>~2–3%</td><td>Standard angiographic access complications; lower with radial access</td></tr>
     </table></div>
     <div class="tip">PAE is endorsed by NICE (2018, IPG611) as a treatment option for LUTS secondary to BPH, recommending it be offered by multidisciplinary teams with appropriate patient selection. The UK-ROPE registry and multiple RCTs (including the Australian MAPA-1 trial) support its safety and efficacy. Outcomes are best for prostates &gt;80 mL — larger prostates show greater volume reduction and symptom improvement.</div>
+  </div>
+</div>
+`;
+
+
+
+PAGES['dm-mesenteric'] = `
+<h2 class="page-title">Acute Mesenteric Ischaemia — IR Management</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Classification & Aetiology</div>
+  <div class="card-body">
+    <p>Acute mesenteric ischaemia (AMI) is a surgical/IR emergency with mortality rates of 60–80% if diagnosis is delayed. Early CTA and rapid revascularisation are critical. IR plays a central role in SMA embolism, SMA thrombosis, and NOMI.</p>
+    <h4>Types of Acute Mesenteric Ischaemia</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Frequency</th><th>Mechanism</th><th>Typical Patient</th><th>CTA Findings</th></tr>
+      <tr><td><strong>SMA embolism</strong></td><td>~50%</td><td>Cardiac embolus (AF, MI, valve disease) lodges in SMA — typically 3–8 cm from origin (distal to middle colic branch takeoff)</td><td>AF, recent MI, valvular disease; sudden severe abdominal pain "out of proportion to exam"</td><td>Abrupt SMA cutoff; meniscus sign; proximal SMA normal; distal ischaemia sparing proximal jejunum</td></tr>
+      <tr><td><strong>SMA thrombosis</strong></td><td>~25%</td><td>Acute thrombosis on pre-existing atherosclerotic stenosis at SMA origin; often preceded by chronic mesenteric ischaemia symptoms (postprandial pain, food fear, weight loss)</td><td>Elderly, atherosclerotic, smoker; history of chronic abdominal angina</td><td>Thrombosis at SMA origin; calcified ostial plaque; collaterals may be present (meandering mesenteric artery)</td></tr>
+      <tr><td><strong>NOMI (non-occlusive)</strong></td><td>~20%</td><td>Splanchnic vasoconstriction without arterial occlusion — low cardiac output, vasopressors, sepsis, post-cardiac surgery, dialysis</td><td>ICU patient; post-cardiac surgery; shock; high-dose vasopressors</td><td>No arterial occlusion; diffuse narrowing/spasm of SMA branches; patchy bowel wall ischaemia</td></tr>
+      <tr><td><strong>Mesenteric venous thrombosis</strong></td><td>~5–10%</td><td>SMV/portal vein thrombosis → venous congestion → ischaemia; hypercoagulable state, cirrhosis, malignancy, OCP</td><td>Younger; thrombophilia; cirrhosis; subacute presentation (days not hours)</td><td>SMV/PV thrombus; bowel wall thickening and oedema; mesenteric fat stranding; arterial patent</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Diagnosis & CTA Protocol</div>
+  <div class="card-body">
+    <h4>Clinical Features</h4>
+    <ul>
+      <li><strong>Classic triad:</strong> severe acute abdominal pain, gut emptying (vomiting/diarrhoea), cardiac source of embolism (AF)</li>
+      <li><strong>"Pain out of proportion to examination"</strong> — early on the abdomen is soft with minimal tenderness despite severe pain</li>
+      <li>Late signs: peritonism, bloody diarrhoea, shock = bowel infarction/necrosis (often irreversible)</li>
+      <li>Lactate is often elevated but is a late marker — normal lactate does NOT exclude AMI</li>
+    </ul>
+    <h4>CTA Mesenteric Protocol</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Phase</th><th>Purpose</th><th>Key Findings</th></tr>
+      <tr><td>Non-contrast</td><td>Baseline; identify calcification, intramural haemorrhage</td><td>Calcified atherosclerotic plaques at SMA origin; hyperdense thrombus</td></tr>
+      <tr><td><strong>Arterial phase</strong></td><td>Map arterial occlusion/stenosis</td><td>SMA cutoff (embolism); ostial occlusion (thrombosis); diffuse spasm (NOMI); collateral pathways</td></tr>
+      <tr><td><strong>Portal venous phase</strong></td><td>Bowel wall assessment; venous thrombosis</td><td>Bowel wall non-enhancement (infarction); pneumatosis intestinalis; portal venous gas; SMV/PV thrombus; mesenteric oedema</td></tr>
+    </table></div>
+    <h4>Signs of Irreversible Bowel Ischaemia (surgery, not IR)</h4>
+    <ul>
+      <li>Pneumatosis intestinalis (intramural gas)</li>
+      <li>Portal venous gas</li>
+      <li>Absent bowel wall enhancement (full-thickness necrosis)</li>
+      <li>Free intraperitoneal air (perforation)</li>
+      <li>Peritonitis on examination</li>
+    </ul>
+    <div class="warning">If CTA shows signs of transmural necrosis/perforation → surgery first (laparotomy, resection of dead bowel), not IR. IR is for viable but ischaemic bowel — revascularise before infarction occurs. The window is typically 6–12 hours from symptom onset for embolic AMI.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> IR Management — SMA Embolism</div>
+  <div class="card-body">
+    <p>SMA embolism is the strongest indication for IR intervention. Catheter-directed therapy can restore flow and avoid or reduce the extent of surgical resection.</p>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>CFA → 5Fr SOS Omni or Cobra C2 into SMA; diagnostic SMA angiogram confirms embolus location</td></tr>
+      <tr><td>Aspiration thrombectomy</td><td>6–8Fr guide catheter or aspiration catheter advanced to embolus; manual aspiration to remove bulk of clot</td></tr>
+      <tr><td>CDT (catheter-directed thrombolysis)</td><td>If residual thrombus: multi-sidehole catheter embedded in clot; tPA 0.5–1.0 mg/hr infusion; ± heparin via sheath</td></tr>
+      <tr><td>Mechanical thrombectomy</td><td>Rheolytic (AngioJet) or aspiration devices for large clot burden; can be combined with lytic</td></tr>
+      <tr><td>Balloon angioplasty</td><td>If underlying stenosis identified after clot removal (less common in embolism than thrombosis)</td></tr>
+      <tr><td>Completion angiogram</td><td>Confirm flow restoration to SMA branches; assess distal runoff; look for residual thrombus in branch vessels</td></tr>
+      <tr><td>Post-procedure</td><td>ICU monitoring; therapeutic heparin; serial clinical assessment; repeat imaging if symptoms don't resolve; surgical consultation for second-look laparoscopy at 24–48h</td></tr>
+    </table></div>
+    <div class="tip">Second-look laparoscopy/laparotomy at 24–48 hours after revascularisation is standard at most centres — demarcation of viable vs non-viable bowel becomes clearer after reperfusion. IR revascularisation + delayed surgical assessment reduces the extent of bowel resection compared to emergency laparotomy alone.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> IR Management — SMA Thrombosis & NOMI</div>
+  <div class="card-body">
+    <h4>SMA Thrombosis (Acute-on-Chronic)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Assessment</td><td>Typically ostial/proximal SMA occlusion with atherosclerotic plaque; often has collateral supply from coeliac (via GDA → pancreaticoduodenal arcade) and IMA (via marginal artery/arc of Riolan)</td></tr>
+      <tr><td>Endovascular approach</td><td>Wire crossing of SMA occlusion (may need stiff wire, support catheter); aspiration/lysis of acute thrombus; then treat underlying stenosis</td></tr>
+      <tr><td>SMA stenting</td><td>Primary stenting of ostial SMA stenosis — balloon-expandable stent (precise placement at ostium); 6–8 mm diameter</td></tr>
+      <tr><td>Surgical alternative</td><td>SMA bypass (aorto-mesenteric graft) if endovascular fails or bowel resection needed simultaneously</td></tr>
+    </table></div>
+    <h4>NOMI (Non-Occlusive Mesenteric Ischaemia)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Identify cause</td><td>Low cardiac output; vasopressors (especially noradrenaline); post-cardiac surgery; dialysis hypotension; sepsis</td></tr>
+      <tr><td>Treat cause</td><td>Optimise cardiac output; wean vasopressors; volume resuscitation; treat sepsis</td></tr>
+      <tr><td>IR role — papaverine infusion</td><td>SMA catheter placement; continuous papaverine infusion (30–60 mg/hr) via SMA catheter to reverse mesenteric vasospasm</td></tr>
+      <tr><td>Monitoring</td><td>Repeat angiography at 24h to assess spasm resolution; continue infusion until clinical improvement; ICU monitoring for hypotension (papaverine is a systemic vasodilator)</td></tr>
+      <tr><td>Contraindications to papaverine</td><td>Portal venous gas or pneumatosis (necrosis → surgery); papaverine allergy; severe hepatic impairment</td></tr>
+    </table></div>
+    <h4>Mesenteric Venous Thrombosis</h4>
+    <ul>
+      <li>Primary treatment: <strong>anticoagulation</strong> (heparin → warfarin/DOAC for ≥6 months; lifelong if thrombophilia)</li>
+      <li>IR role: CDT via transhepatic portal vein approach or transjugular intrahepatic approach (TIPS route) for extensive SMV/PV thrombosis with clinical deterioration despite anticoagulation</li>
+      <li>Aspiration thrombectomy + local tPA infusion via catheter in SMV</li>
+      <li>Surgery if bowel necrosis develops despite anticoagulation</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Chronic Mesenteric Ischaemia</div>
+  <div class="card-body">
+    <p>Chronic mesenteric ischaemia (CMI) is caused by atherosclerotic stenosis of ≥2 of the 3 mesenteric vessels (coeliac, SMA, IMA). Classic triad: postprandial abdominal pain ("intestinal angina"), food fear, weight loss.</p>
+    <h4>Diagnosis</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Findings</th></tr>
+      <tr><td>Duplex USS</td><td>SMA PSV &gt;275 cm/s (≥70% stenosis); coeliac PSV &gt;200 cm/s; screening tool</td></tr>
+      <tr><td>CTA</td><td>Calcified ostial stenosis; post-stenotic dilatation; collateral pathways (GDA arcade, meandering mesenteric artery)</td></tr>
+      <tr><td>MRA</td><td>Alternative to CTA; no radiation; may overestimate stenosis due to flow artefact</td></tr>
+      <tr><td>Catheter angiography</td><td>Gold standard; performed at time of intervention; lateral aortogram shows ostial stenosis of coeliac/SMA</td></tr>
+    </table></div>
+    <h4>Endovascular Treatment</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Target vessel</td><td>SMA is the priority (largest territory); coeliac if SMA cannot be treated; IMA rarely targeted alone</td></tr>
+      <tr><td>Access</td><td>CFA (retrograde) or brachial/radial (antegrade — better angle for ostial SMA lesions)</td></tr>
+      <tr><td>Technique</td><td>Balloon angioplasty + primary stenting (balloon-expandable stent at ostium); bare metal 6–8 mm</td></tr>
+      <tr><td>Outcomes</td><td>Technical success &gt;95%; symptom relief ~85–90%; primary patency ~70% at 3 years; re-intervention (restenting) ~20% at 3 years</td></tr>
+      <tr><td>Surgical alternative</td><td>Aorto-mesenteric bypass — more durable (~90% patency at 5 years) but higher morbidity; reserved for failed endovascular or young/fit patients</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['dm-pph'] = `
+<h2 class="page-title">Post-partum Haemorrhage — Uterine Artery Embolisation</h2>
+<div class="page-meta"><span class="tag tag-section">Disease Management</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> PPH Classification & When to Involve IR</div>
+  <div class="card-body">
+    <h4>Definition & Classification</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Definition</th><th>Common Causes</th></tr>
+      <tr><td><strong>Primary PPH</strong></td><td>Blood loss ≥500 mL (vaginal) or ≥1000 mL (caesarean) within 24 hours of delivery</td><td><strong>Tone</strong> (uterine atony — 70–80%); <strong>Trauma</strong> (genital tract laceration); <strong>Tissue</strong> (retained placenta/products); <strong>Thrombin</strong> (coagulopathy) — the "4 T's"</td></tr>
+      <tr><td><strong>Massive PPH</strong></td><td>Blood loss ≥1500 mL, OR requiring ≥4 units RBC, OR causing haemodynamic instability</td><td>Same causes; more severe or multiple contributors; risk factors: previous PPH, placenta praevia/accreta, grand multiparity, prolonged labour</td></tr>
+      <tr><td><strong>Secondary PPH</strong></td><td>Abnormal bleeding 24 hours to 12 weeks post-delivery</td><td>Retained products; endometritis; subinvolution of placental site; pseudoaneurysm of uterine artery</td></tr>
+    </table></div>
+    <h4>When to Call IR</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Scenario</th><th>IR Role</th></tr>
+      <tr><td>Uterine atony refractory to uterotonics (oxytocin, ergometrine, carboprost, misoprostol) AND uterine tamponade (Bakri balloon) AND surgical measures (B-Lynch suture, uterine artery ligation)</td><td><strong>UAE as uterus-preserving rescue</strong> before peripartum hysterectomy</td></tr>
+      <tr><td>Genital tract arterial bleeding not controlled surgically</td><td>Selective embolisation of bleeding branch (internal pudendal, vaginal artery)</td></tr>
+      <tr><td>Placenta accreta spectrum (PAS) — anticipated massive haemorrhage</td><td><strong>Prophylactic balloon occlusion catheters</strong> in internal iliac or common iliac arteries; inflated after delivery before placenta removal; ± embolisation</td></tr>
+      <tr><td>Secondary PPH with pseudoaneurysm or AV fistula</td><td>Selective embolisation of pseudoaneurysm (uterine artery branch)</td></tr>
+      <tr><td>Secondary PPH with persistent bleeding after curettage</td><td>UAE to control arterial component</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> UAE for PPH — Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Timing</td><td>After failure of obstetric measures (uterotonics → tamponade → surgical); IR should be alerted early in massive PPH — don't wait until the patient is in extremis</td></tr>
+      <tr><td>Access</td><td>Right CFA (single-puncture bilateral approach); left CFA if right fails</td></tr>
+      <tr><td>Catheterisation</td><td>5Fr Cobra or Roberts uterine catheter → contralateral internal iliac → anterior division → uterine artery; then cross to ipsilateral side (Waltman loop)</td></tr>
+      <tr><td>Angiography</td><td>Selective uterine arteriogram: identify active extravasation, pseudoaneurysm, or hypervascular uterine blush; assess for non-uterine bleeding sources (vaginal, cervical branches)</td></tr>
+      <tr><td>Embolisation</td><td><strong>Bilateral uterine artery embolisation</strong> — always bilateral even if bleeding appears unilateral (contralateral cross-filling will maintain haemorrhage)</td></tr>
+      <tr><td>Embolic agent</td><td><strong>Gelatin sponge (Gelfoam)</strong> — standard for PPH; temporary occlusion (~2–4 weeks → vessel recanalises); preserves future fertility; torpedo or pledget technique</td></tr>
+      <tr><td>Endpoint</td><td>Stasis in both uterine arteries; absent uterine blush; check internal iliac branches (cervicovaginal, ovarian supply) for residual bleeding</td></tr>
+      <tr><td>Completion</td><td>Pelvic aortogram/bilateral internal iliac angiogram to confirm no persistent extravasation from non-uterine sources</td></tr>
+    </table></div>
+    <h4>Why Gelfoam (Not Particles or Coils)?</h4>
+    <ul>
+      <li><strong>Temporary:</strong> recanalises in 2–4 weeks — preserves uterine blood supply for future pregnancies</li>
+      <li><strong>Fertility preservation:</strong> studies show ~70–80% subsequent pregnancy rate after gelfoam UAE for PPH</li>
+      <li><strong>Effective:</strong> postpartum uterine arteries are massively dilated (hyperaemic) — gelfoam achieves occlusion easily</li>
+      <li><strong>Do NOT use permanent agents (coils, particles):</strong> risk of uterine necrosis and permanent fertility impairment; coils also prevent re-embolisation if re-bleeding occurs</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Prophylactic Balloon Occlusion — Placenta Accreta Spectrum</div>
+  <div class="card-body">
+    <p>Placenta accreta spectrum (PAS: accreta, increta, percreta) is associated with massive haemorrhage at delivery, often requiring hysterectomy. IR provides prophylactic balloon occlusion to reduce blood loss during caesarean and placenta removal.</p>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Pre-procedure</td><td>MRI confirms PAS diagnosis and depth of invasion; MDT planning (obstetrics, IR, anaesthesia, neonatology, haematology/blood bank)</td></tr>
+      <tr><td>Balloon placement</td><td>Bilateral CFA access → occlusion balloons positioned in <strong>internal iliac arteries</strong> (most common) OR <strong>common iliac arteries</strong>; positioned but NOT inflated; secured to thighs</td></tr>
+      <tr><td>Caesarean delivery</td><td>Performed in OR (or hybrid suite); baby delivered; balloons inflated to reduce pelvic blood flow before placental removal/hysterectomy</td></tr>
+      <tr><td>Embolisation</td><td>If bleeding continues despite balloon occlusion → selective uterine artery embolisation through the balloon catheter lumen or via separate catheter</td></tr>
+      <tr><td>Post-procedure</td><td>Balloons deflated after haemostasis; remove sheaths; observe for access site complications and lower limb ischaemia</td></tr>
+    </table></div>
+    <h4>Evidence & Controversies</h4>
+    <ul>
+      <li>Evidence is mixed — some studies show reduced blood loss and transfusion requirements, others show no significant benefit over surgical techniques alone</li>
+      <li>Complications: balloon migration, iliac artery dissection/thrombosis, lower limb ischaemia (especially if inflated for &gt;60 min), access site haematoma</li>
+      <li>Internal iliac balloons may be insufficient because of extensive collateral supply (ovarian, lumbar, median sacral arteries bypass IIA occlusion)</li>
+      <li>Aortic balloon occlusion (infrarenal REBOA) is an alternative — more effective at reducing pelvic blood flow but higher risk; used selectively at specialist centres</li>
+      <li>Current consensus: prophylactic balloons are reasonable as part of a multidisciplinary PAS management plan, but should not replace surgical haemostatic techniques</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Special Scenarios</div>
+  <div class="card-body">
+    <h4>UAE for PPH — Outcomes</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Technical success (haemostasis)</td><td>~90–95%</td></tr>
+      <tr><td>Avoidance of hysterectomy</td><td>~85–90% (primary goal in most cases)</td></tr>
+      <tr><td>Re-bleeding requiring re-embolisation</td><td>~5–10%</td></tr>
+      <tr><td>Subsequent pregnancy after UAE for PPH</td><td>~70–80% of those attempting; no increase in adverse pregnancy outcomes in most series</td></tr>
+      <tr><td>Procedure-related mortality</td><td>Extremely rare (&lt;0.1%)</td></tr>
+    </table></div>
+    <h4>Special Scenarios</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Scenario</th><th>Approach</th></tr>
+      <tr><td>Uterine artery pseudoaneurysm (secondary PPH)</td><td>Selective coil embolisation of the pseudoaneurysm neck ± gelfoam; coils acceptable here as the clinical urgency outweighs fertility concern of a single branch</td></tr>
+      <tr><td>Cervical/vaginal laceration with arterial bleeding</td><td>Selective embolisation of cervicovaginal branches of internal iliac (uterine artery descending branch, vaginal artery, internal pudendal); gelfoam or coils</td></tr>
+      <tr><td>Post-caesarean scar haematoma with active bleed</td><td>Selective uterine artery embolisation; may see extravasation at lower uterine segment on angiography</td></tr>
+      <tr><td>DIC / massive transfusion coagulopathy</td><td>Gelfoam UAE can achieve haemostasis even in coagulopathic patients (mechanical occlusion not dependent on clotting); correct coagulopathy simultaneously</td></tr>
+    </table></div>
   </div>
 </div>
 `;
