@@ -4298,6 +4298,300 @@ PAGES['dm-rcc'] = `
 </div>
 `;
 
+
+PAGES['b-aortic-syn'] = `
+<h2 class="page-title">Acute Aortic Syndromes & Aneurysms</h2>
+<div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> AAA & TAA — Anatomy & Natural History</div>
+  <div class="card-body">
+    <h4>Definitions</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Term</th><th>Definition</th></tr>
+      <tr><td>Aneurysm</td><td>≥50% increase in expected normal aortic diameter (or infrarenal aorta ≥3.0 cm in most adults)</td></tr>
+      <tr><td>Ectasia</td><td>Diffuse dilation &lt;50% above normal — not an aneurysm, but warrants surveillance</td></tr>
+      <tr><td>True aneurysm</td><td>All three wall layers involved (intima, media, adventitia)</td></tr>
+      <tr><td>Pseudoaneurysm</td><td>Contained rupture — blood contained by adventitia or surrounding tissue only; no intact media</td></tr>
+    </table></div>
+    <h4>Repair Thresholds</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Location</th><th>Threshold (cm)</th><th>Notes</th></tr>
+      <tr><td>Infrarenal AAA (men)</td><td>≥5.5</td><td>UK Small Aneurysm Trial, ADAM trial — no survival benefit to early repair below this threshold</td></tr>
+      <tr><td>Infrarenal AAA (women)</td><td>≥5.0</td><td>Higher rupture risk per diameter in women; lower threshold justified</td></tr>
+      <tr><td>Rapid expansion</td><td>≥1.0 cm/year</td><td>Repair regardless of absolute diameter</td></tr>
+      <tr><td>Descending thoracic</td><td>≥5.5–6.0</td><td>Lower thresholds (≥4.5–5.0) in connective tissue disorders (Marfan, Loeys-Dietz, vEDS)</td></tr>
+      <tr><td>Ascending thoracic</td><td>≥5.5</td><td>Surgical domain — not TEVAR territory (requires open or hybrid)</td></tr>
+      <tr><td>Symptomatic / ruptured</td><td>Any size</td><td>Emergency repair</td></tr>
+    </table></div>
+    <h4>AAA Surveillance Intervals (Sub-threshold)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Diameter (cm)</th><th>Interval</th></tr>
+      <tr><td>3.0–3.9</td><td>12-monthly USS</td></tr>
+      <tr><td>4.0–4.4</td><td>6-monthly USS</td></tr>
+      <tr><td>4.5–5.4</td><td>3-monthly USS or CTA</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> EVAR Sizing Criteria</div>
+  <div class="card-body">
+    <h4>Anatomical Suitability — Infrarenal Neck (IFU-based)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Parameter</th><th>Standard IFU</th><th>Notes</th></tr>
+      <tr><td>Neck length</td><td>≥15 mm (some devices ≥10 mm)</td><td>Measured from lowest renal artery to start of aneurysm; shorter necks may need fenestrated/branched devices or snorkel techniques</td></tr>
+      <tr><td>Neck diameter</td><td>18–32 mm (device-specific)</td><td>Stent-graft oversized 10–20% relative to neck outer-to-outer diameter on CTA</td></tr>
+      <tr><td>Neck angulation</td><td>≤60° (suprarenal) / ≤45° (infrarenal)</td><td>Severe angulation increases migration and Type Ia endoleak risk</td></tr>
+      <tr><td>Neck shape</td><td>Parallel or mild taper; no reverse taper</td><td>Conical (widening distally) necks associated with poor seal</td></tr>
+      <tr><td>Thrombus / calcification</td><td>&lt;50% circumference in seal zone</td><td>Circumferential thrombus or heavy calcification impairs device apposition</td></tr>
+      <tr><td>Iliac access</td><td>Diameter ≥7 mm; no severe tortuosity</td><td>Narrow or tortuous iliacs may require conduit, or use of low-profile devices</td></tr>
+      <tr><td>Distal landing zone (CIA)</td><td>≥10–15 mm length; 8–25 mm diameter</td><td>If CIA aneurysmal — limb extension to EIA with IIA embolisation/preservation as needed</td></tr>
+    </table></div>
+    <h4>Key Measurements on CTA (Centre-lumen-line)</h4>
+    <ul>
+      <li><strong>Neck diameter:</strong> outer wall to outer wall at lowest renal, +5 mm, +10 mm, and at start of aneurysm</li>
+      <li><strong>Neck length:</strong> lowest renal to aneurysm origin along centre-lumen line</li>
+      <li><strong>Aneurysm max diameter</strong></li>
+      <li><strong>Aortic bifurcation diameter</strong></li>
+      <li><strong>CIA length and diameter bilaterally</strong> — need adequate seal zone</li>
+      <li><strong>EIA / CFA diameter:</strong> access vessel size for sheath delivery</li>
+      <li><strong>Neck-to-bifurcation length:</strong> main body length selection</li>
+    </ul>
+    <div class="tip">Always measure on centre-lumen line reformats — axial slices overestimate diameter in tortuous anatomy. Most planning software (3mensio, TeraRecon) generates these automatically from CTA datasets.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Endoleak Classification</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Source</th><th>Significance</th><th>Management</th></tr>
+      <tr><td><strong>Ia</strong></td><td>Proximal attachment site leak</td><td>High pressure — sac pressurisation continues; risk of rupture</td><td>Urgent — proximal extension cuff, embolisation, conversion to fenestrated/open</td></tr>
+      <tr><td><strong>Ib</strong></td><td>Distal attachment site leak</td><td>Same as Ia — high pressure</td><td>Distal limb extension; iliac branch device if at iliac bifurcation</td></tr>
+      <tr><td><strong>II</strong></td><td>Branch vessel backflow (lumbar, IMA)</td><td>Low pressure — most common type; majority are benign and resolve spontaneously</td><td>Observe if sac stable/shrinking; treat if sac growth &gt;5 mm — translumbar or transarterial embolisation of nidus</td></tr>
+      <tr><td><strong>III</strong></td><td>Graft defect — fabric tear or component separation</td><td>High pressure — direct communication with sac</td><td>Urgent — relining with additional stent-graft component</td></tr>
+      <tr><td><strong>IV</strong></td><td>Graft porosity (seen at implantation only)</td><td>Self-limiting; resolves within 30 days as fabric seals</td><td>Observation — no intervention needed</td></tr>
+      <tr><td><strong>V (endotension)</strong></td><td>Sac expansion without visible leak on imaging</td><td>Controversial — may represent undetected low-flow leak</td><td>Close surveillance; may require relining or conversion if progressive expansion</td></tr>
+    </table></div>
+    <div class="warn">Type I and III endoleaks require urgent intervention — they represent high-pressure flow into the sac with ongoing rupture risk equivalent to an untreated aneurysm.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> TEVAR Zones & Landing Zone Planning</div>
+  <div class="card-body">
+    <h4>Ishimaru Zones (Arch Landing Zones)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Zone</th><th>Proximal Extent</th><th>Branch Implications</th></tr>
+      <tr><td>Zone 0</td><td>Ascending aorta / innominate origin</td><td>Requires total arch debranching (innominate + LCCA + LSA) or hybrid arch repair — essentially surgical territory</td></tr>
+      <tr><td>Zone 1</td><td>Between innominate and LCCA</td><td>Innominate coverage — requires innominate bypass/debranching; carotid-carotid bypass may suffice</td></tr>
+      <tr><td>Zone 2</td><td>Between LCCA and LSA</td><td>LSA coverage — consider pre-TEVAR LSA revascularisation (carotid-subclavian bypass or transposition) if dominant left vertebral, LIMA graft, left arm dialysis access, or incomplete circle of Willis</td></tr>
+      <tr><td>Zone 3</td><td>Proximal descending aorta (distal to LSA, within 2 cm)</td><td>Typically straightforward — may still partially cover LSA origin</td></tr>
+      <tr><td>Zone 4</td><td>Mid-descending thoracic aorta</td><td>Standard TEVAR territory — no arch branch involvement</td></tr>
+    </table></div>
+    <h4>Landing Zone Requirements</h4>
+    <ul>
+      <li><strong>Minimum seal length:</strong> ≥20 mm proximally and distally in a healthy, non-diseased segment</li>
+      <li><strong>Oversizing:</strong> 10–15% for chronic aneurysm; minimal (0–5%) for acute dissection (fragile aorta — excessive oversizing risks SINE: stent-graft induced new entry tear)</li>
+      <li><strong>Avoid landing in acute angulation</strong> — bird-beaking of the proximal edge reduces seal and increases collapse risk</li>
+    </ul>
+    <div class="tip">Pre-TEVAR LSA revascularisation is recommended (SVS/STS guidelines) for elective Zone 2 landing in most patients. In emergencies, LSA coverage without revascularisation is acceptable if no high-risk features — but plan delayed revascularisation if symptoms arise (left arm claudication, vertebrobasilar ischaemia, spinal cord ischaemia).</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Acute Aortic Syndromes — Classification</div>
+  <div class="card-body">
+    <h4>Spectrum</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Entity</th><th>Pathology</th><th>Imaging Features</th></tr>
+      <tr><td><strong>Aortic dissection</strong></td><td>Intimal tear → blood enters media → true and false lumen separated by intimal flap</td><td>Intimal flap on CTA; true lumen typically smaller, compressed by false lumen; false lumen often larger with slower flow (may thrombose)</td></tr>
+      <tr><td><strong>Intramural haematoma (IMH)</strong></td><td>Haemorrhage within aortic media (vasa vasorum rupture) without intimal tear or flap</td><td>Crescentic or circumferential high-density wall thickening on non-contrast CT; no intimal flap or false lumen flow on CTA</td></tr>
+      <tr><td><strong>Penetrating atherosclerotic ulcer (PAU)</strong></td><td>Ulcerated plaque penetrates internal elastic lamina into media</td><td>Focal contrast outpouching beyond expected aortic contour, often with adjacent IMH; typically descending aorta in elderly with heavy atherosclerosis</td></tr>
+    </table></div>
+    <h4>Stanford Classification</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Involvement</th><th>Management Paradigm</th></tr>
+      <tr><td><strong>Type A</strong></td><td>Involves ascending aorta (± arch, ± descending)</td><td>Surgical emergency — open repair (mortality ~25% with surgery vs ~50% without); TEVAR not applicable for ascending pathology</td></tr>
+      <tr><td><strong>Type B</strong></td><td>Descending aorta only (distal to LSA origin)</td><td>Medical management first-line for uncomplicated; TEVAR for complicated (see below)</td></tr>
+    </table></div>
+    <h4>DeBakey Classification</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Origin</th><th>Extent</th></tr>
+      <tr><td>Type I</td><td>Ascending aorta</td><td>Extends to arch and descending (most common Type A pattern)</td></tr>
+      <tr><td>Type II</td><td>Ascending aorta</td><td>Confined to ascending only</td></tr>
+      <tr><td>Type IIIa</td><td>Descending aorta</td><td>Confined to descending thoracic</td></tr>
+      <tr><td>Type IIIb</td><td>Descending aorta</td><td>Extends below diaphragm into abdominal aorta</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Type B Dissection — Treatment Selection</div>
+  <div class="card-body">
+    <h4>Uncomplicated Type B</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Phase</th><th>Management</th></tr>
+      <tr><td>Acute (≤14 days)</td><td>Medical: aggressive BP control (target SBP 100–120 mmHg); IV labetalol or esmolol first-line (reduces dP/dt); analgesia; ICU monitoring. ADSORB and INSTEAD-XL trials support early TEVAR in selected uncomplicated cases (reduces late aortic-related mortality and false lumen patency) — increasingly considered for favourable anatomy</td></tr>
+      <tr><td>Subacute (15–90 days)</td><td>Ongoing medical therapy; interval CTA at 1, 3, 6, 12 months then annually; consider TEVAR if aortic growth &gt;4 mm, persistent false lumen patency with max diameter &gt;40 mm, or new symptoms</td></tr>
+      <tr><td>Chronic (&gt;90 days)</td><td>Lifelong BP control; surveillance CTA; surgical/endovascular repair if aneurysmal degeneration (&gt;55–60 mm) — TEVAR alone less effective in chronic phase (stiff, remodelled flap less likely to reappose)</td></tr>
+    </table></div>
+    <h4>Complicated Type B — Indications for Urgent TEVAR</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Detail</th></tr>
+      <tr><td><strong>Malperfusion</strong></td><td>Branch vessel compromise → end-organ ischaemia (renal, mesenteric, limb); may be dynamic (flap prolapse) or static (false lumen thrombus compressing true lumen or occluding branch ostium)</td></tr>
+      <tr><td><strong>Rupture / impending rupture</strong></td><td>Periaortic haematoma, haemothorax, increasing pain despite BP control</td></tr>
+      <tr><td><strong>Rapid aortic expansion</strong></td><td>&gt;4 mm growth between serial imaging studies</td></tr>
+      <tr><td><strong>Refractory pain / hypertension</strong></td><td>Persistent despite maximal medical therapy — suggests ongoing propagation or impending rupture</td></tr>
+    </table></div>
+    <h4>TEVAR Technique for Type B Dissection</h4>
+    <ul>
+      <li><strong>Goal:</strong> cover primary entry tear → redirect flow to true lumen → promote false lumen thrombosis and aortic remodelling</li>
+      <li><strong>Oversizing:</strong> minimal (0–5% based on true lumen diameter at healthy proximal landing zone) — excessive oversizing in acute dissection risks SINE (stent-graft induced new entry)</li>
+      <li><strong>Landing zone:</strong> ≥20 mm in non-dissected aorta proximally; distally above the coeliac trunk if possible (avoid covering visceral branches unless necessary)</li>
+      <li><strong>Adjuncts for malperfusion:</strong> if branch ischaemia persists after entry tear coverage, may need branch vessel stenting or fenestration of the dissection flap</li>
+    </ul>
+    <div class="warn">Malperfusion syndrome is the most time-critical complication of Type B dissection — mesenteric ischaemia carries &gt;50% mortality if not rapidly corrected. TEVAR should not be delayed for malperfusion even in suboptimal anatomy.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> IMH & PAU — Management Pathways</div>
+  <div class="card-body">
+    <h4>Intramural Haematoma</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Location</th><th>Approach</th></tr>
+      <tr><td>Type A (ascending)</td><td>Surgical emergency — same as Type A dissection (high risk of progression to dissection or rupture)</td></tr>
+      <tr><td>Type B (descending)</td><td>Medical management (as for uncomplicated Type B dissection); ~10% progress to frank dissection or aneurysmal dilation requiring intervention; serial CTA surveillance essential</td></tr>
+    </table></div>
+    <h4>Penetrating Atherosclerotic Ulcer</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Presentation</th><th>Approach</th></tr>
+      <tr><td>Asymptomatic, small, stable</td><td>Medical management + CTA surveillance (6-monthly initially)</td></tr>
+      <tr><td>Symptomatic / enlarging / &gt;20 mm depth or &gt;10 mm neck</td><td>TEVAR (focal coverage of the ulcer with ≥20 mm proximal and distal seal in non-diseased aorta)</td></tr>
+      <tr><td>Associated pseudoaneurysm or rupture</td><td>Urgent TEVAR</td></tr>
+    </table></div>
+    <div class="tip">PAU is the most common acute aortic syndrome to be treated with TEVAR in the elderly — the focal nature makes it ideally suited to short covered stent-graft coverage. IMH and PAU may coexist.</div>
+  </div>
+</div>
+`;
+
+PAGES['b-supraaortic'] = `
+<h2 class="page-title">Supra-aortic Disease</h2>
+<div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Carotid Artery Stenosis — Indications for Intervention</div>
+  <div class="card-body">
+    <h4>Symptomatic Carotid Stenosis</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Degree (NASCET)</th><th>Indication</th><th>Evidence</th></tr>
+      <tr><td>≥70%</td><td>Strong indication for revascularisation (CEA or CAS)</td><td>NASCET, ECST — NNT ~6 over 2 years to prevent ipsilateral stroke</td></tr>
+      <tr><td>50–69%</td><td>Moderate benefit — revascularise if recent symptoms (&lt;2 weeks), male, hemispheric (not retinal) events</td><td>NASCET subgroup analysis — benefit greatest when treated within 2 weeks of index event</td></tr>
+      <tr><td>&lt;50%</td><td>No benefit from revascularisation — best medical therapy only</td><td>NASCET, ECST</td></tr>
+    </table></div>
+    <h4>Asymptomatic Carotid Stenosis</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Degree</th><th>Current Position</th></tr>
+      <tr><td>≥70% (some centres ≥60%)</td><td>Historically revascularised (ACAS, ACST trials); now increasingly questioned — modern best medical therapy (statins, antihypertensives, antiplatelets) has reduced annual stroke risk to ~0.5–1%/year, narrowing the benefit of intervention. CREST-2 trial (CAS + BMT vs BMT alone) ongoing/recently reported — pending practice guideline updates</td></tr>
+      <tr><td>High-risk features on imaging</td><td>May favour intervention despite asymptomatic: echolucent plaque, intraplaque haemorrhage on MRI, silent infarcts on CT/MRI, contralateral occlusion, progressive stenosis on surveillance</td></tr>
+    </table></div>
+    <div class="tip">Timing matters for symptomatic stenosis — the benefit of revascularisation falls sharply after 2 weeks from the index neurological event. Expedited assessment and treatment within 14 days is the target.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> CAS vs CEA — Selection Criteria</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Factor</th><th>Favours CAS</th><th>Favours CEA</th></tr>
+      <tr><td>Anatomy</td><td>High bifurcation (above C2), prior neck radiation/surgery (hostile neck), contralateral laryngeal nerve palsy</td><td>Aortic arch heavily diseased or Type III arch (difficult catheter access); heavy circumferential calcification at stenosis</td></tr>
+      <tr><td>Age</td><td>&lt;70 years (CREST — CAS equivalent to CEA in younger patients)</td><td>≥70 years (CREST — CEA lower periprocedural stroke risk in older patients)</td></tr>
+      <tr><td>Comorbidities</td><td>"High surgical risk" — severe cardiac disease, severe COPD, contralateral carotid occlusion</td><td>Standard surgical risk</td></tr>
+      <tr><td>Lesion</td><td>Tandem lesions (intracranial + extracranial); restenosis after prior CEA</td><td>Long-segment stenosis, heavily calcified, string sign, fresh thrombus (high embolic risk with CAS)</td></tr>
+    </table></div>
+    <div class="warn">CAS carries a higher periprocedural stroke rate compared to CEA in patients ≥70 years (CREST, ICSS data). Age is the single strongest factor in CAS vs CEA selection for symptomatic disease.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> CAS Technique</div>
+  <div class="card-body">
+    <h4>Procedural Steps</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Common femoral artery (standard); radial/brachial for unfavourable arch anatomy (Type III arch, bovine arch). 6–8 Fr long sheath or guiding catheter into CCA</td></tr>
+      <tr><td>Arch aortogram</td><td>Assess arch type, great vessel origins, identify tortuosity or disease that may affect catheter stability</td></tr>
+      <tr><td>Cerebral protection</td><td>Embolic protection device (EPD) deployed before crossing stenosis — see section below</td></tr>
+      <tr><td>Pre-dilation</td><td>Optional — low-pressure balloon if stenosis too tight for stent delivery; avoided where possible to reduce embolic events</td></tr>
+      <tr><td>Stent deployment</td><td>Self-expanding nitinol stent (open-cell or closed-cell design) sized to CCA and ICA diameters; tapered stents available for significant diameter mismatch; stent covers entire lesion extending CCA to ICA</td></tr>
+      <tr><td>Post-dilation</td><td>Balloon angioplasty within stent to achieve adequate lumen (typically 5–6 mm in ICA); performed carefully to avoid hyperperfusion/bradycardia</td></tr>
+      <tr><td>Haemodynamic management</td><td>Atropine at bedside for carotid body–mediated bradycardia during balloon inflation; avoid hypotension (glycopyrrolate pre-treatment in some protocols)</td></tr>
+      <tr><td>Completion angiography</td><td>ICA, CCA, and intracranial views to confirm stent expansion, exclude dissection, and confirm cerebral perfusion</td></tr>
+    </table></div>
+    <h4>Embolic Protection Devices (EPD)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Mechanism</th><th>Pros/Cons</th></tr>
+      <tr><td><strong>Distal filter</strong></td><td>Filter basket deployed in ICA distal to stenosis — captures embolic debris during stenting</td><td>Maintains antegrade flow; most widely used; must cross stenosis before deploying (embolic risk during crossing); may not capture very small particles</td></tr>
+      <tr><td><strong>Distal balloon occlusion</strong></td><td>Balloon inflated in distal ICA — arrests antegrade flow; debris aspirated before restoring flow</td><td>Complete flow arrest — better debris capture; but causes cerebral ischaemia during occlusion (poorly tolerated if incomplete circle of Willis)</td></tr>
+      <tr><td><strong>Proximal occlusion (Mo.Ma or similar)</strong></td><td>Balloons occlude CCA and ECA proximally → flow reversal in ICA draws debris away from brain</td><td>Protection before crossing the lesion (theoretical advantage — no unprotected crossing); requires intact circle of Willis for flow reversal tolerance; bulkier system</td></tr>
+    </table></div>
+    <div class="tip">Closed-cell stent designs (e.g. Wallstent) provide better plaque coverage with smaller free cell area — may reduce periprocedural embolisation vs open-cell designs, particularly in echolucent/lipid-rich plaques. Open-cell designs (e.g. Acculink) conform better in tortuous anatomy.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Subclavian Artery Disease</div>
+  <div class="card-body">
+    <h4>Subclavian Steal Syndrome</h4>
+    <ul>
+      <li><strong>Mechanism:</strong> proximal subclavian stenosis/occlusion → ipsilateral vertebral artery flow reversal → "stealing" blood from posterior cerebral circulation to supply the arm</li>
+      <li><strong>Symptoms:</strong> posterior circulation symptoms (dizziness, vertigo, visual disturbance, syncope) provoked by ipsilateral arm exercise; arm claudication; BP differential &gt;20 mmHg between arms</li>
+      <li><strong>Diagnosis:</strong> Duplex USS showing vertebral flow reversal; CTA/MRA confirming proximal subclavian stenosis</li>
+    </ul>
+    <h4>Indications for Subclavian Intervention</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indication</th><th>Detail</th></tr>
+      <tr><td>Symptomatic steal</td><td>Posterior circulation symptoms or arm claudication limiting function</td></tr>
+      <tr><td>Coronary steal</td><td>Proximal left subclavian stenosis in patients with LIMA graft (internal mammary) → ischaemia via retrograde LIMA flow (coronary-subclavian steal) — important to screen pre-CABG</td></tr>
+      <tr><td>Planned TEVAR</td><td>Pre-TEVAR LSA revascularisation when landing zone covers LSA (Zone 2) — carotid-subclavian bypass or subclavian stenting</td></tr>
+      <tr><td>Dialysis access ipsilateral</td><td>Inflow stenosis compromising ipsilateral arm dialysis fistula/graft</td></tr>
+    </table></div>
+    <h4>Technique — Subclavian Stenting</h4>
+    <ul>
+      <li><strong>Access:</strong> femoral (retrograde through the stenosis) ± brachial/radial (antegrade through-and-through wire for stability)</li>
+      <li><strong>Stent choice:</strong> balloon-expandable stent for ostial lesions (precise placement, radial force); self-expanding for more distal or tortuous segments</li>
+      <li><strong>Avoid covering vertebral artery origin</strong> unless intentional (if vertebral is hypoplastic/non-dominant)</li>
+      <li><strong>Results:</strong> technical success &gt;95%; primary patency ~85% at 5 years</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Vertebral Artery Disease</div>
+  <div class="card-body">
+    <h4>Vertebral Artery Stenosis — Overview</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Location</td><td>Most commonly ostial (V0/V1 segment) — atherosclerotic; intracranial (V4) stenosis also occurs but less amenable to stenting</td></tr>
+      <tr><td>Symptoms</td><td>Posterior circulation TIA/stroke: vertigo, diplopia, dysarthria, drop attacks, visual field deficits, cerebellar signs</td></tr>
+      <tr><td>Indication for intervention</td><td>Symptomatic stenosis ≥50% failing best medical therapy (dual antiplatelet + statin + risk factor control); bilateral vertebral disease; or symptomatic stenosis in a dominant/sole vertebral artery</td></tr>
+      <tr><td>Evidence</td><td>VIST trial and CAVATAS-vertebral showed no clear benefit of stenting over BMT for vertebral stenosis — current guidelines favour BMT first, with stenting reserved for patients failing medical therapy</td></tr>
+    </table></div>
+    <h4>Technique — Vertebral Artery Stenting</h4>
+    <ul>
+      <li><strong>Access:</strong> femoral; 6 Fr guiding catheter in subclavian artery</li>
+      <li><strong>Stent:</strong> balloon-expandable coronary-type stent (3.5–4.5 mm); ostial lesions treated with stent extending slightly into the subclavian lumen for secure positioning</li>
+      <li><strong>EPD:</strong> generally not used for vertebral stenting (EPD devices too large for vertebral artery diameter in most cases)</li>
+      <li><strong>Results:</strong> technical success &gt;95%; restenosis rates 10–30% at 1 year (higher than carotid stenting)</li>
+    </ul>
+    <div class="warn">Vertebral artery stenting has limited evidence supporting superiority over medical therapy alone. Current practice reserves it for patients with recurrent posterior circulation events despite optimal medical management, particularly with bilateral vertebral disease or in a dominant sole vertebral artery.</div>
+  </div>
+</div>
+`;
+
+
 // ── b-stroke, b-malformations ──
 
 PAGES['b-stroke'] = `
