@@ -337,6 +337,7 @@ const NAV = [
     {id:'a-imaging', title:'Imaging Modalities', freq:'high'},
     {id:'a-devices', title:'IR Devices & Equipment', freq:'high'},
     {id:'a-embolics', title:'Embolic & Sclerotherapy Agents', freq:'high'},
+    {id:'a-techniques', title:'Procedural Techniques & Handling', freq:'high'},
   ]},
   { id:'secB', label:'B · Vascular', items:[
     {id:'b-pad', title:'Peripheral Arterial Disease', freq:'high'},
@@ -359,6 +360,7 @@ const NAV = [
     {id:'b-dialysis', title:'Dialysis Access', freq:'high'},
     {id:'b-cva', title:'Central Venous Access', freq:'high'},
     {id:'b-sampling', title:'Venous Sampling', freq:'med'},
+    {id:'b-complications', title:'Vascular Complications & Mx', freq:'high'},
   ]},
   { id:'secC', label:'C · Non-vascular / GI / HPB', items:[
     {id:'c-biopsy', title:'Image-guided Biopsy', freq:'high'},
@@ -3077,6 +3079,178 @@ PAGES['a-imaging'] = `
 // ═══════════════════════════════════════
 // SECTION B — VASCULAR
 // ═══════════════════════════════════════
+
+
+PAGES['a-techniques'] = `
+<h2 class="page-title">Procedural Techniques & Device Handling</h2>
+<div class="page-meta"><span class="tag tag-section">Section A · Fundamentals</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Flushing — Principles & Protocols</div>
+  <div class="card-body">
+    <p>Every catheter, sheath, and manifold in the vascular system is a potential source of air embolism and thrombus. Correct flushing technique is one of the most fundamental and most frequently overlooked IR skills.</p>
+    <h4>Standard Flush Protocol</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Action</th><th>Rationale</th></tr>
+      <tr><td><strong>1. Aspirate first</strong></td><td>Aspirate 3–5 mL of blood/fluid back through the catheter/sheath before flushing. Discard.</td><td>Removes any air bubbles or formed thrombus sitting in the lumen or at the tip. If you flush without aspirating, you push debris/air INTO the patient</td></tr>
+      <tr><td><strong>2. Flush forward</strong></td><td>Inject heparinised saline (1–2 IU/mL in 500 mL bag, or 5000 IU in 500 mL NS) through the lumen until clear</td><td>Clears residual blood products from lumen; prevents thrombus formation on inner wall; maintains patency</td></tr>
+      <tr><td><strong>3. Continuous drip</strong></td><td>Connect pressurised flush bag (300 mmHg pressure bag) to sheath side-arm for continuous slow flush (~3 mL/h)</td><td>Prevents stagnant blood clotting in sheath; standard for all sheaths during case</td></tr>
+    </table></div>
+    <div class="warn"><strong>ASPIRATE BEFORE YOU FLUSH.</strong> This is the single most important flushing rule. Flushing without aspirating is how air and thrombus reach the patient. If you cannot aspirate blood back (catheter occluded or wedged), do NOT flush — reposition catheter first.</div>
+
+    <h4>Double-Flush (Back-Bleed) Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Action</th><th>Why</th></tr>
+      <tr><td>1</td><td>Remove wire/inner catheter from the device (sheath, guide catheter, Y-connector)</td><td>Creates an open lumen for blood to flow backward through the device</td></tr>
+      <tr><td>2</td><td>Allow back-bleeding: hold hub below patient level and let blood drip freely from the hub for 2–3 seconds</td><td>Blood flowing backward flushes out any air trapped in dead space or at the tip — gravity-driven air purge. Air rises and exits the open hub</td></tr>
+      <tr><td>3</td><td>While blood is dripping, aspirate with syringe (5–10 mL) to actively pull any remaining air/thrombus</td><td>Active aspiration is more thorough than passive back-bleed alone — catches bubbles adhering to wall</td></tr>
+      <tr><td>4</td><td>Flush forward with heparinised saline once aspirate is clear</td><td>Clears the lumen and primes for the next wire/catheter insertion</td></tr>
+    </table></div>
+    <p>The double-flush technique is used whenever you remove a wire or catheter from inside a sheath or guide — particularly during catheter/device exchanges. It is the standard for preventing air embolism in the angio suite.</p>
+    <div class="tip"><strong>When to use double-flush:</strong> every wire removal from a sheath; every catheter exchange; before inserting any new catheter/device into a sheath; any time you disconnect a stopcock or Luer fitting from a vascular line. If in doubt — back-bleed and aspirate.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Heparinised Saline & Flush Solutions</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Solution</th><th>Preparation</th><th>Use</th><th>Notes</th></tr>
+      <tr><td><strong>Heparinised saline (continuous flush)</strong></td><td>1000–5000 IU UFH in 500 mL–1 L normal saline (typical: 1 IU/mL or 5 IU/mL depending on institution)</td><td>Pressurised flush bag on sheath side-arm; manual syringe flushes between catheter exchanges</td><td>Standard for all arterial and most venous access. Some centres use plain saline for venous lines (lower thrombotic risk); most use heparinised for arterial</td></tr>
+      <tr><td><strong>Plain normal saline</strong></td><td>0.9% NaCl</td><td>Venous flush (low thrombotic risk); catheter lumen flushing when heparin contraindicated (HIT)</td><td>Use in HIT (heparin-induced thrombocytopenia) — substitute argatroban or bivalirudin-based flush if available; otherwise plain saline with frequent flush intervals</td></tr>
+      <tr><td><strong>Contrast flush</strong></td><td>Dilute iodinated contrast (e.g. 50:50 contrast:saline) through catheter under fluoro</td><td>Test injection to confirm catheter position, check for subintimal placement, road-map</td><td>Not a maintenance flush — used diagnostically. Always aspirate before injecting contrast to confirm intraluminal position</td></tr>
+    </table></div>
+    <div class="tip"><strong>Pressurised flush bag setup:</strong> spike the hep-saline bag → connect to flush line with drip chamber → purge ALL air from line and stopcock (hold vertically, tap drip chamber) → connect to sheath side-arm → inflate pressure bag to 300 mmHg. Check the pressure bag and fluid level periodically during long cases.</div>
+    <div class="warn"><strong>Air in flush lines is the #1 preventable cause of iatrogenic air embolism.</strong> Always de-air the entire flush system before connecting to the patient. Tap stopcocks and Y-connectors to dislodge trapped microbubbles. Never let a flush bag run completely dry.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Catheter Handling & Exchange Technique</div>
+  <div class="card-body">
+    <h4>Basic Catheter Manipulation Principles</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Principle</th><th>Detail</th><th>Why It Matters</th></tr>
+      <tr><td><strong>Wire first, catheter follows</strong></td><td>Never advance a catheter without a wire leading through its tip (except in certain push-catheter techniques for coils)</td><td>Bare catheter tip catches on vessel wall, intima, plaques → dissection; wire creates an atraumatic leading edge</td></tr>
+      <tr><td><strong>Over-the-wire exchange</strong></td><td>When changing from one catheter to another: advance wire well past target → hold wire position at hub → slide old catheter out → slide new catheter over wire → remove wire</td><td>Maintains access to the target vessel without having to re-select it; saves time and reduces vessel manipulation</td></tr>
+      <tr><td><strong>Never lose wire position</strong></td><td>Always grip the wire at the hub when removing/advancing a catheter; use a torque device on the wire for control; have an assistant hold the wire if needed</td><td>Losing wire position means re-selecting the vessel — more time, more manipulation, more spasm/dissection risk</td></tr>
+      <tr><td><strong>Advance under fluoroscopy</strong></td><td>All wire and catheter movements in the vascular system must be visualised fluoroscopically</td><td>Blind advancement = blind perforation. Even "routine" wire advancement can enter a branch vessel or go subintimal</td></tr>
+      <tr><td><strong>Torque technique</strong></td><td>Rotate the catheter at the hub (using the hand in a spinning motion) to steer into branch vessels; 1:1 torque catheters transmit rotation reliably</td><td>Torquing with intermittent small pushes is how you selectively catheterise branches (e.g., hepatic, renal). Avoid full 360° spins — causes vessel spasm</td></tr>
+    </table></div>
+
+    <h4>Catheter Exchange Steps</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Action</th></tr>
+      <tr><td>1</td><td>Advance a long exchange wire (180–260 cm) through the existing catheter into the target vessel. Confirm wire tip position on fluoro</td></tr>
+      <tr><td>2</td><td>Hold the wire firmly at the hub (or have assistant hold). Remove the old catheter over the wire — pull steadily, watching wire tip on fluoro to ensure it does not move</td></tr>
+      <tr><td>3</td><td><strong>Double-flush the sheath</strong> (back-bleed + aspirate + flush) while the catheter is out and only the wire is through the sheath</td></tr>
+      <tr><td>4</td><td>Advance the new catheter over the wire through the sheath. Push gently — if resistance is felt at sheath valve, may need to dilate or use a stiffer wire</td></tr>
+      <tr><td>5</td><td>Remove the wire. Aspirate the catheter (blood return confirms intraluminal). Flush with heparinised saline. Perform test injection under fluoro</td></tr>
+    </table></div>
+    <div class="tip"><strong>Wire-catheter ratio:</strong> the wire should always be long enough that when the catheter is fully advanced, there is still sufficient wire protruding from the hub to maintain grip. Rule of thumb: wire should be at least 2× catheter length for exchange (e.g., 100 cm catheter → ≥200 cm wire).</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Stopcock & Manifold Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Component</th><th>Function</th><th>Handling Rules</th></tr>
+      <tr><td><strong>3-way stopcock</strong></td><td>Controls flow between patient, syringe, and flush line; allows switching between contrast injection and saline flush without disconnecting</td><td>Handle points AWAY from the open port (perpendicular = closed to that port). When turning: always turn OFF to patient first before opening to air to change syringe — prevents air entrainment. Never leave a port open to air. Cap all unused ports</td></tr>
+      <tr><td><strong>Manifold (e.g., Merit Medallion, AngioDynamic)</strong></td><td>Multi-port rotating hub: allows power injection, hand injection, pressure monitoring, and flush through a single catheter simultaneously</td><td>Prime ALL ports and rotate through each position while flushing to clear air from every channel. The rotating barrel has dead space at each position — if not purged, air enters the patient when you rotate to that port</td></tr>
+      <tr><td><strong>Y-connector (Touhy-Borst / RHV)</strong></td><td>Allows wire passage through catheter/sheath while maintaining haemostatic seal; can inject contrast alongside wire</td><td>Tighten haemostatic valve around wire to prevent blood loss. When removing wire: loosen valve first (or you'll strip the hydrophilic coating). Flush after every wire removal</td></tr>
+      <tr><td><strong>Check-flow valve</strong></td><td>One-way valve on sheath hub; prevents back-bleeding without needing a stopcock</td><td>Still aspirate and flush — check-flow valves prevent gross bleeding but don't prevent clot formation in stagnant blood</td></tr>
+    </table></div>
+    <div class="warn"><strong>Dead space kills.</strong> Every stopcock, manifold port, and Y-connector has dead space containing air or stagnant blood. Purge it by aspirating and flushing through each port before connecting to the patient. After every stopcock turn, flush forward to clear the dead space of that new channel.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Sheath Management During a Case</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Principle</th><th>Detail</th></tr>
+      <tr><td><strong>Continuous flush</strong></td><td>Every arterial sheath side-arm must be connected to a pressurised heparinised saline flush bag (300 mmHg) for the entire duration of the case. No exceptions</td></tr>
+      <tr><td><strong>Haemostatic valve</strong></td><td>Keep the back-bleed valve (RHV / Touhy-Borst) snug around the catheter/wire passing through it — loose valve = blood loss; too tight on hydrophilic wire = stripped coating</td></tr>
+      <tr><td><strong>Sheath kinking</strong></td><td>If the sheath kinks at the skin entry site (common with tortuous iliac anatomy), options: (1) use a longer sheath (45 cm) that tracks past the kink; (2) insert a stiffening cannula; (3) upsize to reinforced/armoured sheath. A kinked sheath is non-functional — do not force catheters through it</td></tr>
+      <tr><td><strong>Sheath upsizing</strong></td><td>If a larger sheath is needed mid-case: advance a stiff exchange wire through existing sheath → remove sheath → sequential fascial dilators → insert larger sheath over wire. Do not go more than 2 Fr up without dilating</td></tr>
+      <tr><td><strong>No air in, no clot in</strong></td><td>Every time a catheter or wire is withdrawn from the sheath, blood wells up through the valve — flush the sheath immediately. Never leave a sheath with stagnant blood; never allow the flush bag to run empty</td></tr>
+    </table></div>
+    <div class="tip"><strong>The sheath is your lifeline.</strong> Lose a well-positioned sheath (accidental pullout, kinking) and you may need to re-access entirely. Secure sheaths to skin with a suture or adhesive device, especially for long cases or when the patient is being repositioned.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Wire Handling & Safety</div>
+  <div class="card-body">
+    <h4>Handling Principles</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Principle</th><th>Detail</th></tr>
+      <tr><td><strong>Wet-to-wet</strong></td><td>Hydrophilic wires (Terumo, Glidewire): always keep wet with saline-soaked gauze. Never wipe with dry gauze — strips the hydrophilic coating, creating a bare metal surface that grabs vessel wall and causes more friction/damage. Wipe gently with <em>wet</em> gauze only</td></tr>
+      <tr><td><strong>Controlled advancement</strong></td><td>Advance wire in small increments (1–2 cm) under fluoroscopy. Watch the tip. If the tip buckles, deflects, or meets resistance — stop. Withdraw and redirect. Never push against resistance</td></tr>
+      <tr><td><strong>Torque device</strong></td><td>Use a torque device (pin vise) on the wire hub for precise directional control when navigating branches. Rotate in small arcs (quarter-turns), not full spins. Most effective with shaped-tip wires</td></tr>
+      <tr><td><strong>Wire on the table</strong></td><td>Lay unused wire length on the sterile field in a loose coil — not hanging off the table (contamination) and not in a tight coil (kinks the wire). A kinked wire is unreliable and should be discarded</td></tr>
+      <tr><td><strong>One wire in, one wire out</strong></td><td>Before inserting a new wire through a catheter, ensure the previous wire is fully removed. Two wires through one catheter = tangling, locking, and inability to withdraw either</td></tr>
+      <tr><td><strong>Never withdraw wire through needle</strong></td><td>During initial Seldinger access: if the wire does not advance easily, remove the needle AND wire together. Pulling the wire backward through the needle tip can shear the wire, leaving a fragment in the vessel</td></tr>
+    </table></div>
+    <div class="warn"><strong>The J-tip protects you.</strong> When navigating the aorta or large vessels, always use a J-tipped wire (Bentson, floppy J) rather than a straight tip — the J deflects off vessel wall instead of catching and dissecting. Switch to straight/angled tip only for selective catheterisation under fluoroscopic guidance.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Contrast Injection Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Principle</th><th>Detail</th></tr>
+      <tr><td><strong>Aspirate before every injection</strong></td><td>Confirm intraluminal catheter position by aspirating blood. No blood return = catheter may be subintimal, in a vessel wall, or kinked. Do NOT inject contrast without confirmed blood return</td></tr>
+      <tr><td><strong>Test injection first</strong></td><td>Before power injection: hand-inject 2–3 mL contrast gently under fluoro to confirm position, check for extravasation, and see flow pattern. This catches catheter malposition before high-pressure/high-volume injection causes damage</td></tr>
+      <tr><td><strong>Power injector setup</strong></td><td>Set rate and volume appropriate to vessel (aorta: 15–25 mL/s, 30–50 mL total; renal: 4–6 mL/s, 8–12 mL; hepatic: 3–5 mL/s, 15–20 mL). Set PSI limit (typically 300–600 PSI). Purge all air from injector tubing</td></tr>
+      <tr><td><strong>Wedge injection</strong></td><td>If catheter tip is wedged (no back-bleed, resistance to injection): gently withdraw 1–2 cm; re-aspirate. Never inject against a wedged catheter — vessel rupture or subintimal injection</td></tr>
+      <tr><td><strong>Road-mapping</strong></td><td>Run a contrast injection → acquire image → fluoro overlay shows vessel map for wire/catheter navigation. Essential for complex cases. Update road-map after catheter repositioning</td></tr>
+      <tr><td><strong>DSA technique</strong></td><td>Digital subtraction angiography: mask image (pre-contrast) subtracted from contrast image → clean vessel-only display. Patient must be still (motion artefact). Breath-hold for abdominal DSA</td></tr>
+    </table></div>
+    <div class="tip"><strong>Microcatheter injection:</strong> hand-inject only through microcatheters (never power inject unless device-rated for it). Typical microcatheter burst pressure is 300–500 PSI — a power injector easily exceeds this, causing catheter rupture and vessel injury. Use a 1 mL or 3 mL syringe for controlled hand injection through microcatheters.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Coaxial Technique & System Assembly</div>
+  <div class="card-body">
+    <p>The coaxial system — sheath → guide/diagnostic catheter → microcatheter → microwire — is the backbone of all selective and superselective work. Understanding how the components nest and support each other is essential.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Layer</th><th>Component</th><th>Role</th><th>Typical Size</th></tr>
+      <tr><td>1 (outermost)</td><td><strong>Sheath</strong></td><td>Maintains vascular access; allows catheter exchange; continuous flush</td><td>5–8 Fr (femoral); 5–6 Fr (radial)</td></tr>
+      <tr><td>2</td><td><strong>Guide catheter / diagnostic catheter</strong></td><td>Provides a stable platform near the target vessel origin; shaped tip (Cobra, SOS, SIM) selects vessel</td><td>4–5 Fr diagnostic; 6–8 Fr guide</td></tr>
+      <tr><td>3</td><td><strong>Microcatheter</strong></td><td>Navigates into small branches for superselective catheterisation; delivers embolic agents, contrast</td><td>2.0–2.8 Fr (0.014"–0.027" compatible)</td></tr>
+      <tr><td>4 (innermost)</td><td><strong>Microwire</strong></td><td>Leads microcatheter into small/tortuous branches; shapeable tip for steering</td><td>0.014"–0.018"</td></tr>
+    </table></div>
+    <h4>Assembly Principles</h4>
+    <ul>
+      <li><strong>Build from outside in:</strong> place sheath first → advance diagnostic catheter through sheath → select target vessel → advance microcatheter through diagnostic catheter → navigate with microwire</li>
+      <li><strong>Support begets reach:</strong> each outer layer provides stability for the next inner layer. A well-positioned guide catheter is essential for microcatheter stability — if the guide catheter is unstable, the microcatheter will prolapse out</li>
+      <li><strong>Flush each layer:</strong> when inserting each component, aspirate and flush the receiving catheter/sheath before and after. Air between coaxial layers = air embolism</li>
+      <li><strong>Compatibility check:</strong> ensure each inner device fits through the outer — a 2.7 Fr microcatheter requires ≥0.027" inner lumen in the guide catheter. Check manufacturer compatibility charts</li>
+    </ul>
+    <div class="tip"><strong>The "mother-daughter" technique:</strong> advance the guide catheter (mother) into a proximal stable position → microcatheter (daughter) does the selective work distally. If the microcatheter kicks out of a branch, the guide is still in position — you don't lose access entirely.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Sterile Field & Table Setup</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Element</th><th>Standard Practice</th></tr>
+      <tr><td><strong>Sterile prep</strong></td><td>Chlorhexidine-alcohol (2% chlorhexidine / 70% isopropyl) for skin prep — preferred over povidone-iodine (faster bactericidal, residual activity). Allow to dry fully before draping</td></tr>
+      <tr><td><strong>Draping</strong></td><td>Full body drape with fenestration at access site; ensure drape extends below table level (equipment dropped below table level = contaminated); keep drape taut to prevent pooling of prep solution</td></tr>
+      <tr><td><strong>Table layout</strong></td><td>Organised left-to-right or proximal-to-distal: flush bowl (hep-saline) → wires (in saline bath) → catheters (in order of use) → syringes → embolic materials. Consistency lets the team anticipate needs without verbal requests</td></tr>
+      <tr><td><strong>Wire bath</strong></td><td>All hydrophilic wires placed in saline-filled kidney dish or bowl on the table. Never let them dry out. Never place on dry drapes — they stick and the coating degrades</td></tr>
+      <tr><td><strong>Sharps management</strong></td><td>Needles returned to tray immediately after access; no loose needles on drape; announce sharps passes ("sharp to you")</td></tr>
+      <tr><td><strong>Radiation protection</strong></td><td>Lead apron (0.5 mm Pb equivalent); thyroid shield; leaded glasses. Stand on the image receptor side of the patient when possible (scatter is worst on X-ray tube side). Use low-dose fluoro, collimate, last-image-hold</td></tr>
+    </table></div>
+    <div class="tip"><strong>Before you scrub:</strong> check the room — fluoroscopy working, correct catheter tray opened, flush bags spiked and de-aired, manifold primed, contrast loaded in power injector (air-free), reversal agents drawn up (if sedation planned). A rushed setup leads to contamination breaks and air in lines.</div>
+  </div>
+</div>
+`;
 
 PAGES['b-pad'] = `
 <h2 class="page-title">Peripheral Arterial Disease</h2>
@@ -8178,6 +8352,150 @@ PAGES['b-sampling'] = `
 `;
 
 // ── c-biopsy, c-drainage, c-lymphatic ──
+
+
+PAGES['b-complications'] = `
+<h2 class="page-title">Vascular Complications & Management</h2>
+<div class="page-meta"><span class="tag tag-section">Section B · Vascular</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Access-Site Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Incidence</th><th>Recognition</th><th>Management</th></tr>
+      <tr><td><strong>Haematoma</strong></td><td>Femoral 2–6%; radial &lt;2%</td><td>Visible/palpable swelling at puncture site; dropping Hb if large; may compress femoral nerve → anterior thigh paraesthesia</td><td>Manual compression; reverse anticoagulation if active; large expanding haematoma → CT to quantify → surgical evacuation if tense/compartment syndrome; most managed conservatively</td></tr>
+      <tr><td><strong>Pseudoaneurysm (PSA)</strong></td><td>Femoral ~1–2% (higher with anticoagulation, large sheaths, high/low puncture)</td><td>Pulsatile mass at access site; bruit on auscultation; USS: to-and-fro waveform in neck connecting track to artery; yin-yang colour Doppler in sac</td><td><strong>USS-guided thrombin injection</strong> (first-line for femoral PSA &gt;2 cm) — inject 100–500 IU bovine/human thrombin into sac under USS guidance → thrombosis in seconds; success &gt;95%. <strong>USS-guided compression</strong> (15–30 min, lower success ~70%; rarely used now). Surgical repair if: &gt;5 cm, infected, rapidly expanding, overlying skin necrosis, failed thrombin, associated AV fistula</td></tr>
+      <tr><td><strong>AV Fistula</strong></td><td>&lt;1%; risk increased with low puncture (SFA/profunda) or through-and-through puncture</td><td>Continuous bruit/thrill at access; USS: high-velocity jet from artery into adjacent vein; arterialized venous waveform</td><td>Small (&lt;2 mm): observe — ~30% close spontaneously by 1 year. Persistent/symptomatic: covered stent-graft across fistula (endovascular first-line); or surgical ligation. Large fistulae can cause distal steal or high-output cardiac failure</td></tr>
+      <tr><td><strong>Retroperitoneal haemorrhage (RPH)</strong></td><td>&lt;1%; high mortality if delayed recognition</td><td>Risk factors: high (above inguinal ligament) puncture accessing external iliac artery; anticoagulation. Signs: unexplained hypotension, tachycardia, back/flank pain, falling Hb; often no visible external bleeding. CT confirms.</td><td><strong>Urgent CT</strong> → if active extravasation: angiography with balloon occlusion ± covered stent or coil embolisation of bleeding branch. Resuscitate aggressively (blood products, reverse anticoagulation). Surgical if haemodynamically unstable and endovascular not feasible. Prevention: US-guided access; puncture over femoral head (below inguinal ligament)</td></tr>
+      <tr><td><strong>Radial artery occlusion</strong></td><td>~5% post-transradial access</td><td>Usually asymptomatic (dual palmar arch supply); absent radial pulse; confirm with USS</td><td>Most asymptomatic — no treatment needed if ulnar supply intact (check with reverse Allen test / plethysmography). Prophylactic patent haemostasis (not fully occlusive compression) reduces incidence. If symptomatic ischaemia (very rare): anticoagulation ± catheter-directed thrombolysis</td></tr>
+    </table></div>
+    <div class="tip"><strong>Prevention:</strong> USS-guided arterial access (reduces PSA/RPH risk by ~50%); puncture over femoral head on fluoroscopy; use smallest possible sheath; vascular closure devices for ≥6 Fr sheaths; pre-procedure Allen test for radial access.</div>
+    <div class="warn"><strong>High puncture = dangerous puncture.</strong> Above the inguinal ligament means external iliac artery — cannot compress against bone → RPH risk. Low puncture (SFA/profunda bifurcation) → PSA/AVF risk. Ideal: CFA over mid-femoral head.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Vessel Dissection & Perforation</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Mechanism</th><th>Recognition</th><th>Management</th></tr>
+      <tr><td><strong>Intimal dissection</strong></td><td>Wire or catheter tip lifts intimal flap; calcified/tortuous vessels at highest risk; forceful catheter manipulation</td><td>Fluoroscopic: contrast in false lumen / intimal flap seen on angiography; resistance to wire advancement; pain. May be flow-limiting or non-flow-limiting</td><td><strong>Non-flow-limiting:</strong> observe — most heal spontaneously; antiplatelet therapy; follow-up imaging at 1–4 weeks. <strong>Flow-limiting:</strong> attempt to re-enter true lumen with hydrophilic wire under road-mapping; balloon angioplasty to tack flap down; bare metal stent if recoil/persistent flow limitation. Covered stent if perforation component</td></tr>
+      <tr><td><strong>Vessel perforation</strong></td><td>Wire exits vessel wall (especially stiff/hydrophilic wires beyond stenosis); overdilation of diseased vessel; aggressive CTO crossing</td><td>Contrast extravasation on angiography; pain; haemodynamic instability if large vessel. Small perforations may only show as perivascular contrast blush</td><td><strong>Small contained:</strong> inflate low-pressure balloon across perforation (5–10 min) to tamponade → repeat angiography → if sealed, observe. <strong>Persistent leak:</strong> covered stent-graft. <strong>Large/free rupture:</strong> balloon occlusion + aggressive resuscitation → covered stent or coil embolisation; surgical if uncontrollable</td></tr>
+      <tr><td><strong>Vessel rupture</strong></td><td>Overdilation; stent oversizing; angioplasty in heavily calcified vessel or post-radiation artery</td><td>Sudden contrast extravasation; haemodynamic collapse; pain</td><td>Immediate proximal balloon inflation to control bleeding → covered stent across rupture site; resuscitate; surgical backup. Record exactly where in the vessel — may need to convert to open if endovascular fails</td></tr>
+    </table></div>
+    <div class="warn"><strong>Wire perforation risk:</strong> always watch wire tip under fluoroscopy. Hydrophilic wires (Terumo Glidewire) pass easily through vessel wall — never advance without visualising the tip. Stiff exchange wires can straighten tortuous vessels and perforate branches.</div>
+    <div class="tip"><strong>Bail-out kit:</strong> always have a low-profile balloon (appropriately sized for target vessel) on the table for tamponade; and a covered stent-graft available (Viabahn, Fluency, iCast) for rapid deployment if perforation occurs.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Acute Thrombosis & Distal Embolisation</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Mechanism</th><th>Recognition</th><th>Management</th></tr>
+      <tr><td><strong>In-situ thrombosis</strong></td><td>Catheter/wire dwell time; inadequate heparinisation; slow flow state; dissection flap</td><td>Loss of flow on angiography; catheter aspiration yields clot; loss of distal pulses; clinical ischaemia (pain, pallor, paraesthesia)</td><td>Systemic heparinisation (if not already). Catheter-directed thrombolysis (alteplase 0.5–1 mg/h via infusion catheter; re-check at 4–12 h). Aspiration thrombectomy (AngioVac, Indigo, suction catheter). Mechanical thrombectomy. If acute limb ischaemia: Rutherford classification guides urgency — IIa/IIb = emergent intervention</td></tr>
+      <tr><td><strong>Distal embolisation</strong></td><td>Dislodgement of plaque or thrombus during angioplasty, stenting, or catheter manipulation; cholesterol crystal embolisation (trash foot/blue toe)</td><td>New occlusion of previously patent distal vessels on completion angiography; blue toe syndrome; livedo reticularis (cholesterol emboli); loss of pedal pulses</td><td><strong>Macro-emboli:</strong> aspiration thrombectomy ± catheter-directed thrombolysis. <strong>Cholesterol emboli (trash foot):</strong> largely irreversible; supportive care (wound care, pain, hydration); antiplatelet; stop anticoagulation (counterintuitively — can worsen cholesterol embolisation); statin; may need amputation if severe. <strong>Prevention:</strong> distal EPD (embolic protection device) during carotid stenting; gentle wire/catheter technique in diseased aorta</td></tr>
+      <tr><td><strong>Stent thrombosis</strong></td><td>Acute (&lt;24h): technical — uncovered dissection, undersizing. Subacute (1–30d): inadequate DAPT. Late (&gt;30d): neo-intimal hyperplasia, DAPT cessation</td><td>Return of symptoms; absent pulses; duplex USS: no flow in stent; CTA confirms</td><td>Catheter-directed thrombolysis → address underlying cause (re-angioplasty if undersized; extend stent if edge dissection). Ensure adequate antiplatelet regimen. Mechanical thrombectomy if thrombus burden high</td></tr>
+    </table></div>
+    <div class="tip"><strong>Heparinisation protocol:</strong> unfractionated heparin 70–100 IU/kg bolus at start of arterial procedure (aim ACT &gt;250 s); re-dose hourly if prolonged case. Check ACT at 30–60 min intervals. Always flush catheters with heparinised saline.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Non-Target Embolisation</div>
+  <div class="card-body">
+    <p>Non-target embolisation is the unintended delivery of embolic material to a tissue bed other than the intended target. It is one of the most serious IR complications and the most common cause of SIR grade D–E adverse events after embolisation procedures.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Territory</th><th>Source Procedure</th><th>Clinical Consequence</th><th>Management</th></tr>
+      <tr><td><strong>GI mucosa (stomach, duodenum, bowel)</strong></td><td>Hepatic embolisation (TACE, TARE) — via GDA, right gastric, falciform; PAE — via rectal branches</td><td>Mucosal ulceration, perforation, peritonitis. GI bleeding 1–7 days post-procedure</td><td>Supportive care for mild ulceration (PPI, NPO). Endoscopy for bleeding. Surgical exploration if perforation. Prevention: coil-protect GDA/right gastric/falciform before TACE/TARE; C-arm CT (CBCT) before PAE to identify non-target supply</td></tr>
+      <tr><td><strong>Gallbladder</strong></td><td>Hepatic artery embolisation — cystic artery arises from right hepatic in most patients</td><td>Cholecystitis (ischaemic), gallbladder infarction; pain, fever, Murphy sign</td><td>Usually self-limiting chemical cholecystitis → supportive (antibiotics, analgesia). Frank necrosis/perforation → cholecystectomy. Most centres accept cystic artery embolisation as tolerable consequence of hepatic embolisation</td></tr>
+      <tr><td><strong>Spinal cord</strong></td><td>Bronchial artery embolisation (BAE) — intercostobronchial trunk shares radiculomedullary branches supplying anterior spinal artery; intercostal embolisation</td><td>Anterior spinal artery syndrome: paraplegia, loss of pain/temperature, preserved proprioception (dorsal columns spared)</td><td>No effective treatment once established — devastating and permanent. <strong>Prevention is paramount:</strong> selective catheterisation only; identify spinal branches on angiography (hairpin loop); never embolise intercostobronchial trunk non-selectively; use particles ≥300 µm to avoid capillary-level penetration into spinal supply</td></tr>
+      <tr><td><strong>Skin / soft tissue</strong></td><td>UAE — cervicovaginal branches; PAE — inferior vesical/pudendal; facial embolisation for epistaxis</td><td>Skin necrosis, tissue sloughing, wound</td><td>Wound care; surgical debridement if necrotic. Prevention: superselective catheterisation; avoid small particles in end-arterial skin territories</td></tr>
+      <tr><td><strong>Lung (non-target PE)</strong></td><td>AVM embolisation — coil/plug migration through shunt; venous migration of embolic material</td><td>Pulmonary embolism; paradoxical cerebral embolism if right-to-left shunt (PAVM, PFO)</td><td>Anticoagulation for PE; retrieval if coil/device migrated and accessible. Prevention: anchor devices securely; oversize coils/plugs; use detachable devices that allow repositioning</td></tr>
+    </table></div>
+    <div class="warn"><strong>Spinal cord embolisation is the single most feared complication in bronchial artery embolisation.</strong> The artery of Adamkiewicz (great anterior radiculomedullary artery, typically T9–T12 left) supplies the lower two-thirds of the anterior spinal cord. It commonly arises from an intercostal or bronchial artery. Always identify and protect it.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Air Embolism</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Mechanism</th><th>Recognition</th><th>Management</th></tr>
+      <tr><td><strong>Venous air embolism</strong></td><td>Air entry via open sheath (IJV, subclavian, femoral vein); catheter connection/disconnection; power injection through cracked connector</td><td>Sudden dyspnoea, chest pain, hypotension, tachycardia; "mill-wheel" murmur (air in RV); hypoxia; cardiovascular collapse if large (&gt;3–5 mL/kg lethal)</td><td><strong>Immediate:</strong> clamp catheter/sheath; left lateral decubitus + Trendelenburg (Durant manoeuvre — traps air in RV apex away from RVOT). Aspirate air via central catheter if in situ. High-flow 100% O₂ (reduces nitrogen partial pressure → accelerates air resorption). CPR if arrest. Hyperbaric oxygen if available and refractory</td></tr>
+      <tr><td><strong>Arterial / paradoxical air embolism</strong></td><td>Air crosses to systemic circulation via PFO/ASD (present in ~25% of population) or directly via arterial sheath/catheter</td><td>Stroke symptoms (hemiplegia, aphasia); coronary air → ST changes, arrhythmia; retinal air → visual loss</td><td>Trendelenburg; high-flow O₂; supportive neuro/cardiac care. Hyperbaric oxygen is definitive if available. Prevention: meticulous air-free technique — always aspirate and flush all catheters/sheaths before connecting; use drip-chamber technique; Trendelenburg during venous sheath insertion/removal</td></tr>
+    </table></div>
+    <div class="tip"><strong>Prevention protocol for venous sheaths:</strong> (1) Trendelenburg position during insertion and removal. (2) Patient Valsalva during sheath removal (increases intrathoracic pressure → prevents air entrainment). (3) Continuous flush on all ports. (4) Finger over hub when disconnecting. Estimated lethal volume for venous air embolism: 3–5 mL/kg.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Device Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Mechanism</th><th>Recognition</th><th>Management</th></tr>
+      <tr><td><strong>Coil/device migration</strong></td><td>Undersized coil (&lt;20% oversized); high-flow vessel without adequate packing; deployment in turbulent flow</td><td>Coil visible on fluoro in unintended location; loss of target embolisation effect; downstream ischaemia</td><td>Snare retrieval (Amplatz GooseNeck snare — standard IR tool); retrieve via femoral venous approach if migrated to PA. If unable to retrieve and asymptomatic in PA → monitor. Prevention: oversize coils by 20–30%; use detachable coils for critical locations; anchor with larger framing coil first</td></tr>
+      <tr><td><strong>Retained catheter/wire fragment</strong></td><td>Catheter cut by needle bevel; wire sheared at introducer hub; forceful retrieval of stuck catheter</td><td>Fragment visible on fluoroscopy; may be asymptomatic or cause arrhythmia (if in heart), PE, or vessel occlusion</td><td>Percutaneous snare retrieval (success &gt;90%). Approach from femoral vein if in venous system/heart. Use loop snare, basket, or forceps. If deeply embedded and asymptomatic → may observe with anticoagulation. Prevention: never withdraw wire through needle; never force stuck catheters</td></tr>
+      <tr><td><strong>Catheter knot</strong></td><td>Excessive catheter looping in aortic arch or tortuous vessel; repeated spinning/torquing</td><td>Catheter won't advance or withdraw; characteristic knot visible on fluoro</td><td>Advance sheath over knot to support, then attempt to unloop by reversing torque. If irreducible: snare the distal end and pull through (converting to a simple loop). Surgical cutdown as last resort. Prevention: use stiff catheter/wire systems; avoid excessive catheter free-length in large vessels</td></tr>
+      <tr><td><strong>Stent fracture</strong></td><td>Repetitive mechanical stress (SFA, popliteal — areas of flexion/compression/torsion); vessel calcification; overlapping stents</td><td>Often asymptomatic initially; may present with restenosis or re-occlusion. CTA or plain film shows fracture. SFA stent fracture rate 2–65% depending on stent design and lesion length</td><td>If symptomatic: re-stent (covered stent across fracture). If asymptomatic: surveillance. Prevention: use nitinol self-expanding stents designed for flexion zones (Supera helical, Zilver); avoid long stent segments across the adductor hiatus</td></tr>
+      <tr><td><strong>Stent infection</strong></td><td>Haematogenous seeding; contiguous infection; contamination at insertion; most common with covered stents/grafts</td><td>Fever, localised pain, elevated inflammatory markers; perigraft fluid/gas on CT; blood cultures positive</td><td>IV antibiotics (prolonged 6–12 weeks); may need stent/graft explantation + bypass surgery if persistent sepsis. Attempted conservative management (antibiotics + drainage) if patient not a surgical candidate</td></tr>
+    </table></div>
+    <div class="tip"><strong>The Amplatz GooseNeck snare</strong> is the workhorse retrieval device. Available in multiple sizes (5–35 mm loop). Technique: advance snare loop perpendicular to fragment → lasso the free end → withdraw into sheath. Triple-loop snares (EN Snare) catch free-floating fragments more easily.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Post-Embolisation Syndrome & Organ Ischaemia</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Incidence</th><th>Time Course</th><th>Management</th><th>When to Escalate</th></tr>
+      <tr><td><strong>Post-embolisation syndrome (PES)</strong></td><td>UAE 30–50%; TACE 60–80%; splenic 30%; renal 20–40%</td><td>Onset day 0–3; resolves in 2–5 days</td><td>Paracetamol + NSAID (ketorolac 30 mg IV q6h); antiemetics (ondansetron); IV fluids; opioids for breakthrough. Expected and self-limiting — not infection</td><td>Fever &gt;38.5°C beyond day 5; rising CRP/WCC after initial decline; new localised pain → CT with contrast to exclude abscess/infarction</td></tr>
+      <tr><td><strong>Post-embolisation abscess</strong></td><td>Splenic 5–10% (higher with proximal embolisation); hepatic 2–5% (higher with bilioenteric anastomosis)</td><td>Days 5–21 post-procedure</td><td>CT-guided percutaneous drainage + IV antibiotics (sample for culture). Prevention: prophylactic antibiotics for high-risk patients (bilioenteric anastomosis, immunocompromised)</td><td>Persistent sepsis despite drainage → consider surgery (splenectomy for splenic abscess if refractory)</td></tr>
+      <tr><td><strong>Organ infarction (unintended extent)</strong></td><td>Variable — depends on selectivity of embolisation and collateral supply</td><td>Immediate to hours post-procedure</td><td>Supportive: analgesia, IV fluids, monitor organ function (LFTs for liver, creatinine for renal). Most organ infarction after embolisation is partial and tolerated if liver reserve/renal reserve adequate</td><td>Complete organ infarction; rhabdomyolysis (renal); hepatic failure (TACE in cirrhotic — ACLF); biloma → drainage</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Contrast-Related Vascular Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Mechanism</th><th>Recognition</th><th>Management</th></tr>
+      <tr><td><strong>Contrast extravasation (injection injury)</strong></td><td>Power injection through displaced or cracked catheter; injection against wedged catheter; high-pressure hand injection through microcatheter</td><td>Pain during injection; loss of normal vascular opacification; perivascular contrast staining; vessel spasm. Severe: vessel rupture</td><td>Stop injection immediately. If skin extravasation (peripheral IV): elevate limb, apply cold compress, surgical consultation if &gt;150 mL or compartment syndrome. If intravascular contrast staining: observe — usually resolves. If vessel rupture: manage as perforation (above)</td></tr>
+      <tr><td><strong>Contrast-induced vasospasm</strong></td><td>Osmolar effect on vascular smooth muscle; catheter tip irritation; cold contrast</td><td>Transient vessel narrowing on angiography; may mimic dissection. Smooth tapered narrowing (spasm) vs intimal flap (dissection)</td><td>Intra-arterial GTN (100–200 µg bolus; repeat q3–5 min, max 600 µg). Intra-arterial verapamil (2.5–5 mg). Warm contrast. Wait 5–10 min — most spasm resolves spontaneously. Rule out dissection if persistent</td></tr>
+      <tr><td><strong>Cholesterol embolisation from catheter manipulation</strong></td><td>Catheter/wire dislodges atheromatous plaque from aortic wall — showers cholesterol crystals distally</td><td>Blue toe syndrome; livedo reticularis; renal failure; elevated eosinophils; raised ESR. Onset delayed hours to days</td><td>No specific treatment — largely irreversible. Supportive: wound care, statin, hydration, avoid further instrumentation. Stop anticoagulation (paradoxically worsens crystal embolisation). Renal support (dialysis if needed)</td></tr>
+    </table></div>
+    <div class="tip"><strong>GTN vs verapamil for vasospasm:</strong> GTN works faster (seconds) and is first-line. Verapamil has longer duration and is preferred for refractory spasm. Both cause hypotension — monitor BP. Never use vasodilators in ruptured vessel.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Endograft Complications (EVAR/TEVAR)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Incidence</th><th>Recognition</th><th>Management</th></tr>
+      <tr><td><strong>Endoleak</strong></td><td>Type I: 5–10%; Type II: 20–25%; Type III: 1–3%</td><td>CT angiography (triphasic protocol); contrast-enhanced USS; persistent/expanding sac on surveillance</td><td>See Endoleak Classification page for type-specific management. Type I & III = urgent repair. Type II = treat if sac expanding. Type V (endotension) = sac growth without visible leak → investigate/reline</td></tr>
+      <tr><td><strong>Graft migration</strong></td><td>2–5% at 5 years; risk with short (&lt;15 mm) proximal neck, angulated neck, progressive aortic dilatation</td><td>Downward shift of proximal graft on surveillance CT (compare to baseline); may cause type I endoleak</td><td>Proximal extension cuff if adequate landing zone remains; conversion to open repair if neck exhausted. Fenestrated/branched extension if juxtarenal migration</td></tr>
+      <tr><td><strong>Limb occlusion</strong></td><td>3–5% at 3 years; risk with small iliac arteries, graft kink, contralateral gate stenosis</td><td>Acute limb ischaemia (pain, pulseless, pallor); chronic claudication with gradual onset. CTA: thrombosed graft limb</td><td>Catheter-directed thrombolysis or thrombectomy → identify and treat underlying cause (kink: relining; stenosis: angioplasty/stent). Femoro-femoral crossover bypass if endovascular approach fails</td></tr>
+      <tr><td><strong>Post-implantation syndrome</strong></td><td>30–60% of EVAR patients</td><td>Fever, raised CRP/WCC, malaise within 1–2 weeks of EVAR; diagnosis of exclusion (rule out graft infection, endoleak)</td><td>Self-limiting; supportive (paracetamol, NSAIDs). No antibiotics needed if cultures negative and no perigraft collection. Resolves 1–2 weeks</td></tr>
+    </table></div>
+    <div class="tip"><strong>EVAR surveillance:</strong> CT angiography at 1 month, 6 months, then annually. If no endoleak and stable sac at 2 years, consider switching to duplex USS to reduce radiation. Any sac growth &gt;5 mm → investigate for endoleak even if not visible on CT (consider CEUS).</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Restenosis & Long-Term Patency</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Location</th><th>Mechanism</th><th>Time to Restenosis</th><th>Prevention & Management</th></tr>
+      <tr><td><strong>SFA/popliteal</strong></td><td>Neointimal hyperplasia (primary); stent fracture in flexion zones; atherosclerotic progression</td><td>BMS: 30–50% at 1 year. DCB: 15–20% at 1 year. Stent: 20–30% at 2 years</td><td>DCB angioplasty (paclitaxel-coated) first-line for femoropopliteal ISR. Repeat angioplasty ± DCB for BMS restenosis. Surgical bypass (autologous vein) for recurrent failures. DAPT (aspirin + clopidogrel) for 1–3 months post-stent</td></tr>
+      <tr><td><strong>Iliac</strong></td><td>Neointimal hyperplasia; progression of atherosclerosis</td><td>BMS: 10–15% at 5 years (good long-term results)</td><td>Re-angioplasty ± stent extension. Iliac stenting has excellent long-term patency — rarely needs surgical revision</td></tr>
+      <tr><td><strong>Renal artery</strong></td><td>Neointimal hyperplasia at stent edges; progression of renal artery atherosclerosis</td><td>10–20% at 1 year</td><td>Surveillance duplex USS at 6 months and annually. Re-angioplasty ± cutting balloon for in-stent restenosis. Medical management (blood pressure and lipid control) is first-line for atherosclerotic RAS since ASTRAL/CORAL trials</td></tr>
+      <tr><td><strong>Dialysis access (fistula/graft)</strong></td><td>Venous outflow stenosis (neointimal hyperplasia); graft-vein anastomotic stenosis; central vein stenosis</td><td>AVG: 50% at 1 year primary; AVF: 30% at 1 year (depends on location)</td><td>Angioplasty (first-line); high-pressure balloon for fibrotic stenosis. Stent-graft (Flair, Viabahn) for recurrent central vein stenosis. Thrombectomy + treat underlying stenosis for thrombosed access</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
 
 PAGES['c-biopsy'] = `
 <h2 class="page-title">Image-Guided Biopsy</h2>
