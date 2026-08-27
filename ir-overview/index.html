@@ -48,6 +48,18 @@ body {
   transition: transform .25s;
   display: flex; flex-direction: column;
 }
+.sidebar.collapsed { transform: translateX(-100%); }
+.main.expanded { margin-left: 0; }
+.sidebar-toggle {
+  position: absolute; top: 16px; right: -36px;
+  width: 32px; height: 32px;
+  background: var(--navy); border: 1px solid var(--navy-mid);
+  border-radius: 0 6px 6px 0;
+  color: #94a3b8; font-size: 16px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  z-index: 101; transition: background .15s;
+}
+.sidebar-toggle:hover { background: var(--navy-light); color: #f1f5f9; }
 .sidebar-header {
   padding: 20px;
   border-bottom: 1px solid var(--navy-mid);
@@ -273,11 +285,13 @@ body {
 @media(max-width:768px) {
   .sidebar { transform:translateX(-100%); width:85vw; max-width:320px; }
   .sidebar.open { transform:translateX(0); }
+  .sidebar.collapsed { transform:translateX(-100%); }
   .overlay.open { display:block; }
   .main { margin-left:0; }
   .topbar { display:flex; }
   .content-area { padding: 20px 16px; }
   .page-title { font-size:22px; }
+  .sidebar-toggle { display:none; }
 }
 
 /* SCROLLBAR */
@@ -299,6 +313,7 @@ body {
 <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
 <nav class="sidebar" id="sidebar">
+  <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleDesktopSidebar()" title="Hide sidebar">◀</button>
   <div class="sidebar-header">
     <h1>IR Reference</h1>
     <div class="subtitle">EBIR 3rd Edition</div>
@@ -502,6 +517,17 @@ function toggleSidebar() {
 function closeSidebar() {
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
+}
+
+// ─── SIDEBAR DESKTOP TOGGLE ───
+function toggleDesktopSidebar() {
+  const sb = document.getElementById('sidebar');
+  const main = document.querySelector('.main');
+  const btn = document.getElementById('sidebarToggle');
+  sb.classList.toggle('collapsed');
+  main.classList.toggle('expanded');
+  btn.textContent = sb.classList.contains('collapsed') ? '▶' : '◀';
+  btn.title = sb.classList.contains('collapsed') ? 'Show sidebar' : 'Hide sidebar';
 }
 
 // ─── SHOW PAGE ───
