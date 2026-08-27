@@ -449,6 +449,18 @@ const NAV = [
     {id:'dm-mesenteric', title:'Acute Mesenteric Ischaemia',           freq:'high'},
     {id:'dm-pph',        title:'Post-partum Haemorrhage — UAE',        freq:'high'},
   ]},
+  {section:'CIRSE Guidelines', desc:'Key CIRSE Standards of Practice & position statements', items:[
+    {id:'cirse-varicocele',   title:'Varicocele Embolisation',              freq:'med'},
+    {id:'cirse-bae',          title:'Bronchial Artery Embolisation',        freq:'high'},
+    {id:'cirse-carotid',      title:'Carotid Artery Stenting',             freq:'med'},
+    {id:'cirse-visceral-aneurysm', title:'Visceral & Renal Artery Aneurysms', freq:'med'},
+    {id:'cirse-gi-stent',     title:'Oesophageal & GI Stenting',           freq:'med'},
+    {id:'cirse-pavm',         title:'Pulmonary AVM',                       freq:'med'},
+    {id:'cirse-svc',          title:'SVC Stenting',                        freq:'med'},
+    {id:'cirse-gastrostomy',  title:'Gastrostomy & GJ Tubes',              freq:'high'},
+    {id:'cirse-pe',           title:'Acute PE — Endovascular Rx',          freq:'high'},
+    {id:'cirse-ivc-filter',   title:'IVC Filter Placement & Retrieval',    freq:'high'},
+  ]},
 ];
 
 // ─── BUILD NAV ───
@@ -6605,6 +6617,772 @@ PAGES['dm-pph'] = `
       <tr><td>Cervical/vaginal laceration with arterial bleeding</td><td>Selective embolisation of cervicovaginal branches of internal iliac (uterine artery descending branch, vaginal artery, internal pudendal); gelfoam or coils</td></tr>
       <tr><td>Post-caesarean scar haematoma with active bleed</td><td>Selective uterine artery embolisation; may see extravasation at lower uterine segment on angiography</td></tr>
       <tr><td>DIC / massive transfusion coagulopathy</td><td>Gelfoam UAE can achieve haemostasis even in coagulopathic patients (mechanical occlusion not dependent on clotting); correct coagulopathy simultaneously</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-varicocele'] = `
+<h2 class="page-title">Varicocele Embolisation — CIRSE 2022</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-med">Moderate Yield</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Indications & Pre-procedural Assessment</div>
+  <div class="card-body">
+    <h4>Indications for Varicocele Treatment</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indication</th><th>Detail</th></tr>
+      <tr><td>Infertility</td><td>Abnormal semen parameters + palpable varicocele + otherwise unexplained infertility; female partner evaluated</td></tr>
+      <tr><td>Pain / discomfort</td><td>Scrotal ache/dragging sensation refractory to conservative measures (scrotal support, analgesia)</td></tr>
+      <tr><td>Adolescent</td><td>Ipsilateral testicular hypotrophy (&gt;2 mL or &gt;20% volume differential); consider observation if symmetric</td></tr>
+      <tr><td>Recurrence after surgery</td><td>Embolisation preferred salvage approach — avoids re-operative scarring</td></tr>
+      <tr><td>Hypogonadism</td><td>Low testosterone with clinical varicocele; repair may improve T levels (emerging evidence)</td></tr>
+    </table></div>
+    <h4>Grading</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Grade</th><th>Definition</th></tr>
+      <tr><td>Subclinical</td><td>Detected only on imaging (USS); not an indication for treatment</td></tr>
+      <tr><td>Grade I</td><td>Palpable with Valsalva only</td></tr>
+      <tr><td>Grade II</td><td>Palpable without Valsalva</td></tr>
+      <tr><td>Grade III</td><td>Visible through scrotal skin</td></tr>
+    </table></div>
+    <h4>Ultrasound Criteria</h4>
+    <p>Veins &gt;3 mm diameter at rest with reflux &gt;1 second on Valsalva. Colour Doppler confirms retrograde flow. Document testicular volumes bilaterally.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique — Retrograde Embolisation</div>
+  <div class="card-body">
+    <h4>Access & Catheterisation</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Right common femoral vein or right internal jugular vein (IJV preferred by some — straighter route to left renal vein)</td></tr>
+      <tr><td>Left ISV catheterisation</td><td>5 Fr Cobra or Simmons catheter into left renal vein → ISV ostium; drains into left renal vein at ~90°</td></tr>
+      <tr><td>Right ISV</td><td>Drains directly into IVC — more variable ostium; may need reversed-curve catheter. ~10% bilateral varicoceles</td></tr>
+      <tr><td>Venography</td><td>Contrast injection with Valsalva to map pampiniform plexus, collaterals, and duplicated veins; identify competent valves</td></tr>
+      <tr><td>Microcatheter</td><td>Advance coaxially to mid-inguinal level (below inguinal ligament); embolise from distal to proximal</td></tr>
+    </table></div>
+    <h4>Embolic Agents</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Agent</th><th>Notes</th></tr>
+      <tr><td>Coils (primary)</td><td>Pushable or detachable; deploy from inguinal canal level proximally to renal vein; ≥3 coils typically</td></tr>
+      <tr><td>Sclerosant (adjunct)</td><td>3% sodium tetradecyl sulfate (STS) or polidocanol foam — injected between coil nests to occlude small collaterals</td></tr>
+      <tr><td>Glue (n-BCA)</td><td>Less commonly used; risk of non-target embolisation but effective for recurrence with complex collaterals</td></tr>
+      <tr><td>Plugs (AVP)</td><td>Can be used proximally near renal vein as a single device; limited distal coverage alone</td></tr>
+    </table></div>
+    <p><strong>Key principle:</strong> Embolise ALL parallel channels — duplicated ISVs and collateral pathways are the main cause of recurrence.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Technical success</td><td>95–98%</td></tr>
+      <tr><td>Clinical success (symptom relief)</td><td>85–95%</td></tr>
+      <tr><td>Semen parameter improvement</td><td>~60–70% show improvement; spontaneous pregnancy rate ~30–40%</td></tr>
+      <tr><td>Recurrence rate</td><td>5–10% (comparable to microsurgery; lower than open inguinal ligation)</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Rate & Management</th></tr>
+      <tr><td>Coil migration</td><td>&lt;5%; to pulmonary arteries — usually asymptomatic; snare retrieval if symptomatic</td></tr>
+      <tr><td>Testicular vein perforation</td><td>Rare; retroperitoneal extravasation — stop procedure, usually self-limiting</td></tr>
+      <tr><td>Thrombophlebitis of pampiniform plexus</td><td>~5%; self-limiting with NSAIDs; more common after sclerotherapy</td></tr>
+      <tr><td>Access site haematoma</td><td>Standard venous access complication; manual compression</td></tr>
+      <tr><td>Testicular artery injury</td><td>Extremely rare; ISV and testicular artery are separate structures</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-bae'] = `
+<h2 class="page-title">Bronchial Artery Embolisation — Haemoptysis — CIRSE 2022</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Aetiology & Clinical Assessment</div>
+  <div class="card-body">
+    <h4>Massive Haemoptysis Definition</h4>
+    <p>&gt;300 mL in 24 hours (or &gt;100 mL/hr). Life-threatening due to asphyxiation rather than exsanguination — airway protection is the priority.</p>
+    <h4>Common Causes</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Examples</th></tr>
+      <tr><td>Infection</td><td>TB (most common worldwide), aspergilloma, bronchiectasis, lung abscess, necrotising pneumonia</td></tr>
+      <tr><td>Malignancy</td><td>Bronchogenic carcinoma, pulmonary metastases, carcinoid</td></tr>
+      <tr><td>Vascular</td><td>Pulmonary AVM, PA pseudoaneurysm (Rasmussen), aortobronchial fistula</td></tr>
+      <tr><td>Inflammatory</td><td>Cystic fibrosis, GPA (Wegener's), Goodpasture's, Behçet's</td></tr>
+      <tr><td>Iatrogenic</td><td>Post-biopsy, PA catheter injury, post-lobectomy stump</td></tr>
+      <tr><td>Cryptogenic</td><td>No identifiable cause (~15–20%); bronchial artery hypertrophy still present</td></tr>
+    </table></div>
+    <h4>Bronchial vs Pulmonary Source</h4>
+    <p>~90% of haemoptysis arises from bronchial (systemic) arteries. Pulmonary artery bleeding (~5%) seen with Rasmussen aneurysms, PAVMs, PA catheter injury. Non-bronchial systemic sources (~5%): intercostal, internal mammary, inferior phrenic, thyrocervical.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Bronchial Artery Anatomy</div>
+  <div class="card-body">
+    <h4>Normal Anatomy (Cauldwell Classification)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Pattern</th><th>Frequency</th><th>Description</th></tr>
+      <tr><td>Type I (most common)</td><td>~40%</td><td>1 right (ICBT) + 1 left bronchial artery</td></tr>
+      <tr><td>Type II</td><td>~20%</td><td>1 right (ICBT) + 2 left</td></tr>
+      <tr><td>Type III</td><td>~20%</td><td>2 right (1 ICBT + 1 separate) + 1 left</td></tr>
+      <tr><td>Type IV</td><td>~10%</td><td>2 right (1 ICBT + 1 separate) + 2 left</td></tr>
+    </table></div>
+    <p><strong>ICBT</strong> = intercostobronchial trunk (right bronchial + right intercostal). Origin: descending aorta T5–T6 level (95% arise between T5–T6 vertebral bodies).</p>
+    <h4>Critical Collateral — Anterior Spinal Artery</h4>
+    <p class="warn"><strong>WARNING:</strong> The anterior spinal artery can arise from a bronchial or intercostal artery in ~5% of cases. Look for the classic "hairpin" turn on angiography. If seen → do NOT embolise proximal to this branch. Use distal microcatheter embolisation or abort.</p>
+    <h4>Non-bronchial Systemic Collaterals</h4>
+    <p>In chronic disease (especially CF, TB): hypertrophied intercostal, internal mammary (IMA), inferior phrenic, thyrocervical trunk, lateral thoracic arteries may supply the diseased lung. Must catheterise and embolise all sources for durable result.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique — BAE</div>
+  <div class="card-body">
+    <h4>Pre-procedural Imaging</h4>
+    <p>CT angiography (CTA chest) — localises bleeding side, identifies hypertrophied bronchial/non-bronchial arteries, excludes Rasmussen aneurysm or PAVM. Also guides catheter selection.</p>
+    <h4>Procedure Steps</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Right CFA; 5 Fr sheath. 5 Fr Cobra-2, Simmons-1, or Mikaelsson catheter</td></tr>
+      <tr><td>Identify arteries</td><td>Flush aortogram at T5–T6 if anatomy unclear; selective catheterisation of all bronchial and suspect non-bronchial arteries on the bleeding side</td></tr>
+      <tr><td>Angiography findings</td><td>Hypervascularity, tortuous hypertrophied arteries, parenchymal blush, bronchopulmonary shunting, active extravasation (uncommon), neovascularity</td></tr>
+      <tr><td>Microcatheter</td><td>Coaxial microcatheter (2.4–2.8 Fr) for stable distal position; mandatory to avoid non-target embolisation</td></tr>
+      <tr><td>Embolisation</td><td>PVA particles 300–500 μm (avoid &lt;300 μm — bronchopulmonary anastomoses risk pulmonary infarction). Alternative: microspheres 500–700 μm, gelfoam pledgets</td></tr>
+      <tr><td>Endpoint</td><td>Stasis/pruning of abnormal vessels with preserved flow in normal branches; avoid reflux into aorta</td></tr>
+    </table></div>
+    <p><strong>Do NOT use:</strong> liquid embolics (glue, Onyx) in bronchial arteries — high risk of non-target embolisation including spinal cord. Coils alone are insufficient — recanalise rapidly and prevent future access.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Recurrence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Immediate haemostasis</td><td>85–95%</td></tr>
+      <tr><td>Recurrence (early, &lt;30 days)</td><td>~10% — incomplete embolisation or missed collaterals</td></tr>
+      <tr><td>Recurrence (late, &gt;30 days)</td><td>~20–30% at 1 year — disease progression, new collaterals (especially CF, aspergilloma)</td></tr>
+      <tr><td>Major complication rate</td><td>&lt;5%</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Detail</th></tr>
+      <tr><td>Chest pain / dysphagia</td><td>Most common (~30%); self-limiting — bronchial/oesophageal ischaemia from non-target particles</td></tr>
+      <tr><td>Spinal cord ischaemia</td><td>&lt;1% but devastating; anterior spinal artery embolisation → paraplegia. Prevented by microcatheter position distal to spinal branch</td></tr>
+      <tr><td>Bronchial wall necrosis</td><td>Rare; from particles too small or too proximal embolisation</td></tr>
+      <tr><td>Non-target aortic embolisation</td><td>Stroke if reflux to aortic arch; careful injection under fluoroscopy</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-carotid'] = `
+<h2 class="page-title">Carotid Artery Stenting — CIRSE 2024</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-med">Moderate Yield</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Indications & Patient Selection</div>
+  <div class="card-body">
+    <h4>CAS vs CEA — Current Indications for CAS</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indication</th><th>Detail</th></tr>
+      <tr><td>Symptomatic stenosis ≥50%</td><td>TIA or non-disabling stroke within 180 days; CAS acceptable if high surgical risk</td></tr>
+      <tr><td>Asymptomatic stenosis ≥70%</td><td>CAS considered if high surgical risk + life expectancy &gt;3 years; optimal medical therapy (OMT) first-line for most</td></tr>
+      <tr><td>High surgical risk</td><td>Prior neck radiation/surgery, high cervical or intrathoracic lesion, contralateral occlusion, contralateral laryngeal nerve palsy, recurrent stenosis post-CEA</td></tr>
+      <tr><td>Tandem lesions</td><td>Intracranial + extracranial stenosis — CAS for extracranial allows single procedure approach</td></tr>
+      <tr><td>CAS preferred factors</td><td>Age &lt;70 (lower peri-procedural stroke risk vs CEA); hostile surgical neck</td></tr>
+      <tr><td>CEA preferred factors</td><td>Age &gt;70; heavy circumferential calcification; thrombus-laden lesion; tortuous anatomy</td></tr>
+    </table></div>
+    <h4>Stenosis Measurement — NASCET Method</h4>
+    <p>% stenosis = (1 − [minimum residual lumen / distal ICA diameter]) × 100. The NASCET method is the standard for trial-based thresholds.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique</div>
+  <div class="card-body">
+    <h4>Procedural Steps</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>CFA; 6–8 Fr long sheath or guiding catheter to CCA. Alternatively radial/brachial with dedicated CAS catheter system</td></tr>
+      <tr><td>Arch aortogram</td><td>Assess aortic arch type (I/II/III) and great vessel origins; type III arch and bovine arch increase difficulty</td></tr>
+      <tr><td>Embolic protection device (EPD)</td><td>Distal filter (e.g., FilterWire, Spider FX) — standard of care. Alternative: proximal protection (Mo.Ma) — flow reversal, useful with heavy thrombus/ulceration</td></tr>
+      <tr><td>Pre-dilation</td><td>Low-profile balloon (3–4 mm) across stenosis if needed to allow stent passage; often omitted with modern low-profile stents</td></tr>
+      <tr><td>Stenting</td><td>Self-expanding stent (tapered design matching ICA/CCA diameters); covers entire plaque with ≥5 mm landing zone proximal and distal</td></tr>
+      <tr><td>Post-dilation</td><td>5–6 mm balloon to nominal pressure within the stent; brief inflation (10–15 sec) to minimise vagal response</td></tr>
+      <tr><td>EPD retrieval</td><td>Retrieve distal filter under fluoroscopy; inspect for captured debris</td></tr>
+    </table></div>
+    <h4>Pharmacology</h4>
+    <p>Dual antiplatelet therapy (DAPT) started ≥3–5 days pre-procedure: aspirin 100 mg + clopidogrel 75 mg. Heparin intra-procedural (ACT &gt;250 sec). Atropine on standby for bradycardia during balloon inflation at carotid bulb. DAPT continued ≥4–6 weeks post, then aspirin indefinitely.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>30-day stroke/death (symptomatic)</td><td>~5–7% (comparable to CEA in appropriate selection)</td></tr>
+      <tr><td>30-day stroke/death (asymptomatic)</td><td>~2–3%</td></tr>
+      <tr><td>Long-term restenosis (&gt;50%)</td><td>~5–10% at 5 years; usually asymptomatic, amenable to re-PTA</td></tr>
+      <tr><td>Hyperperfusion syndrome</td><td>~1–3%; headache, seizures, ICH — risk increased with severe baseline stenosis &gt;90%</td></tr>
+    </table></div>
+    <h4>Key Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Management</th></tr>
+      <tr><td>Peri-procedural stroke</td><td>Immediate aspiration/retrieval if proximal EPD; IV tPA if distal territory; neurology consult</td></tr>
+      <tr><td>Bradycardia / hypotension</td><td>Carotid body stimulation during balloon dilation; atropine 0.5–1 mg IV; rarely requires temporary pacing</td></tr>
+      <tr><td>Access site complications</td><td>Haematoma, pseudoaneurysm — standard CFA management</td></tr>
+      <tr><td>Carotid dissection</td><td>Covered by stent deployment; anticoagulation</td></tr>
+      <tr><td>In-stent thrombosis</td><td>Abciximab or eptifibatide bolus; aspiration; ensure adequate DAPT compliance</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-visceral-aneurysm'] = `
+<h2 class="page-title">Visceral & Renal Artery Aneurysms — CIRSE 2023</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-med">Moderate Yield</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Classification & Indications for Treatment</div>
+  <div class="card-body">
+    <h4>Aneurysm Distribution</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Artery</th><th>Frequency</th><th>Key Features</th></tr>
+      <tr><td>Splenic</td><td>~60%</td><td>Most common VAA; F&gt;M; associated with pregnancy, portal hypertension, pancreatitis</td></tr>
+      <tr><td>Hepatic</td><td>~20%</td><td>Second most common; ~80% are pseudoaneurysms (post-pancreatitis, post-intervention)</td></tr>
+      <tr><td>SMA / branches</td><td>~5–8%</td><td>Often mycotic; associated with endocarditis, connective tissue disorders</td></tr>
+      <tr><td>Coeliac axis</td><td>~4%</td><td>Often associated with median arcuate ligament syndrome (MALS)</td></tr>
+      <tr><td>Renal</td><td>~3–5%</td><td>Associated with fibromuscular dysplasia, NF-1; intraparenchymal = higher rupture risk</td></tr>
+      <tr><td>GDA / pancreaticoduodenal</td><td>~5%</td><td>Almost always pseudoaneurysms; pancreatitis-related</td></tr>
+    </table></div>
+    <h4>Treatment Thresholds</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Criterion</th><th>Treat</th></tr>
+      <tr><td>True aneurysm — size</td><td>≥2 cm (some guidelines ≥3 cm for splenic)</td></tr>
+      <tr><td>Pseudoaneurysm</td><td>ALL pseudoaneurysms — regardless of size (high rupture risk)</td></tr>
+      <tr><td>Symptomatic</td><td>Any size if pain, compression, or end-organ ischaemia</td></tr>
+      <tr><td>Women of childbearing age</td><td>All splenic artery aneurysms — rupture risk increases dramatically in pregnancy (maternal mortality 70%, fetal 90%)</td></tr>
+      <tr><td>Rapid growth</td><td>&gt;5 mm/year on surveillance</td></tr>
+      <tr><td>Pre-liver transplant</td><td>Splenic artery aneurysm treated prior to transplant (portal flow dynamics change)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Endovascular Treatment Strategies</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Strategy</th><th>Indications</th><th>Technique</th></tr>
+      <tr><td>Coil embolisation — sac packing</td><td>Saccular aneurysm with narrow neck; expendable artery</td><td>Catheterise sac, pack with coils ± thrombin; preserve parent vessel if possible</td></tr>
+      <tr><td>Sandwich technique</td><td>Fusiform aneurysm in expendable artery (e.g., splenic)</td><td>Coil/plug outflow THEN inflow — prevents backfilling from collaterals</td></tr>
+      <tr><td>Stent graft exclusion</td><td>Non-expendable parent artery (hepatic, renal, SMA); suitable anatomy</td><td>Covered stent across neck maintaining flow; requires adequate landing zones; 6–8 mm diameter vessels</td></tr>
+      <tr><td>Flow-diverter</td><td>Wide-necked aneurysm in vessel that cannot be sacrificed; complex anatomy precluding stent graft</td><td>Mesh stent redirects flow; aneurysm thromboses over weeks; requires DAPT</td></tr>
+      <tr><td>Coil + liquid embolic</td><td>Complex pseudoaneurysm with collateral inflow</td><td>Coil scaffold then glue/Onyx to fill interstices; monitor for non-target</td></tr>
+      <tr><td>Thrombin injection</td><td>Pseudoaneurysm with suitable access — e.g., post-biopsy renal PSA</td><td>US-guided percutaneous thrombin; usually reserved for small accessible PSAs</td></tr>
+    </table></div>
+    <h4>Organ-Specific Considerations</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Artery</th><th>Consideration</th></tr>
+      <tr><td>Splenic</td><td>Can sacrifice safely — stomach and spleen have rich collaterals via short gastrics and gastroepiploic; post-embolisation splenic infarction usually partial and tolerated</td></tr>
+      <tr><td>Hepatic (proper/common)</td><td>Non-expendable if proximal to GDA origin; must maintain hepatic perfusion — stent graft preferred. Distal to GDA: sacrifice may be tolerated via GDA retrograde flow</td></tr>
+      <tr><td>SMA</td><td>Non-expendable — stent graft or flow diverter; sac embolisation only for branch vessel aneurysms</td></tr>
+      <tr><td>Renal</td><td>Stent graft if main trunk; selective coil embolisation if branch (accept segmental infarction)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Follow-up</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Technical success (elective)</td><td>90–98%</td></tr>
+      <tr><td>Technical success (ruptured)</td><td>~85–90%</td></tr>
+      <tr><td>Major complication rate</td><td>~5–10% (end-organ ischaemia, non-target embolisation)</td></tr>
+      <tr><td>Endoleak / reperfusion</td><td>~5–15% — follow-up CTA at 1, 6, 12 months then annually</td></tr>
+      <tr><td>Mortality — elective</td><td>&lt;1%</td></tr>
+      <tr><td>Mortality — ruptured</td><td>~10–25% (depends on presentation and degree of haemorrhage)</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-gi-stent'] = `
+<h2 class="page-title">Oesophageal & Gastroduodenal Stenting — CIRSE 2023</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-med">Moderate Yield</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Oesophageal Stenting — Indications & Stent Selection</div>
+  <div class="card-body">
+    <h4>Indications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indication</th><th>Detail</th></tr>
+      <tr><td>Malignant dysphagia</td><td>Inoperable oesophageal or GOJ carcinoma; palliation of dysphagia grade ≥2 (semi-solids or worse)</td></tr>
+      <tr><td>Extrinsic compression</td><td>Lung, mediastinal, or gastric carcinoma causing oesophageal obstruction</td></tr>
+      <tr><td>Tracheo-oesophageal fistula</td><td>Covered SEMS to seal fistula; consider parallel airway stent if tracheal compression</td></tr>
+      <tr><td>Oesophageal perforation / leak</td><td>Covered SEMS as bridge to healing or surgery; partially covered allows granulation</td></tr>
+      <tr><td>Recurrent dysphagia</td><td>Post-chemoRT stricture or tumour in-growth through prior stent — restenting or balloon dilation</td></tr>
+    </table></div>
+    <h4>Stent Types</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Type</th><th>Features</th><th>Use</th></tr>
+      <tr><td>Fully covered SEMS</td><td>Removable; lower in-growth risk; higher migration risk</td><td>Benign strictures, perforations, fistulae; short-term placement</td></tr>
+      <tr><td>Partially covered SEMS</td><td>Uncovered flanges reduce migration; some in-growth at ends</td><td>Malignant strictures (most common choice)</td></tr>
+      <tr><td>Uncovered SEMS</td><td>Lowest migration; highest in-growth; non-removable</td><td>Rarely used alone now; occasionally for extrinsic compression</td></tr>
+      <tr><td>Anti-reflux SEMS</td><td>Valve mechanism at distal end</td><td>GOJ / cardia tumours to prevent gastro-oesophageal reflux post-stenting</td></tr>
+    </table></div>
+    <h4>Sizing</h4>
+    <p>Stent should extend ≥2 cm beyond tumour margins proximally and distally. Standard diameters 18–23 mm. Avoid crossing the upper oesophageal sphincter (causes globus/aspiration) — proximal limit ~2 cm below cricopharyngeus.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Gastroduodenal (GOO) Stenting</div>
+  <div class="card-body">
+    <h4>Indications</h4>
+    <p>Malignant gastric outlet obstruction (GOO) from pancreatic, gastric, or duodenal carcinoma. Palliative — alternative to surgical gastrojejunostomy in patients unfit for surgery or with limited life expectancy (&lt;6 months).</p>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Assessment</td><td>CT to define stricture length, location (pyloric, D1, D2, D3), number of strictures, peritoneal disease</td></tr>
+      <tr><td>Access</td><td>Oral; NGT or endoscope used to traverse stricture with guidewire (hydrophilic 0.035"); fluoroscopic guidance</td></tr>
+      <tr><td>Stent deployment</td><td>Uncovered enteral SEMS (22–24 mm diameter); must span entire stricture + 2 cm margins; through-the-scope (TTS) or over-the-wire deployment</td></tr>
+      <tr><td>Post-deployment</td><td>Fluoroscopic confirmation of position and expansion; gentle balloon dilation if incomplete expansion (cautious — perforation risk)</td></tr>
+    </table></div>
+    <h4>Key Differences from Oesophageal Stenting</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Feature</th><th>Oesophageal</th><th>Duodenal/GOO</th></tr>
+      <tr><td>Stent covering</td><td>Partially or fully covered (anti-migration + anti-ingrowth)</td><td>UNCOVERED preferred (reduces migration in mobile duodenum; tumour ingrowth less clinically significant with short survival)</td></tr>
+      <tr><td>Concurrent chemo</td><td>Caution — may shrink tumour → migration</td><td>Similar concern; stent migration rate higher with chemotherapy response</td></tr>
+      <tr><td>Diet post-procedure</td><td>Soft diet within 24 hr</td><td>Liquid diet 24 hr → soft diet; avoid large boluses</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Complications</div>
+  <div class="card-body">
+    <h4>Oesophageal Stent Outcomes</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Technical success</td><td>&gt;95%</td></tr>
+      <tr><td>Dysphagia improvement</td><td>~85–90% achieve ≥2-grade improvement</td></tr>
+      <tr><td>Stent migration</td><td>~10–15% (fully covered); ~5% (partially covered)</td></tr>
+      <tr><td>Tumour in-growth / overgrowth</td><td>~15–20% at 3–6 months; restent or balloon dilation</td></tr>
+      <tr><td>Perforation</td><td>~2–5%; higher with pre-dilation and chemoRT</td></tr>
+      <tr><td>Median stent patency</td><td>~3–6 months</td></tr>
+    </table></div>
+    <h4>GOO Stent Outcomes</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Technical success</td><td>~90–95%</td></tr>
+      <tr><td>Clinical success (oral intake)</td><td>~80–85%</td></tr>
+      <tr><td>Re-obstruction</td><td>~15–25% (tumour ingrowth/overgrowth)</td></tr>
+      <tr><td>Perforation</td><td>~1–3%</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-pavm'] = `
+<h2 class="page-title">Pulmonary AVM — Diagnosis & Treatment — CIRSE 2020</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-med">Moderate Yield</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Pathophysiology & Diagnosis</div>
+  <div class="card-body">
+    <h4>Key Facts</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Feature</th><th>Detail</th></tr>
+      <tr><td>Association</td><td>~80–90% associated with hereditary haemorrhagic telangiectasia (HHT / Osler-Weber-Rendu)</td></tr>
+      <tr><td>Pathology</td><td>Direct pulmonary artery-to-pulmonary vein communication bypassing capillary bed → right-to-left shunt</td></tr>
+      <tr><td>Anatomy</td><td>Simple (single feeding artery, single draining vein) ~80%; complex (multiple feeders) ~20%. Lower lobes most common</td></tr>
+      <tr><td>Clinical risk</td><td>Paradoxical embolisation: stroke (~15–30% lifetime risk), brain abscess (~5–10%); hypoxaemia; haemoptysis/haemothorax (rare)</td></tr>
+    </table></div>
+    <h4>Screening & Diagnosis</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Test</th><th>Role</th></tr>
+      <tr><td>Transthoracic contrast echo (bubble study)</td><td>Screening: late bubbles (3–8 cardiac cycles after injection) indicate pulmonary shunt; grade 1–4 by bubble density in LV</td></tr>
+      <tr><td>Unenhanced CT chest (thin-section)</td><td>Gold standard for diagnosis and characterisation: count, size, location, feeding artery diameter. No contrast needed for diagnosis</td></tr>
+      <tr><td>CT pulmonary angiography</td><td>Pre-procedural planning: define feeding artery anatomy, draining vein, and sac dimensions</td></tr>
+      <tr><td>Pulse oximetry / ABG</td><td>Resting SpO₂ &lt;96% suggests significant R→L shunt; supine-to-upright desaturation (orthodeoxyia) in lower lobe PAVMs</td></tr>
+    </table></div>
+    <h4>Treatment Threshold</h4>
+    <p>All PAVMs with feeding artery ≥2–3 mm should be treated (CIRSE/HHT guidelines). Even smaller PAVMs can cause paradoxical embolisation — clinical judgment required.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Embolisation Technique</div>
+  <div class="card-body">
+    <h4>Procedure</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Right CFA or right IJV → right heart → PA. 6–7 Fr guiding catheter in main PA</td></tr>
+      <tr><td>Selective angiography</td><td>Identify all feeding arteries; map anatomy before embolisation. Start with largest PAVM</td></tr>
+      <tr><td>Catheter position</td><td>Microcatheter or 5 Fr catheter in feeding artery as close to sac as possible — deploy embolic PROXIMAL to sac but DISTAL to normal branches</td></tr>
+      <tr><td>Embolic — coils</td><td>Pushable or detachable coils (Nestor, Interlock); first coil anchored at sac neck, pack proximally. Scaffold technique for large feeders</td></tr>
+      <tr><td>Embolic — AVP</td><td>Amplatzer Vascular Plug (II or IV) — single device occlusion of feeding artery; excellent for simple PAVMs with single feeder ≥4 mm. Faster deployment than coils</td></tr>
+      <tr><td>Completion angiography</td><td>Confirm complete occlusion of feeding artery with no residual flow through sac; check for additional PAVMs</td></tr>
+    </table></div>
+    <h4>Critical Technical Points</h4>
+    <p class="warn"><strong>WARNING:</strong> Air in lines/catheters is catastrophic — direct paradoxical air embolism to cerebral or coronary circulation. Meticulous line preparation, continuous flush. Consider CO₂ angiography if contrast allergy.</p>
+    <p>Do NOT embolise the draining vein — risk of creating a high-pressure trapped sac that can rupture. Target the feeding artery only.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Follow-up</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Technical success</td><td>&gt;98%</td></tr>
+      <tr><td>Reperfusion / recanalisation</td><td>~5–15% at 5 years — more common with coils alone in large feeders; AVP may have lower recanalisation</td></tr>
+      <tr><td>Reduction in paradoxical embolism risk</td><td>Dramatic — stroke risk drops from ~15–30% to &lt;2% post-treatment</td></tr>
+      <tr><td>Improvement in oxygenation</td><td>Mean SpO₂ improvement 3–5% in patients with significant shunt</td></tr>
+    </table></div>
+    <h4>Follow-up Protocol</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Timing</th><th>Investigation</th></tr>
+      <tr><td>6–12 months</td><td>CT chest (unenhanced) — treated PAVMs should show sac shrinkage; feeding artery occluded</td></tr>
+      <tr><td>3–5 yearly</td><td>CT surveillance — new PAVMs can develop (especially HHT); growing untreated PAVMs may cross treatment threshold</td></tr>
+      <tr><td>Pregnancy</td><td>PAVMs can enlarge during pregnancy — screen HHT patients; treated PAVMs may reperfuse. Low-dose CT or MRI if concerns</td></tr>
+    </table></div>
+    <p><strong>HHT screening:</strong> All first-degree relatives of HHT patients should be screened with contrast echocardiography ± CT if positive.</p>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-svc'] = `
+<h2 class="page-title">SVC Stenting — CIRSE 2015</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-med">Moderate Yield</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Aetiology & Clinical Presentation</div>
+  <div class="card-body">
+    <h4>Causes of SVC Syndrome</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Cause</th><th>Frequency</th><th>Detail</th></tr>
+      <tr><td>Malignant — lung cancer</td><td>~50–60%</td><td>Right-sided tumours (NSCLC, SCLC); direct compression or mediastinal lymphadenopathy</td></tr>
+      <tr><td>Malignant — lymphoma</td><td>~10–15%</td><td>Often chemosensitive — stenting may not be first-line</td></tr>
+      <tr><td>Malignant — other</td><td>~5%</td><td>Thymoma, germ cell tumour, metastatic disease</td></tr>
+      <tr><td>Benign — catheter/device related</td><td>~20–30%</td><td>Central venous catheters, pacemaker leads, ports → thrombosis and fibrosis</td></tr>
+      <tr><td>Benign — other</td><td>~5%</td><td>Fibrosing mediastinitis (histoplasmosis), Behçet's, post-RT fibrosis</td></tr>
+    </table></div>
+    <h4>Clinical Features — Stanford Classification</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Grade</th><th>Symptoms</th></tr>
+      <tr><td>0</td><td>Asymptomatic (radiographic only)</td></tr>
+      <tr><td>1</td><td>Mild — oedema, plethora, cyanosis</td></tr>
+      <tr><td>2</td><td>Moderate — head/neck oedema, dyspnoea on exertion</td></tr>
+      <tr><td>3</td><td>Severe — cerebral oedema (headache, confusion, visual changes), laryngeal oedema, haemodynamic compromise</td></tr>
+      <tr><td>4</td><td>Life-threatening — laryngeal obstruction, cerebral herniation, cardiovascular collapse</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Endovascular Treatment</div>
+  <div class="card-body">
+    <h4>Indications for SVC Stenting</h4>
+    <p>Symptomatic SVC syndrome (Grade ≥2) with radiological obstruction. Especially: rapid symptom relief needed; chemotherapy-resistant tumour; failed/delayed response to chemoRT; benign SVC syndrome refractory to anticoagulation.</p>
+    <h4>Technique</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Right CFA (preferred for stable platform) + right IJV or bilateral femoral veins; dual access allows venography from above and below</td></tr>
+      <tr><td>Venography</td><td>Define obstruction length, degree, thrombus burden, collateral pattern, involvement of brachiocephalic veins/RA junction</td></tr>
+      <tr><td>Traversal</td><td>Hydrophilic wire + support catheter through stenosis/occlusion; may need stiff wire for complete occlusion</td></tr>
+      <tr><td>Thrombolysis/thrombectomy</td><td>If significant acute thrombus: CDT (alteplase 1 mg/hr × 12–24 hr) or mechanical thrombectomy before stenting</td></tr>
+      <tr><td>Pre-dilation</td><td>Balloon angioplasty (12–16 mm) to profile obstruction and allow stent passage</td></tr>
+      <tr><td>Stent selection</td><td>Self-expanding stent (Wallstent, Z-stent); 14–16 mm diameter; oversized ~10–20% to resist external compression. Length to cover entire obstruction + margins</td></tr>
+      <tr><td>Deployment</td><td>Land distal (caudal) end at RA junction; proximal (cranial) end in normal-calibre SVC. If brachiocephalic involvement — bilateral brachiocephalic stents or Y-configuration</td></tr>
+      <tr><td>Post-dilation</td><td>Balloon to nominal stent diameter; ensure full apposition</td></tr>
+    </table></div>
+    <h4>Pharmacology</h4>
+    <p>Anticoagulation: LMWH during and after procedure (transition to warfarin or DOAC). Antiplatelet therapy not standardised — some centres add aspirin. Duration: minimum 3–6 months; longer if benign aetiology or indwelling device.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Technical success</td><td>~95–100%</td></tr>
+      <tr><td>Symptom relief (within 24–72 hr)</td><td>~90–95%</td></tr>
+      <tr><td>Primary patency at 6 months</td><td>~80–90% (malignant); ~70–80% (benign — higher recurrence)</td></tr>
+      <tr><td>Re-intervention rate</td><td>~10–20%; re-stenting or balloon dilation</td></tr>
+      <tr><td>Procedure-related mortality</td><td>&lt;1%</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Detail</th></tr>
+      <tr><td>Stent migration</td><td>Rare with self-expanding stents; risk at RA junction — cardiac tamponade if migrates into RA</td></tr>
+      <tr><td>SVC rupture / perforation</td><td>Rare but catastrophic; haemopericardium/haemomediastinum — covered stent rescue</td></tr>
+      <tr><td>Pulmonary embolism</td><td>From dislodged thrombus during traversal; anticoagulation reduces risk</td></tr>
+      <tr><td>Stent fracture</td><td>Long-term in benign cases; more common at thoracic outlet</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-gastrostomy'] = `
+<h2 class="page-title">Percutaneous Gastrostomy & Gastrojejunostomy — CIRSE 2016</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Indications & Contraindications</div>
+  <div class="card-body">
+    <h4>Indications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indication</th><th>Detail</th></tr>
+      <tr><td>Nutritional support</td><td>Inability to maintain adequate oral nutrition for &gt;30 days; neurological dysphagia (stroke, MND, TBI), head & neck cancer</td></tr>
+      <tr><td>Decompression</td><td>Chronic bowel obstruction (malignant GOO, carcinomatosis) — venting gastrostomy for symptom palliation</td></tr>
+      <tr><td>Failed PEG</td><td>Oesophageal obstruction preventing endoscope passage; prior gastric surgery altering anatomy</td></tr>
+      <tr><td>Medication administration</td><td>Long-term enteral medications when oral route not available</td></tr>
+    </table></div>
+    <h4>Contraindications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Absolute</th><th>Relative</th></tr>
+      <tr><td>Uncorrectable coagulopathy</td><td>Ascites (can be drained pre-procedure)</td></tr>
+      <tr><td>No safe window (interposed bowel/liver)</td><td>Peritoneal dialysis (convert temporarily)</td></tr>
+      <tr><td>Gastric outlet obstruction (if for feeding, not decompression)</td><td>Portal hypertension with gastric varices — use USS/CT to plan window</td></tr>
+      <tr><td></td><td>Prior gastric surgery — altered anatomy may preclude safe access</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Radiological Gastrostomy Technique</div>
+  <div class="card-body">
+    <h4>Pre-procedure</h4>
+    <p>Antibiotics: single dose IV cefazolin 1–2 g (or alternative if penicillin-allergic). NPO ≥6 hours. Review CT to assess gastric position and window. INR &lt;1.5, platelets &gt;50,000.</p>
+    <h4>Technique — Percutaneous Radiological Gastrostomy (PRG)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Gastric insufflation</td><td>NGT or fine-bore nasogastric tube — insufflate air until stomach distends and displaces colon/small bowel from anterior abdominal wall. Glucagon 0.5 mg IV to reduce peristalsis (optional)</td></tr>
+      <tr><td>Fluoroscopic targeting</td><td>Identify anterior gastric wall along body/antrum; confirm no interposed bowel (transverse colon most common interposition)</td></tr>
+      <tr><td>T-fastener gastropexy</td><td>3–4 T-fasteners placed in a diamond or triangle pattern to appose anterior gastric wall to anterior abdominal wall — critical to prevent peritoneal leak. Deploy under fluoroscopic guidance</td></tr>
+      <tr><td>Gastric puncture</td><td>18G needle through centre of fastener array into gastric lumen; confirm position with air aspiration and contrast injection</td></tr>
+      <tr><td>Tract dilation</td><td>Serial fascial dilators over wire (or single-step balloon) to 10–14 Fr</td></tr>
+      <tr><td>Tube placement</td><td>Locking pigtail catheter (10–14 Fr) into stomach; confirm intraluminal position with contrast; secure to skin</td></tr>
+    </table></div>
+    <h4>Gastrojejunostomy (GJ) Extension</h4>
+    <p>For patients at aspiration risk or with gastroparesis: advance a 0.035" wire through the gastrostomy, across the pylorus into the jejunum (beyond ligament of Treitz). Place GJ tube with gastric decompression port and jejunal feeding port. Inner jejunal catheter (8 Fr) within outer gastric catheter (14–16 Fr).</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Post-procedure Care & Outcomes</div>
+  <div class="card-body">
+    <h4>Post-procedure Management</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Timing</th><th>Action</th></tr>
+      <tr><td>4 hours</td><td>Flush tube with water; start low-volume feeds if no complications</td></tr>
+      <tr><td>24 hours</td><td>Advance to target feed rate</td></tr>
+      <tr><td>7–10 days</td><td>Tract matures; T-fasteners cut at skin level (dissolve internally over weeks)</td></tr>
+      <tr><td>4–6 weeks</td><td>Tube exchange possible — mature tract allows bedside exchange</td></tr>
+    </table></div>
+    <h4>Outcomes</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>Result</th></tr>
+      <tr><td>Technical success (PRG)</td><td>&gt;98%</td></tr>
+      <tr><td>Major complication rate</td><td>~2–5% (peritonitis, haemorrhage, viscus injury)</td></tr>
+      <tr><td>Minor complication rate</td><td>~10–15% (peristomal leak, wound infection, tube dislodgement)</td></tr>
+      <tr><td>30-day mortality</td><td>~2–5% (related to underlying disease, not procedure)</td></tr>
+    </table></div>
+    <h4>Common Problems & Solutions</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Problem</th><th>Solution</th></tr>
+      <tr><td>Tube blockage</td><td>Flush with warm water, cola, or pancreatic enzyme solution; mechanical declot with wire (gentle!)</td></tr>
+      <tr><td>Tube dislodgement (&lt;7 days)</td><td>EMERGENCY — immature tract can seal rapidly; attempt replacement under fluoro within hours or peritonitis risk</td></tr>
+      <tr><td>Tube dislodgement (&gt;7 days)</td><td>Replace via mature tract (Foley or dedicated replacement tube); confirm position with water-soluble contrast</td></tr>
+      <tr><td>Peristomal granulation tissue</td><td>Silver nitrate cautery; address tube fit (too loose → movement → granulation)</td></tr>
+      <tr><td>Buried bumper (PEG specific)</td><td>Endoscopic or radiological removal; PRG less prone to this</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-pe'] = `
+<h2 class="page-title">Acute PE — Endovascular Treatment — CIRSE 2026</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Risk Stratification & Indications</div>
+  <div class="card-body">
+    <h4>ESC/AHA Risk Categories</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Criteria</th><th>Management</th></tr>
+      <tr><td>Low risk</td><td>Haemodynamically stable, no RV dysfunction, normal biomarkers</td><td>Anticoagulation alone</td></tr>
+      <tr><td>Submassive (intermediate-high)</td><td>Stable BUT RV dysfunction (CT/echo) AND elevated troponin/BNP</td><td>Anticoagulation ± escalation to endovascular therapy if deteriorating</td></tr>
+      <tr><td>Massive (high risk)</td><td>Sustained hypotension (SBP &lt;90 for ≥15 min), obstructive shock, cardiac arrest</td><td>Systemic thrombolysis first-line; endovascular therapy if contraindication to systemic lysis or failed systemic lysis</td></tr>
+    </table></div>
+    <h4>Indications for Endovascular PE Therapy</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indication</th><th>Detail</th></tr>
+      <tr><td>Massive PE with contraindication to systemic lysis</td><td>Recent surgery, active bleeding, intracranial pathology, recent stroke</td></tr>
+      <tr><td>Massive PE with failed systemic lysis</td><td>No haemodynamic improvement after full-dose tPA</td></tr>
+      <tr><td>Submassive PE with clinical deterioration</td><td>Worsening RV function, rising biomarkers, haemodynamic instability despite anticoagulation</td></tr>
+      <tr><td>Massive PE as primary therapy</td><td>Some centres use CDT/mechanical thrombectomy as primary therapy (emerging evidence)</td></tr>
+    </table></div>
+    <h4>PERT — Pulmonary Embolism Response Team</h4>
+    <p>Multidisciplinary team (IR, cardiology, respiratory, ICU, haematology, surgery) for rapid decision-making. Activated for all submassive and massive PEs. Consensus approach to therapy escalation.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Endovascular Techniques</div>
+  <div class="card-body">
+    <h4>Catheter-Directed Therapy Options</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Technique</th><th>Mechanism</th><th>Key Features</th></tr>
+      <tr><td>CDT — standard</td><td>Multi-sidehole catheter in PA; low-dose tPA infusion (1 mg/hr per lung, max 24 hr)</td><td>Lower bleeding risk than systemic lysis; can treat bilateral; monitor fibrinogen/aPTT</td></tr>
+      <tr><td>USAT (EKOS)</td><td>Ultrasound-enhanced catheter-directed thrombolysis; high-frequency low-power US disrupts fibrin structure</td><td>May accelerate lysis with lower tPA dose; evidence from ULTIMA, SEATTLE-II trials</td></tr>
+      <tr><td>Aspiration thrombectomy (FlowTriever)</td><td>Large-bore catheter (20–24 Fr) with aspiration; mechanical clot extraction without thrombolytics</td><td>No lytic agent — ideal for absolute contraindication to thrombolysis; immediate haemodynamic improvement; FLARE trial data</td></tr>
+      <tr><td>Rheolytic thrombectomy (AngioJet)</td><td>Hydrodynamic catheter fragmenting and aspirating clot</td><td>Risk of bradycardia/haemolysis; less commonly used now in PE</td></tr>
+      <tr><td>Rotational thrombectomy (Aspirex/Penumbra)</td><td>Rotating catheter tip fragments clot for aspiration</td><td>Continuous aspiration; various catheter sizes for segmental/lobar vessels</td></tr>
+    </table></div>
+    <h4>Procedural Considerations</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Right CFV or right IJV; 6–24 Fr depending on device (CDT 6 Fr; FlowTriever 20–24 Fr)</td></tr>
+      <tr><td>Pulmonary angiography</td><td>PA pressures (baseline PAP); selective pulmonary angiography to identify clot burden location</td></tr>
+      <tr><td>Catheter placement</td><td>Position in main/lobar PA containing thrombus; bilateral catheters for bilateral disease (CDT)</td></tr>
+      <tr><td>Monitoring</td><td>ICU monitoring during CDT infusion; serial echo/biomarkers; repeat PA pressures at completion</td></tr>
+      <tr><td>Endpoints</td><td>Haemodynamic improvement (SBP, HR); RV/LV ratio improvement; PAP reduction; not necessarily complete clot clearance</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes & Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Outcome</th><th>CDT/USAT</th><th>Mechanical Thrombectomy</th></tr>
+      <tr><td>RV/LV ratio improvement</td><td>Significant reduction at 48 hr (ULTIMA, SEATTLE-II)</td><td>Immediate improvement (FLARE)</td></tr>
+      <tr><td>PA pressure reduction</td><td>~25–30% reduction</td><td>~20–30% reduction</td></tr>
+      <tr><td>Major bleeding</td><td>~10–15% (intracranial &lt;1%)</td><td>~1–3% (no systemic lytic)</td></tr>
+      <tr><td>In-hospital mortality</td><td>~2–5%</td><td>~2–4%</td></tr>
+      <tr><td>30-day mortality</td><td>~5–8%</td><td>~3–6%</td></tr>
+    </table></div>
+    <h4>Key Trials</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Trial</th><th>Intervention</th><th>Key Finding</th></tr>
+      <tr><td>ULTIMA (2014)</td><td>USAT vs heparin (submassive)</td><td>Significant RV/LV ratio improvement at 24 hr with USAT; no difference in mortality</td></tr>
+      <tr><td>SEATTLE-II (2015)</td><td>USAT (submassive + massive)</td><td>Single-arm; significant RV/LV and PAP improvement; 10% major bleeding</td></tr>
+      <tr><td>FLARE (2019)</td><td>FlowTriever (submassive)</td><td>Rapid RV/LV improvement; 1% major bleeding; no thrombolytics needed</td></tr>
+      <tr><td>FLASH (2023)</td><td>FlowTriever (massive + submassive)</td><td>Largest mechanical thrombectomy dataset; low adverse events; immediate haemodynamic response</td></tr>
+    </table></div>
+  </div>
+</div>
+`;
+
+
+PAGES['cirse-ivc-filter'] = `
+<h2 class="page-title">IVC Filter Placement & Retrieval — CIRSE 2009</h2>
+<div class="page-meta"><span class="tag tag-section">CIRSE Guidelines</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Indications & Filter Selection</div>
+  <div class="card-body">
+    <h4>Absolute Indications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indication</th><th>Detail</th></tr>
+      <tr><td>Acute VTE + absolute contraindication to anticoagulation</td><td>Active haemorrhage, recent major surgery/trauma, haemorrhagic stroke, intracranial pathology</td></tr>
+      <tr><td>Acute VTE + failure of anticoagulation</td><td>Recurrent PE despite therapeutic anticoagulation</td></tr>
+      <tr><td>Acute VTE + complication of anticoagulation</td><td>Major bleeding requiring cessation of anticoagulation</td></tr>
+    </table></div>
+    <h4>Relative / Prophylactic Indications (Controversial)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Indication</th><th>Detail</th></tr>
+      <tr><td>Large free-floating iliocaval thrombus</td><td>High PE risk; may be placed even if anticoagulation possible</td></tr>
+      <tr><td>Massive PE with residual DVT</td><td>Concern for additional embolic burden during recovery</td></tr>
+      <tr><td>High-risk trauma</td><td>Spinal cord injury, pelvic fractures, TBI with inability to anticoagulate — evidence remains weak</td></tr>
+      <tr><td>Peri-operative bariatric surgery</td><td>High VTE risk population unable to mobilise; controversial — most guidelines against routine use</td></tr>
+    </table></div>
+    <h4>Filter Types</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Examples</th><th>Features</th></tr>
+      <tr><td>Retrievable (most commonly placed)</td><td>Denali, Celect, Günther Tulip, Option Elite</td><td>Designed for retrieval but can remain permanent; hook or retrieval mechanism at apex</td></tr>
+      <tr><td>Permanent</td><td>Greenfield (titanium), Bird's Nest, VenaTech LP</td><td>No retrieval mechanism; indicated when lifelong PE protection needed</td></tr>
+      <tr><td>Convertible</td><td>Sentry</td><td>Can be converted to non-filtering configuration without removal (newer technology)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Placement Technique</div>
+  <div class="card-body">
+    <h4>Pre-procedural Planning</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>IVC assessment</td><td>CT or ultrasound: IVC diameter (most filters rated for ≤28–30 mm), thrombus extent, renal vein positions, IVC anomalies (duplication ~3%, left-sided IVC ~0.5%)</td></tr>
+      <tr><td>Standard position</td><td>Infrarenal IVC — tip at or just below the lower renal vein</td></tr>
+      <tr><td>Suprarenal position</td><td>Indicated if: infrarenal thrombus extending to renal veins, pregnancy (avoid compression by gravid uterus), gonadal vein DVT, duplicated IVC</td></tr>
+    </table></div>
+    <h4>Deployment</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Right IJV (preferred — straight trajectory), right CFV, or left CFV (requires angled deployment in some filter designs)</td></tr>
+      <tr><td>IVC venography</td><td>Pigtail catheter in infrarenal IVC; identify renal veins, IVC calibre, and thrombus. CO₂ venography if contrast allergy</td></tr>
+      <tr><td>Positioning</td><td>Delivery sheath tip just below renal veins; use bony landmarks (L2–L3 disc space ≈ renal veins) and venographic confirmation</td></tr>
+      <tr><td>Deployment</td><td>Filter-specific deployment; most modern filters have controlled release mechanism; confirm position with post-deployment venography/fluoroscopy</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Retrieval & Complications</div>
+  <div class="card-body">
+    <h4>Retrieval — Standard</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Timing</td><td>As soon as indication for PE protection resolves; ideally &lt;3–6 months. Longer dwell = more difficult retrieval (endothelialisation, tilt, strut perforation)</td></tr>
+      <tr><td>Access</td><td>Right IJV (standard); snare through guide catheter/sheath</td></tr>
+      <tr><td>Technique</td><td>Engage retrieval hook with snare (Amplatz GooseNeck); collapse filter into sheath under fluoroscopic guidance</td></tr>
+      <tr><td>Completion</td><td>IVC venography post-retrieval to assess for IVC injury, residual thrombus, or stenosis</td></tr>
+    </table></div>
+    <h4>Advanced Retrieval Techniques (for embedded/tilted filters)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Technique</th><th>Indication</th></tr>
+      <tr><td>Rigid forceps (Ensnare, Cook)</td><td>Embedded hook; can grasp struts directly</td></tr>
+      <tr><td>Laser sheath</td><td>Excimer laser to ablate fibrous tissue encasing filter; chronic dwell</td></tr>
+      <tr><td>Wire loop technique</td><td>Wire threaded through filter tines to create a lasso; tilt correction before snaring</td></tr>
+      <tr><td>Dual access (femoral + jugular)</td><td>Balloon displacement of filter from IVC wall; facilitates hook access</td></tr>
+    </table></div>
+    <h4>Retrieval Success</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Dwell Time</th><th>Standard Retrieval Success</th></tr>
+      <tr><td>&lt;3 months</td><td>~95–99%</td></tr>
+      <tr><td>3–12 months</td><td>~85–95%</td></tr>
+      <tr><td>&gt;12 months</td><td>~80–90% (with advanced techniques); standard snare alone may fail</td></tr>
+    </table></div>
+    <h4>Complications</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Detail</th></tr>
+      <tr><td>Filter tilt / migration</td><td>~5–10%; may reduce filtration efficacy; retrieval more complex if severe tilt</td></tr>
+      <tr><td>IVC thrombosis</td><td>~5–10%; risk increases with trapped thrombus and longer dwell</td></tr>
+      <tr><td>Strut perforation</td><td>~10–40% on CT (usually asymptomatic); rarely causes retroperitoneal haemorrhage or organ injury (duodenum, aorta, ureter)</td></tr>
+      <tr><td>Filter fracture / embolisation</td><td>&lt;5%; fractured struts can migrate to heart/PA — usually incidental finding</td></tr>
+      <tr><td>IVC stenosis (post-retrieval)</td><td>Rare; from intimal injury during retrieval</td></tr>
     </table></div>
   </div>
 </div>
