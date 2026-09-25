@@ -306,6 +306,23 @@ body {
   text-align:center; padding:40px 20px;
   color:var(--text-secondary); font-style:italic;
 }
+
+/* Cross-references, links & extra tags (added Sep 2026: ablation + nerve ablation sections) */
+.xref { color: var(--teal); font-weight:600; cursor:pointer; text-decoration: underline dotted; text-underline-offset: 2px; }
+.xref:hover { color: var(--teal-light); }
+.card-body a[href] { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+.card-body a[href]:hover { color: var(--teal-light); }
+.src-list { font-size:13px; }
+.src-list li { margin-bottom:6px; }
+.tag-freq-low { background:#2a1414; color:#f87171; }
+.card-body td ul { margin: 0 0 0 16px; }
+.tl { display:grid; grid-template-columns: repeat(5, 1fr); gap:4px; margin: 4px 0 16px; }
+.tl-seg { border-radius:6px; padding:8px 10px; font-size:12px; line-height:1.35; color: var(--text); border:1px solid var(--border); }
+.tl-seg b { display:block; font-size:13px; margin-bottom:2px; color: #f1f5f9; }
+.tl-1 { background:#2a1616; border-color:#4a2222; } .tl-2 { background:#2a1f12; border-color:#4a3418; } .tl-3 { background:#28260f; border-color:#454017; } .tl-4 { background:#10261d; border-color:#1b4332; } .tl-5 { background:#0f2230; border-color:#1b3a52; }
+@media(max-width:768px) {
+  .tl { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -409,6 +426,31 @@ const NAV = [
     {id:'f-prostate', title:'Prostate Cancer IO', freq:'med'},
     {id:'f-msk-onc', title:'Malignant MSK Disease', freq:'med'},
   ]},
+  { id:'secAbl', label:'Ablation Deep Dive (Oncology)', items:[
+    {id:'abl-overview', title:'Overview & Modality Selection', freq:'high'},
+    {id:'abl-physics', title:'Physics & Tissue Biology', freq:'high'},
+    {id:'abl-technique', title:'Planning, Guidance & Protection', freq:'high'},
+    {id:'abl-liver', title:'Liver — HCC & CRLM', freq:'high'},
+    {id:'abl-kidney', title:'Kidney — Small Renal Mass', freq:'high'},
+    {id:'abl-lung', title:'Lung — NSCLC & Metastases', freq:'high'},
+    {id:'abl-bone', title:'Bone & Soft Tissue (Oncologic)', freq:'med'},
+    {id:'abl-other', title:'Adrenal, Thyroid, Breast & Others', freq:'med'},
+    {id:'abl-followup', title:'Follow-up & Response Assessment', freq:'high'},
+    {id:'abl-imaging', title:'Imaging Appearances Over Time', freq:'high'},
+    {id:'abl-complications', title:'Complications & Management', freq:'high'},
+    {id:'abl-evidence', title:'Key Trials, Guidelines & Reading', freq:'high'},
+  ]},
+  { id:'secNrv', label:'RF Nerve Ablation (Pain)', items:[
+    {id:'nrv-principles', title:'RF Neurotomy Principles & Selection', freq:'med'},
+    {id:'nrv-lumbar', title:'Lumbar Medial Branch (Facet)', freq:'med'},
+    {id:'nrv-cervical', title:'Cervical & Thoracic Medial Branch', freq:'low'},
+    {id:'nrv-sij', title:'Sacroiliac Joint Lateral Branch', freq:'low'},
+    {id:'nrv-knee', title:'Knee — Genicular Nerves', freq:'med'},
+    {id:'nrv-shoulder', title:'Shoulder — SSN / Axillary / LPN', freq:'low'},
+    {id:'nrv-hip', title:'Hip — Femoral & Obturator Branches', freq:'low'},
+    {id:'nrv-bvn', title:'Basivertebral Nerve Ablation', freq:'low'},
+    {id:'nrv-cancer', title:'Cancer Pain Neurolysis', freq:'med'},
+  ]},
   { id:'classifications', label:'Classification Systems', items:[
     {id:'cls-bclc',              title:'BCLC Staging (HCC)',               freq:'high'},
     {id:'cls-child-pugh',        title:'Child-Pugh Score',                 freq:'high'},
@@ -449,7 +491,7 @@ const NAV = [
     {id:'dm-mesenteric', title:'Acute Mesenteric Ischaemia',           freq:'high'},
     {id:'dm-pph',        title:'Post-partum Haemorrhage — UAE',        freq:'high'},
   ]},
-  {section:'CIRSE Guidelines', desc:'Key CIRSE Standards of Practice & position statements', items:[
+  {id:'cirse', label:'CIRSE Guidelines', section:'CIRSE Guidelines', desc:'Key CIRSE Standards of Practice & position statements', items:[
     {id:'cirse-varicocele',   title:'Varicocele Embolisation',              freq:'med'},
     {id:'cirse-bae',          title:'Bronchial Artery Embolisation',        freq:'high'},
     {id:'cirse-carotid',      title:'Carotid Artery Stenting',             freq:'med'},
@@ -652,6 +694,16 @@ PAGES['home'] = `
       <div class="sc-label">Section F</div>
       <div class="sc-title">Interventional Oncology</div>
       <div class="sc-desc">TACE, TARE/SIRT, tumour ablation, biliary, prostate cancer, MSK</div>
+    </div>
+    <div class="section-card" onclick="showDirectory('secAbl')">
+      <div class="sc-label">Ablation Deep Dive</div>
+      <div class="sc-title">RFA · MWA · Cryoablation in Cancer</div>
+      <div class="sc-desc">Physics, planning, liver, kidney, lung, bone &amp; other sites, follow-up, complications, trials</div>
+    </div>
+    <div class="section-card" onclick="showDirectory('secNrv')">
+      <div class="sc-label">RF Nerve Ablation</div>
+      <div class="sc-title">Pain Interventions</div>
+      <div class="sc-desc">Medial branch, SIJ, genicular, shoulder, hip, basivertebral &amp; cancer pain neurolysis</div>
     </div>
     <div class="section-card" onclick="showDirectory('dm')">
       <div class="sc-label">Disease Management</div>
@@ -10242,6 +10294,8 @@ PAGES['e-ablation'] = `
     <div class="warn">A minimum safety margin (commonly cited as ~1 cm, though this varies by technique, modality, and monitoring method used) between the planned ablation zone and any critical neural structure should be established before proceeding — when this margin cannot be achieved or maintained, active protective measures (hydrodissection, thermocouple monitoring, nerve stimulation testing) are mandatory rather than optional.</div>
   </div>
 </div>
+
+<div class="tip">See also: <span class="xref" onclick="showPage('abl-bone')">Bone &amp; Soft-Tissue Oncologic Ablation (deep dive)</span> and <span class="xref" onclick="showPage('abl-physics')">Ablation Physics</span>.</div>
 `;
 
 PAGES['e-injection'] = `
@@ -10291,6 +10345,8 @@ PAGES['e-injection'] = `
     <div class="tip">The choice between fluoroscopy and ultrasound for a given joint is often institution- and operator-dependent rather than a single universally "correct" answer — both are validated approaches for most joints, with the deciding factor typically being joint depth, patient body habitus, and the specific anatomical target (e.g. medial branch block requires bony landmark targeting well-suited to fluoroscopy).</div>
   </div>
 </div>
+
+<div class="tip">When injections give only short-lived relief, see <span class="xref" onclick="showPage('nrv-knee')">genicular</span>, <span class="xref" onclick="showPage('nrv-shoulder')">shoulder</span> and <span class="xref" onclick="showPage('nrv-hip')">hip</span> RF ablation.</div>
 `;
 
 PAGES['e-osteoplasty'] = `
@@ -10459,6 +10515,8 @@ PAGES['e-spinal'] = `
     <div class="tip">Spinal cord stimulator trials and permanent implantation are typically performed by pain medicine or neurosurgery specialists, but the fluoroscopic image-guided percutaneous epidural access technique shares core technical principles with other fluoroscopically-guided spinal procedures in this section — awareness of the workflow and safety considerations is relevant to IR practice even where IR's direct procedural role varies by institution.</div>
   </div>
 </div>
+
+<div class="tip">See also the <span class="xref" onclick="showDirectory('secNrv')">RF Nerve Ablation</span> section: <span class="xref" onclick="showPage('nrv-lumbar')">lumbar</span> and <span class="xref" onclick="showPage('nrv-cervical')">cervical/thoracic</span> medial branch RF, <span class="xref" onclick="showPage('nrv-sij')">SIJ</span> and <span class="xref" onclick="showPage('nrv-bvn')">basivertebral nerve ablation</span>.</div>
 `;
 
 // ── f-fund, f-tace, f-tare, f-ablation-io ──
@@ -10719,6 +10777,18 @@ PAGES['f-ablation-io'] = `
     </table></div>
   </div>
 </div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Deep Dive — Oncologic Ablation Section</div>
+  <div class="card-body">
+    <p>Expanded, organ-by-organ coverage with trial data and guideline positions:</p>
+    <ul>
+      <li><span class="xref" onclick="showPage('abl-overview')">Overview &amp; Modality Selection</span> · <span class="xref" onclick="showPage('abl-physics')">Physics &amp; Biology</span> · <span class="xref" onclick="showPage('abl-technique')">Planning &amp; Protection</span></li>
+      <li><span class="xref" onclick="showPage('abl-liver')">Liver</span> · <span class="xref" onclick="showPage('abl-kidney')">Kidney</span> · <span class="xref" onclick="showPage('abl-lung')">Lung</span> · <span class="xref" onclick="showPage('abl-bone')">Bone/Soft Tissue</span> · <span class="xref" onclick="showPage('abl-other')">Other Sites</span></li>
+      <li><span class="xref" onclick="showPage('abl-followup')">Follow-up</span> · <span class="xref" onclick="showPage('abl-complications')">Complications</span> · <span class="xref" onclick="showPage('abl-evidence')">Trials &amp; Guidelines</span></li>
+    </ul>
+  </div>
+</div>
 `;
 
 // ── f-biliary, f-prostate, f-msk-onc ──
@@ -10878,6 +10948,1950 @@ PAGES['f-msk-onc'] = `
     </table></div>
     <div class="tip">The Mirels score directly informs whether IR-led ablation/cementoplasty alone is an appropriate management strategy versus whether the lesion's fracture risk is high enough to warrant primary orthopaedic surgical stabilisation — a high Mirels score (≥9) lesion, particularly in a weight-bearing site like the proximal femur, is generally better served by surgical fixation (with IR ablation/embolisation potentially used as a pre-operative or combined adjunct) rather than percutaneous cementoplasty alone as the sole structural treatment.</div>
   </div>
+</div>
+`;
+
+// ═══════════════════════════════════════
+// ABLATION DEEP DIVE (ONCOLOGY) — added Sep 2026
+// ═══════════════════════════════════════
+
+PAGES['abl-overview'] = `
+<div class="dd-page">
+<h2 class="page-title">Oncologic Ablation — Overview &amp; Modality Selection</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Where Ablation Sits in Cancer Care</div>
+  <div class="card-body">
+    <p>Image-guided thermal ablation destroys a tumour <em>in situ</em> by heating (RFA, MWA) or freezing (cryoablation) it through one or more percutaneous applicators. It is a <strong>local</strong> therapy: it treats the target and a rim of surrounding tissue (the ablative margin) but does nothing for micrometastatic disease. Patient selection therefore depends as much on tumour biology and the MDT's view of the overall disease course as on technical feasibility.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Intent</th><th>Typical Scenarios</th><th>Technical Goal</th></tr>
+      <tr><td><strong>Curative, first-line</strong></td><td>HCC ≤2–3 cm (BCLC 0/A); cT1a renal mass &lt;3 cm (AUA); small colorectal liver metastases ≤3 cm (post-COLLISION)</td><td>Complete ablation with an adequate (A0) margin; outcomes comparable to surgery for selected lesions</td></tr>
+      <tr><td><strong>Curative, surgery-sparing</strong></td><td>Medically inoperable stage IA NSCLC; T1a/T1b RCC in frail or solitary-kidney patients; recurrent disease after resection</td><td>Local control with preserved organ function (lung function, eGFR, liver remnant)</td></tr>
+      <tr><td><strong>Oligometastatic / oligoprogressive</strong></td><td>CRC, sarcoma, RCC, breast and other metastases to lung, liver, adrenal, bone, nodes — usually ≤3–5 lesions each ≤3 cm</td><td>Local control to delay/avoid systemic therapy change; repeatable</td></tr>
+      <tr><td><strong>Bridging / downstaging</strong></td><td>HCC patients on the liver transplant waiting list</td><td>Prevent drop-out from the list; downstage into Milan criteria</td></tr>
+      <tr><td><strong>Palliative</strong></td><td>Painful bone metastases refractory to or unsuitable for radiotherapy; painful soft-tissue tumours (desmoid)</td><td>Pain relief — the whole tumour/bone interface does not need to be covered; target the painful tumour–bone interface</td></tr>
+      <tr><td><strong>Combination</strong></td><td>TACE + ablation for 3–5 cm HCC; resection + ablation (parenchymal-sparing); ablation + cementoplasty; ablation + systemic therapy</td><td>Overcome size/heat-sink limits; spare parenchyma; stabilise bone</td></tr>
+    </table></div>
+    <div class="tip">Ablation is usually offered through an MDT. The questions to answer are: Will local control change this patient's outcome? Can the whole tumour <em>plus a margin</em> be covered safely? And is surgery, SBRT or systemic therapy a better alternative?</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> RFA vs MWA vs Cryoablation — Head-to-Head</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Feature</th><th>RFA</th><th>MWA</th><th>Cryoablation</th></tr>
+      <tr><td>Energy / principle</td><td>Alternating electric current (≈375–500 kHz) → resistive (Joule) heating of ions around the electrode</td><td>Electromagnetic field (915 MHz or 2.45 GHz) → water dipoles oscillate (dielectric hysteresis) → frictional heat</td><td>Joule–Thomson expansion of high-pressure argon (or liquid nitrogen in some systems) → freeze–thaw cycles</td></tr>
+      <tr><td>Heating zone</td><td>Active heating only a few mm around the electrode; the rest by passive conduction</td><td>Active heating up to ≈2 cm from the antenna, so conduction matters less</td><td>Ice ball grows by conduction from the probe; lethal isotherm lies inside the visible edge</td></tr>
+      <tr><td>Tissue temperature</td><td>60–100 °C; limited by charring at &gt;100 °C (impedance "roll-off")</td><td>Can exceed 100–150 °C; no impedance ceiling</td><td>Probe tip far below −100 °C; lethal zone ≈ −20 to −40 °C</td></tr>
+      <tr><td>Single-applicator zone</td><td>≈3 cm (larger with multitined/cluster/perfused electrodes)</td><td>≈3–5 cm; multiple antennae act synergistically</td><td>≈2–3.5 cm ice ball per probe; multiple probes combined to sculpt the shape</td></tr>
+      <tr><td>Heat/cold sink (vessels ≥3 mm)</td><td><strong>Most susceptible</strong></td><td>Less susceptible</td><td>"Cold sink" present — near-vessel margin at risk</td></tr>
+      <tr><td>Grounding pads</td><td>Yes (monopolar) — pad burns possible; not needed for bipolar/multipolar systems</td><td>No</td><td>No</td></tr>
+      <tr><td>Intraprocedural visualisation of the zone</td><td>Poor (gas on US; CT only after contrast)</td><td>Poor (gas; CT after contrast)</td><td><strong>Excellent</strong> — ice ball visible on CT/MRI (US shows only the near edge with shadowing)</td></tr>
+      <tr><td>Procedural pain</td><td>Moderate–high → GA/deep sedation</td><td>High → GA/deep sedation</td><td><strong>Low</strong> — often sedation only</td></tr>
+      <tr><td>Tract cautery on withdrawal</td><td>Yes</td><td>Yes</td><td>No (unless a heating/tract mode is available) → higher bleeding risk</td></tr>
+      <tr><td>Speed</td><td>≈12–15 min per overlapping ablation</td><td>≈5–10 min</td><td>≈25–35 min (two cycles; lung often three)</td></tr>
+      <tr><td>Collagen/structure preservation</td><td>Poor</td><td>Poor</td><td>Relative preservation of collagenous structures (collecting system, bronchi, bone matrix)</td></tr>
+      <tr><td>Distinctive risks</td><td>Pad burns; pacemaker interference; incomplete ablation near vessels</td><td>Shaft/skin burns; larger-than-planned zone → collateral injury</td><td>Haemorrhage; cryoshock (large hepatic volumes); myoglobinuria; ice-ball "cracking"</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Choosing a Modality — Practical Scenarios</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Scenario</th><th>Usual Preference</th><th>Why</th></tr>
+      <tr><td>HCC ≤2 cm, away from large vessels</td><td>RFA or MWA</td><td>Equivalent in small lesions; MWA faster</td></tr>
+      <tr><td>HCC 2–4 cm or next to a vessel ≥3 mm</td><td>MWA (± multiple antennae), or TACE + ablation</td><td>Less heat sink; Japanese RCT (Sugimoto 2025) showed lower 2-year LTP with MWA than single-needle RFA</td></tr>
+      <tr><td>Liver tumour &lt;1 cm from a central bile duct</td><td>Consider SBRT, resection, IRE, or thermal ablation with intraductal cooling</td><td>High risk of biliary stricture; cryo not generally favoured in liver (bleeding, cryoshock)</td></tr>
+      <tr><td>Central renal mass near the collecting system/UPJ</td><td>Cryoablation ± warm pyeloperfusion</td><td>Visible ice ball; collecting-system collagen tolerates freezing better</td></tr>
+      <tr><td>Small exophytic posterior renal mass</td><td>Any modality</td><td>Ideal location; choose by local expertise</td></tr>
+      <tr><td>Peripheral lung nodule ≤3 cm</td><td>MWA (increasingly) or cryo</td><td>MWA spreads well through aerated lung; cryo is less painful and suits pleural-based lesions</td></tr>
+      <tr><td>Painful bone metastasis near the cord/nerve roots</td><td>Cryo, or bipolar RF with thermoprotection</td><td>Visible margin; lower procedural pain; sedation</td></tr>
+      <tr><td>Osteoid osteoma</td><td>RFA</td><td>Longest track record; small, well-defined nidus</td></tr>
+      <tr><td>Large irregular soft-tissue tumour (e.g. desmoid)</td><td>Cryo (multiple probes)</td><td>Ice ball can be sculpted and monitored</td></tr>
+      <tr><td>Small low-risk breast cancer in an older patient</td><td>Cryo (liquid nitrogen)</td><td>ICE3 data; minimal pain; performed under local anaesthetic</td></tr>
+      <tr><td>High bleeding risk / borderline coagulation</td><td>RFA or MWA</td><td>Tract cautery; cryo does not coagulate the tract</td></tr>
+      <tr><td>Pacemaker/ICD or metal implants in the current path</td><td>MWA or cryo (or bipolar RFA)</td><td>No current passes through the patient</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> General Contraindications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Examples</th></tr>
+      <tr><td>Absolute (most organs)</td><td>Uncorrectable coagulopathy; active infection at the target or sepsis; no safe access route; tumour that cannot be seen with any available guidance; patient unable to tolerate anaesthesia/positioning</td></tr>
+      <tr><td>Oncological</td><td>Curative intent but a margin cannot be achieved and a better alternative exists; rapidly progressive widespread disease where local control will not change outcome</td></tr>
+      <tr><td>Liver</td><td>Child-Pugh C (unless bridging to transplant); refractory ascites (relative); tumour abutting the hilar bile duct; bilioenteric anastomosis/sphincterotomy/stent (relative — abscess risk)</td></tr>
+      <tr><td>Kidney</td><td>Tumour &gt;4 cm (relative — higher failure); central hilar tumours abutting the renal pelvis/UPJ (relative); life expectancy &lt;1 year (surveillance instead)</td></tr>
+      <tr><td>Lung</td><td>Tumour &gt;3 cm (relative); abutting hilar vessels/main bronchi; severe pulmonary hypertension; interstitial lung disease (risk of acute exacerbation); contralateral pneumonectomy (relative)</td></tr>
+      <tr><td>Bone</td><td>Impending fracture needing fixation (Mirels ≥9, unstable SINS); cord compression with neurological deficit (→ surgery/RT)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Exam Pearls</div>
+  <div class="card-body">
+    <ul>
+      <li>RFA is limited by <strong>impedance</strong> (charring, roll-off) and <strong>heat sink</strong>; MWA is limited by neither to the same degree.</li>
+      <li>Cryo's two big advantages are the <strong>visible ice ball</strong> and <strong>low procedural pain</strong>. Its two big disadvantages are <strong>no tract cautery</strong> and <strong>cryoshock</strong> in large hepatic volumes.</li>
+      <li>Margin targets: HCC ≥5 mm; CRLM ≥5 mm minimum, ideally ≥10 mm; lung ≥5–10 mm (GGO halo); cryo ice ball ≥5 mm beyond the tumour (lethal isotherm lies inside the visible edge).</li>
+      <li>Use <strong>D5W</strong> for hydrodissection with RFA, because saline conducts current and extends the burn. Saline or D5W are both acceptable with MWA and cryo.</li>
+      <li>The commonest pattern of failure is <strong>local tumour progression at the margin</strong>, usually the perivascular or undertreated side.</li>
+    </ul>
+    <div class="tip">Related pages: <span class="xref" onclick="showPage('f-ablation-io')">Tumour Ablation (Section F)</span> · <span class="xref" onclick="showPage('abl-physics')">Physics &amp; Biology</span> · <span class="xref" onclick="showPage('abl-technique')">Planning &amp; Protection</span> · <span class="xref" onclick="showPage('abl-evidence')">Key Trials &amp; Guidelines</span></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-physics'] = `
+<div class="dd-page">
+<h2 class="page-title">Ablation Physics &amp; Tissue Biology</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Temperature Thresholds for Cell Death</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Temperature</th><th>Effect on Tissue</th><th>Practical Relevance</th></tr>
+      <tr><td>42–45 °C</td><td>Hyperthermia. Cells become more sensitive to chemotherapy and radiation; irreversible injury needs prolonged exposure (tens of minutes)</td><td>The outer "transition zone" of every heat ablation. Sublethal injury here is a source of local recurrence</td></tr>
+      <tr><td>≈46 °C for 60 min</td><td>Irreversible damage</td><td>Also the rough nerve-injury threshold used for thermoprotection (stop at &gt;45 °C near a nerve)</td></tr>
+      <tr><td>50–52 °C for 4–6 min</td><td>Irreversible coagulation</td><td>Conventionally treated as the lethal isotherm for heat-based ablation planning</td></tr>
+      <tr><td>60–100 °C</td><td>Near-instant protein coagulation; mitochondrial and cytosolic enzymes and nucleic acids destroyed</td><td>Target range for RFA</td></tr>
+      <tr><td>&gt;100–110 °C</td><td>Tissue boiling, vaporisation and carbonisation (charring)</td><td>In RFA, char and gas act as insulators, impedance rises and the generator "rolls off", which limits zone size. MWA is not limited this way</td></tr>
+      <tr><td>0 to −20 °C</td><td>Variable, often sublethal (cells may survive, especially with a single freeze)</td><td>Periphery of the ice ball, between the 0 °C visible edge and the lethal isotherm</td></tr>
+      <tr><td>−20 to −40 °C</td><td>Lethal to most tumour cells, especially with repeated freeze–thaw; −40 °C is reliably lethal</td><td>Lethal isotherm lies a few mm <em>inside</em> the visible ice edge, so the ice must extend ≥5 mm beyond the tumour</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> The Bioheat Concept — Why Ablation Zones Vary</div>
+  <div class="card-body">
+    <p>A simplified form of the Pennes bioheat model is widely used to teach this: <strong>coagulation necrosis ≈ energy deposited × local tissue interactions − heat lost</strong>. Each term gives a strategy for enlarging or improving the ablation zone.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Term</th><th>Determinants</th><th>Strategies</th></tr>
+      <tr><td>Energy deposited</td><td>Generator power, applicator design, time</td><td>Higher-power MWA; multiple applicators; longer ablation</td></tr>
+      <tr><td>Tissue interactions</td><td>Electrical and thermal conductivity, water content, char formation</td><td>Internally cooled electrodes (prevent char); saline-perfused electrodes (increase conductivity); pulsed/impedance-controlled algorithms</td></tr>
+      <tr><td>Heat lost</td><td>Perfusion (heat sink), vessels ≥3 mm, air (lung), CSF, bile</td><td>Reduce flow: TACE/bland embolisation before ablation, balloon occlusion, Pringle manoeuvre (surgical); choose MWA; place an additional applicator beside the vessel</td></tr>
+    </table></div>
+    <div class="tip"><strong>"Oven effect":</strong> an HCC encapsulated in cirrhotic liver traps heat, so ablation zones are larger and more predictable. A metastasis in normal, well-perfused liver loses heat faster. This is one reason CRLM needs larger margins than HCC.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Radiofrequency Ablation — In Depth</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Circuit</td><td>Generator → active electrode → patient → dispersive grounding pads (monopolar). In bipolar/multipolar systems the current flows between applicators (no pads; "no-touch" technique possible)</td></tr>
+      <tr><td>Heating</td><td>Resistive (Joule) heating is proportional to current density, which falls sharply with distance from the electrode. So <strong>active</strong> heating is confined to a few mm, and the rest of the zone forms by <strong>passive thermal conduction</strong></td></tr>
+      <tr><td>Limiting factors</td><td>Charring/gas → impedance rise → roll-off; heat sink; poor conduction in aerated lung and cortical bone</td></tr>
+      <tr><td>Electrode designs</td><td>Internally cooled straight electrodes (single or cluster); multitined expandable arrays (umbrella-shaped, deployed in steps); saline-perfused electrodes; bipolar/multipolar electrodes</td></tr>
+      <tr><td>Control algorithms</td><td>Impedance-controlled (energy delivered until "roll-off", then repeated); temperature-controlled (target tip temperature, e.g. 90–105 °C); time-based</td></tr>
+      <tr><td>Grounding pads</td><td>Place fully adhered pads symmetrically on the thighs, equidistant from the target, with the long edge facing the electrode; use ≥2 pads for high-current systems; check the skin afterwards. Pad burns are the classic RFA-specific complication</td></tr>
+      <tr><td>Implanted devices</td><td>Current can interfere with pacemakers/ICDs: ask cardiology to reprogram, and consider bipolar RFA, MWA or cryo</td></tr>
+      <tr><td>Tract ablation</td><td>Cauterise the tract while withdrawing the electrode, to reduce bleeding and seeding</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Microwave Ablation — In Depth</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Mechanism</td><td>An oscillating electromagnetic field makes polar water molecules rotate billions of times per second (dielectric hysteresis). The resulting friction heats a volume of tissue directly, up to ≈2 cm from the antenna</td></tr>
+      <tr><td>Frequencies</td><td>915 MHz (longer wavelength, larger antennas) and 2.45 GHz (used by most current systems)</td></tr>
+      <tr><td>Advantages over RFA</td><td>Higher temperatures; faster; larger zones; no dependence on electrical conductivity (works in lung, bone and through char); less heat sink; several antennae can run at once for synergy; no grounding pads</td></tr>
+      <tr><td>Shaft heating</td><td>Reflected power heats the antenna shaft, which can burn the skin or tract and elongate the zone ("comet tail"). Modern antennas are water- or CO₂-cooled, and some use choke designs or field control to give near-spherical zones</td></tr>
+      <tr><td>Predictability caveat</td><td>Manufacturer zone charts come from ex vivo or animal liver. Real zones vary with perfusion, cirrhosis and tissue type, so confirm coverage on imaging rather than trusting the chart</td></tr>
+      <tr><td>Main risk</td><td>A larger, faster zone means less forgiveness near bowel, bile ducts, the diaphragm and nerves → protective techniques matter</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Cryoablation — In Depth</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Freezing</td><td><strong>Joule–Thomson effect:</strong> high-pressure argon expands through a small orifice in the probe tip and cools rapidly (tip temperatures well below −100 °C). Some newer systems (e.g. breast) circulate liquid nitrogen (−196 °C)</td></tr>
+      <tr><td>Thawing</td><td>Passive thaw, or active thaw with helium (which warms when it expands) or electrical heating elements</td></tr>
+      <tr><td>Direct cell injury</td><td>Fast cooling near the probe forms <strong>intracellular ice</strong>, which is lethal. Slower cooling further out forms <strong>extracellular ice</strong>, so the surrounding fluid becomes hyperosmolar and the cells dehydrate</td></tr>
+      <tr><td>Thaw injury</td><td>Recrystallisation of ice and osmotic water shifts back into cells cause swelling and membrane rupture. A slow thaw is more destructive, which is why the cycles are repeated</td></tr>
+      <tr><td>Vascular injury</td><td>Endothelial damage leads to platelet aggregation, microthrombosis and ischaemic necrosis. This is the dominant mechanism at the ice-ball periphery</td></tr>
+      <tr><td>Programmed death / immune</td><td>Apoptosis in the sublethal periphery. Antigens are released relatively intact, so cryo may prime anti-tumour immunity (abscopal effect is rare and unproven clinically)</td></tr>
+      <tr><td>Standard protocols</td><td>Two freeze–thaw cycles, e.g. 10 min freeze / 8 min passive thaw / 10 min freeze (renal). Lung often uses a <strong>triple-freeze</strong> with a short first freeze (≈3 min) that floods alveoli with fluid and improves conduction</td></tr>
+      <tr><td>Probe geometry</td><td>Probes ≈1–2 cm apart and ≤1 cm from the tumour edge. Multiple probes are used for tumours &gt;2 cm; ice balls fuse to cover irregular shapes</td></tr>
+      <tr><td>Imaging the ice</td><td>CT: low-attenuation ice ball, well seen in soft tissue. MRI: signal void, excellent. US: bright leading edge with dense posterior shadowing, so the far side cannot be seen</td></tr>
+      <tr><td>Drawbacks</td><td>Longer procedure; no tract cautery (bleeding; haemoptysis in lung); cryoshock (hepatic); thrombocytopenia; myoglobinuria with large muscle/bone volumes; ice-ball cracking in parenchymal organs</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Zones of an Ablation &amp; Heat/Cold Sink</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Zone</th><th>Description</th></tr>
+      <tr><td>Central (direct) zone</td><td>Immediate coagulation necrosis (heat) or intracellular ice (cold)</td></tr>
+      <tr><td>Transition zone</td><td>Sublethal injury: heat-shock proteins, apoptosis, inflammation. Tumour cells here may survive, and this rim becomes the benign periablational enhancement seen on follow-up imaging</td></tr>
+      <tr><td>Surrounding tissue</td><td>Unaffected</td></tr>
+    </table></div>
+    <div class="warn"><strong>Heat/cold sink:</strong> flowing blood in vessels ≥3 mm carries heat away (or brings it back, for cryo), leaving viable tumour along the vessel wall. Mitigations: choose MWA over RFA; place an extra applicator near the vessel; reduce inflow (TACE/embolisation first, balloon occlusion); accept only with an A0 margin on 3D assessment. Note that large vessels are relatively protected <em>by</em> the heat sink, which is why ablation beside a portal vein rarely causes thrombosis. Bile ducts are not protected this way.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Organ-Specific Physics</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Tissue</th><th>Behaviour</th><th>Implication</th></tr>
+      <tr><td>Cirrhotic liver (HCC)</td><td>Fibrosis insulates; tumour capsule traps heat ("oven effect")</td><td>Smaller margins acceptable (≥5 mm)</td></tr>
+      <tr><td>Normal liver (metastases)</td><td>Good perfusion; heat dissipates</td><td>Larger margins needed (≥5–10 mm)</td></tr>
+      <tr><td>Aerated lung</td><td>Air is an electrical and thermal insulator, so RFA energy stays in the solid tumour (oven effect) but spreads poorly beyond it. MW propagates through aerated lung</td><td>MWA increasingly favoured; cryo needs a triple-freeze to build ice in air</td></tr>
+      <tr><td>Kidney</td><td>Perirenal fat insulates; well-perfused cortex and hilar vessels act as heat sinks; the urothelium is collagen-rich</td><td>Central tumours → cryo ± pyeloperfusion</td></tr>
+      <tr><td>Bone</td><td>Cortical bone has high impedance and low conductivity; it partially shields adjacent structures while intact. Sclerotic lesions heat poorly with RFA</td><td>Lytic lesions and cortical breach allow heat/ice to spread → thermoprotection for the cord/nerves</td></tr>
+      <tr><td>Fat</td><td>Low water content, so microwaves heat it poorly; it also insulates</td><td>Perinephric/retroperitoneal fat protects; fatty liver can alter MWA zones</td></tr>
+    </table></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-technique'] = `
+<div class="dd-page">
+<h2 class="page-title">Ablation Planning, Guidance &amp; Protective Techniques</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Pre-Procedure Workup Checklist</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Domain</th><th>What to Check</th></tr>
+      <tr><td>MDT decision</td><td>Intent (curative/palliative); alternatives considered (resection, SBRT, transplant, systemic); plan for any extra-target disease</td></tr>
+      <tr><td>Recent staging imaging (ideally ≤4–6 weeks)</td><td>Multiphase CT or MRI of the target organ; PET-CT for metastatic staging where relevant; lesion size, number and relationship to vessels, ducts, bowel, diaphragm, nerves</td></tr>
+      <tr><td>Tissue diagnosis</td><td>Kidney: biopsy before or at the time of ablation (AUA). Lung: prior or same-session biopsy. Liver: HCC can be diagnosed non-invasively (LI-RADS 5 in an at-risk patient); biopsy atypical lesions</td></tr>
+      <tr><td>Bloods</td><td>FBC, coagulation, UEC/eGFR, LFTs, group &amp; hold; tumour markers (AFP, CEA). Adrenal target: plasma metanephrines</td></tr>
+      <tr><td>Haemostasis</td><td>Ablation is a <strong>high bleeding-risk</strong> procedure (SIR 2019 consensus): INR correction (commonly ≤1.5–1.8), platelets ≥50 × 10⁹/L, hold anticoagulants and most antiplatelets per protocol (see <span class="xref" onclick="showPage('cc-coag')">Coagulation</span>)</td></tr>
+      <tr><td>Organ reserve</td><td>Liver: Child-Pugh/MELD, ascites. Lung: PFTs, ILD. Kidney: eGFR, solitary kidney</td></tr>
+      <tr><td>Devices &amp; implants</td><td>Pacemaker/ICD (RFA current) — cardiology review; bilioenteric anastomosis, sphincterotomy or biliary stent (abscess risk)</td></tr>
+      <tr><td>Antibiotics</td><td>Practice varies. A single prophylactic dose is common for liver ablation. With a bilioenteric anastomosis or sphincterotomy, give extended broad-spectrum cover (plus bowel preparation in some centres); abscess risk stays high regardless</td></tr>
+      <tr><td>Consent</td><td>Organ-specific risks (below); post-ablation syndrome; chance of residual/recurrent tumour and re-treatment; follow-up imaging commitment</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Anaesthesia</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Option</th><th>Used For</th><th>Notes</th></tr>
+      <tr><td>General anaesthesia</td><td>Most liver and lung RFA/MWA; complex/multiple targets; stereotactic/robotic procedures</td><td>Allows breath-holds/apnoea; high-frequency jet ventilation (HFJV) reduces target motion; muscle relaxation is required for IRE</td></tr>
+      <tr><td>Deep sedation / MAC</td><td>Cryo (kidney, bone, lung); small superficial targets</td><td>Cryo is much less painful than heat-based ablation</td></tr>
+      <tr><td>Local ± regional block</td><td>Breast cryo; thyroid RFA; some bone ablations</td><td>Paravertebral/erector spinae blocks help thoracic/renal procedures</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Imaging Guidance Options</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Strengths</th><th>Limitations</th></tr>
+      <tr><td>Ultrasound</td><td>Real-time; no radiation; cheap; fast for liver/kidney/thyroid/breast</td><td>Gas from heating obscures the target and deeper applicators (place the deepest first); dome/posterior lesions; poor for lung/bone</td></tr>
+      <tr><td>Contrast-enhanced US</td><td>Shows lesions invisible on B-mode; immediate check for residual enhancement</td><td>Limited window; operator-dependent</td></tr>
+      <tr><td>CT (± CT fluoroscopy)</td><td>Standard for lung, bone, kidney and difficult liver; shows gas, bowel and ice ball; immediate contrast-enhanced check</td><td>Radiation; target often invisible without contrast (liver); lengthy for multi-planar paths</td></tr>
+      <tr><td>Cone-beam CT (angio suite)</td><td>CBCT hepatic arteriography shows tumours invisible on US/CT; combined TACE + ablation in one session; needle-path navigation</td><td>Smaller field; motion artefact</td></tr>
+      <tr><td>MRI</td><td>Superb soft-tissue contrast; <strong>MR thermometry</strong> (proton resonance frequency shift); ice ball as signal void</td><td>MR-compatible equipment; access; time; cost</td></tr>
+      <tr><td>Fusion (US–CT/MR)</td><td>Targets lesions that are poorly seen on US; overlays pre-procedure imaging</td><td>Registration error with breathing/deformation</td></tr>
+      <tr><td>Navigation / stereotaxy / robotics</td><td>Optical/electromagnetic tracking; multi-needle stereotactic RFA (Innsbruck model) for large or multiple tumours; robotic needle alignment; reproducible out-of-plane paths</td><td>Capital cost; needs GA with jet ventilation or apnoea; learning curve</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Applicator Placement Principles</div>
+  <div class="card-body">
+    <ul>
+      <li><strong>Geometry first:</strong> a 3 cm tumour needing a 1 cm margin requires a 5 cm ablation zone, which is beyond most single applicators. Plan overlapping zones or multiple applicators.</li>
+      <li><strong>Trajectory:</strong> shortest safe route; avoid transgressing pleura, colon, gallbladder, large vessels and fissures. For subcapsular liver tumours, cross ≥1 cm of normal parenchyma first (less bleeding and seeding).</li>
+      <li><strong>Spacing (typical):</strong> RFA cluster electrodes are fixed; MWA antennae ≈1.5–2 cm apart; cryoprobes ≈1–2 cm apart and ≤1 cm from the tumour edge.</li>
+      <li><strong>Confirm position</strong> in two planes or on multiplanar CT before switching on energy. With US, ablate the deepest part first because gas will obscure it.</li>
+      <li><strong>Lever / torque</strong> the applicator (or reposition the patient) to move the zone away from a critical structure.</li>
+      <li><strong>Tract ablation</strong> on withdrawal for RFA/MWA. For cryo, pack the tract with gelatin sponge if bleeding is a concern.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Protective (Displacement &amp; Temperature) Techniques</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Technique</th><th>How</th><th>Typical Use</th></tr>
+      <tr><td>Hydrodissection</td><td>Inject fluid through a 20–22G needle or small catheter to create a ≥1 cm buffer. <strong>D5W for RFA</strong> (non-ionic; saline conducts current and extends the burn); saline or D5W for MWA/cryo; warm fluid for cryo. Adding dilute contrast helps visibility on CT</td><td>Bowel, colon and duodenum near liver/kidney; skin; nerves; diaphragm; thyroid (recurrent laryngeal nerve)</td></tr>
+      <tr><td>Carbodissection</td><td>CO₂ or air insufflation; gas insulates well</td><td>Bowel displacement; epidural CO₂ in spinal ablation. Gas can migrate and obscure US</td></tr>
+      <tr><td>Balloon interposition</td><td>Angioplasty/occlusion balloon placed between the target and the at-risk structure</td><td>Bowel next to kidney/liver when fluid tracks away</td></tr>
+      <tr><td>Artificial ascites / pleural effusion / pneumothorax</td><td>Instil fluid into the peritoneum or pleura, or create an iatrogenic pneumothorax</td><td>Hepatic dome lesions (improves US window, protects the diaphragm); pleural-based lung lesions (less pain)</td></tr>
+      <tr><td>Pyeloperfusion</td><td>Retrograde ureteric catheter (cystoscopic) perfusing the collecting system: <strong>cold D5W for RFA/MWA</strong>, warm saline for cryo</td><td>Central renal tumours near the collecting system/UPJ/ureter</td></tr>
+      <tr><td>Bile duct cooling</td><td>Chilled saline through a nasobiliary or percutaneous biliary drain</td><td>Liver tumours close to a central bile duct</td></tr>
+      <tr><td>Thermocouples</td><td>Temperature probe next to the structure at risk (epidural space, foramen, nerve, skin). Common cut-offs: stop heating at &gt;45 °C, stop freezing at ≈10 °C (institutional thresholds vary)</td><td>Spinal/paraspinal bone ablation; superficial lesions</td></tr>
+      <tr><td>Neuromonitoring</td><td>Motor/somatosensory evoked potentials; stimulation through the applicator (some RF systems)</td><td>Spine, sacrum, sciatic/brachial plexus territory</td></tr>
+      <tr><td>Skin protection</td><td>Warm saline gloves/bags on the skin (cryo); cool packs (heat); keep ≥1 cm of tissue between the zone and the skin</td><td>Superficial bone/soft-tissue tumours; breast</td></tr>
+    </table></div>
+    <div class="tip">The 2026 multisociety Delphi on liver ablation (ESSO/CIRSE/SIO) endorsed organ displacement techniques as a way both to improve safety and to <strong>expand</strong> the treatable population, for example lesions near bowel that would otherwise be referred for surgery.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Intraprocedural Confirmation &amp; Margin Assessment</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Immediate contrast-enhanced imaging</td><td>CECT (liver: portal venous phase), CEUS or CBCT at the end of ablation. Looks for: complete non-enhancing coverage, residual nodular enhancement, bleeding, collateral injury</td></tr>
+      <tr><td>Visual vs software assessment</td><td>Side-by-side visual comparison of pre- and post-ablation scans overestimates the margin. <strong>Ablation-confirmation software</strong> (segmentation + deformable co-registration + 3D minimal-margin measurement) is more accurate. In <strong>COVER-ALL</strong> (randomised phase 2), software raised the mean minimal margin (≈5.9 vs 2.2 mm) and the proportion ≥5 mm (≈75% vs 15%), with less 2-year LTP</td></tr>
+      <tr><td>Margin classification (2026 Delphi)</td><td><strong>A0</strong> = sufficient margin; <strong>A1</strong> = complete coverage but insufficient margin; <strong>A2</strong> = unablated tumour on software assessment → <strong>re-ablate immediately</strong>. Assessment should be intraprocedural, quantitative and 3D</td></tr>
+      <tr><td>Margin targets</td><td>HCC ≥5 mm; CRLM ≥5 mm minimum, ≥10 mm associated with the lowest LTP (especially RAS-mutated tumours); lung GGO halo ≥5 mm beyond the tumour; cryo ice ball ≥5 mm beyond the tumour edge</td></tr>
+      <tr><td>Re-treatment</td><td>Extra applicator placement in the same session for A1/A2 is far better than waiting for LTP</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Post-Procedure Care &amp; Reporting</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Item</th><th>Detail</th></tr>
+      <tr><td>Observation</td><td>Day case or overnight depending on organ and size. Observations, pain and haemoglobin; lung: CXR at ≈1–3 h (and before discharge; delayed pneumothorax can occur); kidney: haematuria and urine output; large cryo: CK and urine colour</td></tr>
+      <tr><td>Analgesia</td><td>Heat-based ablation of liver capsule, pleura or bone can hurt for days: multimodal analgesia, short opioid course</td></tr>
+      <tr><td>Post-ablation syndrome</td><td>Flu-like illness (low-grade fever, malaise, myalgia, nausea) in roughly a third, usually within 3–5 days, related to ablation volume. Needs supportive care, but <strong>exclude abscess</strong> if fever persists beyond ≈1–2 weeks or rises</td></tr>
+      <tr><td>Report (standardised terminology)</td><td>Modality and device; number of applicators; power, time and cycles; protective manoeuvres; technical success; margin (ideally quantified, A0/A1/A2); complications graded (SIR/CIRSE); planned follow-up. Use Ahmed 2014 terminology (see <span class="xref" onclick="showPage('abl-followup')">Follow-up</span>)</td></tr>
+    </table></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-liver'] = `
+<div class="dd-page">
+<h2 class="page-title">Liver Ablation — HCC &amp; Colorectal Metastases</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> HCC — Where Ablation Fits (BCLC / EASL / Australian Practice)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Setting</th><th>Role of Ablation</th></tr>
+      <tr><td><strong>BCLC 0</strong> — single ≤2 cm, Child-Pugh A, ECOG 0</td><td>Ablation is <strong>first-line</strong> (BCLC 2022); resection if the location makes ablation unsafe or unlikely to succeed. Transplant candidates can be listed if the tumour recurs</td></tr>
+      <tr><td><strong>BCLC A</strong> — single any size, or ≤3 nodules each ≤3 cm</td><td>Single tumour: resection if there is no clinically significant portal hypertension; ablation is an <strong>equivalent option for ≤3 cm</strong> (SURF 2025). ≤3 nodules ≤3 cm: transplant if eligible, otherwise ablation</td></tr>
+      <tr><td>3–5 cm</td><td>Ablation alone has higher LTP. Options: resection; MWA with multiple antennae/stereotactic multi-needle ablation; <strong>TACE followed by ablation</strong> (combination improves outcomes vs RFA alone in 3–5 cm tumours)</td></tr>
+      <tr><td>Transplant candidates</td><td>Bridging (prevent list drop-out) and downstaging into Milan (see <span class="xref" onclick="showPage('cls-milan')">Milan/UCSF</span>)</td></tr>
+      <tr><td>Recurrence</td><td>After resection, ablation or transplant; repeatable with little cost to liver reserve</td></tr>
+      <tr><td>Child-Pugh B</td><td>Selected B7 with small tumours; weigh competing risk from liver disease</td></tr>
+      <tr><td>Adjuvant systemic therapy</td><td>IMbrave050 (atezolizumab + bevacizumab after resection or ablation in high-risk HCC) showed an early recurrence-free survival benefit that was <strong>not sustained</strong> on updated analysis; not standard of care</td></tr>
+    </table></div>
+    <div class="tip">Australian HCC practice broadly follows BCLC (Australian consensus statement, MJA 2021). Percutaneous ablation of unresectable primary liver malignancy has a specific MBS item (<strong>50950</strong>); reimbursement for other ablation indications is patchy (see Brown et al., JMIRO 2023).</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> HCC — Key Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Question</th><th>Evidence</th><th>Take-home</th></tr>
+      <tr><td>RFA vs ethanol injection (PEI)</td><td>Several Asian RCTs in the 2000s</td><td>RFA gives better local control and survival; PEI is now reserved for difficult locations</td></tr>
+      <tr><td>RFA vs resection</td><td>Chen 2006, Huang 2010, Feng 2012 (conflicting); <strong>SURF-RCT (JCO 2025)</strong>: n=302, ≤3 nodules ≤3 cm → 5-yr OS 74.6% (surgery) vs 70.4% (RFA), RFS 42.9% vs 42.7%, no significant difference</td><td>For ≤3 cm HCC, ablation is an oncologically equivalent, less invasive alternative</td></tr>
+      <tr><td>MWA vs RFA</td><td>Vietti Violi (Lancet GH 2018; ≤4 cm): no significant LTP difference. <strong>Sugimoto (JHEP Rep 2025; n=236, ≤4 cm):</strong> 2-yr LTP 16.4% (MWA) vs 30.4% (RFA), RR 0.54, p=0.007, with no OS/RFS difference</td><td>MWA reduces LTP compared with single-needle RFA, especially as size increases</td></tr>
+      <tr><td>Cryo vs RFA</td><td>Chinese multicentre RCT (Hepatology 2015; ≤4 cm): lower LTP with cryo, most evident for 3–4 cm tumours; OS similar</td><td>Cryo is effective but used less often in liver (bleeding, cryoshock)</td></tr>
+      <tr><td>TACE + ablation vs ablation</td><td>Peng (JCO 2013) and meta-analyses</td><td>The combination improves survival for intermediate-size (≈3–5 cm) tumours</td></tr>
+      <tr><td>"No-touch" multibipolar RFA</td><td>Electrodes placed around (not into) the tumour; lower LTP in comparative series</td><td>Also reduces tract seeding risk</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> HCC — Difficult Locations</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Location</th><th>Risk</th><th>Mitigation</th></tr>
+      <tr><td>Subcapsular</td><td>Bleeding, seeding, capsular pain, incomplete ablation</td><td>Approach through ≥1 cm of normal liver; tract ablation; no-touch technique</td></tr>
+      <tr><td>Perivascular (≥3 mm vessel)</td><td>Heat sink → LTP</td><td>MWA; extra antenna beside the vessel; prior TACE</td></tr>
+      <tr><td>Near a central bile duct (&lt;1 cm)</td><td>Biliary stricture, biloma, abscess</td><td>Consider SBRT/resection/IRE; intraductal cooling via drain; limit energy</td></tr>
+      <tr><td>Near gallbladder</td><td>Thermal cholecystitis, perforation</td><td>Hydrodissection; limited ablation (mostly self-limiting)</td></tr>
+      <tr><td>Near bowel (colon, duodenum, stomach)</td><td>Perforation, especially with post-surgical adhesions (fixed bowel)</td><td>Hydro-/carbodissection, balloon interposition; CT guidance</td></tr>
+      <tr><td>Dome / under the diaphragm</td><td>Poor US window; diaphragm injury; pneumothorax with a transpleural route</td><td>Artificial ascites/pleural effusion; CT or fusion guidance; angled approach</td></tr>
+      <tr><td>Near the heart</td><td>Pericardial/myocardial injury, arrhythmia</td><td>Artificial ascites; cautious MWA settings</td></tr>
+      <tr><td>Not visible on US/CT</td><td>Mis-targeting</td><td>CEUS; US–CT/MR fusion; CBCT hepatic arteriography; mark with lipiodol TACE first</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Colorectal Liver Metastases (CRLM)</div>
+  <div class="card-body">
+    <h4>Selection</h4>
+    <ul>
+      <li>Decided in an HPB MDT with a surgeon. Liver-limited (or controlled extrahepatic) disease.</li>
+      <li>Ideal: ≤3 cm, limited number (COLLISION allowed ≤10), a safe route and an achievable margin.</li>
+      <li>Roles: alternative to resection for small lesions; combined with resection (parenchymal-sparing); recurrence after hepatectomy; unresectable disease with chemotherapy.</li>
+      <li>Lesions likely to "disappear" on chemotherapy should be marked (fiducial) or ablated before a complete radiological response.</li>
+    </ul>
+    <h4>Key Evidence</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Trial</th><th>Design</th><th>Result</th></tr>
+      <tr><td><strong>CLOCC</strong> (EORTC 40004; Ruers, JNCI 2017)</td><td>Unresectable CRLM: RFA ± resection + chemo vs chemo alone (phase 2 RCT)</td><td>8-yr OS 35.9% vs 8.9% (HR 0.58). First randomised evidence that local treatment improves survival</td></tr>
+      <tr><td><strong>COLLISION</strong> (Lancet Oncol 2025)</td><td>Phase 3 non-inferiority RCT, 14 centres; resectable CRLM ≤3 cm, ≤10 lesions; thermal ablation vs resection (n≈300)</td><td>OS non-inferior (HR 1.05); stopped early for meeting the predefined rule. AEs 19% vs 46%; serious AEs 7% vs 20%; 3 treatment-related deaths after surgery vs 0 after ablation; shorter stay. Conclusion: ablation should not be reserved for unresectable disease</td></tr>
+      <tr><td><strong>COVER-ALL</strong> (Lancet GH 2025)</td><td>Phase 2 RCT of software vs visual margin assessment</td><td>Software gives larger minimal margins and less LTP</td></tr>
+      <tr><td><strong>ACCLAIM</strong> (protocol, Trials 2025)</td><td>Prospective multicentre MWA of CRLM ≤2.5 cm with 3D margin confirmation (≥5 mm = technical success)</td><td>Ongoing; stratifies LTP by 5.0–9.9 mm vs ≥10 mm margins</td></tr>
+    </table></div>
+    <h4>Predictors of Local Tumour Progression</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Factor</th><th>Comment</th></tr>
+      <tr><td>Minimal margin &lt;5 mm</td><td>The strongest predictor; LTP is lowest with ≥10 mm</td></tr>
+      <tr><td>RAS (KRAS) mutation</td><td>More infiltrative; needs larger margins</td></tr>
+      <tr><td>Size &gt;3 cm</td><td>Harder to achieve a circumferential margin</td></tr>
+      <tr><td>Perivascular location</td><td>Heat sink</td></tr>
+      <tr><td>Prior hepatectomy / chemotherapy-induced liver injury</td><td>Altered perfusion; poorer visibility</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Other Liver Tumours</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Tumour</th><th>Role</th></tr>
+      <tr><td>NET liver metastases</td><td>Small, limited-number lesions, often combined with resection or embolisation (see <span class="xref" onclick="showPage('dm-net')">NET pathway</span>). Risk of carcinoid crisis → octreotide cover</td></tr>
+      <tr><td>Intrahepatic cholangiocarcinoma</td><td>Small (≤3 cm) unresectable or recurrent tumours; higher LTP than HCC (infiltrative), so aim for a wide margin</td></tr>
+      <tr><td>Other oligometastases (breast, sarcoma, melanoma, etc.)</td><td>Individualised MDT decision; tumour biology dominates outcome</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Liver-Specific Precautions &amp; Exam Pearls</div>
+  <div class="card-body">
+    <ul>
+      <li><strong>Bilioenteric anastomosis / sphincterotomy / biliary stent</strong> is one of the strongest risk factors for post-ablation liver abscess: use extended antibiotic prophylaxis and consider alternatives.</li>
+      <li><strong>Cryo in the liver</strong> is used less often: tract bleeding, parenchymal cracking and <strong>cryoshock</strong> (multiorgan failure/DIC after large-volume hepatic cryoablation).</li>
+      <li>Large-volume ablation in Child-Pugh B can precipitate decompensation.</li>
+      <li>Tract seeding after HCC ablation is uncommon (≈0.5–1%): risk rises with subcapsular, poorly differentiated tumours and multiple punctures; reduce it with tract ablation.</li>
+      <li>Follow-up: CECT/MRI at ≈1 month, then every 3 months for 2 years, then 6-monthly, plus AFP/CEA. Use LR-TR for HCC (see <span class="xref" onclick="showPage('abl-followup')">Follow-up</span> and <span class="xref" onclick="showPage('abl-imaging')">Imaging Over Time</span>).</li>
+    </ul>
+    <div class="tip">Related: <span class="xref" onclick="showPage('dm-hcc')">HCC pathway</span> · <span class="xref" onclick="showPage('dm-crlm')">CRLM pathway</span> · <span class="xref" onclick="showPage('cls-bclc')">BCLC</span> · <span class="xref" onclick="showPage('f-tace')">TACE</span></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-kidney'] = `
+<div class="dd-page">
+<h2 class="page-title">Renal Ablation — The Small Renal Mass</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Guideline Positions</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Guideline</th><th>Position on Thermal Ablation</th></tr>
+      <tr><td><strong>AUA 2021</strong> (renal mass &amp; localised RCC)</td><td>Consider thermal ablation as an <strong>alternative approach for cT1a solid masses &lt;3 cm</strong>; a <strong>percutaneous</strong> technique is preferred; <strong>RFA and cryo</strong> are both options; renal mass biopsy <strong>before or at the time</strong> of ablation; counsel about higher persistence/local recurrence than surgery, which can usually be managed with repeat ablation</td></tr>
+      <tr><td><strong>EAU (2025 update)</strong></td><td>Offer thermal ablation to frail and/or comorbid patients with small renal masses; evidence for T1b is limited (one analysis linked cryo of T1b to higher RCC mortality than partial nephrectomy)</td></tr>
+      <tr><td><strong>ESMO</strong></td><td>Similar to EAU; highlights hereditary syndromes, bilateral tumours and impaired renal function as good indications</td></tr>
+      <tr><td>Alternatives</td><td>Active surveillance (≤2 cm, elderly/comorbid); partial nephrectomy (standard for fit patients); SABR (emerging for unfit patients)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Patient &amp; Tumour Selection</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Factor</th><th>Favourable</th><th>Less Favourable</th></tr>
+      <tr><td>Size</td><td>≤3 cm (best), 3–4 cm (good)</td><td>&gt;4 cm (T1b): more sessions, higher recurrence, more bleeding → consider pre-ablation embolisation</td></tr>
+      <tr><td>Location</td><td>Exophytic, posterior or lateral</td><td>Central/endophytic; hilar (heat sink); abutting collecting system, UPJ or ureter; anterior next to bowel</td></tr>
+      <tr><td>Nephrometry</td><td>Low RENAL/PADUA score</td><td>High score → more complications and recurrence</td></tr>
+      <tr><td>Patient</td><td>Comorbid/elderly; solitary kidney; CKD; bilateral/multifocal; hereditary (VHL, BHD)</td><td>Young fit patient with a complex tumour (partial nephrectomy preferred). HLRCC (FH-deficient) tumours are aggressive → surgery</td></tr>
+      <tr><td>Histology</td><td>Confirmed RCC (clear cell, papillary, chromophobe)</td><td>Oncocytoma/AML often need no treatment (surveillance or embolisation for large AML)</td></tr>
+    </table></div>
+    <div class="tip">About 20–30% of small renal masses are benign at surgery. That is why biopsy matters: it avoids overtreatment and anchors the follow-up plan.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Position &amp; guidance</td><td>Prone or prone-oblique; CT guidance (± US); sedation for cryo, GA often for MWA/RFA</td></tr>
+      <tr><td>Biopsy</td><td>Coaxial core biopsy before ablating (same session is common)</td></tr>
+      <tr><td>Cryo</td><td>Number of probes scaled to size (roughly 1–2 for ≤2 cm, 3–5 for 3–4 cm), ≈1–2 cm apart; <strong>two freeze–thaw cycles</strong> (e.g. 10–8–10 min); ice ball ≥5–6 mm beyond the tumour on all sides</td></tr>
+      <tr><td>MWA / RFA</td><td>1–3 antennae/electrodes by size; overlapping zones; tract ablation</td></tr>
+      <tr><td>Protection</td><td>Hydrodissection (D5W for RFA; saline OK for cryo/MWA) or CO₂ for bowel; <strong>retrograde pyeloperfusion</strong> for central tumours (cold D5W with RFA/MWA, warm saline with cryo) via a cystoscopically placed ureteric catheter; probe levering</td></tr>
+      <tr><td>Large tumours</td><td>Selective transarterial embolisation (e.g. ethanol/lipiodol or particles) before ablation reduces bleeding and heat sink and marks the tumour</td></tr>
+      <tr><td>End-of-procedure</td><td>CECT to check coverage and perinephric haematoma; post-procedure observation for haematuria/clot retention</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Outcomes</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Measure</th><th>Typical Data</th></tr>
+      <tr><td>RFA (T1a)</td><td>5-yr local recurrence-free survival ≈93%; cancer-specific survival ≈98% in long-term series</td></tr>
+      <tr><td>Cryoablation</td><td>10-yr disease-specific survival ≈88% in a large cohort; effective for T1b when combined with embolisation, though evidence is weaker</td></tr>
+      <tr><td>MWA</td><td>Survival/RFS ≈97–98% in series; comparable to RFA for ≤4 cm; propensity-matched data vs robotic partial nephrectomy show no significant difference</td></tr>
+      <tr><td>Modality comparison</td><td>No well-designed study shows a clear winner for tumours &lt;3 cm</td></tr>
+      <tr><td>vs partial nephrectomy</td><td>Similar cancer-specific and metastasis-free survival in T1a; ablation has higher local recurrence (mostly salvageable by re-ablation), better renal function preservation, shorter stay. NEST feasibility RCT (cryo vs robotic PN): fewer low-grade complications and shorter stay with cryo</td></tr>
+      <tr><td>Complications</td><td>Overall ≈10–25% (mostly minor); major ≈3–10% depending on series and tumour complexity</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Renal-Specific Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Risk Factor</th><th>Management</th></tr>
+      <tr><td>Perinephric/subcapsular haematoma</td><td>Cryo (no cautery), central/large tumours, multiple probes</td><td>Mostly self-limiting; transfuse/embolise if ongoing</td></tr>
+      <tr><td>Haematuria / clot retention</td><td>Collecting system involvement</td><td>Catheter, bladder washout</td></tr>
+      <tr><td>Urine leak / urinoma; UPJ or ureteric stricture</td><td>Medial lower-pole or hilar tumours near the UPJ/ureter</td><td>Pyeloperfusion prevents it; ureteric stent/nephrostomy treats it</td></tr>
+      <tr><td>Bowel injury</td><td>Anterior tumours; inadequate displacement</td><td>Prevention with hydro/carbodissection; surgery if perforated</td></tr>
+      <tr><td>Nerve injury (genitofemoral, ilioinguinal, iliohypogastric, lateral femoral cutaneous)</td><td>Posterior lower-pole tumours next to psoas/quadratus lumborum</td><td>Usually transient paraesthesia/numbness; hydrodissection prevents it</td></tr>
+      <tr><td>Pneumothorax</td><td>Upper-pole tumour with a transpleural route</td><td>Angle the approach, or aspirate/drain</td></tr>
+      <tr><td>Pseudoaneurysm / AVF</td><td>Multiple punctures</td><td>Selective embolisation</td></tr>
+      <tr><td>Adrenal stimulation → hypertensive surge</td><td>Upper-pole medial tumours near the adrenal</td><td>Anaesthetic awareness; short-acting antihypertensives</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Follow-up Imaging</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Item</th><th>Detail</th></tr>
+      <tr><td>Schedule</td><td>Contrast CT or MRI at ≈3 and 6 months, then annually for ≥5 years (AUA-type schedule); CEUS if contrast is contraindicated</td></tr>
+      <tr><td>Expected appearance</td><td>Non-enhancing zone larger than the tumour; perinephric fat stranding ("halo"); cryo zones shrink over months, RFA/MWA zones may involute slowly or remain stable in size</td></tr>
+      <tr><td>Residual tumour</td><td>Nodular or crescentic enhancement at the <strong>first</strong> follow-up (enhancement increase &gt;10–20 HU; MRI subtraction images help)</td></tr>
+      <tr><td>Local recurrence</td><td>New enhancement or growth after a documented complete ablation → re-ablate or resect</td></tr>
+    </table></div>
+    <div class="tip">Timeline detail: <span class="xref" onclick="showPage('abl-imaging')">Imaging Appearances Over Time</span>. Related: <span class="xref" onclick="showPage('d-renal-mass')">Renal Masses (Section D)</span> · <span class="xref" onclick="showPage('dm-rcc')">RCC — Small Mass pathway</span></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-lung'] = `
+<div class="dd-page">
+<h2 class="page-title">Lung Ablation — NSCLC &amp; Pulmonary Metastases</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Indications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Setting</th><th>Typical Criteria</th></tr>
+      <tr><td>Primary NSCLC</td><td>Stage IA (T1N0M0), ideally ≤3 cm, in patients who are medically inoperable or high-risk, or who decline surgery. Also synchronous/metachronous multiple primaries, and local recurrence after surgery or SBRT</td></tr>
+      <tr><td>Pulmonary metastases</td><td>Oligometastatic disease (commonly CRC, sarcoma, RCC) with a controlled primary; lesions ideally ≤3 cm (best ≤2 cm); limited number per lung (practice varies, often ≤3–5); repeatable for new lesions</td></tr>
+      <tr><td>Palliation</td><td>Selected chest-wall-invading tumours causing pain; limited role</td></tr>
+    </table></div>
+    <div class="tip"><strong>Ablation vs SBRT</strong> for inoperable stage I NSCLC is an MDT decision; neither has been proven superior. Ablation tends to be favoured after prior thoracic radiotherapy, for multiple/bilateral lesions, when repeat treatment is likely, and for peripheral tumours. SBRT tends to be favoured for central tumours, lesions next to hilar vessels, and patients who cannot tolerate pneumothorax. Ablation preserves lung function: FEV1 did not decline in ACOSOG Z4033.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Contraindications &amp; Risk Factors</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Factor</th><th>Why It Matters</th></tr>
+      <tr><td>Tumour &gt;3–4 cm</td><td>High local progression</td></tr>
+      <tr><td>Abutting hilar vessels or main/lobar bronchi</td><td>Heat sink, massive haemorrhage, bronchopleural fistula (BPF)</td></tr>
+      <tr><td>Severe emphysema or bullae along the path</td><td>Pneumothorax requiring a drain; persistent air leak</td></tr>
+      <tr><td>Interstitial lung disease</td><td>Risk of acute exacerbation, which can be fatal</td></tr>
+      <tr><td>Pulmonary hypertension</td><td>Haemorrhage</td></tr>
+      <tr><td>Single functioning lung / contralateral pneumonectomy</td><td>Low tolerance of pneumothorax (relative)</td></tr>
+      <tr><td>Near the brachial plexus, phrenic nerve, recurrent laryngeal nerve (left aortopulmonary window) or mediastinum</td><td>Nerve injury → protective techniques</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique by Modality</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Lung-Specific Behaviour</th><th>Notes</th></tr>
+      <tr><td>RFA</td><td>Aerated lung insulates, concentrating energy in the solid tumour (oven effect), but the zone extends poorly into the margin</td><td>Multitined or internally cooled electrodes; grounding pads; strongest historical evidence (RAPTURE, Z4033)</td></tr>
+      <tr><td>MWA</td><td>Propagates through aerated lung; larger, faster zones; less heat sink</td><td>Increasingly the default thermal modality; watch for shaft heating near the pleura/skin</td></tr>
+      <tr><td>Cryo</td><td>Needs a <strong>triple-freeze</strong> (short initial freeze) to build ice in air-filled lung; relatively preserves collagen (airways, vessels)</td><td>Less pain; suits pleural-based lesions; more haemoptysis/pulmonary haemorrhage; no tract cautery</td></tr>
+    </table></div>
+    <ul>
+      <li>CT guidance (± CT fluoroscopy/CBCT); GA with jet ventilation or sedation.</li>
+      <li>Plan to avoid fissures, bullae, large vessels and scapula; position the patient so the puncture side is dependent after the procedure (reduces pneumothorax).</li>
+      <li>Margin: a <strong>ground-glass halo ≥5 mm</strong> (ideally up to 10 mm) around the tumour on immediate CT is the surrogate for an adequate zone.</li>
+      <li>Artificial pneumothorax or hydrodissection for pleural-based lesions or those next to the mediastinum or chest wall nerves.</li>
+      <li>After the procedure: CXR/CT; many operators aspirate immediately or place a small-bore pleural catheter for a significant pneumothorax.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Key Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Study</th><th>Population</th><th>Key Results</th></tr>
+      <tr><td><strong>RAPTURE</strong> (Lencioni, Lancet Oncol 2008)</td><td>RFA; 106 patients, tumours ≤3.5 cm (NSCLC + metastases)</td><td>Confirmed complete response in most tumours at 1 year (≈88%); 2-yr OS ≈75% in stage I NSCLC</td></tr>
+      <tr><td><strong>ACOSOG Z4033</strong> (Dupuy, Cancer 2015)</td><td>RFA; 51 medically inoperable stage IA NSCLC</td><td>OS 86.3% (1 yr) / 69.8% (2 yr); local recurrence-free 68.9% / 59.8%; 2-yr OS 83% if &lt;2 cm; grade 3–5 AE 11.8%; no FEV1 decline</td></tr>
+      <tr><td><strong>SOLSTICE</strong> (Callstrom, J Thorac Oncol 2020)</td><td>Cryo; 128 patients, 224 metastases ≤3.5 cm; triple-freeze</td><td>Local recurrence-free response 85.1% (12 mo) / 77.2% (24 mo); OS 97.6% / 86.6%; pneumothorax needing a pleural catheter 23%; grade ≥3 AE 4.7%; no deaths</td></tr>
+      <tr><td>JVIR 2025 single-centre cryo series</td><td>176 inoperable stage IA NSCLC</td><td>Local control 91.8% (1 yr) / 89.4% (3 yr); chest tube 17.6%; no grade 4–5 events</td></tr>
+      <tr><td>LUMIRA (Macchi 2017)</td><td>RCT of RFA vs MWA</td><td>Similar local efficacy</td></tr>
+      <tr><td>NCDB (Uhlig 2018)</td><td>Ablation vs SBRT for stage I NSCLC</td><td>Comparable survival in a registry analysis (selection bias)</td></tr>
+      <tr><td>Large RFA metastasis series (de Baère 2015)</td><td>566 patients, 1037 metastases</td><td>Durable local control, best for small (≤2 cm) lesions</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Lung-Specific Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Frequency / Notes</th><th>Management</th></tr>
+      <tr><td>Pneumothorax</td><td>Most common (≈20–60% overall; drain in ≈5–25%). Can be <strong>delayed</strong> for days</td><td>Aspiration, small-bore drain, Heimlich valve; warn the patient about delayed symptoms</td></tr>
+      <tr><td>Pleural effusion</td><td>Common, usually small and reactive</td><td>Observe; drain if large or infected</td></tr>
+      <tr><td>Haemoptysis / pulmonary haemorrhage</td><td>More frequent with cryo; usually self-limiting</td><td>Position bleeding side down; bronchoscopy/embolisation if massive</td></tr>
+      <tr><td>Bronchopleural fistula</td><td>Rare (&lt;1%); pleural-based lesions, emphysema, near fissures</td><td>Prolonged drainage, endobronchial valves, blood patch, surgery</td></tr>
+      <tr><td>Systemic air embolism</td><td>Rare but catastrophic (cerebral/coronary)</td><td>100% O₂, Trendelenburg/left lateral decubitus, hyperbaric oxygen</td></tr>
+      <tr><td>Pneumonia / lung abscess / cavitation infection</td><td>Higher with COPD, larger zones</td><td>Antibiotics; drainage</td></tr>
+      <tr><td>Acute exacerbation of ILD / ARDS</td><td>Rare but high mortality</td><td>Avoid ablation in ILD when possible</td></tr>
+      <tr><td>Nerve injury</td><td>Phrenic (diaphragm palsy), brachial plexus (apex), recurrent laryngeal (hoarseness), intercostal (chest-wall neuralgia), stellate ganglion (Horner)</td><td>Prevention with protective techniques</td></tr>
+      <tr><td>Mortality</td><td>≈0–0.5% in large series</td><td>—</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Follow-up Imaging</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Time</th><th>Expected Appearance</th><th>Suspicious for Residual/Recurrence</th></tr>
+      <tr><td>Immediate–1 month</td><td>GGO halo around the tumour; zone <strong>larger</strong> than the original tumour; bubbly lucencies; cavitation (common); pleural thickening/effusion</td><td>Incomplete GGO coverage of part of the tumour</td></tr>
+      <tr><td>1–3 months</td><td>Zone stable or starting to shrink; thin, smooth peripheral enhancement (benign rim)</td><td>Nodular or irregular enhancement</td></tr>
+      <tr><td>&gt;3–6 months</td><td>Progressive involution to a scar, nodule or atelectatic band</td><td>Growth compared with the 3-month baseline; nodular enhancement (e.g. &gt;15 HU increase); focal/central FDG uptake on PET after ≈3 months (early peripheral uptake is inflammatory)</td></tr>
+    </table></div>
+    <div class="tip">Typical schedule: CT at 1 (or 3) months as the new baseline, then 3-, 6- and 12-monthly, then 6-monthly; PET-CT at ≈3–6 months or when CT is equivocal. The 3-month scan is usually the most useful new baseline because the zone is often still enlarging before then. More detail: <span class="xref" onclick="showPage('abl-imaging')">Imaging Appearances Over Time</span>.</div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-bone'] = `
+<div class="dd-page">
+<h2 class="page-title">Bone &amp; Soft-Tissue Oncologic Ablation</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Indications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Intent</th><th>Typical Patient</th><th>Goal</th></tr>
+      <tr><td><strong>Palliative</strong></td><td>Painful metastasis (worst pain ≥4/10) that is focal and concordant with imaging; failed, declined or unsuitable for radiotherapy; RT-resistant histology (RCC, melanoma, sarcoma); lytic or mixed lesions</td><td>Treat the painful <strong>tumour–bone interface</strong> (periosteal and endosteal nerves) — complete tumour coverage is not required</td></tr>
+      <tr><td><strong>Curative / local control</strong></td><td>Oligometastatic or oligoprogressive disease with indolent biology (e.g. RCC, thyroid, breast, prostate)</td><td>Complete ablation with a margin. Local control is best when the lesion is &lt;2 cm, has no cortical erosion and is not next to a neural structure (Deschamps 2014)</td></tr>
+      <tr><td><strong>Benign</strong></td><td>Osteoid osteoma, osteoblastoma, chondroblastoma</td><td>See <span class="xref" onclick="showPage('e-ablation')">Bone &amp; Soft Tissue Ablation (Section E)</span></td></tr>
+      <tr><td><strong>Soft tissue</strong></td><td>Desmoid tumours, soft-tissue metastases, recurrent sarcoma, chest-wall disease</td><td>Local control and symptom relief</td></tr>
+    </table></div>
+    <div class="tip">External-beam RT (often a single 8 Gy fraction) remains first-line for most painful bone metastases. Ablation complements RT: it gives faster relief, works in RT-resistant histologies and after RT failure, and can be combined with cement for stability.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Modality Choice in Bone</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Advantages</th><th>Limitations</th></tr>
+      <tr><td>RFA (esp. bipolar, articulating, navigational probes)</td><td>Well studied; bipolar probes designed for vertebral bodies with built-in thermocouples; usually combined with cement in the same session</td><td>High impedance of sclerotic bone limits zone size</td></tr>
+      <tr><td>MWA</td><td>Large zones quickly; works in sclerotic bone</td><td>Less predictable near the cord/nerves; watch the cortex and skin</td></tr>
+      <tr><td>Cryo</td><td>Visible ice ball; best for large, irregular or extraosseous lesions (pelvis, sacrum, ribs, scapula, soft tissue); less painful; sedation</td><td>Longer; bleeding; myoglobinuria with large volumes; weakens bone → consider cement in weight-bearing sites</td></tr>
+      <tr><td>MR-guided focused ultrasound (non-invasive)</td><td>No needles; RCT evidence for painful bone metastases</td><td>Needs an acoustic window; limited availability</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Spine — Safety &amp; Stability</div>
+  <div class="card-body">
+    <h4>Assess before ablating</h4>
+    <ul>
+      <li>MRI: posterior wall integrity, epidural extension, distance to the cord/cauda equina and nerve roots.</li>
+      <li>Neurological status: cord compression with a deficit → surgery ± RT, not ablation.</li>
+      <li>Mechanical stability: <strong>SINS</strong> (below). Indeterminate or unstable → spinal surgical opinion.</li>
+    </ul>
+    <h4>Spinal Instability Neoplastic Score (SINS)</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Component</th><th>Scoring</th></tr>
+      <tr><td>Location</td><td>Junctional (occiput–C2, C7–T2, T11–L1, L5–S1) 3; mobile spine (C3–C6, L2–L4) 2; semi-rigid (T3–T10) 1; rigid (S2–S5) 0</td></tr>
+      <tr><td>Pain</td><td>Mechanical 3; occasional non-mechanical 1; pain-free 0</td></tr>
+      <tr><td>Bone lesion</td><td>Lytic 2; mixed 1; blastic 0</td></tr>
+      <tr><td>Alignment</td><td>Subluxation/translation 4; de novo deformity (kyphosis/scoliosis) 2; normal 0</td></tr>
+      <tr><td>Vertebral body collapse</td><td>&gt;50% 3; &lt;50% 2; none but &gt;50% of the body involved 1; none of the above 0</td></tr>
+      <tr><td>Posterolateral involvement (facet, pedicle, costovertebral joint)</td><td>Bilateral 3; unilateral 1; none 0</td></tr>
+      <tr><td><strong>Total</strong></td><td>0–6 stable · 7–12 indeterminate · 13–18 unstable (≥7 → surgical consultation)</td></tr>
+    </table></div>
+    <h4>Thermoprotection</h4>
+    <ul>
+      <li>Thermocouples in the epidural space/foramen: stop heating at &gt;45 °C (freezing at ≈10 °C).</li>
+      <li>Epidural CO₂ or warm/cool fluid instillation; neuromonitoring (MEP/SSEP) under GA.</li>
+      <li>An intact posterior cortex offers partial protection; a breached one does not.</li>
+      <li>Follow ablation with <strong>vertebral augmentation</strong> (cement) to reduce the risk of collapse (see <span class="xref" onclick="showPage('e-vertebro')">Vertebroplasty / Kyphoplasty</span>).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Key Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Study</th><th>Design</th><th>Key Results</th></tr>
+      <tr><td>Goetz (J Clin Oncol 2004)</td><td>Multicentre RFA of painful metastases (n=43)</td><td>Clinically significant pain reduction in ≈95%; less opioid use</td></tr>
+      <tr><td>Callstrom (Cancer 2013)</td><td>Multicentre cryo of painful metastases</td><td>Rapid, durable pain reduction</td></tr>
+      <tr><td><strong>MOTION</strong> (Radiol Imaging Cancer 2021)</td><td>Prospective multicentre cryo; 66 patients; large lesions (≈60% &gt;4 cm)</td><td>Worst pain improved ≈2 points by week 1; −2.61 points at week 8; sustained to 24 weeks; QoL improved; serious AE in 3 patients (including a grade 4 skin burn)</td></tr>
+      <tr><td><strong>OPuS One</strong> (JVIR 2020)</td><td>Bipolar RFA (87% thoracolumbar spine), 100 patients; 97% had cement</td><td>Worst pain 8.2 → 4.7 (1 wk) → 3.5 (6 mo); EQ-5D 0.48 → 0.69; few procedure-related events</td></tr>
+      <tr><td>Deschamps (Eur Radiol 2014)</td><td>Curative-intent bone metastasis ablation</td><td>Local control best for &lt;2 cm lesions without cortical erosion and away from nerves</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Soft-Tissue Tumours — Desmoid</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Why ablate</td><td>Desmoids are locally aggressive and do not metastasise. Surgery has high recurrence and morbidity, so active surveillance and systemic therapy come first; cryo is used for progressive or symptomatic tumours</td></tr>
+      <tr><td>Evidence</td><td><strong>CRYODESMO-01</strong> (French phase 2, patients progressing after medical therapy): ≈86% non-progression at 12 months, with volume reduction and symptom relief</td></tr>
+      <tr><td>Technique</td><td>Multiple cryoprobes to cover as much of the viable (T2-bright, enhancing) tumour as safely possible; skin warming; nerve mapping; staged sessions for very large tumours</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Bone/Soft-Tissue Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Prevention / Management</th></tr>
+      <tr><td>Skin burn or frostbite</td><td>Keep ≥1 cm from the skin; hydrodissection; warm saline gloves (cryo); skin temperature monitoring</td></tr>
+      <tr><td>Nerve injury (cord, roots, sciatic, femoral, brachial plexus)</td><td>Thermocouples, hydro/carbodissection, neuromonitoring; consider cryo for visible margins</td></tr>
+      <tr><td>Fracture after ablation</td><td>Especially weight-bearing bones (acetabulum, femur) and vertebrae → cement consolidation or fixation (see <span class="xref" onclick="showPage('f-msk-onc')">Mirels score</span>)</td></tr>
+      <tr><td>Myoglobinuria / AKI</td><td>After large-volume cryo of muscle or bone: hydration, monitor CK and urine output</td></tr>
+      <tr><td>Pain flare, infection, haematoma</td><td>Short course of analgesia and steroids; standard care</td></tr>
+    </table></div>
+    <div class="tip">Related: <span class="xref" onclick="showPage('e-osteoplasty')">Percutaneous Osteoplasty</span> · <span class="xref" onclick="showPage('f-msk-onc')">Malignant MSK Disease</span></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-other'] = `
+<div class="dd-page">
+<h2 class="page-title">Other Sites — Adrenal, Thyroid, Breast, Pancreas &amp; Nodes</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Adrenal</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Indications</td><td>Adrenal oligometastases (NSCLC, RCC, HCC, CRC, melanoma), usually ≤4–5 cm; selected functional adenomas (e.g. aldosteronoma) in non-surgical patients</td></tr>
+      <tr><td>Key hazard</td><td><strong>Hypertensive crisis</strong> from catecholamine release, even from non-functioning tumours or normal adrenal tissue (with cryo it can happen during the thaw)</td></tr>
+      <tr><td>Preparation</td><td>Plasma metanephrines; pheochromocytoma → α-blockade for 1–2 weeks beforehand; experienced anaesthetist; arterial line; short-acting agents ready (phentolamine, labetalol, GTN, esmolol). Some centres α-block all adrenal ablations</td></tr>
+      <tr><td>Access</td><td>Posterior approach (prone); right side can be transhepatic; hydrodissection from the IVC, pancreas, bowel or kidney</td></tr>
+      <tr><td>Other risks</td><td>Adrenal insufficiency after bilateral treatment; haemorrhage; pneumothorax</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Thyroid</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Indications</td><td>Benign symptomatic or cosmetic nodules (biopsy-proven benign); autonomously functioning nodules; recurrent papillary carcinoma in neck nodes in patients unfit for or declining surgery; low-risk papillary microcarcinoma (evolving, centre-dependent)</td></tr>
+      <tr><td>Modalities</td><td>RFA (most data), MWA, laser; ethanol for cystic nodules</td></tr>
+      <tr><td>Technique</td><td>US guidance under local anaesthetic; <strong>trans-isthmic approach</strong> (stable needle; keeps the tip away from the danger triangle) and <strong>moving-shot technique</strong> (the nodule is ablated unit by unit); hydrodissection with D5W to protect the recurrent laryngeal nerve</td></tr>
+      <tr><td>Outcome</td><td>Volume reduction ratio typically ≈50–80% at 12 months; regrowth can need retreatment</td></tr>
+      <tr><td>Risks</td><td>Voice change (recurrent laryngeal nerve — "danger triangle" in the tracheo-oesophageal groove), Horner syndrome (sympathetic chain), haematoma, nodule rupture, oesophageal injury, hypothyroidism (rare)</td></tr>
+      <tr><td>Guidelines</td><td>Korean Society of Thyroid Radiology (2017) and European Thyroid Association (2020) guidance</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Breast</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Evidence</td><td><strong>ICE3</strong> (Ann Surg Oncol 2024): 194 women aged ≥60 with unifocal, US-visible invasive ductal carcinoma ≤1.5 cm, ER+/HER2−, low-risk. Liquid-nitrogen cryoablation without excision, then standard adjuvant therapy. 5-year ipsilateral recurrence ≈4.3%; no serious device-related adverse events</td></tr>
+      <tr><td>Technique</td><td>US-guided, local anaesthetic, office-based. Double freeze (≈9 min freeze / 8 min thaw / 9 min freeze), ice ball extending well beyond the tumour; skin protection with saline</td></tr>
+      <tr><td>Role</td><td>An option for older or comorbid women with small low-risk tumours after MDT discussion; not standard of care for younger or higher-risk patients. Cryo of fibroadenomas (benign) is established</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Pancreas, Nodes &amp; Retroperitoneum</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Site</th><th>Role</th></tr>
+      <tr><td>Pancreatic adenocarcinoma</td><td>Thermal ablation is limited by injury to the duodenum, bile duct and peripancreatic vessels (pancreatitis, fistula). <strong>IRE</strong> (non-thermal) has been used for locally advanced disease in specialist centres, but its role remains investigational</td></tr>
+      <tr><td>Pancreatic NET / insulinoma</td><td>EUS-guided RFA is emerging for small tumours in non-surgical patients (gastroenterology-led)</td></tr>
+      <tr><td>Nodal / retroperitoneal / abdominal wall oligometastases</td><td>Cryo or MWA with displacement techniques; case-by-case MDT decisions</td></tr>
+      <tr><td>Prostate</td><td>Focal cryo/HIFU/IRE — see <span class="xref" onclick="showPage('f-prostate')">Prostate Cancer IO</span></td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Non-Thermal &amp; Alternative Local Therapies (Comparators)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Technique</th><th>Mechanism</th><th>Niche</th></tr>
+      <tr><td>Irreversible electroporation (IRE)</td><td>High-voltage microsecond pulses between parallel electrodes create permanent membrane nanopores → apoptosis; spares the collagen scaffold (ducts, vessels)</td><td>Tumours next to bile ducts or major vessels; pancreas; prostate. Needs GA with full muscle relaxation and ECG-synchronised pulses; precise electrode spacing</td></tr>
+      <tr><td>Histotripsy</td><td>Non-invasive focused-ultrasound cavitation mechanically liquefies tissue; not thermal</td><td>Liver tumours (FDA clearance 2023 after #HOPE4LIVER); kidney trials ongoing; availability limited</td></tr>
+      <tr><td>Laser (LITT)</td><td>Light energy → heat; MR thermometry</td><td>Brain, some liver/thyroid centres</td></tr>
+      <tr><td>HIFU / MRgFUS</td><td>Focused ultrasound → heat</td><td>Bone metastasis pain, prostate, fibroids</td></tr>
+      <tr><td>SBRT / SABR</td><td>High-dose conformal radiation in few fractions</td><td>Main competitor for inoperable lung, liver, renal and oligometastatic disease; not limited by heat sink or bile duct proximity</td></tr>
+      <tr><td>Percutaneous ethanol injection</td><td>Chemical dehydration/necrosis</td><td>Legacy HCC ≤2 cm in difficult locations; cystic thyroid nodules</td></tr>
+    </table></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-followup'] = `
+<div class="dd-page">
+<h2 class="page-title">Ablation Follow-up, Terminology &amp; Response Assessment</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Standardised Terminology (Ahmed et al., Radiology 2014)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Term</th><th>Definition</th></tr>
+      <tr><td>Technical success</td><td>The tumour was treated according to protocol and covered completely by the ablation zone on imaging <strong>at the end of the procedure</strong></td></tr>
+      <tr><td>Technique efficacy</td><td>Complete ablation of the macroscopic tumour on follow-up imaging at a <strong>pre-specified time point</strong> (commonly 1 month)</td></tr>
+      <tr><td>Primary efficacy rate</td><td>Percentage of tumours successfully eradicated after the initial procedure or a defined course of treatment</td></tr>
+      <tr><td>Secondary (assisted) efficacy rate</td><td>Includes tumours successfully re-treated after identification of local progression</td></tr>
+      <tr><td>Residual unablated tumour</td><td>Tumour found at the first follow-up study, i.e. incomplete ablation (not "recurrence")</td></tr>
+      <tr><td><strong>Local tumour progression (LTP)</strong></td><td>Tumour foci at the <strong>edge of the ablation zone</strong> after at least one contrast-enhanced follow-up study has documented adequate ablation with no viable tumour</td></tr>
+      <tr><td>Intrahepatic (intra-organ) distant recurrence</td><td>New tumour in the treated organ away from the ablation zone — not a failure of the ablation</td></tr>
+      <tr><td>Extrahepatic (extra-organ) disease progression</td><td>New disease outside the treated organ</td></tr>
+      <tr><td>Complication vs side effect</td><td>Side effects are expected, undesired consequences (pain, post-ablation syndrome, asymptomatic effusion). Complications are unexpected and graded as major or minor; timed as immediate (≤24 h), periprocedural (≤30 days) or delayed (&gt;30 days)</td></tr>
+    </table></div>
+    <div class="tip">Time-to-event endpoints (DATECAN consensus, Puijk et al., Radiology 2018) define LTP-free survival, local tumour control (allowing repeat ablation), and overall and disease-free survival, so that ablation studies can be compared. The 2026 Delphi adds the <strong>A0/A1/A2</strong> margin classification (see <span class="xref" onclick="showPage('abl-technique')">Planning</span>).</div>
+    <div class="tip">For month-by-month appearances by organ and modality, see <span class="xref" onclick="showPage('abl-imaging')">Imaging Appearances Over Time</span>.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Liver — Expected vs Suspicious Findings</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Finding</th><th>Benign / Expected</th><th>Suspicious</th></tr>
+      <tr><td>Ablation zone</td><td>Non-enhancing, <strong>larger</strong> than the original tumour, covering tumour + margin; involutes over months</td><td>Growth; zone smaller than the tumour at 1 month (incomplete)</td></tr>
+      <tr><td>Rim enhancement</td><td><strong>Thin, smooth, uniform, concentric</strong> periablational hyperaemia (early); fades over weeks to a few months</td><td><strong>Nodular, irregular, eccentric or thick</strong> enhancement at the margin</td></tr>
+      <tr><td>Enhancement pattern</td><td>Wedge-shaped transient arterial enhancement (arterioportal shunt) peripheral to the zone</td><td>Arterial-phase hyperenhancement with washout (HCC), or enhancement similar to the pretreatment tumour</td></tr>
+      <tr><td>MRI signal</td><td>T1-hyperintense and T2-hypointense coagulation necrosis</td><td>T2-intermediate/bright nodular tissue with diffusion restriction</td></tr>
+      <tr><td>Gas</td><td>Normal in the first days to weeks</td><td>New or increasing gas after ≈1 month + fever → abscess</td></tr>
+    </table></div>
+    <h4>LI-RADS Treatment Response (LR-TR) — for HCC</h4>
+    <div class="table-scroll"><table>
+      <tr><th>Category</th><th>Meaning</th></tr>
+      <tr><td>LR-TR Nonviable</td><td>No lesional enhancement, or a treatment-specific expected enhancement pattern</td></tr>
+      <tr><td>LR-TR Equivocal</td><td>Enhancement atypical for treatment-specific expected pattern and not meeting viable criteria</td></tr>
+      <tr><td>LR-TR Viable</td><td>Nodular, mass-like or thick irregular tissue in or along the treated lesion with arterial-phase hyperenhancement, washout, or enhancement similar to pretreatment</td></tr>
+      <tr><td>LR-TR Nonevaluable</td><td>Image degradation or omission</td></tr>
+    </table></div>
+    <p>mRECIST (viable enhancing tumour) is used in trials; RECIST 1.1 is unsuitable after ablation because the zone is intentionally larger than the tumour (see <span class="xref" onclick="showPage('f-fund')">Fundamental IO</span>).</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Follow-up Schedules by Organ</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Organ</th><th>Imaging</th><th>Schedule (typical)</th></tr>
+      <tr><td>Liver (HCC/CRLM)</td><td>Multiphase CT or MRI (hepatobiliary agent useful for CRLM); AFP or CEA</td><td>≈1 month (technique efficacy), then 3-monthly for 2 years, then 6-monthly</td></tr>
+      <tr><td>Kidney</td><td>CT or MRI with subtraction; CEUS if eGFR is low</td><td>≈3 and 6 months, then annually for ≥5 years</td></tr>
+      <tr><td>Lung</td><td>CT ± contrast; PET-CT selectively</td><td>1 (or 3) months as baseline, then 3-, 6-, 12-monthly, then 6-monthly; PET at ≈3–6 months</td></tr>
+      <tr><td>Bone (palliative)</td><td>Clinical: pain scores, analgesic use</td><td>Imaging only if symptoms recur or for curative intent (MRI/PET)</td></tr>
+      <tr><td>Adrenal / soft tissue</td><td>CT/MRI ± PET</td><td>≈1–3 months, then per oncology surveillance</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Pitfalls &amp; Mimics</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Pitfall</th><th>Clue</th></tr>
+      <tr><td>Benign periablational enhancement mistaken for residual tumour</td><td>Smooth, uniform, thin; follows the zone contour; fades on serial imaging</td></tr>
+      <tr><td>Arterioportal shunt</td><td>Wedge-shaped, peripheral, arterial phase only, no washout, no mass effect</td></tr>
+      <tr><td>Haemorrhage within the zone</td><td>Hyperdense on non-contrast CT; T1-bright; no enhancement on subtraction</td></tr>
+      <tr><td>Lipiodol after combined TACE</td><td>Hyperdense on CT and masks enhancement → use MRI or subtraction</td></tr>
+      <tr><td>Biloma</td><td>Fluid collection near a duct; increases in size; low density</td></tr>
+      <tr><td>Abscess</td><td>Rim enhancement, fluid, new or increasing gas after the first weeks, clinical sepsis</td></tr>
+      <tr><td>Pseudoaneurysm</td><td>Arterial-phase bright focus that tracks the blood pool</td></tr>
+      <tr><td>Lung: early zone enlargement</td><td>Expected up to ≈3 months — do not call progression early</td></tr>
+      <tr><td>Lung: inflammatory FDG uptake</td><td>Peripheral rim uptake early after ablation is inflammatory; nodular or increasing uptake after ≈3 months is suspicious</td></tr>
+    </table></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-imaging'] = `
+<div class="dd-page">
+<h2 class="page-title">Post-Ablation Imaging Appearances Over Time</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> The Big Picture — How Every Ablation Zone Evolves</div>
+  <div class="card-body">
+    <div class="tl">
+      <div class="tl-seg tl-1"><b>0–48 h</b><span>Coagulation / ice → gas, oedema, haemorrhage, hyperaemic rim</span></div>
+      <div class="tl-seg tl-2"><b>1–4 wk</b><span>Zone at or near maximum size; rim still present; gas resolving</span></div>
+      <div class="tl-seg tl-3"><b>1–3 mo</b><span>Rim fades; borders sharpen; the "new baseline" scan</span></div>
+      <div class="tl-seg tl-4"><b>3–12 mo</b><span>Progressive involution; fibrosis; LTP most often appears here</span></div>
+      <div class="tl-seg tl-5"><b>&gt;12 mo</b><span>Scar / nodule / calcification; late recurrence still possible</span></div>
+    </div>
+    <div class="table-scroll"><table>
+      <tr><th>Principle</th><th>Why It Matters</th></tr>
+      <tr><td>The zone should be <strong>larger than the tumour</strong> at the first scan</td><td>It should contain tumour + margin. A zone smaller than the tumour, or not covering it on co-registered images, means incomplete ablation (residual tumour), not recurrence</td></tr>
+      <tr><td>The zone should <strong>never grow</strong> after it reaches maximum size</td><td>Liver/kidney: any growth after the first scan is suspicious. Lung: growth is expected for up to ≈3 months, then suspicious</td></tr>
+      <tr><td><strong>Benign enhancement is thin, smooth, uniform and concentric</strong></td><td>Periablational hyperaemia and granulation tissue. Residual/recurrent tumour is <strong>nodular, irregular, eccentric or mass-like</strong></td></tr>
+      <tr><td>Compare against the <strong>right baseline</strong></td><td>Pre-ablation scan for coverage; first post-ablation scan (1 month; lung 3 months) for later change</td></tr>
+      <tr><td>Recurrence happens at the <strong>margin</strong></td><td>LTP arises at the edge of the zone (often the perivascular or least-treated side), which is where to look first</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Liver — CT Timeline</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Time</th><th>Expected Appearance</th><th>Red Flags</th></tr>
+      <tr><td><strong>Immediate / 24 h</strong></td><td>Well-defined <strong>non-enhancing hypoattenuating zone</strong> encompassing the tumour + margin. Gas bubbles (round/tubular) within the zone and along the tract. Unenhanced CT may show central hyperattenuation (desiccated or haemorrhagic coagulum), giving a layered "target" look. Thin hyperenhancing rim (hyperaemia). Wedge-shaped arterial-phase hyperenhancement (arterioportal shunt). Small perihepatic fluid, tract haemorrhage</td><td>Tumour not covered on co-registered images (A2); nodular enhancement at the edge; active extravasation; large haematoma</td></tr>
+      <tr><td><strong>1 month</strong> (technique-efficacy scan)</td><td>Zone still larger than the tumour; borders less sharp in the first 3 months. Periablational rim usually gone or fading. Gas largely resolved. Tract visible as a linear hypodense track (charring may look hyperdense)</td><td>Residual unablated tumour: nodular/eccentric arterial hyperenhancement with washout; new or increasing gas + rim enhancement + fever (abscess)</td></tr>
+      <tr><td><strong>3–6 months</strong></td><td>Progressive <strong>involution</strong>; borders become well defined; homogeneous low attenuation; capsular retraction over peripheral zones</td><td>LTP: new nodular enhancement at the margin; zone enlarging; irregular thickening of the rim</td></tr>
+      <tr><td><strong>6–12 months</strong></td><td>Continued shrinkage: most MWA zones fall to &lt;50% of baseline volume within a year (more predictably in non-cirrhotic liver/CRLM than in cirrhotic liver/HCC)</td><td>Any interval growth; new enhancement; tumour marker rise (AFP/CEA)</td></tr>
+      <tr><td><strong>&gt;12 months</strong></td><td>Small scar, residual low-attenuation nodule, occasional calcification; some zones remain visible indefinitely</td><td>Late LTP (uncommon after 2 years but documented) → continue surveillance</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Liver — MRI, CEUS &amp; PET</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Expected (Benign) Findings</th><th>Residual / LTP</th></tr>
+      <tr><td><strong>T1-weighted</strong></td><td><strong>Hyperintense</strong> (coagulative necrosis), often heterogeneous early and more uniformly bright over time; may show concentric layers ("target")</td><td>Nodule that is iso/hypointense relative to the bright zone</td></tr>
+      <tr><td><strong>T2-weighted</strong></td><td><strong>Hypointense</strong> zone that becomes more homogeneously dark over time; a thin T2-bright peripheral rim early (oedema/hyperaemia)</td><td>Intermediate-to-high T2 nodular tissue at the margin</td></tr>
+      <tr><td>Dynamic contrast</td><td>No internal enhancement. <strong>Periablational hyperaemia:</strong> thin (usually &lt;5 mm), uniform arterial-phase rim that becomes iso-enhancing in portal/delayed phases, usually gone by ≈1 month but can persist up to ≈6 months</td><td>Nodular, irregular or thick arterial hyperenhancement ± washout (HCC); enhancement similar to the pretreatment tumour (metastasis)</td></tr>
+      <tr><td>Subtraction images</td><td>Essential because the zone is intrinsically T1-bright; true enhancement shows only on subtraction</td><td>Enhancement visible on subtraction</td></tr>
+      <tr><td>DWI</td><td>Variable signal in the coagulum; interpret with enhancement</td><td>Nodular restricted diffusion at the margin supports residual/LTP</td></tr>
+      <tr><td>Hepatobiliary phase (gadoxetate)</td><td>Zone and rim hypointense</td><td>Useful for new CRLM elsewhere; hypointense nodules at the margin need correlation with enhancement</td></tr>
+      <tr><td>CEUS</td><td>Non-enhancing zone in all phases; transient hyperechoic gas "cloud" during/after ablation (≈30–90 min) obscures B-mode assessment</td><td>Arterial hyperenhancement at the margin with washout</td></tr>
+      <tr><td>FDG PET-CT (CRLM)</td><td>"Cold" zone. Inflammatory, low-grade, homogeneous rim uptake develops within days, so PET is either very early (≈1–2 days) or delayed (≥ several weeks–3 months)</td><td>Focal "hot" nodular uptake at the margin</td></tr>
+    </table></div>
+    <div class="tip"><strong>LR-TR (HCC):</strong> expected treatment-specific enhancement (thin, smooth rim) = <em>Nonviable</em>. Nodular, mass-like or thick irregular tissue with APHE, washout or pretreatment-like enhancement = <em>Viable</em>. Anything in between = <em>Equivocal</em> → short-interval follow-up. See <span class="xref" onclick="showPage('abl-followup')">Follow-up &amp; Terminology</span>.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Liver — Modality Differences</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Imaging Signature</th></tr>
+      <tr><td>RFA</td><td>Zone ≈3 cm per electrode; overlapping ablations can give lobulated contours; tract charring; rim hyperaemia typical</td></tr>
+      <tr><td>MWA</td><td>Larger, more spherical and homogeneous zones; more gas; involution to &lt;50% volume within ≈1 year in most</td></tr>
+      <tr><td>Cryo</td><td>Ice ball visible intraprocedurally; post-thaw zone often haemorrhagic (T1-bright, heterogeneous); more tract and perihepatic haemorrhage; parenchymal "cracks"</td></tr>
+      <tr><td>IRE (non-thermal comparator)</td><td>Marked early oedema (T2-bright zone) with <strong>preserved vessels and bile ducts running through it</strong>; faster involution than MWA (surface area fell ≈75% vs ≈24% between 6 and 12 months in one comparison)</td></tr>
+      <tr><td>Combined TACE + ablation</td><td>Lipiodol is hyperdense on CT and masks enhancement → use MRI with subtraction</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Kidney — Timeline</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Time</th><th>Expected Appearance</th><th>Red Flags</th></tr>
+      <tr><td><strong>Immediate / 24 h</strong></td><td>Non-enhancing zone replacing the tumour + margin; perinephric haematoma and fat stranding (more after cryo); gas; hydrodissection fluid</td><td>Enhancing tumour outside the zone; urinoma; active bleeding</td></tr>
+      <tr><td><strong>1–3 months</strong></td><td>Low-attenuation (CT) zone, usually slightly larger than or similar to the tumour. Perinephric soft-tissue stranding organises into a curvilinear <strong>"halo"</strong> around the zone. Thin rim of granulation tissue with mild enhancement (&lt;10 HU) is common</td><td>Nodular or crescentic enhancement &gt;20 HU at the first scan = residual tumour</td></tr>
+      <tr><td><strong>3–12 months</strong></td><td>Rim enhancement resolves (in the example series by ≈9 months); halo sharpens; zone begins to shrink; fat can fill in at the tumour–kidney interface. MRI: zone T2-hypointense, T1 iso- to hyperintense, no enhancement on subtraction</td><td>Rim thickening; new nodular enhancement at the periphery</td></tr>
+      <tr><td><strong>&gt;12 months</strong></td><td>Progressive contraction to a scar or small nodule; dystrophic calcification late. <strong>Cryo zones shrink more</strong> and can almost disappear; <strong>RFA/MWA zones</strong> may shrink little and remain stable for years</td><td>Growth of the zone; mass-like enhancement; new enhancing nodule at the edge (LTP)</td></tr>
+    </table></div>
+    <div class="table-scroll"><table>
+      <tr><th>Enhancement Rule of Thumb (CT)</th><th>Interpretation</th></tr>
+      <tr><td>&lt;10 HU increase</td><td>No enhancement</td></tr>
+      <tr><td>10–20 HU</td><td>Equivocal (pseudoenhancement, granulation tissue) → MRI with subtraction or CEUS</td></tr>
+      <tr><td>&gt;20 HU, nodular</td><td>Enhancement → residual/recurrent tumour until proven otherwise</td></tr>
+    </table></div>
+    <div class="warn"><strong>Pitfalls:</strong> (1) An RFA/MWA zone that does not shrink is <em>not</em> recurrence by itself: judge enhancement and growth instead. (2) Thin, smooth enhancement can persist for months after cryo and does not necessarily mean tumour. (3) Pseudoenhancement from beam hardening in small zones: use MRI subtraction or CEUS.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Lung — Timeline</div>
+  <div class="card-body">
+    <p>In a CT series of lung RFA (PMC 2020), GGO was present immediately in 96% and consolidation in 81%. Cavitation appeared in about half within 4 weeks, and parenchymal bands dominated from 5 weeks onward (≈90%+ beyond 6 months).</p>
+    <div class="table-scroll"><table>
+      <tr><th>Time</th><th>Expected Appearance</th><th>Red Flags</th></tr>
+      <tr><td><strong>Immediate</strong></td><td><strong>GGO halo</strong> around the tumour (the ablation margin: aim for ≥5 mm); central consolidation or hyperdensity → "target/cockade" appearance; bubbly lucencies; small pneumothorax/effusion</td><td>Part of the tumour outside the GGO halo (incomplete); large pneumothorax; haemorrhage</td></tr>
+      <tr><td><strong>1–4 weeks</strong></td><td>GGO persists (including reversed-halo pattern); consolidation; pleural thickening; <strong>cavitation</strong> and pneumatocele (transient); parenchymal bands start. The zone is <strong>larger</strong> than the tumour</td><td>Cavity with air–fluid level + fever (abscess); bronchopleural fistula</td></tr>
+      <tr><td><strong>1–3 months</strong></td><td>Zone at or near maximum size and may <strong>still enlarge</strong> — this is expected. Thin, smooth peripheral enhancement; hyperdensity gone by ≈5 weeks</td><td>Nodular enhancement inside the zone</td></tr>
+      <tr><td><strong>3–6 months</strong></td><td>Zone begins to shrink; GGO fades; cavities collapse; bands and pleural thickening persist. <strong>The 3-month CT is the best baseline</strong></td><td><strong>Any growth vs the 3-month scan</strong>; nodular or irregular enhancement (e.g. &gt;15 HU increase); new regional/hilar nodes</td></tr>
+      <tr><td><strong>6–12 months and beyond</strong></td><td>Involution to a <strong>linear scar/fibrotic band</strong> (most common), small nodule, atelectasis, residual thin-walled cavity, or complete disappearance</td><td>Nodular growth from the scar; FDG-avid focus</td></tr>
+    </table></div>
+    <div class="table-scroll"><table>
+      <tr><th>PET-CT After Lung Ablation</th><th>Interpretation</th></tr>
+      <tr><td>≤≈3 months</td><td>Peripheral rim uptake from inflammation is common and can persist for months → avoid over-calling</td></tr>
+      <tr><td>≥3–6 months</td><td>Uptake should be low; <strong>central, nodular or increasing uptake</strong> (or SUV above the pre-ablation value) suggests residual/recurrent tumour</td></tr>
+    </table></div>
+    <p>Cryo tends to cause more intraparenchymal haemorrhage (denser early GGO/consolidation, haemoptysis). MWA zones tend to be larger than RFA zones. The same timeline logic applies to all three.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Bone &amp; Soft Tissue</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Setting</th><th>Expected Evolution</th><th>Suspicious</th></tr>
+      <tr><td>Metastasis — MRI</td><td>Early (weeks): non-enhancing central zone, a <strong>thin enhancing rim</strong> of granulation/reactive tissue, and surrounding marrow and soft-tissue oedema. Months: oedema subsides and the rim thins; the zone may shrink or become fibrotic</td><td>Nodular or mass-like enhancement at or beyond the margin; new epidural/soft-tissue component</td></tr>
+      <tr><td>Metastasis — CT</td><td>Lytic lesions often develop a <strong>sclerotic rim</strong> and progressive sclerosis/healing over months; cement (if used) is dense and stable</td><td>New lysis, cortical destruction, fracture, growing soft-tissue mass</td></tr>
+      <tr><td>Metastasis — PET</td><td>Uptake falls; mild rim uptake early</td><td>Persistent or recurrent focal uptake after ≈3 months</td></tr>
+      <tr><td>Osteoid osteoma — MRI</td><td>At 1–2 months: <strong>three-zone "target"</strong> — non-enhancing T1/T2-hypointense core (nidus inside it), an enhancing T2-bright rim, and a peripheral oedema zone. After 2 months: the rim enhances progressively inward and the zone shrinks; marrow/soft-tissue oedema regresses over months</td><td>Clinical recurrence of night pain is the key marker; imaging shows persistent nidus enhancement or recurrent oedema</td></tr>
+      <tr><td>Desmoid / soft tissue after cryo</td><td>Non-enhancing necrotic volume that shrinks over months; T2 signal falls as viable tumour is replaced by fibrosis</td><td>Growth of T2-bright, enhancing tissue at the margin</td></tr>
+    </table></div>
+    <div class="tip">For <strong>palliative</strong> bone ablation, success is judged clinically (pain scores, analgesic use), not by imaging, because incomplete tumour coverage is expected. Image only if pain recurs or the intent was curative.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Adrenal, Thyroid &amp; Breast</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Site</th><th>Expected Evolution</th><th>Suspicious</th></tr>
+      <tr><td>Adrenal</td><td>Non-enhancing zone with periadrenal stranding and haemorrhage; shrinks over months to a small nodule or scar</td><td>Nodular enhancement or growth; new FDG-avid focus (PET useful for metastases)</td></tr>
+      <tr><td>Thyroid (US)</td><td>Immediately hyperechoic (gas); then a <strong>hypoechoic, avascular</strong> zone that shrinks progressively. Measure the <strong>volume reduction ratio</strong> [(initial − current) ÷ initial × 100], typically ≈50–80% at 12 months. Follow-up at ≈1, 3, 6, 12 months, then yearly</td><td>Vascular (Doppler/CEUS) peripheral tissue = undertreated margin; <strong>regrowth</strong> = volume increase &gt;50% from the smallest recorded volume</td></tr>
+      <tr><td>Breast (cryo)</td><td>US: hypoechoic zone with posterior shadowing, initially larger than the tumour, shrinking over ≈6–12 months; may leave fat necrosis (oil cyst, calcification on mammography). MRI: non-enhancing centre with a thin smooth rim early</td><td>Nodular or clumped enhancement, or a growing solid component at the zone edge</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Quick Reference — Best Baseline &amp; Classic Traps</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Organ</th><th>Best Post-Ablation Baseline</th><th>Classic Trap</th></tr>
+      <tr><td>Liver</td><td>Immediate CECT (coverage) + 1-month CT/MRI (technique efficacy)</td><td>Calling periablational hyperaemia or an arterioportal shunt "residual tumour"</td></tr>
+      <tr><td>Kidney</td><td>First CT/MRI at ≈1–3 months</td><td>Expecting RFA zones to shrink; pseudoenhancement</td></tr>
+      <tr><td>Lung</td><td>3-month CT</td><td>Calling early (≤3 months) enlargement or inflammatory FDG rim uptake "progression"</td></tr>
+      <tr><td>Bone (palliative)</td><td>Clinical response</td><td>Over-reading rim enhancement and marrow oedema</td></tr>
+      <tr><td>Thyroid</td><td>1-month US (volume + vascularity)</td><td>Ignoring vascular peripheral tissue that later drives regrowth</td></tr>
+    </table></div>
+    <div class="tip">Related: <span class="xref" onclick="showPage('abl-followup')">Follow-up, Terminology &amp; LR-TR</span> · <span class="xref" onclick="showPage('abl-complications')">Complications</span> · <span class="xref" onclick="showPage('abl-liver')">Liver</span> · <span class="xref" onclick="showPage('abl-kidney')">Kidney</span> · <span class="xref" onclick="showPage('abl-lung')">Lung</span></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-complications'] = `
+<div class="dd-page">
+<h2 class="page-title">Ablation Complications &amp; Their Management</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Grading &amp; Overall Rates</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Item</th><th>Detail</th></tr>
+      <tr><td>Grading systems</td><td>SIR adverse event classification (2017: mild, moderate, severe, life-threatening, death — see <span class="xref" onclick="showPage('cls-sir-ae')">SIR AE</span>); CIRSE classification (grades 1–6); Clavien–Dindo in surgical comparisons</td></tr>
+      <tr><td>Liver RFA</td><td>Major complications ≈2–3%; mortality ≈0.3% (Livraghi 2003, &gt;2,300 patients)</td></tr>
+      <tr><td>Liver MWA</td><td>Major complications ≈3% with no procedure-related deaths in a large Italian multicentre series (Livraghi 2012)</td></tr>
+      <tr><td>Kidney</td><td>Overall ≈10–25% (mostly minor); major ≈3–10%</td></tr>
+      <tr><td>Lung</td><td>Pneumothorax dominates; mortality ≈0–0.5%</td></tr>
+      <tr><td>Bone</td><td>Major complications uncommon; skin and nerve injury are the key risks</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> General (Any Organ)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Features</th><th>Management / Prevention</th></tr>
+      <tr><td>Post-ablation syndrome</td><td>Low-grade fever, malaise, myalgia, nausea, from cytokine release; in about a third of patients; proportional to ablation volume; usually settles in ≈3–7 days (occasionally up to 2 weeks)</td><td>Supportive (paracetamol, antiemetics). Investigate for abscess if fever is high, rising or prolonged</td></tr>
+      <tr><td>Pain</td><td>Capsular, pleural or periosteal involvement</td><td>Multimodal analgesia; regional blocks</td></tr>
+      <tr><td>Haemorrhage</td><td>Tract, capsular, intraparenchymal or cavity</td><td>Correct coagulation; tract ablation (thermal); embolisation if ongoing</td></tr>
+      <tr><td>Infection / abscess</td><td>Fever and rising inflammatory markers beyond the expected course; gas + rim enhancement</td><td>Culture, antibiotics, percutaneous drainage</td></tr>
+      <tr><td>Tract seeding</td><td>Nodule along the needle path, months later</td><td>Tract ablation; minimise punctures; coaxial biopsy</td></tr>
+      <tr><td>Thermal injury to adjacent organ</td><td>Bowel perforation, cholecystitis, diaphragm/nerve injury</td><td>Displacement techniques; CT guidance; surgery for perforation</td></tr>
+      <tr><td>Skin burn</td><td>Grounding pad (RFA), superficial lesion, MWA shaft heating</td><td>Pad technique; distance/hydrodissection; skin protection</td></tr>
+      <tr><td>Haemoglobinuria / haemolysis</td><td>Large-volume heat ablation</td><td>Hydration; monitor renal function</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Liver-Specific</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Risk Factors</th><th>Management</th></tr>
+      <tr><td>Intraperitoneal / subcapsular haemorrhage; haemobilia</td><td>Subcapsular tumours, coagulopathy, portal hypertension, multiple punctures</td><td>Resuscitation; embolisation</td></tr>
+      <tr><td>Liver abscess</td><td><strong>Bilioenteric anastomosis</strong>, sphincterotomy, biliary stent, diabetes, large zone</td><td>Drainage + antibiotics; extended prophylaxis in high-risk patients</td></tr>
+      <tr><td>Biliary injury (biloma, stricture, bilio-pleural fistula)</td><td>Tumour &lt;1 cm from a central duct; ducts are <em>not</em> protected by heat sink</td><td>Drain biloma; stent/dilate stricture; intraductal cooling to prevent</td></tr>
+      <tr><td>Bowel perforation</td><td>Colon (hepatic flexure) or stomach next to the tumour; adhesions after surgery</td><td>Prevention (displacement); surgery</td></tr>
+      <tr><td>Thermal cholecystitis</td><td>Tumour beside the gallbladder</td><td>Usually conservative</td></tr>
+      <tr><td>Diaphragm injury, pleural effusion, pneumothorax</td><td>Dome lesions; transpleural route</td><td>Artificial ascites; drain if needed</td></tr>
+      <tr><td>Portal vein thrombosis / hepatic infarction</td><td>Slow portal flow in cirrhosis; ablation beside small vessels</td><td>Anticoagulation per hepatology</td></tr>
+      <tr><td>Hepatic decompensation</td><td>Child-Pugh B, large ablation volume</td><td>Careful selection; staged treatment</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Modality-Specific</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Complication</th><th>Key Points</th></tr>
+      <tr><td>RFA</td><td>Grounding pad burns</td><td>Fully adhered pads, symmetric and equidistant on the thighs; ≥2 pads for high-current systems; inspect the skin afterwards</td></tr>
+      <tr><td>RFA</td><td>Pacemaker/ICD malfunction</td><td>Cardiology reprogramming; bipolar systems; pads away from the device path</td></tr>
+      <tr><td>MWA</td><td>Shaft or skin burns; unexpectedly large zone</td><td>Cooled antennas; watch superficial and pleural-adjacent targets; confirm the zone on imaging</td></tr>
+      <tr><td>Cryo</td><td><strong>Cryoshock</strong></td><td>Systemic inflammatory response with multiorgan failure and DIC after large-volume (mainly hepatic) cryoablation; about 1% of hepatic cryo historically, with high mortality. It is the main reason thermal ablation is preferred for large liver volumes</td></tr>
+      <tr><td>Cryo</td><td>Haemorrhage / haemoptysis</td><td>No tract cautery; pack the tract; lung cryo bleeds more</td></tr>
+      <tr><td>Cryo</td><td>Ice-ball cracking</td><td>Parenchymal fracture during rapid freezing/thawing → bleeding (liver, kidney)</td></tr>
+      <tr><td>Cryo</td><td>Myoglobinuria / thrombocytopenia</td><td>Large muscle/bone volumes; monitor CK, platelets and renal function</td></tr>
+    </table></div>
+    <div class="tip">For kidney-, lung- and bone-specific complications see <span class="xref" onclick="showPage('abl-kidney')">Kidney</span>, <span class="xref" onclick="showPage('abl-lung')">Lung</span> and <span class="xref" onclick="showPage('abl-bone')">Bone</span>.</div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['abl-evidence'] = `
+<div class="dd-page">
+<h2 class="page-title">Ablation — Key Trials, Guidelines &amp; Reading</h2>
+<div class="page-meta"><span class="tag tag-section">Ablation Deep Dive · Oncology</span><span class="tag tag-freq-high">Frequently Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Landmark Trials — One-Line Summaries</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Trial</th><th>Organ</th><th>Design</th><th>Headline</th></tr>
+      <tr><td>SURF (JCO 2025)</td><td>HCC ≤3 cm, ≤3 nodules</td><td>RCT: surgery vs RFA (n=302)</td><td>No OS/RFS difference at 5 years</td></tr>
+      <tr><td>Sugimoto (JHEP Rep 2025)</td><td>HCC ≤4 cm</td><td>RCT: MWA vs single-needle RFA (n=236)</td><td>2-yr LTP 16.4% vs 30.4% (favours MWA); OS equal</td></tr>
+      <tr><td>Vietti Violi (Lancet GH 2018)</td><td>HCC ≤4 cm</td><td>Phase 2 RCT: MWA vs RFA</td><td>No significant LTP difference; similar safety</td></tr>
+      <tr><td>Peng (JCO 2013)</td><td>HCC ≤7 cm</td><td>RCT: TACE + RFA vs RFA</td><td>Combination improves survival, mainly for intermediate-size tumours</td></tr>
+      <tr><td>IMbrave050 (Lancet 2023; updated 2024)</td><td>High-risk HCC after resection/ablation</td><td>RCT: adjuvant atezolizumab-bevacizumab vs surveillance</td><td>Early RFS benefit not sustained</td></tr>
+      <tr><td>CLOCC (JNCI 2017)</td><td>Unresectable CRLM</td><td>RCT: RFA ± resection + chemo vs chemo</td><td>8-yr OS 35.9% vs 8.9%</td></tr>
+      <tr><td><strong>COLLISION</strong> (Lancet Oncol 2025)</td><td>Resectable CRLM ≤3 cm</td><td>Phase 3 RCT: ablation vs resection</td><td>OS non-inferior (HR 1.05); far fewer AEs</td></tr>
+      <tr><td>COVER-ALL (Lancet GH 2025)</td><td>Liver tumours</td><td>Phase 2 RCT: software vs visual margin</td><td>Software → larger margins, less LTP</td></tr>
+      <tr><td>RAPTURE (Lancet Oncol 2008)</td><td>Lung ≤3.5 cm</td><td>Prospective multicentre RFA</td><td>High sustained complete response; good OS in stage I</td></tr>
+      <tr><td>ACOSOG Z4033 (Cancer 2015)</td><td>Inoperable stage IA NSCLC</td><td>Phase 2 RFA</td><td>2-yr OS 69.8%; lung function preserved</td></tr>
+      <tr><td>SOLSTICE (JTO 2020)</td><td>Lung metastases ≤3.5 cm</td><td>Phase 2 cryo</td><td>Local recurrence-free 77.2% at 2 yr; safe</td></tr>
+      <tr><td>MOTION (Radiol Imaging Cancer 2021)</td><td>Painful bone metastases</td><td>Prospective cryo</td><td>Durable pain relief to 24 weeks</td></tr>
+      <tr><td>OPuS One (JVIR 2020)</td><td>Spinal/pelvic metastases</td><td>Prospective bipolar RFA (+ cement)</td><td>Worst pain 8.2 → 3.5 at 6 months</td></tr>
+      <tr><td>ICE3 (Ann Surg Oncol 2024)</td><td>Low-risk breast cancer ≤1.5 cm, age ≥60</td><td>Single-arm cryo without excision</td><td>5-yr ipsilateral recurrence ≈4%</td></tr>
+      <tr><td>CRYODESMO-01 (EJC 2021)</td><td>Progressive desmoid</td><td>Phase 2 cryo</td><td>≈86% non-progression at 12 months</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Guidelines &amp; Standards</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Document</th><th>Use It For</th></tr>
+      <tr><td>CIRSE Standards of Practice — Thermal Ablation of Liver Tumours (Crocetti, CVIR 2020)</td><td>Liver indications, technique, expected outcomes and complication rates</td></tr>
+      <tr><td>CIRSE Standards of Practice — Thermal Ablation of Primary and Secondary Lung Tumours (Venturini, CVIR 2020)</td><td>Lung indications, anaesthesia, follow-up</td></tr>
+      <tr><td>CIRSE Standards of Practice — Thermal Ablation of Bone Tumours (CVIR 2022)</td><td>Bone indications, thermoprotection, consolidation</td></tr>
+      <tr><td>SIR multidisciplinary position statement on lung ablation (JVIR 2021)</td><td>US/SIR view of NSCLC and metastatic lung ablation</td></tr>
+      <tr><td>Image-guided tumour ablation: terminology and reporting — 10-year update (Ahmed, Radiology 2014)</td><td>Definitions (technical success, LTP, etc.)</td></tr>
+      <tr><td>DATECAN time-to-event endpoints (Puijk, Radiology 2018)</td><td>Survival endpoints in ablation research</td></tr>
+      <tr><td>International multisociety Delphi (ESSO/CIRSE/SIO): procedural and practice standards; margin assessment (Lancet Oncol 2026)</td><td>A0/A1/A2 margins; software confirmation; credentialing (≥100 cases for complex ablation), audit, displacement techniques</td></tr>
+      <tr><td>BCLC 2022 update; EASL HCC Clinical Practice Guidelines (J Hepatol 2025); Australian HCC consensus (MJA 2021)</td><td>HCC treatment allocation</td></tr>
+      <tr><td>AUA Renal Mass &amp; Localised Renal Cancer (2021); EAU RCC (2025); ESMO RCC</td><td>Small renal mass management</td></tr>
+      <tr><td>SIR consensus on periprocedural haemostasis (Patel, JVIR 2019)</td><td>Bleeding-risk category and lab thresholds</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Further Reading (Links)</div>
+  <div class="card-body">
+    <ul class="src-list">
+      <li><a href="https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(24)00660-0/abstract" target="_blank" rel="noopener">COLLISION — Lancet Oncology 2025</a></li>
+      <li><a href="https://ascopubs.org/doi/10.1200/JCO-24-02030" target="_blank" rel="noopener">SURF-RCT and SURF-Cohort — JCO 2025</a></li>
+      <li><a href="https://www.jhep-reports.eu/article/S2589-5559(24)00273-8/fulltext" target="_blank" rel="noopener">MWA vs single-needle RFA for HCC ≤4 cm — JHEP Reports</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/29503247" target="_blank" rel="noopener">MWA vs RFA in chronic liver disease (Vietti Violi) — Lancet GH 2018</a></li>
+      <li><a href="https://www.thelancet.com/journals/langas/article/PIIS2468-1253(25)00024-X/abstract" target="_blank" rel="noopener">COVER-ALL — Lancet Gastroenterology &amp; Hepatology 2025</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12465973/" target="_blank" rel="noopener">ACCLAIM trial protocol — Trials 2025</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/42061383/" target="_blank" rel="noopener">Delphi consensus — procedural &amp; practice standards (Lancet Oncol 2026)</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/42061382/" target="_blank" rel="noopener">Delphi consensus — margin assessment (Lancet Oncol 2026)</a></li>
+      <li><a href="https://link.springer.com/article/10.1007/s00270-020-02471-z" target="_blank" rel="noopener">CIRSE SOP — Liver thermal ablation</a></li>
+      <li><a href="https://link.springer.com/article/10.1007/s00270-020-02432-6" target="_blank" rel="noopener">CIRSE SOP — Lung thermal ablation</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/35348870/" target="_blank" rel="noopener">CIRSE SOP — Bone thermal ablation</a></li>
+      <li><a href="https://www.jvir.org/article/S1051-0443(21)01082-4/fulltext" target="_blank" rel="noopener">SIR position statement — Lung ablation (JVIR 2021)</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/26096694/" target="_blank" rel="noopener">ACOSOG Z4033 — Cancer 2015</a></li>
+      <li><a href="https://www.jto.org/article/S1556-0864(20)30188-X/fulltext" target="_blank" rel="noopener">SOLSTICE — J Thorac Oncol 2020</a></li>
+      <li><a href="https://www.sciencedirect.com/science/article/pii/S1051044325008140" target="_blank" rel="noopener">Cryoablation for inoperable stage IA NSCLC — JVIR 2025</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/33817650/" target="_blank" rel="noopener">MOTION — Radiology: Imaging Cancer 2021</a></li>
+      <li><a href="https://www.sciencedirect.com/science/article/pii/S1051044320305911" target="_blank" rel="noopener">OPuS One — JVIR 2020</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/39283572/" target="_blank" rel="noopener">ICE3 5-year results — Ann Surg Oncol 2024</a></li>
+      <li><a href="https://www.ejcancer.com/article/S0959-8049(20)31321-6/abstract" target="_blank" rel="noopener">CRYODESMO-01 — Eur J Cancer</a></li>
+      <li><a href="https://www.auanet.org/guidelines-and-quality/guidelines/renal-mass-and-localized-renal-cancer-evaluation-management-and-follow-up" target="_blank" rel="noopener">AUA Renal Mass guideline (2021)</a></li>
+      <li><a href="https://www.europeanurology.com/article/S0302-2838(25)00139-3/fulltext" target="_blank" rel="noopener">EAU RCC guidelines — 2025 update</a></li>
+      <li><a href="https://link.springer.com/article/10.1007/s00330-025-11480-w" target="_blank" rel="noopener">Image-guided percutaneous ablation for RCC — Eur Radiol 2025 review</a></li>
+      <li><a href="https://www.journal-of-hepatology.eu/article/S0168-8278(24)02508-X/fulltext" target="_blank" rel="noopener">EASL HCC Clinical Practice Guidelines 2025</a></li>
+      <li><a href="https://onlinelibrary.wiley.com/doi/10.1111/1754-9485.13608" target="_blank" rel="noopener">Reimbursement of IO in Australia — JMIRO 2023</a></li>
+      <li><a href="https://www9.health.gov.au/mbs/fullDisplay.cfm?type=item&amp;q=50950&amp;qt=item" target="_blank" rel="noopener">MBS item 50950 — percutaneous ablation of unresectable primary liver malignancy</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+`;
+
+// ═══════════════════════════════════════
+// RF NERVE ABLATION (PAIN) — added Sep 2026
+// ═══════════════════════════════════════
+
+PAGES['nrv-principles'] = `
+<div class="dd-page">
+<h2 class="page-title">RF Neurotomy — Principles &amp; Patient Selection</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Concept</div>
+  <div class="card-body">
+    <p>Radiofrequency neurotomy (denervation) coagulates the small sensory nerves that carry pain from a joint (facet, sacroiliac, knee, hip, shoulder) or from bone (basivertebral nerve). The nerve undergoes Wallerian degeneration, and pain relief lasts until it regenerates (typically <strong>6–12 months</strong>). The procedure can then be repeated. It does not change the underlying joint disease, so it works best as part of a rehabilitation plan: pain relief creates a window for exercise and function.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td>Neurotomy / thermal RF ablation</td><td>Heat-coagulation of a nerve (destructive)</td></tr>
+      <tr><td>Pulsed RF</td><td>Neuromodulation without destructive heating; for mixed motor–sensory nerves or where a thermal lesion is unsafe</td></tr>
+      <tr><td>Chemical neurolysis</td><td>Ethanol or phenol, mainly for cancer pain (coeliac plexus, etc.) — see <span class="xref" onclick="showPage('nrv-cancer')">Cancer Pain Neurolysis</span></td></tr>
+      <tr><td>Cryoneurolysis</td><td>Freezing to about −20 to −100 °C causes axonotmesis with an intact endoneurium, so the nerve regenerates in an orderly way (low neuroma risk). Used for knee (e.g. before TKA), intercostal and peripheral nerves</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> RF Modalities &amp; Lesion Geometry</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Modality</th><th>Parameters (typical)</th><th>Lesion Shape</th><th>Placement Implication</th></tr>
+      <tr><td><strong>Conventional (continuous) RF</strong></td><td>80–90 °C for 60–90 s per lesion; 16–22G electrode, 5–10 mm active tip</td><td>Narrow ellipsoid <em>around the shaft</em> of the active tip, with little projection beyond the tip</td><td>The electrode must lie <strong>parallel</strong> to the nerve ("tip-on" placement misses it). Often 2 or more lesions per nerve</td></tr>
+      <tr><td><strong>Cooled RF</strong></td><td>Tip held at ≈60 °C by internal water cooling; ≈150 s; 17G</td><td>Large, near-spherical lesion (≈8–10 mm) that projects <em>beyond</em> the tip</td><td>Perpendicular approach acceptable; forgiving of variable anatomy (SIJ, knee, hip)</td></tr>
+      <tr><td><strong>Bipolar RF</strong></td><td>Two electrodes ≤≈1 cm apart with current flowing between them</td><td>Continuous "strip" lesion joining the electrodes</td><td>Strip or palisade lesions for SIJ lateral branches; wider coverage at genicular targets</td></tr>
+      <tr><td>Multi-tined electrode</td><td>Tines deploy from the tip</td><td>Wider lesion, projecting distally</td><td>Fewer placements needed</td></tr>
+      <tr><td><strong>Pulsed RF</strong></td><td>20 ms bursts at 2 Hz (480 ms silent phase), tip ≤42 °C, ≈45 V, 2–8 min</td><td>No thermal lesion; electric-field effect</td><td>For mixed nerves (suprascapular trunk, axillary nerve, DRG). MBS note TN.8.245: thermal RF is the modality of choice, with pulsed reserved for anatomical constraints</td></tr>
+    </table></div>
+    <div class="tip">Conventional lesion size increases with electrode gauge, active-tip length, temperature and time (plateauing after about 60–90 s). Nearby vessels and fluid act as heat sinks.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Stimulation Testing &amp; Lesioning Sequence</div>
+  <div class="card-body">
+    <ol>
+      <li><strong>Position</strong> the electrode on bony landmarks (fluoroscopy ± US); confirm in two views.</li>
+      <li><strong>Impedance check</strong> confirms circuit integrity and tissue contact.</li>
+      <li><strong>Sensory stimulation</strong> (50 Hz): concordant tingling or pressure at a low voltage (≈&lt;0.5 V) suggests proximity. This is optional for medial branches, where anatomical placement is the key.</li>
+      <li><strong>Motor stimulation</strong> (2 Hz) up to ≈2–3 V, or 2–3× the sensory threshold: there must be <strong>no limb/radicular or distal motor response</strong>. Multifidus twitch is acceptable for lumbar medial branches; for peripheral targets there should be no quadriceps, deltoid, cuff, adductor or ankle-dorsiflexor contraction.</li>
+      <li><strong>Local anaesthetic</strong> through the cannula (e.g. 0.5–1 mL of 1–2% lidocaine), wait ≈30–60 s. Some add steroid after lesioning to reduce neuritis.</li>
+      <li><strong>Lesion</strong>, then reposition for additional lesions as the anatomy requires.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Patient Selection &amp; Diagnostic Blocks</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Element</th><th>Detail</th></tr>
+      <tr><td>Clinical</td><td>Chronic pain (≥3 months) that has failed conservative care (exercise/physio, weight loss, analgesics, activity modification); concordant history and examination; imaging supports it but does not diagnose it (facet/joint degeneration is common without pain)</td></tr>
+      <tr><td>Exclude</td><td>Red flags; radicular pain as the main complaint; untreated psychological or social drivers; unrealistic expectations. Heavy opioid use predicts poorer response</td></tr>
+      <tr><td>Diagnostic (prognostic) block</td><td>Low-volume local anaesthetic (≈0.3–0.5 mL per medial branch; ≈0.5–1 mL per peripheral target) at the planned lesion site; no sedation; pain diary for the anaesthetic's duration</td></tr>
+      <tr><td>Threshold</td><td>≥50% relief (multisociety consensus, Cohen 2020 lumbar). Stricter pathways (e.g. Spine Intervention Society) use dual comparative blocks with ≥80% relief, which gives fewer false positives but more false negatives and higher cost</td></tr>
+      <tr><td>Single vs dual blocks</td><td>Cohen 2010 RCT: no block, one block or two blocks before RF gave success rates of 33%, 16% and 22%. Blocks lower the number of procedures but also reject some patients who would respond. Current consensus accepts a single block with ≥50% relief</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Contraindications &amp; Precautions</div>
+  <div class="card-body">
+    <ul>
+      <li>Local or systemic infection; uncorrected coagulopathy (follow ASRA interventional pain anticoagulation guidance — spinal facet RF is generally treated as intermediate risk and peripheral nerve RF as low risk).</li>
+      <li>Pacemaker, ICD or spinal cord stimulator: cardiology/device review and reprogramming; bipolar RF; place pads away from the device path.</li>
+      <li>Pregnancy (fluoroscopy); allergy to local anaesthetic or contrast.</li>
+      <li>Baseline neurological deficit: document it carefully beforehand.</li>
+      <li>Joints at risk of neuropathic (Charcot-type) arthropathy, e.g. severe peripheral neuropathy: caution with knee/hip denervation.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications (General)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Notes</th></tr>
+      <tr><td>Post-procedure pain / neuritis</td><td>Burning or dysaesthetic pain for a few weeks in a small percentage; neuropathic agents, reassurance. Minor complication rate ≈1% per lesion site in a large lumbar series (Kornick 2004)</td></tr>
+      <tr><td>Numbness / dysaesthesia</td><td>In the territory of the ablated nerve (e.g. occipital after third occipital nerve ablation; infrapatellar after IPBSN ablation)</td></tr>
+      <tr><td>Motor injury</td><td>Wrong target or inadequate motor testing: root injury (spine), foot drop (common fibular), quadriceps weakness (femoral), deltoid/cuff weakness (shoulder)</td></tr>
+      <tr><td>Skin burn</td><td>Grounding pad, or superficial targets in thin patients</td></tr>
+      <tr><td>Infection, haematoma, vasovagal</td><td>Low risk</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Australian Context — MBS Items</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Item(s)</th><th>Service</th><th>Key Rules</th></tr>
+      <tr><td>39014</td><td>Diagnostic medial branch block under image guidance</td><td>Distinguishes medial branch block from intra-articular facet injection</td></tr>
+      <tr><td>39110 / 39111</td><td>Lumbar zygapophyseal joint denervation (left / right) by RF or cryoprobe under imaging</td><td>Max 3 attendances per rolling 12 months; claimed per joint; T12–L1 counts as thoracic</td></tr>
+      <tr><td>39116 / 39117</td><td>Thoracic denervation (left / right)</td><td>As above</td></tr>
+      <tr><td>39118 / 39119</td><td>Cervical denervation (left / right)</td><td>As above; C7–T1 counts as cervical</td></tr>
+      <tr><td>39323</td><td>Percutaneous denervation of a nerve other than the medial branch (e.g. genicular, suprascapular, sacral lateral branch) by RF or cryo</td><td>Max 6 services per given nerve per 12 months; the nerve must be named on the claim and in the notes</td></tr>
+    </table></div>
+    <div class="tip">MBS explanatory note TN.8.245 requires that, before treatment, patients are told the modality and why it was chosen, the expected duration of relief, the mechanism, technical details (e.g. temperature), the evidence base and the cost. Schedule fees change, so check MBS Online for current fees.</div>
+    <div class="tip">Related: <span class="xref" onclick="showPage('e-spinal')">Spinal Procedures</span> · <span class="xref" onclick="showPage('e-injection')">Intra-articular Injections</span> · <span class="xref" onclick="showPage('anatomy-msk')">MSK &amp; Spinal Anatomy</span></div>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['nrv-lumbar'] = `
+<div class="dd-page">
+<h2 class="page-title">Lumbar Medial Branch RF Neurotomy (Facet Joint Pain)</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Anatomy — Which Nerves Supply Which Joint</div>
+  <div class="card-body">
+    <p>Each lumbar dorsal ramus divides into medial, lateral (± intermediate) branches. The <strong>medial branch</strong> crosses the top of the transverse process at its junction with the superior articular process (SAP), runs under the mamillo-accessory ligament, and supplies the facet joint, multifidus and interspinous structures. <strong>Each facet joint receives two medial branches</strong>: one from the same level and one from the level above.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Facet Joint</th><th>Nerves to Lesion</th><th>Target</th></tr>
+      <tr><td>L2–3</td><td>L1 and L2 medial branches</td><td>SAP–TP junction of L2 and L3</td></tr>
+      <tr><td>L3–4</td><td>L2 and L3 medial branches</td><td>SAP–TP junction of L3 and L4</td></tr>
+      <tr><td>L4–5</td><td>L3 and L4 medial branches</td><td>SAP–TP junction of L4 and L5</td></tr>
+      <tr><td>L5–S1</td><td>L4 medial branch and <strong>L5 dorsal ramus</strong></td><td>SAP–TP junction of L5; groove between the S1 SAP and the sacral ala</td></tr>
+    </table></div>
+    <div class="tip">Naming rule: the medial branch that crosses the L4 transverse process is the <strong>L3</strong> medial branch (it arises from the L3 dorsal ramus one level up). At L5 the dorsal ramus itself is targeted, because it is long and lies on bone.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Clinical Picture &amp; Selection</div>
+  <div class="card-body">
+    <ul>
+      <li>Axial low back pain ± referral to buttock and thigh (non-dermatomal, rarely below the knee); paraspinal tenderness; pain on extension/rotation (non-specific).</li>
+      <li>No history, examination or imaging finding reliably diagnoses facet pain, so <strong>medial branch blocks</strong> are the selection tool.</li>
+      <li>Facet pain accounts for a meaningful minority of chronic LBP (estimates vary widely with the diagnostic criteria used).</li>
+      <li>Block: 0.3–0.5 mL local anaesthetic per nerve at the same target as the RF; contrast first to exclude vascular uptake; ≥50% relief (consensus) or dual comparative blocks with ≥80% relief (stricter pathways).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique (Fluoroscopic, Parallel Placement)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Position</td><td>Prone with a pillow under the abdomen; square the endplates of the target level</td></tr>
+      <tr><td>View</td><td>Ipsilateral oblique (≈15–25°) to open the SAP–TP junction ("eye of the Scottie dog"), plus caudal tilt (≈25–30°) so the electrode approaches from below and lies <strong>along</strong> the course of the medial branch</td></tr>
+      <tr><td>End point</td><td>Active tip in the groove at the SAP–TP junction, resting on the neck of the SAP. On the lateral view it should not project ventral to the posterior margin of the foramen (to avoid the exiting root)</td></tr>
+      <tr><td>L5 dorsal ramus</td><td>Groove between the S1 SAP and the sacral ala; the iliac crest may require a more lateral/oblique entry</td></tr>
+      <tr><td>Testing</td><td>Motor stimulation ≈2–3 V at 2 Hz: multifidus twitch OK, no leg muscle contraction</td></tr>
+      <tr><td>Lesion</td><td>Local anaesthetic, then 80–85 °C for 60–90 s; commonly two lesions per nerve (adjusting position) to cover anatomical variation</td></tr>
+      <tr><td>After</td><td>Mobilise the same day; soreness for 1–2 weeks is common; relief usually builds over 2–4 weeks; start or restart the exercise programme</td></tr>
+    </table></div>
+    <div class="warn">Perpendicular ("tip-on") placement with a conventional electrode, as used in some early negative trials, produces a lesion that can miss the nerve. Parallel placement is the technical standard (Bogduk; Spine Intervention Society).</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Study</th><th>Design</th><th>Result</th></tr>
+      <tr><td>van Kleef (Spine 1999)</td><td>Sham-controlled RCT</td><td>Favoured RF</td></tr>
+      <tr><td>Nath (Spine 2008)</td><td>Sham-controlled RCT, careful selection</td><td>Favoured RF</td></tr>
+      <tr><td>Leclaire (Spine 2001); van Wijk (Clin J Pain 2005)</td><td>Sham-controlled RCTs, weaker selection/technique</td><td>No significant benefit</td></tr>
+      <tr><td><strong>MINT</strong> (Juch, JAMA 2017)</td><td>Pragmatic RCTs (n=681 across facet, SIJ and combined arms): RF + exercise vs exercise alone</td><td>No clinically important added benefit at 3 months. Criticised for selection (single block) and technique heterogeneity</td></tr>
+      <tr><td>Cohen 2020 multisociety consensus (RAPM)</td><td>Guideline</td><td>Supports RF in carefully selected patients after a positive block; recommends parallel placement</td></tr>
+      <tr><td>RADICAL (UK, NIHR)</td><td>Placebo-controlled RCT</td><td>Ongoing; results awaited</td></tr>
+    </table></div>
+    <div class="tip">Exam framing: the evidence is <strong>mixed</strong>. Positive trials used strict selection and parallel technique; negative trials generally did not. In responders, relief typically lasts ≈6–12 months, and repeat procedures are similarly effective.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Notes</th></tr>
+      <tr><td>Neuritis / dysaesthesia</td><td>Usually transient (weeks)</td></tr>
+      <tr><td>Nerve root injury</td><td>Electrode too ventral or inside the foramen → motor testing and lateral view prevent it</td></tr>
+      <tr><td>Infection, bleeding, pad burn</td><td>Rare</td></tr>
+      <tr><td>Multifidus denervation</td><td>MRI atrophy has been described; clinical significance uncertain</td></tr>
+    </table></div>
+    <p>MBS: lumbar denervation 39110 (left) / 39111 (right); diagnostic MBB 39014 (see <span class="xref" onclick="showPage('nrv-principles')">Principles</span>).</p>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['nrv-cervical'] = `
+<div class="dd-page">
+<h2 class="page-title">Cervical &amp; Thoracic Medial Branch RF Neurotomy</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-low">Rarely Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Cervical Anatomy</div>
+  <div class="card-body">
+    <p>From C3–4 to C7–T1, each cervical facet is supplied by the medial branches of the dorsal rami at the same level and the level above. The C3–C7 medial branches wrap around the <strong>waist (centroid) of the articular pillar</strong> on its lateral surface. The <strong>C2–3 joint</strong> is supplied by the <strong>third occipital nerve (TON)</strong>, the superficial medial branch of C3, which crosses the lateral C2–3 joint and is larger than the other medial branches.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Joint</th><th>Nerves</th></tr>
+      <tr><td>C2–3</td><td>Third occipital nerve</td></tr>
+      <tr><td>C3–4</td><td>C3 (deep) and C4 medial branches</td></tr>
+      <tr><td>C4–5</td><td>C4 and C5</td></tr>
+      <tr><td>C5–6</td><td>C5 and C6</td></tr>
+      <tr><td>C6–7</td><td>C6 and C7 (the C7 medial branch sits higher, near the apex of the C7 SAP)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Clinical Context</div>
+  <div class="card-body">
+    <ul>
+      <li>Chronic neck pain after whiplash: Australian work (Newcastle — Barnsley, Lord, Bogduk) using double-blind comparative blocks found cervical facet pain in roughly half of patients with chronic post-whiplash neck pain.</li>
+      <li>Referred pain maps: C2–3 → suboccipital and occipital headache (cervicogenic headache); C5–6 → lower neck and shoulder girdle.</li>
+      <li>Selection: medial branch blocks. The multisociety cervical consensus (Hurley, RAPM 2022) accepts ≥50% relief; many practitioners use dual blocks because false positives are common.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Approach</td><td><strong>Posterior (posterolateral oblique) parallel approach</strong>: the electrode lies along the lateral pillar in line with the nerve (Lord/Bogduk technique). The lateral (perpendicular) approach is simpler but gives a lesion that can miss the nerve</td></tr>
+      <tr><td>Lesions</td><td>Several overlapping lesions per nerve (commonly 2–3) at 80 °C for 90 s; the TON needs multiple lesions across the C2–3 joint</td></tr>
+      <tr><td>Safety landmarks</td><td>The vertebral artery lies anterior to the articular pillar (foramen transversarium) and the nerve roots exit anterior to the pillar, so keep the tip on the posterolateral pillar and use motor testing (no arm/shoulder muscle response)</td></tr>
+      <tr><td>Imaging</td><td>AP, lateral and oblique fluoroscopy; count levels carefully (C2 is the reference)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Study</th><th>Key Result</th></tr>
+      <tr><td><strong>Lord et al., NEJM 1996</strong> (Newcastle)</td><td>Double-blind sham-controlled RCT (n=24) after whiplash, selected by placebo-controlled blocks: median time until pain returned to 50% of baseline was <strong>263 days vs 8 days</strong> with sham. A landmark trial of RF neurotomy</td></tr>
+      <tr><td>Govind et al. (2003)</td><td>Modified TON technique gave complete relief in most patients with C2–3 headache</td></tr>
+      <tr><td>Repeat RF</td><td>Effective when pain returns after regeneration</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Cervical Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Notes</th></tr>
+      <tr><td>Numbness / dysaesthesia</td><td>Occipital numbness after TON ablation is expected and usually temporary</td></tr>
+      <tr><td>Ataxia / unsteadiness</td><td>After TON ablation (loss of upper-cervical proprioceptive input); transient</td></tr>
+      <tr><td>Neck extensor weakness ("dropped head")</td><td>Rare; after multilevel bilateral ablation</td></tr>
+      <tr><td>Vertebral artery / root injury</td><td>Avoided by staying on the posterolateral pillar and motor testing</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Thoracic Medial Branch</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Anatomy</td><td>At T1–T4 and T9–T10 the medial branch crosses the <strong>superolateral corner of the transverse process</strong>. At T5–T8 it is often suspended in the intertransverse space rather than on bone, so bony targeting is less reliable. T11–T12 resemble the lumbar pattern (SAP–TP junction)</td></tr>
+      <tr><td>Technique</td><td>Target the superolateral TP corner; keep contact with bone; multiple lesions to cover variation</td></tr>
+      <tr><td>Risk</td><td><strong>Pneumothorax</strong> if the needle passes lateral to or over the TP</td></tr>
+      <tr><td>Evidence</td><td>Mostly observational; weaker than for lumbar/cervical</td></tr>
+    </table></div>
+    <p>MBS: cervical 39118 (left) / 39119 (right); thoracic 39116 / 39117. C7–T1 is claimed as cervical and T12–L1 as thoracic.</p>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['nrv-sij'] = `
+<div class="dd-page">
+<h2 class="page-title">Sacroiliac Joint — Lateral Branch RF Ablation</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-low">Rarely Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Anatomy</div>
+  <div class="card-body">
+    <ul>
+      <li>The <strong>posterior SIJ complex</strong> (posterior ligaments and the dorsal joint) is supplied by the <strong>L5 dorsal ramus</strong> and the <strong>S1–S3 lateral branches</strong>, with an occasional S4 contribution. In one cadaveric series, S1 and S2 contributed in all specimens and S3 in 88%.</li>
+      <li>Lateral branches leave the posterior sacral foramina and run laterally across the sacrum at <strong>highly variable clock-face positions</strong> (roughly 1 to 6 o'clock on the right, 6 to 11 on the left). This variability is why large or strip lesions are used.</li>
+      <li>The anterior joint (sacral plexus/ventral rami) cannot be reached percutaneously, so RF treats <strong>posterior complex</strong> pain only.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Diagnosis &amp; Selection</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Tool</th><th>Detail</th></tr>
+      <tr><td>Clinical</td><td>Pain below L5, over the PSIS/sacral sulcus (Fortin area); ≥3 positive provocation tests (distraction, compression, thigh thrust, Gaenslen, sacral thrust)</td></tr>
+      <tr><td>Intra-articular SIJ block</td><td>Most studies select patients this way, but it anaesthetises intra-articular rather than posterior-ligament sources</td></tr>
+      <tr><td>Multisite, multidepth lateral branch blocks</td><td>Anaesthetise the same nerves the RF will target, so they are the conceptually better predictor for lateral-branch RF (Dreyfuss 2009)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique Options</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Technique</th><th>How</th><th>Comment</th></tr>
+      <tr><td>Conventional monopolar</td><td>Several lesions around the lateral margin of each S1–S3 foramen, plus L5 DR at the ala–SAP junction</td><td>Laborious; needs parallel placement at each site</td></tr>
+      <tr><td><strong>Cooled RF</strong></td><td>Large spherical lesions at set clock positions lateral to the S1–S3 foramina (e.g. three at S1 and S2, two at S3 on each side), plus L5 DR conventional</td><td>Most RCT evidence; forgiving of variable anatomy</td></tr>
+      <tr><td>Bipolar strip / "palisade"</td><td>A row of electrodes ≈1 cm apart along the lateral sacral crest with bipolar lesions between adjacent pairs</td><td>Cadaveric data suggest palisade or lateral-crest strip lesions capture nearly all lateral branches</td></tr>
+      <tr><td>Multi-electrode single-needle strip</td><td>One long probe laid along the lateral sacrum</td><td>Fewer punctures</td></tr>
+    </table></div>
+    <div class="warn">Do not enter the posterior sacral foramen: the S1–S3 nerve roots lie within it. Keep the electrodes on the sacral periosteum lateral to the foraminal margin and use motor testing (no leg or hamstring/calf response).</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Study</th><th>Result</th></tr>
+      <tr><td>Cohen (Anesthesiology 2008) — placebo-controlled</td><td>≥50% relief at 1 month in 79% vs 14% with sham; benefit persisted in many at 6 months</td></tr>
+      <tr><td>Patel (Pain Med 2012) — cooled RF vs sham</td><td>≥50% pain reduction at 3 months in 47% vs 12% (RR ≈4)</td></tr>
+      <tr><td>MINT SIJ arm (JAMA 2017)</td><td>No clinically important benefit of RF + exercise over exercise alone (pragmatic; selection by IA block)</td></tr>
+      <tr><td>Observational series</td><td>Responder rates ≈32–89%; repeat RF often gives longer relief than the first</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications</div>
+  <div class="card-body">
+    <ul>
+      <li>Buttock numbness or dysaesthesia (cluneal territory), usually transient.</li>
+      <li>Sacral root injury if the electrode enters the foramen.</li>
+      <li>Skin burn in thin patients (the sacrum is superficial).</li>
+      <li>Infection and haematoma are rare.</li>
+    </ul>
+    <p>MBS: peripheral denervation 39323 (name the nerves on the claim).</p>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['nrv-knee'] = `
+<div class="dd-page">
+<h2 class="page-title">Knee — Genicular Nerve RF Ablation</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Indications &amp; Contraindications</div>
+  <div class="card-body">
+    <h4>Indications</h4>
+        <ul>
+          <li>Chronic knee OA pain (≥3–6 months) despite exercise, weight loss, analgesia ± intra-articular injections</li>
+          <li>Unfit for, declining, or waiting for TKA</li>
+          <li>Persistent pain after TKA once loosening, infection and instability have been excluded</li>
+        </ul>
+    <h4>Contraindications / Cautions</h4>
+        <ul>
+          <li>Infection (local or joint), coagulopathy</li>
+          <li>Pain driven by mechanical symptoms (locking, instability), which RF will not fix</li>
+          <li>Severe neuropathy (theoretical Charcot-type risk)</li>
+          <li>Pacemaker/ICD (RF) — device review</li>
+        </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Target Nerves — Classic vs Expanded Protocols</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Nerve</th><th>Quadrant</th><th>Landmark</th><th>Notes</th></tr>
+      <tr><td><strong>Superior medial genicular (SMGN)</strong></td><td>Superomedial</td><td>Junction of the femoral shaft and medial epicondyle; revised protocols place it just anterior to the adductor tubercle</td><td>Classic target; runs with the superior medial genicular artery</td></tr>
+      <tr><td><strong>Superior lateral genicular (SLGN)</strong></td><td>Superolateral</td><td>Junction of the femoral shaft and lateral epicondyle</td><td>Classic target</td></tr>
+      <tr><td><strong>Inferior medial genicular (IMGN)</strong></td><td>Inferomedial</td><td>Junction of the tibial shaft and medial tibial condyle (tibial flare), deep to the MCL</td><td>Classic target</td></tr>
+      <tr><td>Nerve to vastus intermedius (NVI)</td><td>Superior</td><td>Anterior distal femur, ≈5 cm above the superior patella</td><td>Expanded</td></tr>
+      <tr><td>Nerves to vastus medialis / lateralis</td><td>Superomedial / superolateral</td><td>Anterior femur within the respective quadrant</td><td>Expanded; motor test (quadriceps)</td></tr>
+      <tr><td>Infrapatellar branch of saphenous (IPBSN)</td><td>Inferomedial</td><td>Medial to the tibial tuberosity / patellar tendon, ≈4 cm medial to the patellar apex</td><td>Expanded; superficial → skin numbness/burn risk</td></tr>
+      <tr><td>Recurrent fibular (peroneal) nerve (RFN)</td><td>Inferolateral</td><td>Anterolateral tibia just below the lateral condyle, anterior to the fibular head</td><td>Expanded; <strong>motor test mandatory</strong> (common fibular nerve nearby)</td></tr>
+      <tr><td>Inferior lateral genicular (ILGN)</td><td>Inferolateral</td><td>Near the fibular head / lateral joint line</td><td>Usually <strong>avoided</strong>: close to the common fibular nerve (foot drop)</td></tr>
+    </table></div>
+    <div class="tip">The classic three-nerve protocol (SMGN, SLGN, IMGN; Choi 2011) comes from fluoroscopic bony landmarks. Cadaveric work (Tran 2018; Fonkoue 2019) showed the anterior knee capsule has up to ten nerves across four quadrants, and revised protocols add NVI, IPBSN and RFN with adjusted landmarks. Observational data suggest expanded protocols improve response, but head-to-head RCTs are limited.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Position</td><td>Supine, knee flexed ≈20–30° over a bolster</td></tr>
+      <tr><td>Guidance</td><td>Fluoroscopy (AP to find the shaft–epicondyle/condyle junction, lateral to set depth) and/or US (the genicular arteries on Doppler mark where the nerves run with them at the bone surface)</td></tr>
+      <tr><td>Diagnostic block</td><td>≈0.5–1 mL local anaesthetic per target; ≥50% relief during the anaesthetic phase. Larger volumes spread and reduce specificity</td></tr>
+      <tr><td>Lesion</td><td><strong>Conventional:</strong> 80–90 °C for 60–90 s, often two lesions per nerve or parallel placement along the bone. <strong>Cooled:</strong> 60 °C for ≈150 s (perpendicular approach). Bipolar and multi-tined options enlarge coverage</td></tr>
+      <tr><td>Motor testing</td><td>Essential at the RFN, NVM/NVL/NVI and IPBSN sites: no ankle dorsiflexion/eversion and no quadriceps contraction beyond local twitch</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Study</th><th>Design</th><th>Result</th></tr>
+      <tr><td>Choi (Pain 2011)</td><td>Double-blind sham-controlled RCT, three nerves, conventional RF</td><td>Better pain and function than sham to 12 weeks</td></tr>
+      <tr><td>Davis (RAPM 2018)</td><td>RCT: cooled RF vs intra-articular steroid</td><td>≥50% pain reduction at 6 months in 74% vs 16%</td></tr>
+      <tr><td>Chen (JBJS 2020)</td><td>RCT: cooled RF vs hyaluronic acid</td><td>Cooled RF superior at 6 months</td></tr>
+      <tr><td>Sham-controlled meta-analyses (2025)</td><td>Pooled RCTs</td><td>Statistically significant but modest benefit at ≈3–6 months; low-to-moderate certainty; substantial heterogeneity in targets and technique; long-term data limited</td></tr>
+    </table></div>
+    <div class="tip">Relief usually lasts ≈6–12 months; repeat ablation is common. RF does not change structural OA or TKA outcomes.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Alternatives &amp; IR Comparators</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Option</th><th>Notes</th></tr>
+      <tr><td><strong>Genicular artery embolisation (GAE)</strong></td><td>IR embolisation of hypervascular synovium (neovascularity) with small particles through the genicular arteries; for mild–moderate OA; evidence growing (prospective series, early RCTs); risks include skin discolouration and non-target embolisation</td></tr>
+      <tr><td>Cryoneurolysis</td><td>Percutaneous freezing of the IPBSN/anterior femoral cutaneous nerves (e.g. before TKA to reduce postoperative pain)</td></tr>
+      <tr><td>Intra-articular steroid / hyaluronic acid / PRP</td><td>Shorter-lived; steroid effect often weeks</td></tr>
+      <tr><td>TKA</td><td>Definitive for end-stage OA in fit patients</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Complication</th><th>Notes</th></tr>
+      <tr><td>Bruising, haemarthrosis</td><td>Minor</td></tr>
+      <tr><td>Genicular artery pseudoaneurysm</td><td>Case reports; the nerves run with the arteries → Doppler US helps. Treatable by embolisation</td></tr>
+      <tr><td>Skin numbness or burn</td><td>IPBSN (infrapatellar numbness), thin patients</td></tr>
+      <tr><td>Foot drop</td><td>Common fibular nerve injury near the RFN/ILGN → motor testing</td></tr>
+      <tr><td>Quadriceps weakness</td><td>Nerves to the vasti carry motor fibres → motor testing; usually transient</td></tr>
+      <tr><td>Septic arthritis</td><td>Rare</td></tr>
+      <tr><td>Rapidly progressive OA / osteonecrosis</td><td>Rare case reports; the causal link is uncertain</td></tr>
+    </table></div>
+    <p>MBS: 39323 per nerve (max 6 services per given nerve per 12 months; name each genicular nerve on the claim).</p>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['nrv-shoulder'] = `
+<div class="dd-page">
+<h2 class="page-title">Shoulder — Suprascapular, Axillary &amp; Lateral Pectoral RF</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-low">Rarely Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Indications</div>
+  <div class="card-body">
+    <ul>
+      <li>Chronic shoulder pain from glenohumeral OA, cuff tear arthropathy or irreparable cuff tears, in patients unfit for or declining arthroplasty.</li>
+      <li>Refractory adhesive capsulitis; hemiplegic shoulder pain after stroke; persistent pain after arthroplasty.</li>
+      <li>Failure of conservative care (physiotherapy, analgesia, intra-articular/subacromial steroid).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Innervation &amp; the Key Principle</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Nerve</th><th>Joint Territory</th><th>Motor Supply (why it matters)</th></tr>
+      <tr><td><strong>Suprascapular (C5–C6)</strong></td><td>Posterosuperior capsule (major contributor, often quoted as up to ≈70% of GH sensory supply); AC joint; subacromial bursa</td><td>Supraspinatus, infraspinatus</td></tr>
+      <tr><td><strong>Axillary</strong></td><td>Posterior and inferior capsule</td><td>Deltoid, teres minor</td></tr>
+      <tr><td><strong>Lateral pectoral</strong></td><td>Anterosuperior capsule, AC joint, coracoclavicular ligaments</td><td>Pectoralis major (clavicular head)</td></tr>
+      <tr><td>Nerve to subscapularis</td><td>Anterior capsule</td><td>Subscapularis</td></tr>
+    </table></div>
+    <div class="warn"><strong>Principle:</strong> the main trunks of the suprascapular nerve (at the suprascapular notch) and axillary nerve (quadrilateral space) are <strong>mixed motor–sensory</strong> nerves. Thermal ablation there would weaken the rotator cuff or deltoid, so use <strong>pulsed RF</strong> on the trunks and reserve <strong>thermal (conventional/cooled) RF</strong> for the purely sensory <strong>terminal articular branches</strong> near the capsule.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Targets &amp; Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Target</th><th>Landmark</th><th>Energy</th></tr>
+      <tr><td>SSN trunk</td><td>Suprascapular notch / floor of the supraspinous fossa under the transverse scapular ligament (US or fluoroscopy)</td><td>Pulsed RF (42 °C, 2 Hz, 20 ms, several minutes)</td></tr>
+      <tr><td>SSN articular branches (posterior)</td><td>Prone: posterior glenoid neck lateral to the spinoglenoid notch, medial to the joint line (fluoroscopy)</td><td>Thermal</td></tr>
+      <tr><td>Axillary articular branch</td><td>Prone: posterior humeral neck inferior to the greater tubercle, near the metaphyseal–diaphyseal junction</td><td>Thermal, with motor testing (deltoid)</td></tr>
+      <tr><td>Lateral pectoral articular branch</td><td>Supine: superficial midpoint of the coracoid (≈2–3 cm deep)</td><td>Thermal, with motor testing (pectoralis)</td></tr>
+      <tr><td>Nerve to subscapularis branch</td><td>Supine: superior-anterior-lateral glenoid neck, deeper than the coracoid</td><td>Thermal</td></tr>
+    </table></div>
+    <ul>
+      <li>Diagnostic block ≈0.5 mL local anaesthetic per target; ≥50% relief.</li>
+      <li>Motor testing up to ≈1.5–2 V at 2 Hz: no supraspinatus, infraspinatus, deltoid, teres minor, triceps or pectoral contraction.</li>
+      <li>US helps identify the suprascapular and posterior circumflex humeral arteries and the brachial plexus.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Source</th><th>Findings</th></tr>
+      <tr><td>Systematic review (Ann Palliat Med 2024; 29 studies including 12 RCTs)</td><td>Most studies used SSN pulsed RF. Consistent short- to medium-term (≈3–6 month) improvement in pain and function (SPADI, Constant). Better than physiotherapy alone and sham; comparable to intra-articular steroid; adverse events rare</td></tr>
+      <tr><td>Multi-nerve cooled RF of terminal articular branches (prospective, Pain Med 2025)</td><td>Improvements in pain and function; supports the multi-nerve thermal approach</td></tr>
+      <tr><td>Overall</td><td>Low-to-moderate quality evidence; protocols heterogeneous</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications</div>
+  <div class="card-body">
+    <ul>
+      <li><strong>Pneumothorax</strong>: with the SSN notch approach if the needle passes too medially or anteriorly.</li>
+      <li>Vascular injury: suprascapular artery; posterior circumflex humeral artery near the axillary target.</li>
+      <li>Brachial plexus injury: inferior/anterior targets.</li>
+      <li>Cuff or deltoid weakness if a thermal lesion is made on a mixed trunk.</li>
+      <li>Infection (joint), neuritis.</li>
+    </ul>
+    <p>MBS: peripheral denervation 39323 (name each nerve).</p>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['nrv-hip'] = `
+<div class="dd-page">
+<h2 class="page-title">Hip — Femoral &amp; Obturator Articular Branch RF</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-low">Rarely Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Indications</div>
+  <div class="card-body">
+    <ul>
+      <li>Chronic hip OA pain in patients unfit for or declining THA, or awaiting surgery.</li>
+      <li>Persistent pain after THA once mechanical causes and infection have been excluded.</li>
+      <li>Selected cases of AVN or cancer-related hip pain.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Anatomy</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Nerve</th><th>Capsular Territory</th><th>Target</th></tr>
+      <tr><td>Femoral articular branches</td><td>Anterior capsule (superolateral)</td><td>Just inferior to the anterior inferior iliac spine (AIIS), ≈1–2 cm above the joint</td></tr>
+      <tr><td>Accessory obturator nerve (when present)</td><td>Anterior capsule (medial)</td><td>Iliopubic eminence</td></tr>
+      <tr><td>Obturator articular branches</td><td>Anterior/inferomedial capsule</td><td>Inferomedial acetabulum at the ischium–pubis junction ("teardrop" on the AP view), near the acetabular notch</td></tr>
+      <tr><td>Sciatic, nerve to quadratus femoris, superior gluteal</td><td>Posterior capsule</td><td>Not usually targeted; the anterior capsule carries most nociceptive fibres (the same basis as the PENG block)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Imaging</td><td>True AP fluoroscopy of the hip; <strong>US</strong> to plan a path that avoids the femoral neurovascular bundle (femoral target approached lateral-to-medial; obturator target medial-to-lateral)</td></tr>
+      <tr><td>Diagnostic block</td><td>Low-volume local anaesthetic at each target; ≥50% relief</td></tr>
+      <tr><td>Motor testing</td><td>Stimulation up to ≈2 V/mA: local contraction only, no quadriceps (femoral) or adductor (obturator) response</td></tr>
+      <tr><td>Lesion</td><td>Cooled RF (large lesion forgives non-parallel placement) or multiple conventional lesions; local anaesthetic (e.g. 1 mL 2% lidocaine) before each lesion</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Evidence</div>
+  <div class="card-body">
+    <p>Mostly observational and prospective single-arm studies, plus narrative reviews (Pain Medicine 2021; Ann Palliat Med 2023). These report meaningful pain reduction at ≈3–6 months in a majority of carefully selected patients. As of the ASRA "How I Do It" review, there were no sham-controlled trials, so the evidence is weaker than for knee or lumbar facet RF.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications</div>
+  <div class="card-body">
+    <ul>
+      <li>Femoral nerve motor injury → quadriceps weakness and <strong>falls</strong> (counsel the patient; motor testing).</li>
+      <li>Obturator motor injury → adductor weakness.</li>
+      <li>Femoral or obturator vessel injury, haematoma.</li>
+      <li>Septic arthritis (rare); neuritis; thigh numbness.</li>
+    </ul>
+    <p>MBS: peripheral denervation 39323.</p>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['nrv-bvn'] = `
+<div class="dd-page">
+<h2 class="page-title">Basivertebral Nerve Ablation (Vertebrogenic Pain)</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-low">Rarely Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Concept</div>
+  <div class="card-body">
+    <p><strong>Vertebrogenic pain</strong> is axial low back pain arising from damaged or inflamed vertebral endplates. The endplates are innervated by the <strong>basivertebral nerve (BVN)</strong>, a branch of the sinuvertebral nerve that enters the posterior vertebral body through the basivertebral foramen and branches towards both endplates. Nociceptive fibre density increases in endplates with Modic changes. Ablating the BVN trunk before it branches denervates both endplates of that vertebra.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Patient Selection (Trial Criteria)</div>
+  <div class="card-body">
+    <ul>
+      <li>Chronic axial LBP for ≥6 months despite ≥6 months of conservative care.</li>
+      <li><strong>Modic type 1 or 2</strong> changes at one or more levels from L3 to S1.</li>
+      <li>Baseline ODI ≥30 and pain ≥4/10.</li>
+      <li>Exclusions: predominant radicular pain, stenosis, instability, significant disc herniation, previous lumbar surgery at the level, other dominant pain generators.</li>
+      <li>No validated diagnostic block exists; selection is by MRI phenotype plus clinical picture.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Technique</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Step</th><th>Detail</th></tr>
+      <tr><td>Access</td><td>Fluoroscopic transpedicular (or extrapedicular) access to the vertebral body using a curved introducer/cannula, a skill set similar to vertebroplasty</td></tr>
+      <tr><td>Target</td><td>The BVN terminus near the centre of the vertebral body in the midline, at roughly 30–50% of the AP depth from the posterior wall (just anterior to the basivertebral foramen, before arborisation)</td></tr>
+      <tr><td>Energy</td><td>Bipolar RF probe, <strong>85 °C for 15 minutes</strong></td></tr>
+      <tr><td>Setting</td><td>Day case; no implant</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Evidence</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Trial</th><th>Design</th><th>Results</th></tr>
+      <tr><td><strong>SMART</strong> (Fischgrund 2018)</td><td>Sham-controlled RCT, n=225</td><td>3-month ODI improvement 20.5 vs 15.2 points (large sham response); durable improvement in the treatment arm at 2 and 5 years</td></tr>
+      <tr><td><strong>INTRACEPT</strong> (Khalil 2019; 12-month Smuck 2021)</td><td>Open-label RCT vs standard care, n=140</td><td>3-month ODI difference ≈20 points in favour of BVNA; ≥15-point ODI responders 69% vs 21%</td></tr>
+      <tr><td>5-year pooled analysis (2024)</td><td>Three prospective studies</td><td>Sustained reductions in ODI and pain in treated patients</td></tr>
+    </table></div>
+    <div class="tip">Critique: pivotal trials were industry-funded; INTRACEPT was not blinded; SMART had a large sham effect; long-term data lack concurrent controls; single-use kits are expensive. Check local availability and funding in Australia before offering it.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Complications</div>
+  <div class="card-body">
+    <ul>
+      <li>Transient radicular irritation (≈1%); pedicle breach.</li>
+      <li>Infection, bleeding.</li>
+      <li>No spinal cord injuries or accelerated degeneration reported in the trials.</li>
+    </ul>
+  </div>
+</div>
+</div>
+`;
+
+PAGES['nrv-cancer'] = `
+<div class="dd-page">
+<h2 class="page-title">Cancer Pain — Coeliac, Splanchnic, Hypogastric &amp; Impar Neurolysis</h2>
+<div class="page-meta"><span class="tag tag-section">RF Nerve Ablation · Pain</span><span class="tag tag-freq-med">Commonly Tested</span></div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Principle &amp; Targets</div>
+  <div class="card-body">
+    <p>Visceral cancer pain travels with sympathetic afferents through prevertebral plexuses and ganglia. Blocking or destroying these relay points can reduce pain and opioid needs. Neurolysis is usually <strong>chemical</strong> (ethanol, phenol) at the plexus and <strong>RF</strong> (or chemical) at the splanchnic nerves or ganglion impar.</p>
+    <div class="table-scroll"><table>
+      <tr><th>Target</th><th>Level</th><th>Pain Territory</th></tr>
+      <tr><td><strong>Coeliac plexus</strong></td><td>Anterolateral aorta around the coeliac trunk origin (T12–L1), anterior to the crura</td><td>Upper abdominal viscera: pancreas, stomach, liver/biliary tree, small bowel, proximal colon</td></tr>
+      <tr><td><strong>Splanchnic nerves</strong> (greater, lesser, least)</td><td>Retrocrural, anterolateral vertebral bodies at T11–T12</td><td>Same territory as the coeliac plexus; useful when tumour encases the plexus</td></tr>
+      <tr><td><strong>Superior hypogastric plexus</strong></td><td>Anterior L5–S1, at the aortic bifurcation</td><td>Pelvic viscera: bladder, uterus/cervix, prostate, rectosigmoid</td></tr>
+      <tr><td><strong>Ganglion impar</strong> (Walther)</td><td>Anterior to the sacrococcygeal junction</td><td>Perineum, distal rectum/anus, distal urethra, vulva/distal vagina</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header open"><span class="icon">▶</span> Coeliac Plexus Neurolysis (CPN)</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Indication</td><td>Pancreatic and other upper-abdominal cancer pain that is poorly controlled or causes opioid side effects. Earlier neurolysis tends to work better than late neurolysis</td></tr>
+      <tr><td>Approaches</td><td><strong>Posterior percutaneous</strong> (bilateral anterocrural/transcrural; retrocrural = splanchnic; transaortic single-needle from the left); <strong>anterior CT-guided</strong> (through liver or stomach with a fine needle); <strong>EUS-guided</strong> (gastroenterology)</td></tr>
+      <tr><td>Agents</td><td>Test injection of local anaesthetic + contrast (confirm periaortic spread on CT), then neurolytic: dehydrated ethanol (≈50–100%, painful → local anaesthetic first) or phenol (≈6–10%). Volumes depend on approach (often tens of mL in total for anterocrural spread)</td></tr>
+      <tr><td>Evidence</td><td><strong>Wong et al., JAMA 2004</strong> (RCT, pancreatic cancer): CPN improved pain compared with optimised systemic analgesia, with no difference in survival. Cochrane review: less pain at 4 and 8 weeks and lower opioid use/constipation</td></tr>
+      <tr><td>Common side effects (Eisenberg meta-analysis 1995)</td><td>Transient local pain (≈96%), diarrhoea (≈44%, loss of sympathetic tone), orthostatic hypotension (≈38%)</td></tr>
+      <tr><td>Serious complications (≈1–2%)</td><td>Paraplegia/paraparesis (rare; spinal artery injury or spasm, e.g. of the artery of Adamkiewicz); retroperitoneal haematoma; pneumothorax; aortic injury (transaortic); renal or ureteric injury; ethanol intoxication (large volumes)</td></tr>
+      <tr><td>Poor-response predictors</td><td>Tumour encasing the coeliac axis or distorting the anatomy (neurolytic cannot spread) → consider splanchnic neurolysis/RF</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Splanchnic Nerve RF Ablation / Neurolysis</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Aspect</th><th>Detail</th></tr>
+      <tr><td>Anatomy</td><td>Greater (T5–T9), lesser (T10–T11) and least (T12) splanchnic nerves descend on the anterolateral vertebral bodies and pierce the crura to reach the coeliac ganglia</td></tr>
+      <tr><td>Technique</td><td>Bilateral retrocrural needles to the anterolateral T11 and/or T12 vertebral body under fluoroscopy or CT; sensory/motor testing to avoid the segmental (intercostal) nerve; conventional RF (≈80 °C for 90 s, often several lesions per side) or chemical neurolysis</td></tr>
+      <tr><td>Advantages</td><td>Independent of coeliac plexus encasement; RF gives a controlled lesion, is repeatable and avoids neurolytic spread</td></tr>
+      <tr><td>Evidence</td><td>Small RCTs and case series (including comparisons of RF with chemical splanchnic neurolysis) report relief at least comparable to chemical techniques</td></tr>
+      <tr><td>Risks</td><td><strong>Pneumothorax</strong> (the pleura is close at T11–T12); hypotension; diarrhoea; intercostal neuritis; aortic/azygos injury</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Superior Hypogastric Plexus &amp; Ganglion Impar</div>
+  <div class="card-body">
+    <div class="table-scroll"><table>
+      <tr><th>Block</th><th>Technique</th><th>Notes</th></tr>
+      <tr><td>Superior hypogastric plexus</td><td>Posterior bilateral oblique approach past the L5 transverse process and iliac crest (Plancarte); <strong>transdiscal</strong> L5–S1; or anterior CT-guided. Contrast should spread anterior to L5–S1 in the midline</td><td>Pelvic visceral cancer pain; ethanol or phenol. Risks: iliac vessel puncture, discitis (transdiscal), nerve root injury</td></tr>
+      <tr><td>Ganglion impar</td><td><strong>Transcoccygeal</strong> (through the sacrococcygeal disc) or paracoccygeal needle; contrast shows a retroperitoneal "comma/apostrophe" anterior to the sacrococcygeal junction</td><td>Perineal cancer pain and benign coccydynia; neurolysis or RF. Avoid rectal puncture (check lateral view)</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="icon">▶</span> Other IR Options for Cancer Pain</div>
+  <div class="card-body">
+    <ul>
+      <li>Tumour ablation for painful bone and soft-tissue metastases (see <span class="xref" onclick="showPage('abl-bone')">Bone &amp; Soft-Tissue Ablation</span>).</li>
+      <li>Vertebral augmentation and cementoplasty for pathological fractures (see <span class="xref" onclick="showPage('e-vertebro')">Vertebroplasty</span>, <span class="xref" onclick="showPage('e-osteoplasty')">Osteoplasty</span>).</li>
+      <li>Intercostal RF or cryoneurolysis for chest-wall metastasis pain.</li>
+      <li>Embolisation of hypervascular painful metastases (e.g. RCC, thyroid).</li>
+      <li>Non-IR options: intrathecal drug delivery, cordotomy, palliative RT.</li>
+    </ul>
+  </div>
+</div>
 </div>
 `;
 
